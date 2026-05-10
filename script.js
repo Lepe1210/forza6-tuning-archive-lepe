@@ -176,7 +176,7 @@ function renderCars() {
         <h2>${car.carName || "차량명 미입력"}</h2>
 
         <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
-        <p class="share-code">횡G: ${car.lateralG || "미입력"}</p>
+        
 
         <p class="summary">${car.summary || "주행 평가가 아직 입력되지 않았습니다."}</p>
       </article>
