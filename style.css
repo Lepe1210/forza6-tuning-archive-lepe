@@ -316,3 +316,24 @@ input::placeholder {
     grid-template-columns: 1fr;
   }
 }
+
+.discord-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 22px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(88, 101, 242, 0.18);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  color: #c7d2fe;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.discord-link:hover {
+  transform: translateY(-2px);
+  background: rgba(88, 101, 242, 0.28);
+  border-color: rgba(165, 180, 252, 0.65);
+}
