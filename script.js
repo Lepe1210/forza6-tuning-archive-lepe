@@ -1,3 +1,6 @@
+const SHEET_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?output=csv";
+
 const carGrid = document.getElementById("carGrid");
 const carCount = document.getElementById("carCount");
 
@@ -10,6 +13,116 @@ const categoryFilter = document.getElementById("categoryFilter");
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modalBody");
 const closeModal = document.getElementById("closeModal");
+
+let cars = [];
+
+async function loadCarsFromSheet() {
+  try {
+    carGrid.innerHTML = `<div class="empty">차량 데이터를 불러오는 중입니다...</div>`;
+    carCount.textContent = "불러오는 중";
+
+    const response = await fetch(SHEET_CSV_URL);
+
+    if (!response.ok) {
+      throw new Error("CSV 데이터를 불러오지 못했습니다.");
+    }
+
+    const csvText = await response.text();
+    cars = parseCSV(csvText)
+      .map((row) => ({
+        id: cleanValue(row.id),
+        manufacturer: cleanValue(row.manufacturer),
+        carName: cleanValue(row.carName),
+        className: cleanValue(row.className),
+        carType: cleanValue(row.carType),
+        drive: cleanValue(row.drive),
+        category: cleanValue(row.category),
+        concept: cleanValue(row.concept),
+        power: cleanValue(row.power),
+        weight: cleanValue(row.weight),
+        lateralG: cleanValue(row.lateralG),
+        shareCode: cleanValue(row.shareCode),
+        summary: cleanValue(row.summary),
+        tuneNotes: cleanValue(row.tuneNotes),
+        updatedAt: cleanValue(row.updatedAt)
+      }))
+      .filter((car) => car.id || car.carName || car.manufacturer);
+
+    renderCars();
+  } catch (error) {
+    console.error(error);
+    carCount.textContent = "불러오기 실패";
+    carGrid.innerHTML = `
+      <div class="empty">
+        데이터를 불러오지 못했습니다.<br>
+        CSV 링크 또는 시트 게시 상태를 확인해주세요.
+      </div>
+    `;
+  }
+}
+
+function cleanValue(value) {
+  return value ? value.trim() : "";
+}
+
+function parseCSV(text) {
+  const rows = [];
+  let currentRow = [];
+  let currentValue = "";
+  let insideQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i + 1];
+
+    if (char === '"' && insideQuotes && nextChar === '"') {
+      currentValue += '"';
+      i++;
+    } else if (char === '"') {
+      insideQuotes = !insideQuotes;
+    } else if (char === "," && !insideQuotes) {
+      currentRow.push(currentValue);
+      currentValue = "";
+    } else if ((char === "\n" || char === "\r") && !insideQuotes) {
+      if (char === "\r" && nextChar === "\n") {
+        i++;
+      }
+
+      currentRow.push(currentValue);
+
+      if (currentRow.some((value) => value.trim() !== "")) {
+        rows.push(currentRow);
+      }
+
+      currentRow = [];
+      currentValue = "";
+    } else {
+      currentValue += char;
+    }
+  }
+
+  currentRow.push(currentValue);
+
+  if (currentRow.some((value) => value.trim() !== "")) {
+    rows.push(currentRow);
+  }
+
+  if (rows.length === 0) {
+    return [];
+  }
+
+  const headers = rows[0].map((header) => header.trim());
+
+  return rows.slice(1).map((row) => {
+    const rowObject = {};
+
+    headers.forEach((header, index) => {
+      rowObject[header] = row[index] || "";
+    });
+
+    return rowObject;
+  });
+}
 
 function renderCars() {
   const keyword = searchInput.value.toLowerCase().trim();
@@ -59,6 +172,7 @@ function renderCars() {
           <span class="badge">${car.category || "용도 미입력"}</span>
         </div>
 
+        <p class="manufacturer">${car.manufacturer || "제조사 미입력"}</p>
         <h2>${car.carName || "차량명 미입력"}</h2>
 
         <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
@@ -84,6 +198,7 @@ function openCarDetail(id) {
       <span class="badge">${car.category || "용도 미입력"}</span>
     </div>
 
+    <p class="manufacturer">${car.manufacturer || "제조사 미입력"}</p>
     <h2>${car.carName || "차량명 미입력"}</h2>
     <p class="summary">${car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다."}</p>
 
@@ -162,4 +277,4 @@ modal.addEventListener("click", (event) => {
   }
 });
 
-renderCars();
+loadCarsFromSheet();
