@@ -1,7 +1,12 @@
-const SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?output=csv";
+const CARS_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=0&single=true&output=csv";
+
+const WEEKLY_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=620032495&single=true&output=csv";
 
 const carGrid = document.getElementById("carGrid");
+const weeklyGrid = document.getElementById("weeklyGrid");
+const weeklyTitle = document.getElementById("weeklyTitle");
 const carCount = document.getElementById("carCount");
 
 const searchInput = document.getElementById("searchInput");
@@ -15,50 +20,76 @@ const modalBody = document.getElementById("modalBody");
 const closeModal = document.getElementById("closeModal");
 
 let cars = [];
+let weeklyCars = [];
 
-async function loadCarsFromSheet() {
+async function loadAllData() {
   try {
-    carGrid.innerHTML = `<div class="empty">차량 데이터를 불러오는 중입니다...</div>`;
+    carGrid.innerHTML = `<div class="empty">전체 차량 데이터를 불러오는 중입니다...</div>`;
+    weeklyGrid.innerHTML = `<div class="weekly-empty">페스티벌 튜닝차량 데이터를 불러오는 중입니다...</div>`;
     carCount.textContent = "불러오는 중";
 
-    const response = await fetch(SHEET_CSV_URL);
+    const [carsResponse, weeklyResponse] = await Promise.all([
+      fetch(CARS_CSV_URL),
+      fetch(WEEKLY_CSV_URL)
+    ]);
 
-    if (!response.ok) {
-      throw new Error("CSV 데이터를 불러오지 못했습니다.");
+    if (!carsResponse.ok) {
+      throw new Error("전체 차량 CSV 데이터를 불러오지 못했습니다.");
     }
 
-    const csvText = await response.text();
-    cars = parseCSV(csvText)
-      .map((row) => ({
-        id: cleanValue(row.id),
-        manufacturer: cleanValue(row.manufacturer),
-        carName: cleanValue(row.carName),
-        className: cleanValue(row.className),
-        carType: cleanValue(row.carType),
-        drive: cleanValue(row.drive),
-        category: cleanValue(row.category),
-        concept: cleanValue(row.concept),
-        power: cleanValue(row.power),
-        weight: cleanValue(row.weight),
-        lateralG: cleanValue(row.lateralG),
-        shareCode: cleanValue(row.shareCode),
-        summary: cleanValue(row.summary),
-        tuneNotes: cleanValue(row.tuneNotes),
-        updatedAt: cleanValue(row.updatedAt)
-      }))
-      .filter((car) => car.id || car.carName || car.manufacturer);
+    if (!weeklyResponse.ok) {
+      throw new Error("페스티벌 차량 CSV 데이터를 불러오지 못했습니다.");
+    }
 
+    const carsCsvText = await carsResponse.text();
+    const weeklyCsvText = await weeklyResponse.text();
+
+    cars = parseCars(carsCsvText);
+    weeklyCars = parseCars(weeklyCsvText);
+
+    renderWeeklyCars();
     renderCars();
   } catch (error) {
     console.error(error);
     carCount.textContent = "불러오기 실패";
+
     carGrid.innerHTML = `
       <div class="empty">
-        데이터를 불러오지 못했습니다.<br>
-        CSV 링크 또는 시트 게시 상태를 확인해주세요.
+        전체 차량 데이터를 불러오지 못했습니다.<br>
+        CSV 링크 또는 cars 시트 게시 상태를 확인해주세요.
+      </div>
+    `;
+
+    weeklyGrid.innerHTML = `
+      <div class="weekly-empty">
+        페스티벌 튜닝차량 데이터를 불러오지 못했습니다.<br>
+        CSV 링크 또는 weekly 시트 게시 상태를 확인해주세요.
       </div>
     `;
   }
+}
+
+function parseCars(csvText) {
+  return parseCSV(csvText)
+    .map((row) => ({
+      eventTitle: cleanValue(row.eventTitle),
+      id: cleanValue(row.id),
+      manufacturer: cleanValue(row.manufacturer),
+      carName: cleanValue(row.carName),
+      className: cleanValue(row.className),
+      carType: cleanValue(row.carType),
+      drive: cleanValue(row.drive),
+      category: cleanValue(row.category),
+      concept: cleanValue(row.concept),
+      power: cleanValue(row.power),
+      weight: cleanValue(row.weight),
+      lateralG: cleanValue(row.lateralG),
+      shareCode: cleanValue(row.shareCode),
+      summary: cleanValue(row.summary),
+      tuneNotes: cleanValue(row.tuneNotes),
+      updatedAt: cleanValue(row.updatedAt)
+    }))
+    .filter((car) => car.id || car.carName || car.manufacturer);
 }
 
 function cleanValue(value) {
@@ -124,6 +155,38 @@ function parseCSV(text) {
   });
 }
 
+function renderWeeklyCars() {
+  const titleFromSheet = weeklyCars.find((car) => car.eventTitle)?.eventTitle;
+
+  weeklyTitle.textContent = titleFromSheet || "페스티벌 튜닝차량";
+
+  if (weeklyCars.length === 0) {
+    weeklyGrid.innerHTML = `<div class="weekly-empty">페스티벌 튜닝차량이 아직 등록되지 않았습니다.</div>`;
+    return;
+  }
+
+  weeklyGrid.innerHTML = weeklyCars
+    .map(
+      (car) => `
+      <article class="weekly-card" onclick="openCarDetail('${car.id}', 'weekly')">
+        <div class="meta">
+          <span class="badge">${car.className || "클래스 미입력"}</span>
+          <span class="badge">${car.carType || "분류 미입력"}</span>
+          <span class="badge">${car.drive || "구동방식 미입력"}</span>
+          <span class="badge">${car.category || "용도 미입력"}</span>
+        </div>
+
+        <p class="manufacturer">${car.manufacturer || "제조사 미입력"}</p>
+        <h3>${car.carName || "차량명 미입력"}</h3>
+
+        <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
+        <p class="summary">${car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다."}</p>
+      </article>
+    `
+    )
+    .join("");
+}
+
 function renderCars() {
   const keyword = searchInput.value.toLowerCase().trim();
   const selectedClass = classFilter.value;
@@ -164,7 +227,7 @@ function renderCars() {
   carGrid.innerHTML = filteredCars
     .map(
       (car) => `
-      <article class="car-card" onclick="openCarDetail('${car.id}')">
+      <article class="car-card" onclick="openCarDetail('${car.id}', 'cars')">
         <div class="meta">
           <span class="badge">${car.className || "클래스 미입력"}</span>
           <span class="badge">${car.carType || "분류 미입력"}</span>
@@ -176,8 +239,6 @@ function renderCars() {
         <h2>${car.carName || "차량명 미입력"}</h2>
 
         <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
-        
-
         <p class="summary">${car.summary || "주행 평가가 아직 입력되지 않았습니다."}</p>
       </article>
     `
@@ -185,8 +246,9 @@ function renderCars() {
     .join("");
 }
 
-function openCarDetail(id) {
-  const car = cars.find((item) => item.id === id);
+function openCarDetail(id, source = "cars") {
+  const sourceList = source === "weekly" ? weeklyCars : cars;
+  const car = sourceList.find((item) => item.id === id);
 
   if (!car) return;
 
@@ -277,4 +339,4 @@ modal.addEventListener("click", (event) => {
   }
 });
 
-loadCarsFromSheet();
+loadAllData();
