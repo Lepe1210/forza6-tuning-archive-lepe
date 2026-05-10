@@ -1,11 +1,32 @@
+/* =========================
+   Google Sheets CSV 링크
+   cars   = 전체 튜닝 차량 DB
+   weekly = 페스티벌 추천 차량 게시용
+========================= */
+
 const CARS_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=0&single=true&output=csv";
 
 const WEEKLY_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=620032495&single=true&output=csv";
 
+
+/* =========================
+   테스트 트랙 표시 이름
+   나중에 실제 트랙 이름이 정해지면 여기만 바꾸면 됨
+========================= */
+
+const TRACK_A_NAME = "테스트 트랙 A";
+const TRACK_B_NAME = "테스트 트랙 B";
+
+
+/* =========================
+   HTML 요소 가져오기
+========================= */
+
 const carGrid = document.getElementById("carGrid");
 const weeklyGrid = document.getElementById("weeklyGrid");
+const averageGrid = document.getElementById("averageGrid");
 const weeklyTitle = document.getElementById("weeklyTitle");
 const carCount = document.getElementById("carCount");
 
@@ -19,13 +40,28 @@ const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modalBody");
 const closeModal = document.getElementById("closeModal");
 
+
+/* =========================
+   차량 데이터 저장용 배열
+========================= */
+
 let cars = [];
 let weeklyCars = [];
+
+
+/* =========================
+   구글 시트 데이터 전체 불러오기
+========================= */
 
 async function loadAllData() {
   try {
     carGrid.innerHTML = `<div class="empty">전체 차량 데이터를 불러오는 중입니다...</div>`;
     weeklyGrid.innerHTML = `<div class="weekly-empty">페스티벌 튜닝차량 데이터를 불러오는 중입니다...</div>`;
+
+    if (averageGrid) {
+      averageGrid.innerHTML = `<div class="weekly-empty">PI별 평균 기록을 계산하는 중입니다...</div>`;
+    }
+
     carCount.textContent = "불러오는 중";
 
     const [carsResponse, weeklyResponse] = await Promise.all([
@@ -48,26 +84,49 @@ async function loadAllData() {
     weeklyCars = parseCars(weeklyCsvText);
 
     renderWeeklyCars();
+    renderAverageStats();
     renderCars();
   } catch (error) {
     console.error(error);
-    carCount.textContent = "불러오기 실패";
+    renderLoadError();
+  }
+}
 
-    carGrid.innerHTML = `
-      <div class="empty">
-        전체 차량 데이터를 불러오지 못했습니다.<br>
-        CSV 링크 또는 cars 시트 게시 상태를 확인해주세요.
-      </div>
-    `;
 
-    weeklyGrid.innerHTML = `
+/* =========================
+   불러오기 실패 화면
+========================= */
+
+function renderLoadError() {
+  carCount.textContent = "불러오기 실패";
+
+  carGrid.innerHTML = `
+    <div class="empty">
+      전체 차량 데이터를 불러오지 못했습니다.<br>
+      CSV 링크 또는 cars 시트 게시 상태를 확인해주세요.
+    </div>
+  `;
+
+  weeklyGrid.innerHTML = `
+    <div class="weekly-empty">
+      페스티벌 튜닝차량 데이터를 불러오지 못했습니다.<br>
+      CSV 링크 또는 weekly 시트 게시 상태를 확인해주세요.
+    </div>
+  `;
+
+  if (averageGrid) {
+    averageGrid.innerHTML = `
       <div class="weekly-empty">
-        페스티벌 튜닝차량 데이터를 불러오지 못했습니다.<br>
-        CSV 링크 또는 weekly 시트 게시 상태를 확인해주세요.
+        PI별 평균 기록을 계산하지 못했습니다.
       </div>
     `;
   }
 }
+
+
+/* =========================
+   CSV 텍스트를 차량 객체 배열로 변환
+========================= */
 
 function parseCars(csvText) {
   return parseCSV(csvText)
@@ -87,14 +146,27 @@ function parseCars(csvText) {
       shareCode: cleanValue(row.shareCode),
       summary: cleanValue(row.summary),
       tuneNotes: cleanValue(row.tuneNotes),
-      updatedAt: cleanValue(row.updatedAt)
+      updatedAt: cleanValue(row.updatedAt),
+      testTrackATime: cleanValue(row.testTrackATime),
+      testTrackBTime: cleanValue(row.testTrackBTime)
     }))
     .filter((car) => car.id || car.carName || car.manufacturer);
 }
 
+
+/* =========================
+   빈 값 정리
+========================= */
+
 function cleanValue(value) {
   return value ? value.trim() : "";
 }
+
+
+/* =========================
+   CSV 파서
+   쉼표와 따옴표가 들어간 CSV도 어느 정도 처리 가능
+========================= */
 
 function parseCSV(text) {
   const rows = [];
@@ -155,6 +227,157 @@ function parseCSV(text) {
   });
 }
 
+
+/* =========================
+   랩타임 변환
+   예: 1:12.438 → 72.438초
+========================= */
+
+function lapTimeToSeconds(timeText) {
+  if (!timeText) return null;
+
+  const text = timeText.trim();
+
+  if (!text) return null;
+
+  const parts = text.split(":");
+
+  if (parts.length !== 2) {
+    return null;
+  }
+
+  const minutes = Number(parts[0]);
+  const seconds = Number(parts[1]);
+
+  if (Number.isNaN(minutes) || Number.isNaN(seconds)) {
+    return null;
+  }
+
+  return minutes * 60 + seconds;
+}
+
+
+/* =========================
+   초 단위 값을 랩타임 형식으로 변환
+   예: 72.438 → 1:12.438
+========================= */
+
+function secondsToLapTime(totalSeconds) {
+  if (totalSeconds === null || Number.isNaN(totalSeconds)) {
+    return "기록 없음";
+  }
+
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds - minutes * 60;
+
+  return `${minutes}:${seconds.toFixed(3).padStart(6, "0")}`;
+}
+
+
+/* =========================
+   PI 순서 정렬용
+========================= */
+
+function sortPI(pi) {
+  const order = {
+    "D500": 1,
+    "C600": 2,
+    "B700": 3,
+    "A800": 4,
+    "S1 900": 5,
+    "S2 998": 6
+  };
+
+  return order[pi] || 999;
+}
+
+
+/* =========================
+   PI별 평균 기록 계산
+========================= */
+
+function calculateAverageByPI(trackKey) {
+  const groups = {};
+
+  cars.forEach((car) => {
+    const pi = car.className;
+    const seconds = lapTimeToSeconds(car[trackKey]);
+
+    if (!pi || seconds === null) return;
+
+    if (!groups[pi]) {
+      groups[pi] = [];
+    }
+
+    groups[pi].push(seconds);
+  });
+
+  return Object.entries(groups)
+    .map(([pi, values]) => {
+      const sum = values.reduce((total, value) => total + value, 0);
+      const average = sum / values.length;
+
+      return {
+        pi,
+        average,
+        count: values.length
+      };
+    })
+    .sort((a, b) => sortPI(a.pi) - sortPI(b.pi));
+}
+
+
+/* =========================
+   PI별 평균 기록 섹션 표시
+========================= */
+
+function renderAverageStats() {
+  if (!averageGrid) return;
+
+  const trackAAverages = calculateAverageByPI("testTrackATime");
+  const trackBAverages = calculateAverageByPI("testTrackBTime");
+
+  averageGrid.innerHTML = `
+    ${renderAverageCard(TRACK_A_NAME, trackAAverages)}
+    ${renderAverageCard(TRACK_B_NAME, trackBAverages)}
+  `;
+}
+
+
+function renderAverageCard(trackName, averages) {
+  if (averages.length === 0) {
+    return `
+      <article class="average-card">
+        <h3>${trackName}</h3>
+        <div class="weekly-empty">아직 기록이 없습니다.</div>
+      </article>
+    `;
+  }
+
+  return `
+    <article class="average-card">
+      <h3>${trackName}</h3>
+      <div class="average-list">
+        ${averages
+          .map(
+            (item) => `
+            <div class="average-row">
+              <span>${item.pi} 평균 · ${item.count}대</span>
+              <span>${secondsToLapTime(item.average)}</span>
+            </div>
+          `
+          )
+          .join("")}
+      </div>
+    </article>
+  `;
+}
+
+
+/* =========================
+   페스티벌 튜닝차량 섹션 표시
+========================= */
+
 function renderWeeklyCars() {
   const titleFromSheet = weeklyCars.find((car) => car.eventTitle)?.eventTitle;
 
@@ -168,24 +391,27 @@ function renderWeeklyCars() {
   weeklyGrid.innerHTML = weeklyCars
     .map(
       (car) => `
-      <article class="weekly-card" onclick="openCarDetail('${car.id}', 'weekly')">
-        <div class="meta">
-          <span class="badge">${car.className || "클래스 미입력"}</span>
-          <span class="badge">${car.carType || "분류 미입력"}</span>
-          <span class="badge">${car.drive || "구동방식 미입력"}</span>
-          <span class="badge">${car.category || "용도 미입력"}</span>
-        </div>
+      <article class="weekly-card" onclick="openCarDetail('${escapeAttribute(car.id)}', 'weekly')">
+        ${renderBadges(car)}
 
-        <p class="manufacturer">${car.manufacturer || "제조사 미입력"}</p>
-        <h3>${car.carName || "차량명 미입력"}</h3>
+        <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
+        <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
 
-        <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
-        <p class="summary">${car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다."}</p>
+        <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
+        ${renderTrackTimeLine(TRACK_A_NAME, car.testTrackATime)}
+        ${renderTrackTimeLine(TRACK_B_NAME, car.testTrackBTime)}
+
+        <p class="summary">${escapeHTML(car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다.")}</p>
       </article>
     `
     )
     .join("");
 }
+
+
+/* =========================
+   전체 차량 카드 목록 표시
+========================= */
 
 function renderCars() {
   const keyword = searchInput.value.toLowerCase().trim();
@@ -203,6 +429,8 @@ function renderCars() {
       ${car.category}
       ${car.shareCode}
       ${car.lateralG}
+      ${car.testTrackATime}
+      ${car.testTrackBTime}
       ${car.concept}
       ${car.summary}
       ${car.tuneNotes}
@@ -227,24 +455,54 @@ function renderCars() {
   carGrid.innerHTML = filteredCars
     .map(
       (car) => `
-      <article class="car-card" onclick="openCarDetail('${car.id}', 'cars')">
-        <div class="meta">
-          <span class="badge">${car.className || "클래스 미입력"}</span>
-          <span class="badge">${car.carType || "분류 미입력"}</span>
-          <span class="badge">${car.drive || "구동방식 미입력"}</span>
-          <span class="badge">${car.category || "용도 미입력"}</span>
-        </div>
+      <article class="car-card" onclick="openCarDetail('${escapeAttribute(car.id)}', 'cars')">
+        ${renderBadges(car)}
 
-        <p class="manufacturer">${car.manufacturer || "제조사 미입력"}</p>
-        <h2>${car.carName || "차량명 미입력"}</h2>
+        <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
+        <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
 
-        <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
-        <p class="summary">${car.summary || "주행 평가가 아직 입력되지 않았습니다."}</p>
+        <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
+        ${renderTrackTimeLine(TRACK_A_NAME, car.testTrackATime)}
+        ${renderTrackTimeLine(TRACK_B_NAME, car.testTrackBTime)}
+
+        <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
       </article>
     `
     )
     .join("");
 }
+
+
+/* =========================
+   카드 배지 공통 렌더링
+========================= */
+
+function renderBadges(car) {
+  return `
+    <div class="meta">
+      <span class="badge">${escapeHTML(car.className || "PI 미입력")}</span>
+      <span class="badge">${escapeHTML(car.carType || "분류 미입력")}</span>
+      <span class="badge">${escapeHTML(car.drive || "구동방식 미입력")}</span>
+      <span class="badge">${escapeHTML(car.category || "용도 미입력")}</span>
+    </div>
+  `;
+}
+
+
+/* =========================
+   테스트 트랙 기록 한 줄 표시
+========================= */
+
+function renderTrackTimeLine(trackName, time) {
+  if (!time) return "";
+
+  return `<p class="track-time">${escapeHTML(trackName)}: ${escapeHTML(time)}</p>`;
+}
+
+
+/* =========================
+   차량 상세창 열기
+========================= */
 
 function openCarDetail(id, source = "cars") {
   const sourceList = source === "weekly" ? weeklyCars : cars;
@@ -253,77 +511,91 @@ function openCarDetail(id, source = "cars") {
   if (!car) return;
 
   modalBody.innerHTML = `
-    <div class="meta">
-      <span class="badge">${car.className || "클래스 미입력"}</span>
-      <span class="badge">${car.carType || "분류 미입력"}</span>
-      <span class="badge">${car.drive || "구동방식 미입력"}</span>
-      <span class="badge">${car.category || "용도 미입력"}</span>
-    </div>
+    ${renderBadges(car)}
 
-    <p class="manufacturer">${car.manufacturer || "제조사 미입력"}</p>
-    <h2>${car.carName || "차량명 미입력"}</h2>
-    <p class="summary">${car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다."}</p>
+    <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
+    <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
+    <p class="summary">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
 
     <div class="share-box">
       <span class="detail-label">튜닝 공유 코드</span>
-      <strong>${car.shareCode || "미입력"}</strong>
+      <strong>${escapeHTML(car.shareCode || "미입력")}</strong>
     </div>
 
     <div class="detail-grid">
-      <div class="detail-item">
-        <span class="detail-label">제조사</span>
-        <span class="detail-value">${car.manufacturer || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">차량 분류</span>
-        <span class="detail-value">${car.carType || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">구동방식</span>
-        <span class="detail-value">${car.drive || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">용도</span>
-        <span class="detail-value">${car.category || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">출력</span>
-        <span class="detail-value">${car.power || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">중량</span>
-        <span class="detail-value">${car.weight || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">횡G</span>
-        <span class="detail-value">${car.lateralG || "미입력"}</span>
-      </div>
-
-      <div class="detail-item">
-        <span class="detail-label">최근 수정일</span>
-        <span class="detail-value">${car.updatedAt || "미입력"}</span>
-      </div>
+      ${renderDetailItem("제조사", car.manufacturer)}
+      ${renderDetailItem("차량 분류", car.carType)}
+      ${renderDetailItem("구동방식", car.drive)}
+      ${renderDetailItem("용도", car.category)}
+      ${renderDetailItem("출력", car.power)}
+      ${renderDetailItem("중량", car.weight)}
+      ${renderDetailItem("횡G", car.lateralG)}
+      ${renderDetailItem(TRACK_A_NAME, car.testTrackATime)}
+      ${renderDetailItem(TRACK_B_NAME, car.testTrackBTime)}
+      ${renderDetailItem("최근 수정일", car.updatedAt)}
     </div>
 
     <h3>주행 평가</h3>
-    <p class="summary">${car.summary || "주행 평가가 아직 입력되지 않았습니다."}</p>
+    <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
 
     <h3>튜닝 메모</h3>
-    <p class="summary">${car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다."}</p>
+    <p class="summary">${escapeHTML(car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다.")}</p>
   `;
 
   modal.classList.remove("hidden");
 }
 
+
+/* =========================
+   상세 정보 한 칸 렌더링
+========================= */
+
+function renderDetailItem(label, value) {
+  return `
+    <div class="detail-item">
+      <span class="detail-label">${escapeHTML(label)}</span>
+      <span class="detail-value">${escapeHTML(value || "미입력")}</span>
+    </div>
+  `;
+}
+
+
+/* =========================
+   차량 상세창 닫기
+========================= */
+
 function closeCarDetail() {
   modal.classList.add("hidden");
 }
+
+
+/* =========================
+   HTML 특수문자 처리
+   시트에 입력한 텍스트가 HTML로 오작동하지 않게 방지
+========================= */
+
+function escapeHTML(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+
+/* =========================
+   HTML 속성용 특수문자 처리
+========================= */
+
+function escapeAttribute(value) {
+  return escapeHTML(value).replaceAll("`", "&#096;");
+}
+
+
+/* =========================
+   이벤트 연결
+========================= */
 
 searchInput.addEventListener("input", renderCars);
 classFilter.addEventListener("change", renderCars);
@@ -338,5 +610,10 @@ modal.addEventListener("click", (event) => {
     closeCarDetail();
   }
 });
+
+
+/* =========================
+   최초 실행
+========================= */
 
 loadAllData();
