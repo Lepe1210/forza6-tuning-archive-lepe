@@ -530,9 +530,9 @@ function openCarDetail(id, source = "cars") {
       ${renderDetailItem("출력", car.power)}
       ${renderDetailItem("중량", car.weight)}
       ${renderDetailItem("횡G", car.lateralG)}
+      ${renderDetailItem("최근 수정일", car.updatedAt)}
       ${renderDetailItem(TRACK_A_NAME, car.testTrackATime)}
       ${renderDetailItem(TRACK_B_NAME, car.testTrackBTime)}
-      ${renderDetailItem("최근 수정일", car.updatedAt)}
     </div>
 
     <h3>주행 평가</h3>
