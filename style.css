@@ -221,3 +221,26 @@ input::placeholder {
     padding-top: 44px;
   }
 }
+.share-code {
+  margin: 10px 0 0;
+  color: #93c5fd;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.share-box {
+  margin: 20px 0;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(59, 130, 246, 0.16);
+  border: 1px solid rgba(147, 197, 253, 0.28);
+}
+
+.share-box strong {
+  display: block;
+  margin-top: 8px;
+  color: #f8fafc;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+}

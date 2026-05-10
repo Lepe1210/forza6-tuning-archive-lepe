@@ -23,6 +23,7 @@ function renderCars() {
       ${car.carName}
       ${car.manufacturer}
       ${car.carType}
+      ${car.shareCode}
       ${car.concept}
       ${car.summary}
       ${car.tuneNotes}
@@ -55,6 +56,7 @@ function renderCars() {
           <span class="badge">${car.category}</span>
         </div>
         <h2>${car.carName}</h2>
+        <p class="share-code">공유 코드: ${car.shareCode || "미입력"}</p>
         <p class="summary">${car.summary}</p>
         <div class="rating">${car.rating}</div>
       </article>
@@ -78,6 +80,11 @@ function openCarDetail(id) {
 
     <h2>${car.carName}</h2>
     <p class="summary">${car.concept}</p>
+
+    <div class="share-box">
+      <span class="detail-label">튜닝 공유 코드</span>
+      <strong>${car.shareCode || "미입력"}</strong>
+    </div>
 
     <div class="detail-grid">
       <div class="detail-item">

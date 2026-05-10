@@ -6,6 +6,7 @@ const cars = [
     manufacturer: "Mitsubishi",
     className: "B700",
     carType: "현세대 랠리",
+    shareCode: "111 222 333",
     drive: "AWD",
     category: "혼합",
     concept: "후륜 쪽으로 강하게 미는 AWD 랠리 하이브리드",
