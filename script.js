@@ -13,7 +13,7 @@ const WEEKLY_CSV_URL =
 
 /* =========================
    테스트 트랙 표시 이름
-   나중에 실제 트랙 이름이 정해지면 여기만 바꾸면 됨
+   실제 트랙 이름이 정해지면 여기만 바꾸면 됨
 ========================= */
 
 const TRACK_A_NAME = "테스트 트랙 A";
@@ -35,6 +35,7 @@ const classFilter = document.getElementById("classFilter");
 const typeFilter = document.getElementById("typeFilter");
 const driveFilter = document.getElementById("driveFilter");
 const categoryFilter = document.getElementById("categoryFilter");
+const sortFilter = document.getElementById("sortFilter");
 
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modalBody");
@@ -165,7 +166,6 @@ function cleanValue(value) {
 
 /* =========================
    CSV 파서
-   쉼표와 따옴표가 들어간 CSV도 어느 정도 처리 가능
 ========================= */
 
 function parseCSV(text) {
@@ -293,7 +293,7 @@ function sortPI(pi) {
 
 
 /* =========================
-   PI별 평균 기록 계산
+   PI별 평균 + 최고 기록 계산
 ========================= */
 
 function calculateAverageByPI(trackKey) {
@@ -309,18 +309,26 @@ function calculateAverageByPI(trackKey) {
       groups[pi] = [];
     }
 
-    groups[pi].push(seconds);
+    groups[pi].push({
+      seconds,
+      car
+    });
   });
 
   return Object.entries(groups)
-    .map(([pi, values]) => {
-      const sum = values.reduce((total, value) => total + value, 0);
-      const average = sum / values.length;
+    .map(([pi, entries]) => {
+      const sum = entries.reduce((total, entry) => total + entry.seconds, 0);
+      const average = sum / entries.length;
+      const best = entries.reduce((bestEntry, entry) =>
+        entry.seconds < bestEntry.seconds ? entry : bestEntry
+      );
 
       return {
         pi,
         average,
-        count: values.length
+        count: entries.length,
+        bestCar: best.car,
+        bestTime: best.seconds
       };
     })
     .sort((a, b) => sortPI(a.pi) - sortPI(b.pi));
@@ -348,7 +356,7 @@ function renderAverageCard(trackName, averages) {
   if (averages.length === 0) {
     return `
       <article class="average-card">
-        <h3>${trackName}</h3>
+        <h3>${escapeHTML(trackName)}</h3>
         <div class="weekly-empty">아직 기록이 없습니다.</div>
       </article>
     `;
@@ -356,14 +364,23 @@ function renderAverageCard(trackName, averages) {
 
   return `
     <article class="average-card">
-      <h3>${trackName}</h3>
+      <h3>${escapeHTML(trackName)}</h3>
       <div class="average-list">
         ${averages
           .map(
             (item) => `
             <div class="average-row">
-              <span>${item.pi} 평균 · ${item.count}대</span>
+              <span>${escapeHTML(item.pi)} 평균 · ${item.count}대</span>
               <span>${secondsToLapTime(item.average)}</span>
+            </div>
+
+            <div class="best-record">
+              <span class="best-record-label">최고 기록</span>
+              <div class="best-record-value">
+                ${escapeHTML(item.bestCar.manufacturer || "제조사 미입력")}
+                ${escapeHTML(item.bestCar.carName || "차량명 미입력")}
+                · ${secondsToLapTime(item.bestTime)}
+              </div>
             </div>
           `
           )
@@ -376,6 +393,7 @@ function renderAverageCard(trackName, averages) {
 
 /* =========================
    페스티벌 튜닝차량 섹션 표시
+   카드에는 테스트 기록을 표시하지 않음
 ========================= */
 
 function renderWeeklyCars() {
@@ -398,8 +416,6 @@ function renderWeeklyCars() {
         <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
 
         <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
-        ${renderTrackTimeLine(TRACK_A_NAME, car.testTrackATime)}
-        ${renderTrackTimeLine(TRACK_B_NAME, car.testTrackBTime)}
 
         <p class="summary">${escapeHTML(car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다.")}</p>
       </article>
@@ -411,6 +427,7 @@ function renderWeeklyCars() {
 
 /* =========================
    전체 차량 카드 목록 표시
+   카드에는 테스트 기록을 표시하지 않음
 ========================= */
 
 function renderCars() {
@@ -419,6 +436,7 @@ function renderCars() {
   const selectedType = typeFilter.value;
   const selectedDrive = driveFilter.value;
   const selectedCategory = categoryFilter.value;
+  const selectedSort = sortFilter ? sortFilter.value : "default";
 
   const filteredCars = cars.filter((car) => {
     const searchableText = `
@@ -445,14 +463,16 @@ function renderCars() {
     return matchesKeyword && matchesClass && matchesType && matchesDrive && matchesCategory;
   });
 
-  carCount.textContent = `${filteredCars.length}대 표시 중`;
+  const sortedCars = sortCars(filteredCars, selectedSort);
 
-  if (filteredCars.length === 0) {
+  carCount.textContent = `${sortedCars.length}대 표시 중`;
+
+  if (sortedCars.length === 0) {
     carGrid.innerHTML = `<div class="empty">조건에 맞는 차량이 없습니다.</div>`;
     return;
   }
 
-  carGrid.innerHTML = filteredCars
+  carGrid.innerHTML = sortedCars
     .map(
       (car) => `
       <article class="car-card" onclick="openCarDetail('${escapeAttribute(car.id)}', 'cars')">
@@ -462,14 +482,79 @@ function renderCars() {
         <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
 
         <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
-        ${renderTrackTimeLine(TRACK_A_NAME, car.testTrackATime)}
-        ${renderTrackTimeLine(TRACK_B_NAME, car.testTrackBTime)}
 
         <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
       </article>
     `
     )
     .join("");
+}
+
+
+/* =========================
+   전체 차량 정렬
+========================= */
+
+function sortCars(carList, sortType) {
+  const sorted = [...carList];
+
+  if (sortType === "manufacturer") {
+    return sorted.sort((a, b) => {
+      const makerCompare = a.manufacturer.localeCompare(b.manufacturer, "ko");
+      if (makerCompare !== 0) return makerCompare;
+
+      return a.carName.localeCompare(b.carName, "ko");
+    });
+  }
+
+  if (sortType === "pi") {
+    return sorted.sort((a, b) => {
+      const piCompare = sortPI(a.className) - sortPI(b.className);
+      if (piCompare !== 0) return piCompare;
+
+      return a.carName.localeCompare(b.carName, "ko");
+    });
+  }
+
+  if (sortType === "updated") {
+    return sorted.sort((a, b) => {
+      const dateA = new Date(a.updatedAt || "1900-01-01");
+      const dateB = new Date(b.updatedAt || "1900-01-01");
+
+      return dateB - dateA;
+    });
+  }
+
+  if (sortType === "trackA") {
+    return sorted.sort((a, b) =>
+      compareLapTimes(a.testTrackATime, b.testTrackATime)
+    );
+  }
+
+  if (sortType === "trackB") {
+    return sorted.sort((a, b) =>
+      compareLapTimes(a.testTrackBTime, b.testTrackBTime)
+    );
+  }
+
+  return sorted;
+}
+
+
+/* =========================
+   랩타임 정렬용 비교
+   기록 없는 차량은 아래로 보냄
+========================= */
+
+function compareLapTimes(timeA, timeB) {
+  const secondsA = lapTimeToSeconds(timeA);
+  const secondsB = lapTimeToSeconds(timeB);
+
+  if (secondsA === null && secondsB === null) return 0;
+  if (secondsA === null) return 1;
+  if (secondsB === null) return -1;
+
+  return secondsA - secondsB;
 }
 
 
@@ -490,18 +575,8 @@ function renderBadges(car) {
 
 
 /* =========================
-   테스트 트랙 기록 한 줄 표시
-========================= */
-
-function renderTrackTimeLine(trackName, time) {
-  if (!time) return "";
-
-  return `<p class="track-time">${escapeHTML(trackName)}: ${escapeHTML(time)}</p>`;
-}
-
-
-/* =========================
    차량 상세창 열기
+   상세창에는 테스트 트랙 A/B 기록을 표시함
 ========================= */
 
 function openCarDetail(id, source = "cars") {
@@ -571,7 +646,6 @@ function closeCarDetail() {
 
 /* =========================
    HTML 특수문자 처리
-   시트에 입력한 텍스트가 HTML로 오작동하지 않게 방지
 ========================= */
 
 function escapeHTML(value) {
@@ -602,6 +676,10 @@ classFilter.addEventListener("change", renderCars);
 typeFilter.addEventListener("change", renderCars);
 driveFilter.addEventListener("change", renderCars);
 categoryFilter.addEventListener("change", renderCars);
+
+if (sortFilter) {
+  sortFilter.addEventListener("change", renderCars);
+}
 
 closeModal.addEventListener("click", closeCarDetail);
 

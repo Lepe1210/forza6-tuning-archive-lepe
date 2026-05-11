@@ -223,7 +223,7 @@ h1 {
 
 .controls {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
   gap: 12px;
   margin-bottom: 16px;
 }
@@ -469,4 +469,27 @@ input::placeholder {
   .hero {
     padding-top: 44px;
   }
+}
+
+.best-record {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(147, 197, 253, 0.22);
+}
+
+.best-record-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.best-record-value {
+  color: #f8fafc;
+  font-size: 14px;
+  line-height: 1.5;
 }
