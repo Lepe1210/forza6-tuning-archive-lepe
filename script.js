@@ -280,12 +280,14 @@ function secondsToLapTime(totalSeconds) {
 
 function sortPI(pi) {
   const order = {
-    "D500": 1,
-    "C600": 2,
-    "B700": 3,
-    "A800": 4,
-    "S1 900": 5,
-    "S2 998": 6
+    "D 400": 1,
+    "C 500": 2,
+    "B 600": 3,
+    "A 700": 4,
+    "S1 800": 5,
+    "S2 900": 6,
+    "R 998": 7,
+    "X 999": 8
   };
 
   return order[pi] || 999;
