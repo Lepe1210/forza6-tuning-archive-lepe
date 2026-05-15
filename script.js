@@ -16,7 +16,7 @@ const WEEKLY_CSV_URL =
    실제 트랙 이름이 정해지면 여기만 바꾸면 됨
 ========================= */
 
-const TRACK_A_NAME = "테스트 트랙 A";
+const TRACK_A_NAME = "호쿠부 타임어택";
 const TRACK_B_NAME = "테스트 트랙 B";
 
 
