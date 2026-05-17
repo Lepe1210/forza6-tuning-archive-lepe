@@ -18,6 +18,7 @@ const WEEKLY_CSV_URL =
 
 const TRACK_A_NAME = "호쿠부 타임어택";
 const TRACK_B_NAME = "테스트 트랙 B";
+const TRACK_C_NAME = "세키베 타임어택";
 
 
 /* =========================
@@ -149,7 +150,8 @@ function parseCars(csvText) {
       tuneNotes: cleanValue(row.tuneNotes),
       updatedAt: cleanValue(row.updatedAt),
       testTrackATime: cleanValue(row.testTrackATime),
-      testTrackBTime: cleanValue(row.testTrackBTime)
+      testTrackBTime: cleanValue(row.testTrackBTime),
+      testTrackCTime: cleanValue(row.testTrackCTime)
     }))
     .filter((car) => car.id || car.carName || car.manufacturer);
 }
@@ -346,10 +348,12 @@ function renderAverageStats() {
 
   const trackAAverages = calculateAverageByPI("testTrackATime");
   const trackBAverages = calculateAverageByPI("testTrackBTime");
+  const trackCAverages = calculateAverageByPI("testTrackCTime");
 
   averageGrid.innerHTML = `
     ${renderAverageCard(TRACK_A_NAME, trackAAverages)}
     ${renderAverageCard(TRACK_B_NAME, trackBAverages)}
+    ${renderAverageCard(TRACK_C_NAME, trackCAverages)}
   `;
 }
 
@@ -451,6 +455,7 @@ function renderCars() {
       ${car.lateralG}
       ${car.testTrackATime}
       ${car.testTrackBTime}
+      ${car.testTrackCTime}
       ${car.concept}
       ${car.summary}
       ${car.tuneNotes}
@@ -539,6 +544,12 @@ function sortCars(carList, sortType) {
     );
   }
 
+  if (sortType === "trackC") {
+    return sorted.sort((a, b) =>
+      compareLapTimes(a.testTrackCTime, b.testTrackCTime)
+    );
+  }
+
   return sorted;
 }
 
@@ -578,7 +589,7 @@ function renderBadges(car) {
 
 /* =========================
    차량 상세창 열기
-   상세창에는 테스트 트랙 A/B 기록을 표시함
+   상세창에는 테스트 트랙 A/B/C 기록을 표시함
 ========================= */
 
 function openCarDetail(id, source = "cars") {
@@ -610,6 +621,7 @@ function openCarDetail(id, source = "cars") {
       ${renderDetailItem("최근 수정일", car.updatedAt)}
       ${renderDetailItem(TRACK_A_NAME, car.testTrackATime)}
       ${renderDetailItem(TRACK_B_NAME, car.testTrackBTime)}
+      ${renderDetailItem(TRACK_C_NAME, car.testTrackCTime)}
     </div>
 
     <h3>주행 평가</h3>
