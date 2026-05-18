@@ -174,11 +174,12 @@ h1 {
 
 .average-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 16px;
 }
 
 .average-card {
+  min-width: 0;
   padding: 18px;
   border-radius: 22px;
   background: rgba(15, 23, 42, 0.72);
@@ -188,32 +189,133 @@ h1 {
 .average-card h3 {
   margin: 0 0 14px;
   font-size: 20px;
+  line-height: 1.35;
+  word-break: keep-all;
 }
 
 .average-list {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .average-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   padding: 10px 12px;
   border-radius: 14px;
   background: rgba(30, 41, 59, 0.78);
 }
 
 .average-row span:first-child {
+  min-width: 0;
   color: #cbd5e1;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .average-row span:last-child {
+  margin-left: auto;
   color: #93c5fd;
   font-weight: 800;
   letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   PI별 최고 기록
+========================= */
+
+.best-record {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(147, 197, 253, 0.22);
+}
+
+.best-record-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.best-record-value {
+  color: #f8fafc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   PI별 기록 순위표 펼치기
+========================= */
+
+.ranking-toggle {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #bfdbfe;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.ranking-toggle:hover {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(147, 197, 253, 0.6);
+}
+
+.ranking-table {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.38);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.ranking-table.open {
+  display: grid;
+  gap: 8px;
+}
+
+.ranking-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.62);
+}
+
+.ranking-rank {
+  color: #93c5fd;
+  font-weight: 900;
+}
+
+.ranking-car {
+  min-width: 0;
+  color: #f8fafc;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.ranking-time {
+  color: #cbd5e1;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 
@@ -282,6 +384,7 @@ input::placeholder {
 .car-card h2 {
   margin: 10px 0;
   font-size: 21px;
+  line-height: 1.35;
 }
 
 
@@ -435,6 +538,7 @@ input::placeholder {
 .detail-value {
   color: #f8fafc;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 
@@ -442,24 +546,35 @@ input::placeholder {
    반응형 처리
 ========================= */
 
-@media (max-width: 900px) {
-  .controls {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 1100px) {
+  .average-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
   }
 
-  .car-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .controls {
+    grid-template-columns: 2fr 1fr 1fr;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .weekly-grid,
+  .car-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
   .average-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 620px) {
+  .weekly-grid,
   .controls,
   .car-grid,
   .detail-grid {
@@ -469,100 +584,16 @@ input::placeholder {
   .hero {
     padding-top: 44px;
   }
-}
 
-.best-record {
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 14px;
-  background: rgba(59, 130, 246, 0.12);
-  border: 1px solid rgba(147, 197, 253, 0.22);
-}
-
-.best-record-label {
-  display: block;
-  margin-bottom: 4px;
-  color: #93c5fd;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.best-record-value {
-  color: #f8fafc;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* =========================
-   PI별 기록 순위표 펼치기
-========================= */
-
-.ranking-toggle {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px 12px;
-  border: 1px solid rgba(147, 197, 253, 0.28);
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.72);
-  color: #bfdbfe;
-  font-weight: 800;
-  cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease;
-}
-
-.ranking-toggle:hover {
-  background: rgba(59, 130, 246, 0.16);
-  border-color: rgba(147, 197, 253, 0.6);
-}
-
-.ranking-table {
-  display: none;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 16px;
-  background: rgba(2, 6, 23, 0.38);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-}
-
-.ranking-table.open {
-  display: grid;
-  gap: 8px;
-}
-
-.ranking-row {
-  display: grid;
-  grid-template-columns: 48px 1fr auto;
-  gap: 10px;
-  align-items: center;
-  padding: 9px 10px;
-  border-radius: 12px;
-  background: rgba(30, 41, 59, 0.62);
-}
-
-.ranking-rank {
-  color: #93c5fd;
-  font-weight: 900;
-}
-
-.ranking-car {
-  color: #f8fafc;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.ranking-time {
-  color: #cbd5e1;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-}
-
-@media (max-width: 620px) {
   .ranking-row {
     grid-template-columns: 40px 1fr;
   }
 
   .ranking-time {
     grid-column: 2;
+  }
+
+  .share-box strong {
+    font-size: 24px;
   }
 }
