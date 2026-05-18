@@ -16,7 +16,7 @@ const WEEKLY_CSV_URL =
 ========================= */
 
 const TRACK_A_NAME = "호쿠부 타임어택";
-const TRACK_B_NAME = "테스트 트랙 B";
+const TRACK_B_NAME = "레전드 섬 서킷";
 const TRACK_C_NAME = "세키베 타임어택(오프로드)";
 
 
