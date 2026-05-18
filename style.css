@@ -493,3 +493,76 @@ input::placeholder {
   font-size: 14px;
   line-height: 1.5;
 }
+
+/* =========================
+   PI별 기록 순위표 펼치기
+========================= */
+
+.ranking-toggle {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #bfdbfe;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.ranking-toggle:hover {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(147, 197, 253, 0.6);
+}
+
+.ranking-table {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.38);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.ranking-table.open {
+  display: grid;
+  gap: 8px;
+}
+
+.ranking-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.62);
+}
+
+.ranking-rank {
+  color: #93c5fd;
+  font-weight: 900;
+}
+
+.ranking-car {
+  color: #f8fafc;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.ranking-time {
+  color: #cbd5e1;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 620px) {
+  .ranking-row {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .ranking-time {
+    grid-column: 2;
+  }
+}

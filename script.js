@@ -13,11 +13,10 @@ const WEEKLY_CSV_URL =
 
 /* =========================
    테스트 트랙 표시 이름
-   실제 트랙 이름이 정해지면 여기만 바꾸면 됨
 ========================= */
 
 const TRACK_A_NAME = "호쿠부 타임어택";
-const TRACK_B_NAME = "레전드 섬 서킷";
+const TRACK_B_NAME = "테스트 트랙 B";
 const TRACK_C_NAME = "세키베 타임어택(오프로드)";
 
 
@@ -297,7 +296,7 @@ function sortPI(pi) {
 
 
 /* =========================
-   PI별 평균 + 최고 기록 계산
+   PI별 평균 + 최고 기록 + 순위표 계산
 ========================= */
 
 function calculateAverageByPI(trackKey) {
@@ -321,18 +320,22 @@ function calculateAverageByPI(trackKey) {
 
   return Object.entries(groups)
     .map(([pi, entries]) => {
-      const sum = entries.reduce((total, entry) => total + entry.seconds, 0);
-      const average = sum / entries.length;
-      const best = entries.reduce((bestEntry, entry) =>
-        entry.seconds < bestEntry.seconds ? entry : bestEntry
-      );
+      const sortedEntries = [...entries].sort((a, b) => a.seconds - b.seconds);
+      const sum = sortedEntries.reduce((total, entry) => total + entry.seconds, 0);
+      const average = sum / sortedEntries.length;
+      const best = sortedEntries[0];
 
       return {
         pi,
         average,
-        count: entries.length,
+        count: sortedEntries.length,
         bestCar: best.car,
-        bestTime: best.seconds
+        bestTime: best.seconds,
+        rankings: sortedEntries.map((entry, index) => ({
+          rank: index + 1,
+          car: entry.car,
+          seconds: entry.seconds
+        }))
       };
     })
     .sort((a, b) => sortPI(a.pi) - sortPI(b.pi));
@@ -351,14 +354,14 @@ function renderAverageStats() {
   const trackCAverages = calculateAverageByPI("testTrackCTime");
 
   averageGrid.innerHTML = `
-    ${renderAverageCard(TRACK_A_NAME, trackAAverages)}
-    ${renderAverageCard(TRACK_B_NAME, trackBAverages)}
-    ${renderAverageCard(TRACK_C_NAME, trackCAverages)}
+    ${renderAverageCard(TRACK_A_NAME, "trackA", trackAAverages)}
+    ${renderAverageCard(TRACK_B_NAME, "trackB", trackBAverages)}
+    ${renderAverageCard(TRACK_C_NAME, "trackC", trackCAverages)}
   `;
 }
 
 
-function renderAverageCard(trackName, averages) {
+function renderAverageCard(trackName, trackId, averages) {
   if (averages.length === 0) {
     return `
       <article class="average-card">
@@ -373,27 +376,69 @@ function renderAverageCard(trackName, averages) {
       <h3>${escapeHTML(trackName)}</h3>
       <div class="average-list">
         ${averages
-          .map(
-            (item) => `
-            <div class="average-row">
-              <span>${escapeHTML(item.pi)} 평균 · ${item.count}대</span>
-              <span>${secondsToLapTime(item.average)}</span>
-            </div>
-
-            <div class="best-record">
-              <span class="best-record-label">최고 기록</span>
-              <div class="best-record-value">
-                ${escapeHTML(item.bestCar.manufacturer || "제조사 미입력")}
-                ${escapeHTML(item.bestCar.carName || "차량명 미입력")}
-                · ${secondsToLapTime(item.bestTime)}
-              </div>
-            </div>
-          `
-          )
+          .map((item, index) => renderAverageItem(item, trackId, index))
           .join("")}
       </div>
     </article>
   `;
+}
+
+
+function renderAverageItem(item, trackId, index) {
+  const rankingId = `ranking-${trackId}-${index}`;
+
+  return `
+    <div class="average-row">
+      <span>${escapeHTML(item.pi)} 평균 · ${item.count}대</span>
+      <span>${secondsToLapTime(item.average)}</span>
+    </div>
+
+    <div class="best-record">
+      <span class="best-record-label">최고 기록</span>
+      <div class="best-record-value">
+        ${escapeHTML(item.bestCar.manufacturer || "제조사 미입력")}
+        ${escapeHTML(item.bestCar.carName || "차량명 미입력")}
+        · ${secondsToLapTime(item.bestTime)}
+      </div>
+
+      <button class="ranking-toggle" onclick="toggleRanking('${rankingId}', this)">
+        순위표 보기 ▼
+      </button>
+
+      <div id="${rankingId}" class="ranking-table">
+        ${item.rankings.map((ranking) => renderRankingRow(ranking)).join("")}
+      </div>
+    </div>
+  `;
+}
+
+
+function renderRankingRow(ranking) {
+  return `
+    <div class="ranking-row">
+      <span class="ranking-rank">${ranking.rank}위</span>
+      <span class="ranking-car">
+        ${escapeHTML(ranking.car.manufacturer || "제조사 미입력")}
+        ${escapeHTML(ranking.car.carName || "차량명 미입력")}
+      </span>
+      <span class="ranking-time">${secondsToLapTime(ranking.seconds)}</span>
+    </div>
+  `;
+}
+
+
+/* =========================
+   순위표 펼치기 / 접기
+========================= */
+
+function toggleRanking(rankingId, button) {
+  const rankingTable = document.getElementById(rankingId);
+
+  if (!rankingTable) return;
+
+  const isOpen = rankingTable.classList.toggle("open");
+
+  button.textContent = isOpen ? "순위표 접기 ▲" : "순위표 보기 ▼";
 }
 
 
