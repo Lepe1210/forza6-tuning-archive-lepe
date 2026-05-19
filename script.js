@@ -331,16 +331,41 @@ function calculateAverageByPI(trackKey) {
         count: sortedEntries.length,
         bestCar: best.car,
         bestTime: best.seconds,
-        rankings: sortedEntries.map((entry, index) => ({
-          rank: index + 1,
-          car: entry.car,
-          seconds: entry.seconds
-        }))
+        rankings: buildRankings(sortedEntries)
       };
     })
     .sort((a, b) => sortPI(a.pi) - sortPI(b.pi));
 }
 
+/* =========================
+   동타 기록 처리 코드
+========================= */
+
+function buildRankings(sortedEntries) {
+  let previousTime = null;
+  let previousRank = 0;
+
+  return sortedEntries.map((entry, index) => {
+    const currentTime = Math.round(entry.seconds * 1000);
+
+    let rank;
+
+    if (previousTime !== null && currentTime === previousTime) {
+      rank = previousRank;
+    } else {
+      rank = index + 1;
+    }
+
+    previousTime = currentTime;
+    previousRank = rank;
+
+    return {
+      rank,
+      car: entry.car,
+      seconds: entry.seconds
+    };
+  });
+}
 
 /* =========================
    PI별 평균 기록 섹션 표시
