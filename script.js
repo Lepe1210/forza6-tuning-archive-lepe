@@ -417,10 +417,15 @@ function renderRankingRow(ranking) {
   return `
     <div class="ranking-row">
       <span class="ranking-rank">${ranking.rank}위</span>
-      <span class="ranking-car">
+
+      <button
+        class="ranking-car-button"
+        onclick="openCarDetail('${escapeAttribute(ranking.car.id)}', 'cars')"
+      >
         ${escapeHTML(ranking.car.manufacturer || "제조사 미입력")}
         ${escapeHTML(ranking.car.carName || "차량명 미입력")}
-      </span>
+      </button>
+
       <span class="ranking-time">${secondsToLapTime(ranking.seconds)}</span>
     </div>
   `;

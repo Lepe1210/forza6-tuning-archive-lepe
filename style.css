@@ -597,3 +597,21 @@ input::placeholder {
     font-size: 24px;
   }
 }
+
+.ranking-car-button {
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ranking-car-button:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
