@@ -296,6 +296,37 @@ function sortPI(pi) {
 
 
 /* =========================
+   최근 튜닝 여부 판단
+   updatedAt이 오늘 또는 어제면 true
+   권장 날짜 형식: 2026-05-24
+========================= */
+
+function isRecentTuning(updatedAt) {
+  if (!updatedAt) return false;
+
+  const targetDate = new Date(updatedAt);
+
+  if (Number.isNaN(targetDate.getTime())) {
+    return false;
+  }
+
+  const today = new Date();
+  const yesterday = new Date();
+
+  today.setHours(0, 0, 0, 0);
+  yesterday.setHours(0, 0, 0, 0);
+  yesterday.setDate(today.getDate() - 1);
+
+  targetDate.setHours(0, 0, 0, 0);
+
+  return (
+    targetDate.getTime() === today.getTime() ||
+    targetDate.getTime() === yesterday.getTime()
+  );
+}
+
+
+/* =========================
    PI별 평균 + 최고 기록 + 순위표 계산
 ========================= */
 
@@ -337,6 +368,7 @@ function calculateAverageByPI(trackKey) {
     .sort((a, b) => sortPI(a.pi) - sortPI(b.pi));
 }
 
+
 /* =========================
    동타 기록 처리 코드
 ========================= */
@@ -366,6 +398,7 @@ function buildRankings(sortedEntries) {
     };
   });
 }
+
 
 /* =========================
    PI별 평균 기록 섹션 표시
@@ -557,7 +590,10 @@ function renderCars() {
   carGrid.innerHTML = sortedCars
     .map(
       (car) => `
-      <article class="car-card" onclick="openCarDetail('${escapeAttribute(car.id)}', 'cars')">
+      <article
+        class="car-card ${isRecentTuning(car.updatedAt) ? "recent-tuning" : ""}"
+        onclick="openCarDetail('${escapeAttribute(car.id)}', 'cars')"
+      >
         ${renderBadges(car)}
 
         <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>

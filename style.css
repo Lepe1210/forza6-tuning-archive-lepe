@@ -615,3 +615,27 @@ input::placeholder {
   color: #93c5fd;
   text-decoration: underline;
 }
+
+.car-card.recent-tuning {
+  border-color: rgba(250, 204, 21, 0.65);
+  background:
+    linear-gradient(180deg, rgba(250, 204, 21, 0.12), rgba(20, 23, 32, 0.92)),
+    linear-gradient(180deg, #1b1f2a, #141720);
+  box-shadow:
+    0 0 0 1px rgba(250, 204, 21, 0.16),
+    0 16px 40px rgba(0, 0, 0, 0.26);
+}
+
+.car-card.recent-tuning::before {
+  content: "최근 튜닝";
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.18);
+  color: #fde68a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
