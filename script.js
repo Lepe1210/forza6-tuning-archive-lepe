@@ -15,7 +15,6 @@ const WEEKLY_CSV_URL =
    테스트 트랙 표시 이름
 ========================= */
 
-const TRACK_A_NAME = "호쿠부 타임어택";
 const TRACK_B_NAME = "레전드 섬 서킷";
 const TRACK_C_NAME = "세키베 타임어택(오프로드)";
 
@@ -148,7 +147,6 @@ function parseCars(csvText) {
       summary: cleanValue(row.summary),
       tuneNotes: cleanValue(row.tuneNotes),
       updatedAt: cleanValue(row.updatedAt),
-      testTrackATime: cleanValue(row.testTrackATime),
       testTrackBTime: cleanValue(row.testTrackBTime),
       testTrackCTime: cleanValue(row.testTrackCTime)
     }))
@@ -407,12 +405,10 @@ function buildRankings(sortedEntries) {
 function renderAverageStats() {
   if (!averageGrid) return;
 
-  const trackAAverages = calculateAverageByPI("testTrackATime");
   const trackBAverages = calculateAverageByPI("testTrackBTime");
   const trackCAverages = calculateAverageByPI("testTrackCTime");
 
   averageGrid.innerHTML = `
-    ${renderAverageCard(TRACK_A_NAME, "trackA", trackAAverages)}
     ${renderAverageCard(TRACK_B_NAME, "trackB", trackBAverages)}
     ${renderAverageCard(TRACK_C_NAME, "trackC", trackCAverages)}
   `;
@@ -561,7 +557,6 @@ function renderCars() {
       ${car.category}
       ${car.shareCode}
       ${car.lateralG}
-      ${car.testTrackATime}
       ${car.testTrackBTime}
       ${car.testTrackCTime}
       ${car.concept}
@@ -641,12 +636,6 @@ function sortCars(carList, sortType) {
 
       return dateB - dateA;
     });
-  }
-
-  if (sortType === "trackA") {
-    return sorted.sort((a, b) =>
-      compareLapTimes(a.testTrackATime, b.testTrackATime)
-    );
   }
 
   if (sortType === "trackB") {
@@ -730,7 +719,6 @@ function openCarDetail(id, source = "cars") {
       ${renderDetailItem("중량", car.weight)}
       ${renderDetailItem("횡G", car.lateralG)}
       ${renderDetailItem("최근 수정일", car.updatedAt)}
-      ${renderDetailItem(TRACK_A_NAME, car.testTrackATime)}
       ${renderDetailItem(TRACK_B_NAME, car.testTrackBTime)}
       ${renderDetailItem(TRACK_C_NAME, car.testTrackCTime)}
     </div>
