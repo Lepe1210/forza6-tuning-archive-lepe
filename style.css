@@ -1,5 +1,7 @@
 /* =========================
-   기본 설정
+   0. 기본 설정
+   - 전체 박스 크기 계산 방식
+   - 기본 배경 / 글꼴 / 글자색
 ========================= */
 
 * {
@@ -15,7 +17,10 @@ body {
 
 
 /* =========================
-   상단 메인 소개 영역
+   1. 상단 메인 소개 영역
+   - 사이트 제목
+   - 설명문
+   - 디스코드 링크 포함
 ========================= */
 
 .hero {
@@ -56,7 +61,7 @@ h1 {
 
 
 /* =========================
-   디스코드 링크
+   2. 디스코드 링크 버튼
 ========================= */
 
 .discord-link {
@@ -71,7 +76,10 @@ h1 {
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .discord-link:hover {
@@ -82,7 +90,7 @@ h1 {
 
 
 /* =========================
-   메인 컨테이너
+   3. 메인 컨테이너
 ========================= */
 
 .container {
@@ -91,7 +99,9 @@ h1 {
 
 
 /* =========================
-   섹션 공통 헤더
+   4. 섹션 공통 헤더
+   - 페스티벌 섹션
+   - PI 평균 기록 섹션에서 공통 사용
 ========================= */
 
 .section-header {
@@ -111,7 +121,8 @@ h1 {
 
 
 /* =========================
-   페스티벌 튜닝차량 섹션
+   5. 페스티벌 튜닝차량 섹션
+   - weekly 시트 데이터 표시 영역
 ========================= */
 
 .weekly-section {
@@ -136,7 +147,9 @@ h1 {
   background: rgba(15, 23, 42, 0.72);
   border: 1px solid rgba(148, 163, 184, 0.22);
   cursor: pointer;
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .weekly-card:hover {
@@ -159,7 +172,9 @@ h1 {
 
 
 /* =========================
-   PI별 평균 기록 섹션
+   6. PI별 평균 기록 섹션
+   - 테스트 트랙별 평균 기록 카드
+   - 트랙이 2개든 3개든 화면폭에 맞춰 자동 배치
 ========================= */
 
 .average-section {
@@ -226,7 +241,7 @@ h1 {
 
 
 /* =========================
-   PI별 최고 기록
+   7. PI별 최고 기록 박스
 ========================= */
 
 .best-record {
@@ -254,7 +269,10 @@ h1 {
 
 
 /* =========================
-   PI별 기록 순위표 펼치기
+   8. PI별 기록 순위표
+   - 순위표 보기 / 접기 버튼
+   - 순위표 내부 스크롤 처리
+   - 차량명 클릭 시 상세창 연결
 ========================= */
 
 .ranking-toggle {
@@ -267,7 +285,9 @@ h1 {
   color: #bfdbfe;
   font-weight: 800;
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .ranking-toggle:hover {
@@ -287,6 +307,27 @@ h1 {
 .ranking-table.open {
   display: grid;
   gap: 8px;
+  max-height: 392px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.ranking-table.open::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ranking-table.open::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 999px;
+}
+
+.ranking-table.open::-webkit-scrollbar-thumb {
+  background: rgba(147, 197, 253, 0.45);
+  border-radius: 999px;
+}
+
+.ranking-table.open::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 197, 253, 0.7);
 }
 
 .ranking-row {
@@ -311,6 +352,24 @@ h1 {
   line-height: 1.4;
 }
 
+.ranking-car-button {
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ranking-car-button:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
 .ranking-time {
   color: #cbd5e1;
   font-weight: 900;
@@ -320,7 +379,9 @@ h1 {
 
 
 /* =========================
-   검색 및 필터 영역
+   9. 검색 및 필터 영역
+   - 검색창
+   - PI / 분류 / 구동방식 / 용도 / 정렬 필터
 ========================= */
 
 .controls {
@@ -347,7 +408,7 @@ input::placeholder {
 
 
 /* =========================
-   표시 개수
+   10. 표시 개수
 ========================= */
 
 .stats {
@@ -357,7 +418,8 @@ input::placeholder {
 
 
 /* =========================
-   전체 차량 카드 목록
+   11. 전체 차량 카드 목록
+   - cars 시트의 전체 차량 카드
 ========================= */
 
 .car-grid {
@@ -373,7 +435,10 @@ input::placeholder {
   background: linear-gradient(180deg, #1b1f2a, #141720);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
   cursor: pointer;
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .car-card:hover {
@@ -389,7 +454,41 @@ input::placeholder {
 
 
 /* =========================
-   카드 공통 요소
+   12. 최근 튜닝 카드 강조
+   - updatedAt이 오늘 또는 어제면 script.js에서 recent-tuning 클래스 부여
+========================= */
+
+.car-card.recent-tuning {
+  border-color: rgba(250, 204, 21, 0.65);
+  background:
+    linear-gradient(180deg, rgba(250, 204, 21, 0.12), rgba(20, 23, 32, 0.92)),
+    linear-gradient(180deg, #1b1f2a, #141720);
+  box-shadow:
+    0 0 0 1px rgba(250, 204, 21, 0.16),
+    0 16px 40px rgba(0, 0, 0, 0.26);
+}
+
+.car-card.recent-tuning::before {
+  content: "최근 튜닝";
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.18);
+  color: #fde68a;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================
+   13. 카드 공통 요소
+   - 배지
+   - 제조사
+   - 공유 코드
+   - 요약문
 ========================= */
 
 .meta {
@@ -447,7 +546,7 @@ input::placeholder {
 
 
 /* =========================
-   차량 상세창 모달
+   14. 차량 상세창 모달
 ========================= */
 
 .modal {
@@ -491,7 +590,7 @@ input::placeholder {
 
 
 /* =========================
-   상세창 공유 코드 박스
+   15. 상세창 공유 코드 박스
 ========================= */
 
 .share-box {
@@ -512,7 +611,7 @@ input::placeholder {
 
 
 /* =========================
-   상세 정보 그리드
+   16. 상세 정보 그리드
 ========================= */
 
 .detail-grid {
@@ -543,7 +642,8 @@ input::placeholder {
 
 
 /* =========================
-   반응형 처리
+   17. 반응형 처리
+   - 화면폭이 좁아질수록 그리드 열 수를 줄임
 ========================= */
 
 @media (max-width: 1100px) {
@@ -592,46 +692,4 @@ input::placeholder {
   .share-box strong {
     font-size: 24px;
   }
-}
-
-.ranking-car-button {
-  min-width: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: #f8fafc;
-  font: inherit;
-  font-weight: 700;
-  line-height: 1.4;
-  text-align: left;
-  cursor: pointer;
-}
-
-.ranking-car-button:hover {
-  color: #93c5fd;
-  text-decoration: underline;
-}
-
-.car-card.recent-tuning {
-  border-color: rgba(250, 204, 21, 0.65);
-  background:
-    linear-gradient(180deg, rgba(250, 204, 21, 0.12), rgba(20, 23, 32, 0.92)),
-    linear-gradient(180deg, #1b1f2a, #141720);
-  box-shadow:
-    0 0 0 1px rgba(250, 204, 21, 0.16),
-    0 16px 40px rgba(0, 0, 0, 0.26);
-}
-
-.car-card.recent-tuning::before {
-  content: "최근 튜닝";
-  display: inline-flex;
-  width: fit-content;
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(250, 204, 21, 0.18);
-  color: #fde68a;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.05em;
 }
