@@ -128,11 +128,14 @@ h1 {
 .weekly-section {
   margin-bottom: 36px;
   padding: 24px;
-  border: 1px solid rgba(147, 197, 253, 0.24);
+  border: 1px solid rgba(167, 139, 250, 0.34);
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(59, 130, 246, 0.14), rgba(15, 23, 42, 0.22)),
+    linear-gradient(180deg, rgba(109, 40, 217, 0.18), rgba(15, 23, 42, 0.28)),
     #151923;
+  box-shadow:
+    0 0 0 1px rgba(109, 40, 217, 0.08),
+    0 18px 44px rgba(0, 0, 0, 0.18);
 }
 
 .weekly-grid {
@@ -144,17 +147,23 @@ h1 {
 .weekly-card {
   padding: 18px;
   border-radius: 22px;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  background:
+    linear-gradient(180deg, rgba(88, 28, 135, 0.22), rgba(15, 23, 42, 0.76)),
+    rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(167, 139, 250, 0.28);
   cursor: pointer;
   transition:
     transform 0.18s ease,
-    border-color 0.18s ease;
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .weekly-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(147, 197, 253, 0.6);
+  border-color: rgba(196, 181, 253, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.16),
+    0 18px 42px rgba(0, 0, 0, 0.24);
 }
 
 .weekly-card h3 {
