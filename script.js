@@ -13,6 +13,8 @@ const WEEKLY_CSV_URL =
 
 /* =========================
    테스트 트랙 표시 이름
+   - 시트 헤더명은 testTrackBTime / testTrackCTime 유지
+   - 사이트에 보이는 이름만 여기서 관리
 ========================= */
 
 const TRACK_B_NAME = "레전드 섬 서킷";
@@ -126,6 +128,9 @@ function renderLoadError() {
 
 /* =========================
    CSV 텍스트를 차량 객체 배열로 변환
+   - 구글 시트의 한 행을 car 객체 하나로 변환
+   - testTrackA는 제거했으므로 읽지 않음
+   - shareCode는 붙여쓴 9자리 기준으로 정리
 ========================= */
 
 function parseCars(csvText) {
@@ -143,7 +148,7 @@ function parseCars(csvText) {
       power: cleanValue(row.power),
       weight: cleanValue(row.weight),
       lateralG: cleanValue(row.lateralG),
-      shareCode: cleanValue(row.shareCode),
+      shareCode: normalizeShareCode(row.shareCode),
       summary: cleanValue(row.summary),
       tuneNotes: cleanValue(row.tuneNotes),
       updatedAt: cleanValue(row.updatedAt),
@@ -159,7 +164,20 @@ function parseCars(csvText) {
 ========================= */
 
 function cleanValue(value) {
-  return value ? value.trim() : "";
+  return value ? String(value).trim() : "";
+}
+
+
+/* =========================
+   공유 코드 정리
+   - 시트 입력값: 123456789
+   - 사이트 표시값: 123456789
+   - 복사값: 123456789
+   - 혹시 실수로 공백이 들어가도 제거함
+========================= */
+
+function normalizeShareCode(code) {
+  return cleanValue(code).replace(/\s+/g, "");
 }
 
 
@@ -689,7 +707,7 @@ function renderBadges(car) {
 
 /* =========================
    차량 상세창 열기
-   상세창에는 테스트 트랙 A/B/C 기록을 표시함
+   상세창에는 테스트 트랙 B/C 기록을 표시함
 ========================= */
 
 function openCarDetail(id, source = "cars") {
@@ -697,6 +715,8 @@ function openCarDetail(id, source = "cars") {
   const car = sourceList.find((item) => item.id === id);
 
   if (!car) return;
+
+  const shareCode = normalizeShareCode(car.shareCode);
 
   modalBody.innerHTML = `
     ${renderBadges(car)}
@@ -707,7 +727,18 @@ function openCarDetail(id, source = "cars") {
 
     <div class="share-box">
       <span class="detail-label">튜닝 공유 코드</span>
-      <strong>${escapeHTML(car.shareCode || "미입력")}</strong>
+
+      <div class="share-code-row">
+        <strong>${escapeHTML(shareCode || "미입력")}</strong>
+
+        <button
+          class="copy-code-button"
+          type="button"
+          onclick="copyShareCode('${escapeAttribute(shareCode)}', this)"
+        >
+          복사
+        </button>
+      </div>
     </div>
 
     <div class="detail-grid">
@@ -754,6 +785,39 @@ function renderDetailItem(label, value) {
 
 function closeCarDetail() {
   modal.classList.add("hidden");
+}
+
+
+/* =========================
+   공유 코드 복사
+   - GitHub Pages는 HTTPS라 clipboard API 사용 가능
+========================= */
+
+async function copyShareCode(code, button) {
+  const shareCode = normalizeShareCode(code);
+
+  if (!shareCode) return;
+
+  try {
+    await navigator.clipboard.writeText(shareCode);
+
+    const originalText = button.textContent;
+    button.textContent = "복사됨!";
+    button.classList.add("copied");
+
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove("copied");
+    }, 1200);
+  } catch (error) {
+    console.error("공유 코드 복사 실패:", error);
+
+    button.textContent = "복사 실패";
+
+    setTimeout(() => {
+      button.textContent = "복사";
+    }, 1200);
+  }
 }
 
 
