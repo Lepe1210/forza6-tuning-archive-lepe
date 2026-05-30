@@ -316,9 +316,12 @@ h1 {
 .ranking-table.open {
   display: grid;
   gap: 8px;
-  max-height: 392px;
+  max-height: min(392px, 60vh);
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 6px;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .ranking-table.open::-webkit-scrollbar {
@@ -698,6 +701,10 @@ input::placeholder {
     grid-column: 2;
   }
 
+  .ranking-table.open {
+    max-height: 340px;
+  }
+  
   .share-box strong {
     font-size: 24px;
   }
