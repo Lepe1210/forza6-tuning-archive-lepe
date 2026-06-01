@@ -20,7 +20,7 @@ body {
    1. 상단 메인 소개 영역
    - 사이트 제목
    - 설명문
-   - 디스코드 링크 포함
+   - 디스코드 링크 / 아카이브 이동 링크 포함
 ========================= */
 
 .hero {
@@ -61,31 +61,71 @@ h1 {
 
 
 /* =========================
-   2. 디스코드 링크 버튼
+   2. 상단 링크 버튼
+   - 디스코드 링크
+   - archive.html의 메인 복귀 링크
+   - index.html의 지난 시즌 튜닝 보기 버튼
 ========================= */
 
-.discord-link {
+.discord-link,
+.archive-link,
+.archive-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: fit-content;
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.discord-link {
   margin-top: 22px;
   padding: 12px 16px;
-  border-radius: 999px;
-  background: rgba(88, 101, 242, 0.18);
   border: 1px solid rgba(129, 140, 248, 0.35);
+  background: rgba(88, 101, 242, 0.18);
   color: #c7d2fe;
   font-size: 15px;
   font-weight: 700;
-  text-decoration: none;
-  transition:
-    transform 0.18s ease,
-    background 0.18s ease,
-    border-color 0.18s ease;
 }
 
 .discord-link:hover {
   transform: translateY(-2px);
   background: rgba(88, 101, 242, 0.28);
   border-color: rgba(165, 180, 252, 0.65);
+}
+
+.archive-link,
+.archive-button {
+  padding: 11px 15px;
+  border: 1px solid rgba(196, 181, 253, 0.38);
+  background:
+    linear-gradient(180deg, rgba(109, 40, 217, 0.2), rgba(15, 23, 42, 0.72));
+  color: #ddd6fe;
+  font-size: 14px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.archive-link {
+  margin-top: 22px;
+}
+
+.archive-button:hover,
+.archive-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(221, 214, 254, 0.72);
+  background:
+    linear-gradient(180deg, rgba(124, 58, 237, 0.3), rgba(30, 41, 59, 0.82));
+  color: #ffffff;
 }
 
 
@@ -101,7 +141,8 @@ h1 {
 /* =========================
    4. 섹션 공통 헤더
    - 페스티벌 섹션
-   - PI 평균 기록 섹션에서 공통 사용
+   - PI 평균 기록 섹션
+   - 지난 시즌 아카이브 섹션
 ========================= */
 
 .section-header {
@@ -119,10 +160,18 @@ h1 {
   line-height: 1.6;
 }
 
+.weekly-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
 
 /* =========================
    5. 페스티벌 튜닝차량 섹션
    - weekly 시트 데이터 표시 영역
+   - 바이올렛 계열로 일반 카드와 구분
 ========================= */
 
 .weekly-section {
@@ -183,7 +232,7 @@ h1 {
 /* =========================
    6. PI별 평균 기록 섹션
    - 테스트 트랙별 평균 기록 카드
-   - 트랙이 2개든 3개든 화면폭에 맞춰 자동 배치
+   - 트랙이 2개든 3개든 자동 배치
 ========================= */
 
 .average-section {
@@ -279,8 +328,8 @@ h1 {
 
 /* =========================
    8. PI별 기록 순위표
-   - 순위표 보기 / 접기 버튼
-   - 순위표 내부 스크롤 처리
+   - 펼치기 / 접기 버튼
+   - 내부 스크롤
    - 차량명 클릭 시 상세창 연결
 ========================= */
 
@@ -357,13 +406,6 @@ h1 {
   font-weight: 900;
 }
 
-.ranking-car {
-  min-width: 0;
-  color: #f8fafc;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
 .ranking-car-button {
   min-width: 0;
   padding: 0;
@@ -392,8 +434,6 @@ h1 {
 
 /* =========================
    9. 검색 및 필터 영역
-   - 검색창
-   - PI / 분류 / 구동방식 / 용도 / 정렬 필터
 ========================= */
 
 .controls {
@@ -431,7 +471,6 @@ input::placeholder {
 
 /* =========================
    11. 전체 차량 카드 목록
-   - cars 시트의 전체 차량 카드
 ========================= */
 
 .car-grid {
@@ -467,7 +506,6 @@ input::placeholder {
 
 /* =========================
    12. 최근 튜닝 카드 강조
-   - updatedAt이 오늘 또는 어제면 script.js에서 recent-tuning 클래스 부여
 ========================= */
 
 .car-card.recent-tuning {
@@ -497,10 +535,6 @@ input::placeholder {
 
 /* =========================
    13. 카드 공통 요소
-   - 배지
-   - 제조사
-   - 공유 코드
-   - 요약문
 ========================= */
 
 .meta {
@@ -621,9 +655,9 @@ input::placeholder {
   letter-spacing: 0.08em;
 }
 
+
 /* =========================
-   15-1. 상세창 공유 코드 복사 버튼
-   - 공유 코드 박스 안에 자연스럽게 들어가는 미니 액션 버튼
+   16. 상세창 공유 코드 복사 버튼
 ========================= */
 
 .share-code-row {
@@ -693,7 +727,7 @@ input::placeholder {
 
 
 /* =========================
-   16. 상세 정보 그리드
+   17. 상세 정보 그리드
 ========================= */
 
 .detail-grid {
@@ -724,8 +758,107 @@ input::placeholder {
 
 
 /* =========================
-   17. 반응형 처리
+   18. 지난 시즌 튜닝 아카이브
+   - archive.html 전용
+   - 시즌별 접이식 목록
+========================= */
+
+.archive-section {
+  margin-bottom: 36px;
+  padding: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.28)),
+    #151923;
+}
+
+.archive-list {
+  display: grid;
+  gap: 16px;
+}
+
+.archive-season {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 22px;
+  background: rgba(15, 23, 42, 0.72);
+  overflow: hidden;
+}
+
+.archive-season-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 18px;
+  border: none;
+  background:
+    linear-gradient(180deg, rgba(88, 28, 135, 0.22), rgba(15, 23, 42, 0.76)),
+    rgba(15, 23, 42, 0.72);
+  color: #f8fafc;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.archive-season-toggle:hover {
+  background:
+    linear-gradient(180deg, rgba(109, 40, 217, 0.28), rgba(15, 23, 42, 0.82)),
+    rgba(15, 23, 42, 0.78);
+}
+
+.archive-season-toggle span {
+  min-width: 0;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.archive-season-toggle small {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.16);
+  color: #ddd6fe;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.archive-season-toggle strong {
+  color: #c4b5fd;
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.archive-season-panel {
+  display: none;
+  padding: 18px;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.archive-season-panel.open {
+  display: block;
+}
+
+.archive-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.archive-card {
+  min-width: 0;
+}
+
+
+/* =========================
+   19. 반응형 처리
    - 화면폭이 좁아질수록 그리드 열 수를 줄임
+   - 반드시 파일 마지막 쪽에 위치해야 덮어쓰기 문제를 피함
 ========================= */
 
 @media (max-width: 1100px) {
@@ -736,7 +869,8 @@ input::placeholder {
 
 @media (max-width: 900px) {
   .weekly-grid,
-  .car-grid {
+  .car-grid,
+  .archive-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -755,8 +889,17 @@ input::placeholder {
   .weekly-grid,
   .controls,
   .car-grid,
+  .archive-card-grid,
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .weekly-header-row {
+    flex-direction: column;
+  }
+
+  .archive-button {
+    width: 100%;
   }
 
   .hero {
@@ -774,11 +917,7 @@ input::placeholder {
   .ranking-table.open {
     max-height: 340px;
   }
-  
-  .share-box strong {
-    font-size: 24px;
-  }
-  
+
   .share-code-row {
     align-items: flex-start;
     flex-direction: column;
@@ -786,5 +925,18 @@ input::placeholder {
 
   .copy-code-button {
     width: 100%;
+  }
+
+  .share-box strong {
+    font-size: 24px;
+  }
+
+  .archive-season-toggle {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-season-toggle small,
+  .archive-season-toggle strong {
+    width: fit-content;
   }
 }
