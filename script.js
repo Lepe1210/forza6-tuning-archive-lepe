@@ -37,6 +37,7 @@ const typeFilter = document.getElementById("typeFilter");
 const driveFilter = document.getElementById("driveFilter");
 const categoryFilter = document.getElementById("categoryFilter");
 const sortFilter = document.getElementById("sortFilter");
+const resetFilters = document.getElementById("resetFilters");
 
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modalBody");
@@ -130,7 +131,7 @@ function renderLoadError() {
    CSV 텍스트를 차량 객체 배열로 변환
    - 구글 시트의 한 행을 car 객체 하나로 변환
    - testTrackA는 제거했으므로 읽지 않음
-   - shareCode는 붙여쓴 9자리 기준으로 정리
+   - shareCode는 내부적으로 공백 없는 9자리 기준으로 정리
 ========================= */
 
 function parseCars(csvText) {
@@ -170,14 +171,36 @@ function cleanValue(value) {
 
 /* =========================
    공유 코드 정리
-   - 시트 입력값: 123456789
-   - 사이트 표시값: 123456789
-   - 복사값: 123456789
-   - 혹시 실수로 공백이 들어가도 제거함
+   - 시트 입력값:
+     123456789
+     123 456 789
+     둘 다 허용
+   - 내부 저장/복사값: 123456789
 ========================= */
 
 function normalizeShareCode(code) {
   return cleanValue(code).replace(/\s+/g, "");
+}
+
+
+/* =========================
+   공유 코드 표시 형식
+   - 내부값 123456789 → 화면 표시 123 456 789
+   - 9자리가 아니면 원본 정리값 그대로 표시
+========================= */
+
+function formatShareCode(code) {
+  const normalized = normalizeShareCode(code);
+
+  if (!normalized) {
+    return "";
+  }
+
+  if (normalized.length !== 9) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, 3)} ${normalized.slice(3, 6)} ${normalized.slice(6, 9)}`;
 }
 
 
@@ -543,7 +566,7 @@ function renderWeeklyCars() {
         <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
         <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
 
-        <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
+        <p class="share-code">공유 코드: ${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</p>
 
         <p class="summary">${escapeHTML(car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다.")}</p>
       </article>
@@ -559,7 +582,9 @@ function renderWeeklyCars() {
 ========================= */
 
 function renderCars() {
-  const keyword = searchInput.value.toLowerCase().trim();
+  const keyword = normalizeShareCode(searchInput.value).toLowerCase();
+  const rawKeyword = searchInput.value.toLowerCase().trim();
+
   const selectedClass = classFilter.value;
   const selectedType = typeFilter.value;
   const selectedDrive = driveFilter.value;
@@ -574,6 +599,7 @@ function renderCars() {
       ${car.drive}
       ${car.category}
       ${car.shareCode}
+      ${formatShareCode(car.shareCode)}
       ${car.lateralG}
       ${car.testTrackBTime}
       ${car.testTrackCTime}
@@ -582,7 +608,13 @@ function renderCars() {
       ${car.tuneNotes}
     `.toLowerCase();
 
-    const matchesKeyword = searchableText.includes(keyword);
+    const normalizedSearchableText = normalizeShareCode(searchableText).toLowerCase();
+
+    const matchesKeyword =
+      !rawKeyword ||
+      searchableText.includes(rawKeyword) ||
+      normalizedSearchableText.includes(keyword);
+
     const matchesClass = selectedClass === "all" || car.className === selectedClass;
     const matchesType = selectedType === "all" || car.carType === selectedType;
     const matchesDrive = selectedDrive === "all" || car.drive === selectedDrive;
@@ -612,7 +644,7 @@ function renderCars() {
         <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
         <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
 
-        <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
+        <p class="share-code">공유 코드: ${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</p>
 
         <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
       </article>
@@ -717,6 +749,7 @@ function openCarDetail(id, source = "cars") {
   if (!car) return;
 
   const shareCode = normalizeShareCode(car.shareCode);
+  const displayShareCode = formatShareCode(car.shareCode);
 
   modalBody.innerHTML = `
     ${renderBadges(car)}
@@ -729,8 +762,6 @@ function openCarDetail(id, source = "cars") {
       <span class="detail-label">튜닝 공유 코드</span>
 
       <div class="share-code-row">
-        <strong>${escapeHTML(shareCode || "미입력")}</strong>
-
         <button
           class="copy-code-button"
           type="button"
@@ -738,6 +769,8 @@ function openCarDetail(id, source = "cars") {
         >
           복사
         </button>
+
+        <strong>${escapeHTML(displayShareCode || "미입력")}</strong>
       </div>
     </div>
 
@@ -789,8 +822,29 @@ function closeCarDetail() {
 
 
 /* =========================
+   필터 초기화
+   - 검색어와 모든 필터를 기본값으로 되돌림
+========================= */
+
+function resetAllFilters() {
+  searchInput.value = "";
+  classFilter.value = "all";
+  typeFilter.value = "all";
+  driveFilter.value = "all";
+  categoryFilter.value = "all";
+
+  if (sortFilter) {
+    sortFilter.value = "default";
+  }
+
+  renderCars();
+}
+
+
+/* =========================
    공유 코드 복사
-   - GitHub Pages는 HTTPS라 clipboard API 사용 가능
+   - 화면에는 123 456 789로 보여도
+   - 클립보드에는 123456789로 복사됨
 ========================= */
 
 async function copyShareCode(code, button) {
@@ -856,6 +910,10 @@ categoryFilter.addEventListener("change", renderCars);
 
 if (sortFilter) {
   sortFilter.addEventListener("change", renderCars);
+}
+
+if (resetFilters) {
+  resetFilters.addEventListener("click", resetAllFilters);
 }
 
 closeModal.addEventListener("click", closeCarDetail);

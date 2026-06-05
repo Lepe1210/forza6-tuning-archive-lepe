@@ -1,4 +1,4 @@
-<!--마지막 수정일자: 2026.05.30/여러가지가 바뀜-->
+<!--마지막 수정일자: 2026.06.05/필터 초기화 버튼 및 검색창 레이아웃 수정-->
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -10,8 +10,7 @@
   <!-- 브라우저 탭에 표시되는 사이트 제목 -->
   <title>Forza 6 Tuning Archive</title>
 
-     
-    <!-- 링크 미리보기 설정 -->
+  <!-- 링크 미리보기 설정 -->
   <meta property="og:title" content="Forza 6 Tuning Archive" />
   <meta
     property="og:description"
@@ -46,7 +45,7 @@
 <body>
   <!-- =========================
        상단 메인 소개 영역
-       ========================= -->
+  ========================== -->
   <header class="hero">
     <div>
       <p class="eyebrow">FORZA 6 TUNING DATABASE</p>
@@ -57,52 +56,53 @@
       </p>
 
       <!-- 디스코드 초대 링크 -->
-    <div class="hero-link-row">
-  <a
-    class="discord-link"
-    href="https://discord.gg/7XCHcsxqqZ"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    튜닝 문의는 디스코드에서
-  </a>
+      <div class="hero-link-row">
+        <a
+          class="discord-link"
+          href="https://discord.gg/7XCHcsxqqZ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          튜닝 문의는 디스코드에서
+        </a>
 
-  <a
-    class="discord-link notification-link"
-    href="https://discord.gg/qSN32APcrd"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    업데이트 알림 받기
-  </a>
-  </div>
+        <a
+          class="discord-link notification-link"
+          href="https://discord.gg/qSN32APcrd"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          업데이트 알림 받기
+        </a>
+      </div>
+    </div>
   </header>
 
   <!-- =========================
        메인 콘텐츠 영역
-       ========================= -->
+  ========================== -->
   <main class="container">
     <!-- =========================
          페스티벌 튜닝차량 섹션
          weekly 시트 데이터를 불러와서 표시함
-         ========================= -->
-  <section class="weekly-section">
-  <div class="section-header weekly-header-row">
-    <div>
-      <p class="eyebrow">FESTIVAL PLAYLIST PICKS</p>
+    ========================== -->
+    <section class="weekly-section">
+      <div class="section-header weekly-header-row">
+        <div>
+          <p class="eyebrow">FESTIVAL PLAYLIST PICKS</p>
 
-      <!-- weekly 시트의 eventTitle 값으로 자동 변경됨 -->
-      <h2 id="weeklyTitle">페스티벌 튜닝차량</h2>
+          <!-- weekly 시트의 eventTitle 값으로 자동 변경됨 -->
+          <h2 id="weeklyTitle">페스티벌 튜닝차량</h2>
 
-      <p id="weeklyDescription">
-        페스티벌 플레이리스트 진행용으로 추천하는 튜닝 차량입니다.
-      </p>
-    </div>
+          <p id="weeklyDescription">
+            페스티벌 플레이리스트 진행용으로 추천하는 튜닝 차량입니다.
+          </p>
+        </div>
 
-    <a class="archive-button" href="archive.html">
-      지난 시즌 튜닝 보기
-    </a>
-  </div>
+        <a class="archive-button" href="archive.html">
+          지난 시즌 튜닝 보기
+        </a>
+      </div>
 
       <!-- weekly 시트 차량 카드가 들어가는 자리 -->
       <section id="weeklyGrid" class="weekly-grid"></section>
@@ -111,7 +111,7 @@
     <!-- =========================
          PI별 평균 기록 섹션
          cars 시트의 테스트 트랙 기록을 기준으로 계산함
-         ========================= -->
+    ========================== -->
     <section class="average-section">
       <div class="section-header">
         <p class="eyebrow">TEST TRACK AVERAGE</p>
@@ -128,11 +128,14 @@
     <!-- =========================
          검색 및 필터 영역
          cars 시트 전체 차량 DB를 필터링함
-         ========================= -->
+         검색창은 첫 줄 전체 사용
+         나머지 필터는 화면 크기에 따라 자동 배치
+    ========================== -->
     <section class="controls">
       <!-- 차량명, 제조사, 콘셉트, 공유 코드 등을 검색 -->
       <input
         id="searchInput"
+        class="search-control"
         type="text"
         placeholder="차량명, 제조사, 콘셉트, 공유 코드 검색"
       />
@@ -208,6 +211,7 @@
         <option value="혼합">혼합</option>
         <option value="페스티벌 시즌 숙제">페스티벌 시즌 숙제</option>
       </select>
+
       <!-- 정렬 옵션 -->
       <select id="sortFilter">
         <option value="default">기본 정렬</option>
@@ -217,11 +221,16 @@
         <option value="trackB">레전드 섬 서킷 빠른 순</option>
         <option value="trackC">세키베(오프로드) 빠른 순</option>
       </select>
+
+      <!-- 검색 및 필터 초기화 -->
+      <button id="resetFilters" class="reset-filter-button" type="button">
+        필터 초기화
+      </button>
     </section>
 
     <!-- =========================
          전체 차량 표시 개수
-         ========================= -->
+    ========================== -->
     <section class="stats">
       <span id="carCount">0대 표시 중</span>
     </section>
@@ -229,17 +238,17 @@
     <!-- =========================
          전체 차량 카드 목록
          cars 시트 데이터가 들어가는 자리
-         ========================= -->
+    ========================== -->
     <section id="carGrid" class="car-grid"></section>
   </main>
 
   <!-- =========================
        차량 상세창 모달
        차량 카드를 클릭하면 script.js가 이 안에 상세 정보를 넣음
-       ========================= -->
+  ========================== -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
-      <button id="closeModal" class="close-button">×</button>
+      <button id="closeModal" class="close-button" type="button">×</button>
 
       <!-- 차량 상세 정보가 들어가는 자리 -->
       <div id="modalBody"></div>
@@ -249,7 +258,7 @@
   <!-- =========================
        동작 코드 연결
        구글 시트 데이터 불러오기 / 검색 / 필터 / 모달 처리는 script.js에서 담당
-       ========================= -->
+  ========================== -->
   <script src="script.js"></script>
 </body>
 </html>
