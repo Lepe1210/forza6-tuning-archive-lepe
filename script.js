@@ -30,6 +30,7 @@ const weeklyGrid = document.getElementById("weeklyGrid");
 const averageGrid = document.getElementById("averageGrid");
 const weeklyTitle = document.getElementById("weeklyTitle");
 const carCount = document.getElementById("carCount");
+const refreshData = document.getElementById("refreshData");
 
 const searchInput = document.getElementById("searchInput");
 const classFilter = document.getElementById("classFilter");
@@ -840,6 +841,15 @@ function resetAllFilters() {
   renderCars();
 }
 
+/* =========================
+   데이터 새로고침
+   - Google Sheets CSV 데이터를 다시 불러옴
+   - PWA 상태에서도 최신 시트 데이터를 확인할 때 사용
+========================= */
+
+function refreshAllData() {
+  loadAllData();
+}
 
 /* =========================
    공유 코드 복사
@@ -915,7 +925,9 @@ if (sortFilter) {
 if (resetFilters) {
   resetFilters.addEventListener("click", resetAllFilters);
 }
-
+if (refreshData) {
+  refreshData.addEventListener("click", refreshAllData);
+}
 closeModal.addEventListener("click", closeCarDetail);
 
 modal.addEventListener("click", (event) => {

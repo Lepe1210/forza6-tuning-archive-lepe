@@ -492,7 +492,7 @@ input::placeholder {
 
 
 /* =========================
-   9-1. 필터 초기화 버튼
+   9-1. 필터 초기화 버튼 + 새로고침 버튼
 ========================= */
 
 .reset-filter-button {
@@ -526,6 +526,37 @@ input::placeholder {
   transform: translateY(0);
 }
 
+.refresh-data-button {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(147, 197, 253, 0.34);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(59, 130, 246, 0.16), rgba(15, 23, 42, 0.82));
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease;
+}
+
+.refresh-data-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(147, 197, 253, 0.72);
+  background:
+    linear-gradient(180deg, rgba(59, 130, 246, 0.26), rgba(30, 41, 59, 0.88));
+  color: #ffffff;
+}
+
+.refresh-data-button:active {
+  transform: translateY(0);
+}
+
 
 /* =========================
    10. 표시 개수
@@ -534,6 +565,13 @@ input::placeholder {
 .stats {
   margin: 16px 0 20px;
   color: #cbd5e1;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 
@@ -1013,4 +1051,13 @@ input::placeholder {
   .archive-season-toggle strong {
     width: fit-content;
   }
+    .stats-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .refresh-data-button {
+    width: 100%;
+  }
 }
+
