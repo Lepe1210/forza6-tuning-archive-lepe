@@ -4,7 +4,7 @@
    - Google Sheets CSV 데이터는 실시간 갱신을 위해 캐시하지 않음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v1";
+const CACHE_NAME = "forza-tuning-archive-v2";
 
 const STATIC_ASSETS = [
   "./",
