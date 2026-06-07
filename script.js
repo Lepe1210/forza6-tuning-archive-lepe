@@ -930,3 +930,22 @@ modal.addEventListener("click", (event) => {
 ========================= */
 
 loadAllData();
+
+/* =========================
+   PWA Service Worker 등록
+   - 사이트를 모바일에서 앱처럼 설치할 수 있게 도와줌
+   - GitHub Pages처럼 HTTPS 환경에서 작동
+========================= */
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(() => {
+        console.log("Service Worker 등록 완료");
+      })
+      .catch((error) => {
+        console.error("Service Worker 등록 실패:", error);
+      });
+  });
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Forza 6 Tuning Archive",
+  "short_name": "Forza Tunes",
+  "description": "Forza 6 차량 튜닝값, 공유 코드, 테스트 기록, 페스티벌 튜닝차량을 정리하는 튜닝 아카이브입니다.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101218",
+  "theme_color": "#101218",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
