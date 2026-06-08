@@ -13,12 +13,17 @@ const WEEKLY_CSV_URL =
 
 /* =========================
    테스트 트랙 표시 이름
-   - 시트 헤더명은 testTrackBTime / testTrackCTime 유지
-   - 사이트에 보이는 이름만 여기서 관리
 ========================= */
 
 const TRACK_B_NAME = "레전드 섬 서킷";
 const TRACK_C_NAME = "세키베 타임어택(오프로드)";
+
+
+/* =========================
+   오늘의 튜닝 저장 키
+========================= */
+
+const DAILY_TUNE_STORAGE_KEY = "forzaDailyTuneResult";
 
 
 /* =========================
@@ -30,7 +35,6 @@ const weeklyGrid = document.getElementById("weeklyGrid");
 const averageGrid = document.getElementById("averageGrid");
 const weeklyTitle = document.getElementById("weeklyTitle");
 const carCount = document.getElementById("carCount");
-const refreshData = document.getElementById("refreshData");
 
 const searchInput = document.getElementById("searchInput");
 const classFilter = document.getElementById("classFilter");
@@ -39,10 +43,18 @@ const driveFilter = document.getElementById("driveFilter");
 const categoryFilter = document.getElementById("categoryFilter");
 const sortFilter = document.getElementById("sortFilter");
 const resetFilters = document.getElementById("resetFilters");
+const refreshData = document.getElementById("refreshData");
 
 const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modalBody");
 const closeModal = document.getElementById("closeModal");
+
+const openDailyTune = document.getElementById("openDailyTune");
+const dailyTuneModal = document.getElementById("dailyTuneModal");
+const closeDailyTune = document.getElementById("closeDailyTune");
+const dailyTuneSlotText = document.getElementById("dailyTuneSlotText");
+const spinDailyTune = document.getElementById("spinDailyTune");
+const dailyTuneResult = document.getElementById("dailyTuneResult");
 
 
 /* =========================
@@ -51,6 +63,7 @@ const closeModal = document.getElementById("closeModal");
 
 let cars = [];
 let weeklyCars = [];
+let isDailyTuneSpinning = false;
 
 
 /* =========================
@@ -90,6 +103,10 @@ async function loadAllData() {
     renderWeeklyCars();
     renderAverageStats();
     renderCars();
+
+    if (dailyTuneModal && !dailyTuneModal.classList.contains("hidden")) {
+      renderDailyTuneModalState();
+    }
   } catch (error) {
     console.error(error);
     renderLoadError();
@@ -130,9 +147,6 @@ function renderLoadError() {
 
 /* =========================
    CSV 텍스트를 차량 객체 배열로 변환
-   - 구글 시트의 한 행을 car 객체 하나로 변환
-   - testTrackA는 제거했으므로 읽지 않음
-   - shareCode는 내부적으로 공백 없는 9자리 기준으로 정리
 ========================= */
 
 function parseCars(csvText) {
@@ -172,11 +186,6 @@ function cleanValue(value) {
 
 /* =========================
    공유 코드 정리
-   - 시트 입력값:
-     123456789
-     123 456 789
-     둘 다 허용
-   - 내부 저장/복사값: 123456789
 ========================= */
 
 function normalizeShareCode(code) {
@@ -186,8 +195,6 @@ function normalizeShareCode(code) {
 
 /* =========================
    공유 코드 표시 형식
-   - 내부값 123456789 → 화면 표시 123 456 789
-   - 9자리가 아니면 원본 정리값 그대로 표시
 ========================= */
 
 function formatShareCode(code) {
@@ -271,7 +278,6 @@ function parseCSV(text) {
 
 /* =========================
    랩타임 변환
-   예: 1:12.438 → 72.438초
 ========================= */
 
 function lapTimeToSeconds(timeText) {
@@ -300,7 +306,6 @@ function lapTimeToSeconds(timeText) {
 
 /* =========================
    초 단위 값을 랩타임 형식으로 변환
-   예: 72.438 → 1:12.438
 ========================= */
 
 function secondsToLapTime(totalSeconds) {
@@ -337,8 +342,6 @@ function sortPI(pi) {
 
 /* =========================
    최근 튜닝 여부 판단
-   updatedAt이 오늘 또는 어제면 true
-   권장 날짜 형식: 2026-05-24
 ========================= */
 
 function isRecentTuning(updatedAt) {
@@ -545,7 +548,6 @@ function toggleRanking(rankingId, button) {
 
 /* =========================
    페스티벌 튜닝차량 섹션 표시
-   카드에는 테스트 기록을 표시하지 않음
 ========================= */
 
 function renderWeeklyCars() {
@@ -579,7 +581,6 @@ function renderWeeklyCars() {
 
 /* =========================
    전체 차량 카드 목록 표시
-   카드에는 테스트 기록을 표시하지 않음
 ========================= */
 
 function renderCars() {
@@ -707,7 +708,6 @@ function sortCars(carList, sortType) {
 
 /* =========================
    랩타임 정렬용 비교
-   기록 없는 차량은 아래로 보냄
 ========================= */
 
 function compareLapTimes(timeA, timeB) {
@@ -740,7 +740,6 @@ function renderBadges(car) {
 
 /* =========================
    차량 상세창 열기
-   상세창에는 테스트 트랙 B/C 기록을 표시함
 ========================= */
 
 function openCarDetail(id, source = "cars") {
@@ -824,7 +823,6 @@ function closeCarDetail() {
 
 /* =========================
    필터 초기화
-   - 검색어와 모든 필터를 기본값으로 되돌림
 ========================= */
 
 function resetAllFilters() {
@@ -841,20 +839,334 @@ function resetAllFilters() {
   renderCars();
 }
 
+
 /* =========================
    데이터 새로고침
-   - Google Sheets CSV 데이터를 다시 불러옴
-   - PWA 상태에서도 최신 시트 데이터를 확인할 때 사용
 ========================= */
 
 function refreshAllData() {
   loadAllData();
 }
 
+
+/* =========================
+   오늘 날짜 키
+========================= */
+
+function getTodayKey() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+
+/* =========================
+   오늘의 튜닝 저장값 가져오기
+========================= */
+
+function getSavedDailyTune() {
+  try {
+    const savedText = localStorage.getItem(DAILY_TUNE_STORAGE_KEY);
+
+    if (!savedText) {
+      return null;
+    }
+
+    const saved = JSON.parse(savedText);
+
+    if (!saved || saved.date !== getTodayKey() || !saved.carId) {
+      return null;
+    }
+
+    return saved;
+  } catch (error) {
+    return null;
+  }
+}
+
+
+/* =========================
+   오늘의 튜닝 저장
+========================= */
+
+function saveDailyTune(car) {
+  const payload = {
+    date: getTodayKey(),
+    carId: car.id
+  };
+
+  localStorage.setItem(DAILY_TUNE_STORAGE_KEY, JSON.stringify(payload));
+}
+
+
+/* =========================
+   오늘의 튜닝 모달 열기
+========================= */
+
+function openDailyTuneModal() {
+  if (!dailyTuneModal) return;
+
+  dailyTuneModal.classList.remove("hidden");
+  renderDailyTuneModalState();
+}
+
+
+/* =========================
+   오늘의 튜닝 모달 닫기
+========================= */
+
+function closeDailyTuneModal() {
+  if (!dailyTuneModal) return;
+
+  dailyTuneModal.classList.add("hidden");
+}
+
+
+/* =========================
+   오늘의 튜닝 모달 상태 렌더링
+========================= */
+
+function renderDailyTuneModalState() {
+  if (!dailyTuneSlotText || !spinDailyTune || !dailyTuneResult) return;
+
+  if (cars.length === 0) {
+    dailyTuneSlotText.textContent = "차량 데이터를 불러오는 중입니다...";
+    spinDailyTune.disabled = true;
+    dailyTuneResult.classList.add("hidden");
+    dailyTuneResult.innerHTML = "";
+    return;
+  }
+
+  const saved = getSavedDailyTune();
+
+  if (saved) {
+    const savedCar = cars.find((car) => car.id === saved.carId);
+
+    if (savedCar) {
+      dailyTuneSlotText.textContent = `${savedCar.manufacturer} ${savedCar.carName}`;
+      spinDailyTune.textContent = "오늘은 이미 뽑았습니다";
+      spinDailyTune.disabled = true;
+      renderDailyTuneResult(savedCar, true);
+      return;
+    }
+  }
+
+  dailyTuneSlotText.textContent = "준비 완료";
+  spinDailyTune.textContent = "뽑기 시작";
+  spinDailyTune.disabled = false;
+  dailyTuneResult.classList.add("hidden");
+  dailyTuneResult.innerHTML = "";
+}
+
+
+/* =========================
+   랜덤 차량 선택
+========================= */
+
+function pickRandomCar() {
+  if (cars.length === 0) {
+    return null;
+  }
+
+  const randomIndex = Math.floor(Math.random() * cars.length);
+  return cars[randomIndex];
+}
+
+
+/* =========================
+   오늘의 튜닝 룰렛 시작
+========================= */
+
+function startDailyTuneSpin() {
+  if (isDailyTuneSpinning || cars.length === 0) return;
+
+  const saved = getSavedDailyTune();
+
+  if (saved) {
+    renderDailyTuneModalState();
+    return;
+  }
+
+  const resultCar = pickRandomCar();
+
+  if (!resultCar) return;
+
+  isDailyTuneSpinning = true;
+  spinDailyTune.disabled = true;
+  spinDailyTune.textContent = "뽑는 중...";
+  dailyTuneResult.classList.add("hidden");
+  dailyTuneResult.innerHTML = "";
+
+  const spinSteps = 28;
+  let currentStep = 0;
+
+  function spinNext() {
+    const previewCar =
+      currentStep === spinSteps - 1 ? resultCar : pickRandomCar();
+
+    if (previewCar) {
+      dailyTuneSlotText.textContent = `${previewCar.manufacturer} ${previewCar.carName}`;
+      restartSlotAnimation();
+    }
+
+    currentStep++;
+
+    if (currentStep >= spinSteps) {
+      saveDailyTune(resultCar);
+      isDailyTuneSpinning = false;
+      spinDailyTune.textContent = "오늘은 이미 뽑았습니다";
+      spinDailyTune.disabled = true;
+      renderDailyTuneResult(resultCar, false);
+      return;
+    }
+
+    const progress = currentStep / spinSteps;
+    const delay = 50 + Math.floor(progress * progress * 180);
+
+    setTimeout(spinNext, delay);
+  }
+
+  spinNext();
+}
+
+
+/* =========================
+   슬롯머신 텍스트 애니메이션 재시작
+========================= */
+
+function restartSlotAnimation() {
+  if (!dailyTuneSlotText) return;
+
+  dailyTuneSlotText.classList.remove("spinning");
+
+  void dailyTuneSlotText.offsetWidth;
+
+  dailyTuneSlotText.classList.add("spinning");
+}
+
+
+/* =========================
+   오늘의 튜닝 결과 카드 표시
+========================= */
+
+function renderDailyTuneResult(car, alreadyPicked) {
+  if (!dailyTuneResult) return;
+
+  const shareCode = normalizeShareCode(car.shareCode);
+  const displayShareCode = formatShareCode(car.shareCode);
+
+  dailyTuneResult.innerHTML = `
+    <article class="daily-tune-result-card">
+      <span class="daily-tune-result-label">
+        ${alreadyPicked ? "TODAY'S SAVED RESULT" : "TODAY'S RESULT"}
+      </span>
+
+      <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
+      <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
+
+      <div class="daily-tune-result-meta">
+        <span class="badge">${escapeHTML(car.className || "PI 미입력")}</span>
+        <span class="badge">${escapeHTML(car.carType || "분류 미입력")}</span>
+        <span class="badge">${escapeHTML(car.drive || "구동방식 미입력")}</span>
+        <span class="badge">${escapeHTML(car.category || "용도 미입력")}</span>
+      </div>
+
+      <div class="daily-tune-result-code">
+        <button
+          class="copy-code-button"
+          type="button"
+          onclick="copyShareCode('${escapeAttribute(shareCode)}', this)"
+        >
+          복사
+        </button>
+
+        <strong>${escapeHTML(displayShareCode || "미입력")}</strong>
+      </div>
+
+      <p class="summary">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
+      <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
+
+      <div class="daily-tune-result-actions">
+        <button
+          class="daily-tune-action-button primary"
+          type="button"
+          onclick="openDailyTuneDetail('${escapeAttribute(car.id)}')"
+        >
+          상세 정보 보기
+        </button>
+
+        <button
+          class="daily-tune-action-button"
+          type="button"
+          onclick="shareDailyTune('${escapeAttribute(car.id)}', this)"
+        >
+          공유하기
+        </button>
+      </div>
+
+      <p class="daily-tune-note">
+        오늘은 이미 뽑았습니다. 내일 다시 뽑을 수 있습니다.
+      </p>
+    </article>
+  `;
+
+  dailyTuneResult.classList.remove("hidden");
+}
+
+
+/* =========================
+   오늘의 튜닝 상세 정보 보기
+========================= */
+
+function openDailyTuneDetail(carId) {
+  closeDailyTuneModal();
+  openCarDetail(carId, "cars");
+}
+
+
+/* =========================
+   오늘의 튜닝 공유하기
+========================= */
+
+async function shareDailyTune(carId, button) {
+  const car = cars.find((item) => item.id === carId);
+
+  if (!car) return;
+
+  const displayShareCode = formatShareCode(car.shareCode);
+  const shareText =
+    `오늘의 랜덤 튜닝\n\n` +
+    `${car.manufacturer} ${car.carName}\n` +
+    `PI: ${car.className || "PI 미입력"}\n` +
+    `분류: ${car.carType || "분류 미입력"}\n` +
+    `구동방식: ${car.drive || "구동방식 미입력"}\n` +
+    `용도: ${car.category || "용도 미입력"}\n` +
+    `공유 코드: ${displayShareCode || "미입력"}\n\n` +
+    `Forza 6 Tuning Archive\n` +
+    `${window.location.origin}${window.location.pathname}`;
+
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: "오늘의 랜덤 튜닝",
+        text: shareText,
+        url: window.location.href
+      });
+    } else {
+      await navigator.clipboard.writeText(shareText);
+      markButtonCopied(button, "복사됨!");
+    }
+  } catch (error) {
+    console.error("공유 실패:", error);
+  }
+}
+
+
 /* =========================
    공유 코드 복사
-   - 화면에는 123 456 789로 보여도
-   - 클립보드에는 123456789로 복사됨
 ========================= */
 
 async function copyShareCode(code, button) {
@@ -864,24 +1176,35 @@ async function copyShareCode(code, button) {
 
   try {
     await navigator.clipboard.writeText(shareCode);
-
-    const originalText = button.textContent;
-    button.textContent = "복사됨!";
-    button.classList.add("copied");
-
-    setTimeout(() => {
-      button.textContent = originalText;
-      button.classList.remove("copied");
-    }, 1200);
+    markButtonCopied(button, "복사됨!");
   } catch (error) {
     console.error("공유 코드 복사 실패:", error);
 
+    const originalText = button.textContent;
     button.textContent = "복사 실패";
 
     setTimeout(() => {
-      button.textContent = "복사";
+      button.textContent = originalText;
     }, 1200);
   }
+}
+
+
+/* =========================
+   버튼 복사 완료 표시
+========================= */
+
+function markButtonCopied(button, copiedText) {
+  if (!button) return;
+
+  const originalText = button.textContent;
+  button.textContent = copiedText;
+  button.classList.add("copied");
+
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.classList.remove("copied");
+  }, 1200);
 }
 
 
@@ -925,9 +1248,23 @@ if (sortFilter) {
 if (resetFilters) {
   resetFilters.addEventListener("click", resetAllFilters);
 }
+
 if (refreshData) {
   refreshData.addEventListener("click", refreshAllData);
 }
+
+if (openDailyTune) {
+  openDailyTune.addEventListener("click", openDailyTuneModal);
+}
+
+if (closeDailyTune) {
+  closeDailyTune.addEventListener("click", closeDailyTuneModal);
+}
+
+if (spinDailyTune) {
+  spinDailyTune.addEventListener("click", startDailyTuneSpin);
+}
+
 closeModal.addEventListener("click", closeCarDetail);
 
 modal.addEventListener("click", (event) => {
@@ -936,6 +1273,14 @@ modal.addEventListener("click", (event) => {
   }
 });
 
+if (dailyTuneModal) {
+  dailyTuneModal.addEventListener("click", (event) => {
+    if (event.target === dailyTuneModal) {
+      closeDailyTuneModal();
+    }
+  });
+}
+
 
 /* =========================
    최초 실행
@@ -943,10 +1288,9 @@ modal.addEventListener("click", (event) => {
 
 loadAllData();
 
+
 /* =========================
    PWA Service Worker 등록
-   - 사이트를 모바일에서 앱처럼 설치할 수 있게 도와줌
-   - GitHub Pages처럼 HTTPS 환경에서 작동
 ========================= */
 
 if ("serviceWorker" in navigator) {

@@ -1,4 +1,4 @@
-<!--마지막 수정일자: 2026.06.05/필터 초기화 버튼 및 검색창 레이아웃 수정-->
+<!--마지막 수정일자: 2026.06.08/오늘의 튜닝 룰렛 버튼 및 모달 추가-->
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -37,7 +37,8 @@
     name="twitter:image"
     content="https://lepe1210.github.io/forza6-tuning-archive-lepe/preview.png"
   />
-    <!-- PWA 설정 -->
+
+  <!-- PWA 설정 -->
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#101218" />
 
@@ -83,6 +84,13 @@
         >
           업데이트 알림 받기
         </a>
+      </div>
+
+      <!-- 오늘의 튜닝 뽑기 버튼 -->
+      <div class="daily-tune-entry">
+        <button id="openDailyTune" class="daily-tune-button" type="button">
+          오늘의 튜닝 뽑기
+        </button>
       </div>
     </div>
   </header>
@@ -241,12 +249,12 @@
          전체 차량 표시 개수 + 새로고침 버튼
     ========================== -->
     <section class="stats stats-row">
-  <span id="carCount">0대 표시 중</span>
+      <span id="carCount">0대 표시 중</span>
 
-  <button id="refreshData" class="refresh-data-button" type="button">
-    데이터 새로고침
-  </button>
-</section>
+      <button id="refreshData" class="refresh-data-button" type="button">
+        데이터 새로고침
+      </button>
+    </section>
 
     <!-- =========================
          전체 차량 카드 목록
@@ -265,6 +273,38 @@
 
       <!-- 차량 상세 정보가 들어가는 자리 -->
       <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- =========================
+       오늘의 튜닝 룰렛 모달
+       하루에 한 번 랜덤 튜닝 차량을 뽑는 팝업
+  ========================== -->
+  <div id="dailyTuneModal" class="modal hidden">
+    <div class="modal-content daily-tune-modal-content">
+      <button id="closeDailyTune" class="close-button" type="button">×</button>
+
+      <div class="daily-tune-modal-header">
+        <p class="eyebrow">TODAY'S RANDOM TUNE</p>
+        <h2>오늘의 튜닝 룰렛</h2>
+        <p>
+          오늘 탈 차량을 하나 뽑아보세요. 하루에 한 번만 뽑을 수 있습니다.
+        </p>
+      </div>
+
+      <div class="daily-tune-slot" aria-live="polite">
+        <div id="dailyTuneSlotText" class="daily-tune-slot-text">
+          준비 완료
+        </div>
+      </div>
+
+      <div class="daily-tune-actions">
+        <button id="spinDailyTune" class="daily-tune-spin-button" type="button">
+          뽑기 시작
+        </button>
+      </div>
+
+      <div id="dailyTuneResult" class="daily-tune-result hidden"></div>
     </div>
   </div>
 

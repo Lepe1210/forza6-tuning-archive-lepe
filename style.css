@@ -148,6 +148,59 @@ h1 {
 
 
 /* =========================
+   2-1. 오늘의 튜닝 뽑기 진입 버튼
+   - 상단 디스코드 버튼 아래에 배치
+   - 초록색 계열로 새로고침 버튼과 통일감 유지
+========================= */
+
+.daily-tune-entry {
+  display: flex;
+  margin-top: 18px;
+}
+
+.daily-tune-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 13px 18px;
+  border: 1px solid rgba(134, 239, 172, 0.45);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.24), rgba(15, 23, 42, 0.82));
+  color: #bbf7d0;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 28px rgba(34, 197, 94, 0.12);
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.daily-tune-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(134, 239, 172, 0.82);
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.34), rgba(20, 83, 45, 0.5));
+  color: #ecfdf5;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 16px 34px rgba(34, 197, 94, 0.18);
+}
+
+.daily-tune-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
    3. 메인 컨테이너
 ========================= */
 
@@ -713,6 +766,7 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 }
 
 .hidden {
@@ -870,7 +924,267 @@ input::placeholder {
 
 
 /* =========================
-   18. 지난 시즌 튜닝 아카이브
+   18. 오늘의 튜닝 룰렛 모달
+========================= */
+
+.daily-tune-modal-content {
+  width: min(720px, 100%);
+  border-color: rgba(134, 239, 172, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.14), transparent 38%),
+    linear-gradient(180deg, #171a22, #111827);
+}
+
+.daily-tune-modal-header {
+  padding-right: 48px;
+}
+
+.daily-tune-modal-header h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.daily-tune-modal-header p {
+  margin: 10px 0 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.daily-tune-slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  margin: 22px 0 16px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(134, 239, 172, 0.28);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.52), rgba(2, 6, 23, 0.74)),
+    rgba(15, 23, 42, 0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.daily-tune-slot::before,
+.daily-tune-slot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 26px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.daily-tune-slot::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.9), transparent);
+}
+
+.daily-tune-slot::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(2, 6, 23, 0.9), transparent);
+}
+
+.daily-tune-slot-text {
+  position: relative;
+  z-index: 2;
+  color: #ecfdf5;
+  font-size: clamp(20px, 4vw, 34px);
+  font-weight: 950;
+  line-height: 1.25;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+  transform: translateY(0);
+}
+
+.daily-tune-slot-text.spinning {
+  animation: dailyTuneDrop 0.14s ease-in-out;
+}
+
+@keyframes dailyTuneDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-34px) scale(0.96);
+    filter: blur(2px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(7px) scale(1.01);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.daily-tune-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+.daily-tune-spin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 12px 18px;
+  border: 1px solid rgba(134, 239, 172, 0.44);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.26), rgba(15, 23, 42, 0.82));
+  color: #dcfce7;
+  font-size: 15px;
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease,
+    opacity 0.16s ease;
+}
+
+.daily-tune-spin-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(134, 239, 172, 0.82);
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.34), rgba(20, 83, 45, 0.5));
+  color: #ffffff;
+}
+
+.daily-tune-spin-button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.daily-tune-result {
+  margin-top: 18px;
+}
+
+.daily-tune-result-card {
+  padding: 18px;
+  border: 1px solid rgba(134, 239, 172, 0.28);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.12), rgba(15, 23, 42, 0.76)),
+    rgba(15, 23, 42, 0.82);
+}
+
+.daily-tune-result-card h3 {
+  margin: 8px 0 10px;
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.daily-tune-result-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.16);
+  color: #bbf7d0;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.daily-tune-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.daily-tune-result-code {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.32);
+  border: 1px solid rgba(134, 239, 172, 0.18);
+}
+
+.daily-tune-result-code strong {
+  color: #f8fafc;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+
+.daily-tune-note {
+  margin: 12px 0 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.daily-tune-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.daily-tune-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.82));
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease;
+}
+
+.daily-tune-action-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(134, 239, 172, 0.58);
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.18), rgba(15, 23, 42, 0.86));
+  color: #ecfdf5;
+}
+
+.daily-tune-action-button.primary {
+  border-color: rgba(134, 239, 172, 0.42);
+  color: #bbf7d0;
+}
+
+.daily-tune-action-button.copied {
+  border-color: rgba(134, 239, 172, 0.78);
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.26), rgba(15, 23, 42, 0.8));
+  color: #dcfce7;
+}
+
+
+/* =========================
+   19. 지난 시즌 튜닝 아카이브
    - archive.html 전용
    - 시즌별 접이식 목록
 ========================= */
@@ -968,7 +1282,7 @@ input::placeholder {
 
 
 /* =========================
-   19. 반응형 처리
+   20. 반응형 처리
    - 화면폭이 좁아질수록 그리드 열 수를 줄임
    - 반드시 파일 마지막 쪽에 위치해야 덮어쓰기 문제를 피함
 ========================= */
@@ -1022,6 +1336,16 @@ input::placeholder {
     padding-top: 44px;
   }
 
+  .hero-link-row,
+  .daily-tune-entry {
+    width: 100%;
+  }
+
+  .discord-link,
+  .daily-tune-button {
+    width: 100%;
+  }
+
   .ranking-row {
     grid-template-columns: 40px 1fr;
   }
@@ -1047,6 +1371,30 @@ input::placeholder {
     font-size: 24px;
   }
 
+  .daily-tune-modal-content {
+    padding: 24px;
+  }
+
+  .daily-tune-slot {
+    min-height: 88px;
+  }
+
+  .daily-tune-actions,
+  .daily-tune-result-actions,
+  .daily-tune-result-code {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .daily-tune-spin-button,
+  .daily-tune-action-button {
+    width: 100%;
+  }
+
+  .daily-tune-result-code strong {
+    font-size: 20px;
+  }
+
   .archive-season-toggle {
     grid-template-columns: 1fr;
   }
@@ -1055,7 +1403,8 @@ input::placeholder {
   .archive-season-toggle strong {
     width: fit-content;
   }
-    .stats-row {
+
+  .stats-row {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -1064,4 +1413,3 @@ input::placeholder {
     width: 100%;
   }
 }
-
