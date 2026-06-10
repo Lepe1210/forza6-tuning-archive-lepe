@@ -326,33 +326,28 @@
        관리자 페이지 비밀번호 모달
        비밀번호가 맞으면 manager.html로 이동
   ========================== -->
-  <div id="managerGateModal" class="modal hidden">
-    <div class="modal-content manager-gate-modal-content">
-      <button id="closeManagerGate" class="close-button" type="button">×</button>
+  <!-- 관리자 비밀번호 모달 -->
+<div id="managerGateModal" class="modal hidden">
+  <div class="modal-content manager-gate-modal-content manager-gate-compact">
+    <button id="closeManagerGate" class="close-button" type="button">×</button>
 
-      <p class="eyebrow">MANAGER ACCESS</p>
-      <h2>관리자 페이지 입장</h2>
-      <p>
-        관리자용 룰렛과 메모장으로 이동하려면 비밀번호를 입력해주세요.
-      </p>
+    <div class="manager-password-row">
+      <input
+        id="managerPasswordInput"
+        class="manager-input"
+        type="password"
+        placeholder="비밀번호"
+        autocomplete="current-password"
+      />
 
-      <div class="manager-password-row">
-        <input
-          id="managerPasswordInput"
-          class="manager-input"
-          type="password"
-          placeholder="비밀번호 입력"
-          autocomplete="current-password"
-        />
-
-        <button id="enterManagerGate" class="daily-tune-spin-button" type="button">
-          입장
-        </button>
-      </div>
-
-      <p id="managerPasswordError" class="manager-password-error"></p>
+      <button id="enterManagerGate" class="daily-tune-spin-button" type="button">
+        입장
+      </button>
     </div>
+
+    <p id="managerPasswordError" class="manager-password-error"></p>
   </div>
+</div>
 
   <!-- =========================
        동작 코드 연결

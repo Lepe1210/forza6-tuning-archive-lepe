@@ -1898,3 +1898,76 @@ input::placeholder {
     font-size: 19px;
   }
 }
+
+/* =========================
+   관리자 비밀번호 모달 간소화
+========================= */
+
+.manager-gate-compact {
+  max-width: 420px;
+  padding: 34px 28px 24px;
+}
+
+.manager-gate-compact .manager-password-row {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.manager-gate-compact .manager-password-error {
+  min-height: 20px;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 520px) {
+  .manager-gate-compact .manager-password-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   관리자 페이지 상단 간소화
+========================= */
+
+.manager-hero-text {
+  margin-top: 12px;
+  max-width: none;
+}
+
+.manager-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.manager-mini-button {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(139, 122, 255, 0.55);
+  background: rgba(139, 122, 255, 0.12);
+  color: #f4f0ff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.manager-refresh-button {
+  border-color: rgba(72, 211, 138, 0.55);
+  background: rgba(72, 211, 138, 0.12);
+  color: #9ff5c2;
+}
+
+.manager-mini-button:hover {
+  transform: translateY(-1px);
+}
