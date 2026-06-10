@@ -817,3 +817,5 @@ if (clearAllManagerMemos) {
 
 loadManagerData();
 renderManagerMemos();
+
+const MANAGER_MEMO_API_URL = "https://script.google.com/macros/s/AKfycbzqX8DvEixZQdDBEhuFZfm_fJjY66ITdeqhDLuQmCvGkCRjpGVEvP3MZdFkW5uR3X4DWg/exec";

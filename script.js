@@ -1315,6 +1315,8 @@ if ("serviceWorker" in navigator) {
 const MANAGER_PASSWORD_SALT = "forza6-manager-gate-v1";
 const MANAGER_PASSWORD_HASH = "d5609f2c4f2006ac4f8714120394872bb0780e4b533120dfd4e76d16b6179532";
 const MANAGER_ACCESS_SESSION_KEY = "forzaManagerAccess";
+const MANAGER_MEMO_AUTH_SALT = "forza6-manager-memo-api-v1";
+const MANAGER_MEMO_AUTH_SESSION_KEY = "forzaManagerMemoAuth";
 
 const openManagerGate = document.getElementById("openManagerGate");
 const managerGateModal = document.getElementById("managerGateModal");
@@ -1369,10 +1371,16 @@ async function enterManagerPage() {
     );
 
     if (inputHash === MANAGER_PASSWORD_HASH) {
-      sessionStorage.setItem(MANAGER_ACCESS_SESSION_KEY, "ok");
-      window.location.href = "manager.html";
-      return;
-    }
+  const memoAuthHash = await createSHA256Hash(
+    `${MANAGER_MEMO_AUTH_SALT}:${password}`
+  );
+
+  sessionStorage.setItem(MANAGER_ACCESS_SESSION_KEY, "ok");
+  sessionStorage.setItem(MANAGER_MEMO_AUTH_SESSION_KEY, memoAuthHash);
+
+  window.location.href = "manager.html";
+  return;
+}
 
     managerPasswordError.textContent = "비밀번호가 맞지 않습니다.";
     managerPasswordInput.value = "";
