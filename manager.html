@@ -1,0 +1,223 @@
+<!--마지막 수정일자: 2026.06.10/관리자 전용 룰렛 및 메모장 페이지 추가-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 기본 문서 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 브라우저 탭에 표시되는 사이트 제목 -->
+  <title>Manager | Forza 6 Tuning Archive</title>
+
+  <!-- 검색엔진 노출 방지 -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- PWA 설정 -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#101218" />
+
+  <!-- iOS 홈 화면 추가용 기본 설정 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Forza Tunes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- 디자인 파일 연결 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- =========================
+       관리자 페이지 상단 영역
+  ========================== -->
+  <header class="hero manager-hero">
+    <div>
+      <p class="eyebrow">FORZA 6 TUNING MANAGER</p>
+      <h1>관리자 페이지</h1>
+
+      <p class="hero-text">
+        오늘 튜닝할 후보를 뽑고, 떠오른 튜닝 아이디어를 기록하는 관리자용 작업 공간입니다.
+      </p>
+
+      <div class="hero-link-row">
+        <a class="archive-link" href="index.html">
+          메인으로 돌아가기
+        </a>
+
+        <button id="reloadManagerData" class="refresh-data-button" type="button">
+          후보 데이터 새로고침
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       관리자 메인 콘텐츠
+  ========================== -->
+  <main class="container manager-container">
+    <!-- =========================
+         데이터 상태 표시
+    ========================== -->
+    <section class="manager-status-section">
+      <div class="manager-status-card">
+        <span class="detail-label">후보 데이터 상태</span>
+        <strong id="managerDataStatus">불러오기 전</strong>
+      </div>
+
+      <div class="manager-status-card">
+        <span class="detail-label">룰렛 가능 차량</span>
+        <strong id="managerCandidateCount">0대</strong>
+      </div>
+
+      <div class="manager-status-card">
+        <span class="detail-label">기준 시트</span>
+        <strong>list</strong>
+      </div>
+    </section>
+
+    <!-- =========================
+         관리자 전용 룰렛
+    ========================== -->
+    <section class="manager-section">
+      <div class="section-header">
+        <p class="eyebrow">MANAGER ROULETTE</p>
+        <h2>오늘 뭐 튜닝하지?</h2>
+        <p>
+          list 시트에서 allowedPI와 category가 입력된 차량만 후보로 사용합니다.
+          차량, PI, 용도가 동시에 돌아간 뒤 유효한 조합으로 멈춥니다.
+        </p>
+      </div>
+
+      <section class="manager-roulette-panel">
+        <div class="manager-roulette-grid">
+          <article class="manager-slot-card">
+            <span class="manager-slot-label">차량</span>
+            <div id="managerSlotVehicle" class="manager-slot-value">
+              준비 완료
+            </div>
+          </article>
+
+          <article class="manager-slot-card">
+            <span class="manager-slot-label">PI</span>
+            <div id="managerSlotPI" class="manager-slot-value">
+              -
+            </div>
+          </article>
+
+          <article class="manager-slot-card">
+            <span class="manager-slot-label">용도</span>
+            <div id="managerSlotCategory" class="manager-slot-value">
+              -
+            </div>
+          </article>
+        </div>
+
+        <div class="manager-action-row">
+          <button id="spinManagerRoulette" class="daily-tune-spin-button" type="button">
+            룰렛 돌리기
+          </button>
+
+          <button id="addRouletteResultToMemo" class="daily-tune-action-button" type="button" disabled>
+            결과를 메모에 추가
+          </button>
+        </div>
+
+        <div id="managerRouletteResult" class="manager-result hidden"></div>
+      </section>
+    </section>
+
+    <!-- =========================
+         관리자 메모장
+    ========================== -->
+    <section class="manager-section">
+      <div class="section-header">
+        <p class="eyebrow">TUNING MEMO</p>
+        <h2>관리자 메모장</h2>
+        <p>
+          갑자기 떠오른 튜닝 아이디어나 룰렛 결과를 기록하는 공간입니다.
+          초기 버전은 사이트 안에서 작성하고, 이후 Google Sheets 저장형으로 확장할 수 있습니다.
+        </p>
+      </div>
+
+      <section class="manager-memo-layout">
+        <!-- 새 메모 작성 -->
+        <article class="manager-memo-editor">
+          <h3>새 메모 작성</h3>
+
+          <label class="manager-form-label" for="memoTitle">
+            제목
+          </label>
+          <input
+            id="memoTitle"
+            class="manager-input"
+            type="text"
+            placeholder="예: Honda Acty B600 오프로드 후보"
+          />
+
+          <label class="manager-form-label" for="memoBody">
+            메모
+          </label>
+          <textarea
+            id="memoBody"
+            class="manager-textarea"
+            rows="8"
+            placeholder="예: 뒤가 가벼우니 타이어 폭, ARB, 공기압부터 확인. 오프로드에서는 과한 드리프트보다 안정성 위주로 테스트."
+          ></textarea>
+
+          <label class="manager-form-label" for="memoTag">
+            태그
+          </label>
+          <input
+            id="memoTag"
+            class="manager-input"
+            type="text"
+            placeholder="예: 오프로드, A700, 실험"
+          />
+
+          <div class="manager-action-row">
+            <button id="saveManagerMemo" class="daily-tune-spin-button" type="button">
+              메모 저장
+            </button>
+
+            <button id="clearMemoForm" class="daily-tune-action-button" type="button">
+              입력창 비우기
+            </button>
+          </div>
+        </article>
+
+        <!-- 저장된 메모 목록 -->
+        <article class="manager-memo-list-card">
+          <div class="manager-memo-list-header">
+            <div>
+              <h3>저장된 메모</h3>
+              <p id="memoCountText">0개 저장됨</p>
+            </div>
+
+            <div class="manager-memo-list-actions">
+              <button id="copyAllManagerMemos" class="daily-tune-action-button" type="button">
+                전체 복사
+              </button>
+
+              <button id="clearAllManagerMemos" class="daily-tune-action-button danger" type="button">
+                전체 초기화
+              </button>
+            </div>
+          </div>
+
+          <div id="managerMemoList" class="manager-memo-list">
+            <div class="weekly-empty">
+              아직 저장된 메모가 없습니다.
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <!-- =========================
+       관리자 페이지 동작 코드 연결
+  ========================== -->
+  <script src="manager.js"></script>
+</body>
+</html>
