@@ -2,10 +2,10 @@
    Forza 6 Tuning Archive
    Service Worker
    - 기본 파일 캐시
-   - Google Sheets CSV는 캐시하지 않고 항상 네트워크에서 읽음
+   - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v8";
+const CACHE_NAME = "forza-tuning-archive-v9";
 
 const STATIC_ASSETS = [
   "./",
@@ -62,7 +62,7 @@ self.addEventListener("activate", (event) => {
 
 /* =========================
    요청 처리
-   - Google Sheets CSV는 캐시하지 않음
+   - Google Sheets / Apps Script는 캐시하지 않음
    - HTML 문서는 네트워크 우선
    - 그 외 정적 파일은 캐시 우선
 ========================= */
@@ -75,11 +75,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const isGoogleSheetsRequest =
+  const isGoogleDataRequest =
     requestUrl.hostname.includes("docs.google.com") ||
+    requestUrl.hostname.includes("script.google.com") ||
     requestUrl.hostname.includes("googleusercontent.com");
 
-  if (isGoogleSheetsRequest) {
+  if (isGoogleDataRequest) {
     event.respondWith(fetch(request));
     return;
   }

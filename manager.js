@@ -13,7 +13,15 @@
 const MANAGER_ACCESS_SESSION_KEY = "forzaManagerAccess";
 const MANAGER_MEMO_AUTH_SESSION_KEY = "forzaManagerMemoAuth";
 
-if (sessionStorage.getItem(MANAGER_ACCESS_SESSION_KEY) !== "ok") {
+const hasManagerAccess =
+  sessionStorage.getItem(MANAGER_ACCESS_SESSION_KEY) === "ok";
+
+const hasMemoAuth =
+  !!sessionStorage.getItem(MANAGER_MEMO_AUTH_SESSION_KEY);
+
+if (!hasManagerAccess || !hasMemoAuth) {
+  sessionStorage.removeItem(MANAGER_ACCESS_SESSION_KEY);
+  sessionStorage.removeItem(MANAGER_MEMO_AUTH_SESSION_KEY);
   window.location.replace("index.html");
 }
 
