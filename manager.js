@@ -1,33 +1,32 @@
 /* =========================
    Forza 6 Tuning Archive
    관리자 페이지 전용 스크립트
+   - list 시트 기반 관리자 룰렛
+   - Apps Script / Google Sheets 서버형 메모장
 ========================= */
+
 
 /* =========================
    관리자 페이지 직접 접근 방지
-   - index.html에서 비밀번호 통과 후 들어온 경우만 허용
 ========================= */
 
 const MANAGER_ACCESS_SESSION_KEY = "forzaManagerAccess";
+const MANAGER_MEMO_AUTH_SESSION_KEY = "forzaManagerMemoAuth";
 
 if (sessionStorage.getItem(MANAGER_ACCESS_SESSION_KEY) !== "ok") {
   window.location.replace("index.html");
 }
 
+
 /* =========================
-   list 시트 CSV 링크
-   - Google Sheets의 list 시트 데이터를 읽음
-   - gid: 1875896272
+   Google Sheets / Apps Script URL
 ========================= */
 
 const LIST_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=1875896272&single=true&output=csv";
 
-  /* =========================
-   localStorage 저장 키
-========================= */
-
-const MANAGER_MEMO_STORAGE_KEY = "forzaManagerMemos";
+const MANAGER_MEMO_API_URL =
+  "https://script.google.com/macros/s/AKfycbzqX8DvEixZQdDBEhuFZfm_fJjY66ITdeqhDLuQmCvGkCRjpGVEvP3MZdFkW5uR3X4DWg/exec";
 
 
 /* =========================
@@ -69,6 +68,8 @@ let rouletteCandidates = [];
 let currentRouletteResult = null;
 let isManagerRouletteSpinning = false;
 
+let serverMemos = [];
+
 
 /* =========================
    관리자 데이터 불러오기
@@ -97,25 +98,25 @@ async function loadManagerData() {
     setManagerStatus("불러오기 완료", `${rouletteCandidates.length}대`);
 
     if (rouletteCandidates.length === 0) {
-      managerSlotVehicle.textContent = "후보 없음";
-      managerSlotPI.textContent = "-";
-      managerSlotCategory.textContent = "-";
+      if (managerSlotVehicle) managerSlotVehicle.textContent = "후보 없음";
+      if (managerSlotPI) managerSlotPI.textContent = "-";
+      if (managerSlotCategory) managerSlotCategory.textContent = "-";
 
       if (spinManagerRoulette) {
         spinManagerRoulette.textContent = "룰렛 후보 없음";
         spinManagerRoulette.disabled = true;
       }
 
-      managerRouletteResult.classList.remove("hidden");
-      managerRouletteResult.innerHTML = `
-        <article class="manager-result-card">
-          <span class="daily-tune-result-label">NO CANDIDATE</span>
-          <h3>룰렛 후보가 없습니다.</h3>
-          <p class="summary">
-            list 시트에서 allowedPI와 category가 모두 입력된 차량만 룰렛 후보로 사용됩니다.
-          </p>
-        </article>
-      `;
+      if (managerRouletteResult) {
+        managerRouletteResult.classList.remove("hidden");
+        managerRouletteResult.innerHTML = `
+          <article class="manager-result-card">
+            <span class="daily-tune-result-label">NO CANDIDATE</span>
+            <h3>룰렛 후보 없음</h3>
+            <p class="summary">allowedPI와 category가 입력된 차량만 후보로 사용됩니다.</p>
+          </article>
+        `;
+      }
 
       return;
     }
@@ -127,29 +128,29 @@ async function loadManagerData() {
       spinManagerRoulette.disabled = false;
     }
   } catch (error) {
-    console.error(error);
+    console.error("관리자 데이터 불러오기 실패:", error);
 
     setManagerStatus("불러오기 실패", "0대");
 
-    managerSlotVehicle.textContent = "불러오기 실패";
-    managerSlotPI.textContent = "-";
-    managerSlotCategory.textContent = "-";
+    if (managerSlotVehicle) managerSlotVehicle.textContent = "불러오기 실패";
+    if (managerSlotPI) managerSlotPI.textContent = "-";
+    if (managerSlotCategory) managerSlotCategory.textContent = "-";
 
     if (spinManagerRoulette) {
       spinManagerRoulette.textContent = "불러오기 실패";
       spinManagerRoulette.disabled = true;
     }
 
-    managerRouletteResult.classList.remove("hidden");
-    managerRouletteResult.innerHTML = `
-      <article class="manager-result-card">
-        <span class="daily-tune-result-label">LOAD ERROR</span>
-        <h3>list 시트 데이터를 불러오지 못했습니다.</h3>
-        <p class="summary">
-          list 시트가 웹에 게시되어 있는지, CSV 주소의 gid가 맞는지 확인해주세요.
-        </p>
-      </article>
-    `;
+    if (managerRouletteResult) {
+      managerRouletteResult.classList.remove("hidden");
+      managerRouletteResult.innerHTML = `
+        <article class="manager-result-card">
+          <span class="daily-tune-result-label">LOAD ERROR</span>
+          <h3>list 시트 불러오기 실패</h3>
+          <p class="summary">${escapeHTML(error.message || String(error))}</p>
+        </article>
+      `;
+    }
   }
 }
 
@@ -190,7 +191,6 @@ function parseManagerVehicles(csvText) {
 
 /* =========================
    룰렛 후보 유효성
-   - allowedPI와 category 둘 다 있어야 후보로 사용
 ========================= */
 
 function isValidRouletteCandidate(vehicle) {
@@ -203,8 +203,7 @@ function isValidRouletteCandidate(vehicle) {
 
 
 /* =========================
-   쉼표 구분 다중 선택값 분리
-   예: "A 700,S1 800" → ["A 700", "S1 800"]
+   쉼표 구분값 분리
 ========================= */
 
 function splitMultiValue(value) {
@@ -295,12 +294,14 @@ function parseCSV(text) {
 function resetRouletteView() {
   currentRouletteResult = null;
 
-  managerSlotVehicle.textContent = "준비 완료";
-  managerSlotPI.textContent = "-";
-  managerSlotCategory.textContent = "-";
+  if (managerSlotVehicle) managerSlotVehicle.textContent = "준비 완료";
+  if (managerSlotPI) managerSlotPI.textContent = "-";
+  if (managerSlotCategory) managerSlotCategory.textContent = "-";
 
-  managerRouletteResult.classList.add("hidden");
-  managerRouletteResult.innerHTML = "";
+  if (managerRouletteResult) {
+    managerRouletteResult.classList.add("hidden");
+    managerRouletteResult.innerHTML = "";
+  }
 
   if (addRouletteResultToMemo) {
     addRouletteResultToMemo.disabled = true;
@@ -324,9 +325,6 @@ function pickRandomItem(list) {
 
 /* =========================
    유효한 룰렛 결과 생성
-   - 차량 먼저 선택
-   - 해당 차량의 allowedPI 중 랜덤
-   - 해당 차량의 category 중 랜덤
 ========================= */
 
 function createRouletteResult() {
@@ -361,15 +359,19 @@ function startManagerRoulette() {
   isManagerRouletteSpinning = true;
   currentRouletteResult = null;
 
-  spinManagerRoulette.disabled = true;
-  spinManagerRoulette.textContent = "돌리는 중...";
+  if (spinManagerRoulette) {
+    spinManagerRoulette.disabled = true;
+    spinManagerRoulette.textContent = "돌리는 중...";
+  }
 
   if (addRouletteResultToMemo) {
     addRouletteResultToMemo.disabled = true;
   }
 
-  managerRouletteResult.classList.add("hidden");
-  managerRouletteResult.innerHTML = "";
+  if (managerRouletteResult) {
+    managerRouletteResult.classList.add("hidden");
+    managerRouletteResult.innerHTML = "";
+  }
 
   const spinSteps = 32;
   let currentStep = 0;
@@ -389,8 +391,10 @@ function startManagerRoulette() {
       isManagerRouletteSpinning = false;
       currentRouletteResult = finalResult;
 
-      spinManagerRoulette.disabled = false;
-      spinManagerRoulette.textContent = "다시 돌리기";
+      if (spinManagerRoulette) {
+        spinManagerRoulette.disabled = false;
+        spinManagerRoulette.textContent = "다시 돌리기";
+      }
 
       if (addRouletteResultToMemo) {
         addRouletteResultToMemo.disabled = false;
@@ -417,9 +421,17 @@ function startManagerRoulette() {
 function renderRouletteSlots(result) {
   const vehicle = result.vehicle;
 
-  managerSlotVehicle.textContent = formatVehicleName(vehicle);
-  managerSlotPI.textContent = result.pi || "-";
-  managerSlotCategory.textContent = result.category || "-";
+  if (managerSlotVehicle) {
+    managerSlotVehicle.textContent = formatVehicleName(vehicle);
+  }
+
+  if (managerSlotPI) {
+    managerSlotPI.textContent = result.pi || "-";
+  }
+
+  if (managerSlotCategory) {
+    managerSlotCategory.textContent = result.category || "-";
+  }
 }
 
 
@@ -444,9 +456,7 @@ function restartManagerSlotAnimation() {
     if (!slot) return;
 
     slot.classList.remove("spinning");
-
     void slot.offsetWidth;
-
     slot.classList.add("spinning");
   });
 }
@@ -457,6 +467,8 @@ function restartManagerSlotAnimation() {
 ========================= */
 
 function renderRouletteResult(result) {
+  if (!managerRouletteResult) return;
+
   const vehicle = result.vehicle;
 
   managerRouletteResult.innerHTML = `
@@ -519,80 +531,161 @@ function addCurrentResultToMemoForm() {
     `용도: ${currentRouletteResult.category || "미입력"}\n\n` +
     `기존 메모:\n${vehicle.memo || "없음"}`;
 
-  memoTitle.value = title;
-  memoBody.value = body;
-  memoTag.value = `${currentRouletteResult.pi}, ${currentRouletteResult.category}`;
+  if (memoTitle) memoTitle.value = title;
+  if (memoBody) memoBody.value = body;
+  if (memoTag) {
+    memoTag.value = `${currentRouletteResult.pi}, ${currentRouletteResult.category}`;
+  }
 
-  memoTitle.focus();
+  if (memoTitle) memoTitle.focus();
 }
 
 
 /* =========================
-   메모 전체 불러오기
+   서버형 메모 API 인증값 가져오기
 ========================= */
 
-function getManagerMemos() {
+function getManagerMemoAuth() {
+  return sessionStorage.getItem(MANAGER_MEMO_AUTH_SESSION_KEY) || "";
+}
+
+
+/* =========================
+   Apps Script 메모 API 호출
+   - JSONP 방식
+========================= */
+
+function callManagerMemoApi(params = {}) {
+  return new Promise((resolve, reject) => {
+    const auth = getManagerMemoAuth();
+
+    if (!auth) {
+      reject(new Error("memo auth missing"));
+      return;
+    }
+
+    const callbackName = `managerMemoCallback_${Date.now()}_${Math.random()
+      .toString(36)
+      .slice(2)}`;
+
+    const query = new URLSearchParams({
+      ...params,
+      auth,
+      callback: callbackName
+    });
+
+    const script = document.createElement("script");
+    const separator = MANAGER_MEMO_API_URL.includes("?") ? "&" : "?";
+
+    window[callbackName] = (data) => {
+      delete window[callbackName];
+      script.remove();
+
+      if (!data || data.ok === false) {
+        reject(new Error((data && data.message) || "memo api error"));
+        return;
+      }
+
+      resolve(data);
+    };
+
+    script.onerror = () => {
+      delete window[callbackName];
+      script.remove();
+      reject(new Error("memo api load failed"));
+    };
+
+    script.src = `${MANAGER_MEMO_API_URL}${separator}${query.toString()}`;
+    document.body.appendChild(script);
+  });
+}
+
+window.callManagerMemoApi = callManagerMemoApi;
+
+
+/* =========================
+   서버 메모 불러오기
+========================= */
+
+async function loadServerMemos() {
+  if (memoCountText) {
+    memoCountText.textContent = "불러오는 중";
+  }
+
+  if (managerMemoList) {
+    managerMemoList.innerHTML = `
+      <div class="weekly-empty">
+        메모 불러오는 중...
+      </div>
+    `;
+  }
+
   try {
-    const savedText = localStorage.getItem(MANAGER_MEMO_STORAGE_KEY);
+    const data = await callManagerMemoApi({
+      action: "list"
+    });
 
-    if (!savedText) {
-      return [];
-    }
-
-    const memos = JSON.parse(savedText);
-
-    if (!Array.isArray(memos)) {
-      return [];
-    }
-
-    return memos;
+    serverMemos = Array.isArray(data.memos) ? data.memos : [];
+    renderServerMemos();
   } catch (error) {
-    console.error("메모 불러오기 실패:", error);
-    return [];
+    console.error("서버 메모 불러오기 실패:", error);
+
+    if (memoCountText) {
+      memoCountText.textContent = "불러오기 실패";
+    }
+
+    if (managerMemoList) {
+      managerMemoList.innerHTML = `
+        <div class="weekly-empty">
+          메모 불러오기 실패
+        </div>
+      `;
+    }
   }
 }
 
 
 /* =========================
-   메모 전체 저장
+   서버 메모 저장
 ========================= */
 
-function saveManagerMemos(memos) {
-  localStorage.setItem(MANAGER_MEMO_STORAGE_KEY, JSON.stringify(memos));
-}
-
-
-/* =========================
-   새 메모 저장
-========================= */
-
-function saveNewManagerMemo() {
-  const title = cleanValue(memoTitle.value);
-  const body = cleanValue(memoBody.value);
-  const tag = cleanValue(memoTag.value);
+async function saveServerMemo() {
+  const title = cleanValue(memoTitle && memoTitle.value);
+  const body = cleanValue(memoBody && memoBody.value);
+  const tag = cleanValue(memoTag && memoTag.value);
 
   if (!title && !body) {
     alert("제목이나 메모 내용을 입력해줘.");
+    if (memoBody) memoBody.focus();
     return;
   }
 
-  const memos = getManagerMemos();
+  if (saveManagerMemo) {
+    saveManagerMemo.disabled = true;
+    saveManagerMemo.textContent = "저장 중...";
+  }
 
-  const newMemo = {
-    id: `memo-${Date.now()}`,
-    title: title || "제목 없는 메모",
-    body,
-    tag,
-    createdAt: formatDateTime(new Date())
-  };
+  try {
+    await callManagerMemoApi({
+      action: "add",
+      title,
+      body,
+      tag,
+      source: "manager"
+    });
 
-  memos.unshift(newMemo);
-  saveManagerMemos(memos);
+    clearMemoInputs();
+    await loadServerMemos();
 
-  clearMemoInputs();
-  renderManagerMemos();
-
-  markButtonCopied(saveManagerMemo, "저장됨!");
+    markButtonCopied(saveManagerMemo, "저장됨!");
+  } catch (error) {
+    console.error("서버 메모 저장 실패:", error);
+    alert("메모 저장 실패");
+  } finally {
+    if (saveManagerMemo) {
+      saveManagerMemo.disabled = false;
+    }
+  }
 }
 
 
@@ -601,24 +694,24 @@ function saveNewManagerMemo() {
 ========================= */
 
 function clearMemoInputs() {
-  memoTitle.value = "";
-  memoBody.value = "";
-  memoTag.value = "";
+  if (memoTitle) memoTitle.value = "";
+  if (memoBody) memoBody.value = "";
+  if (memoTag) memoTag.value = "";
 }
 
 
 /* =========================
-   메모 목록 표시
+   서버 메모 목록 표시
 ========================= */
 
-function renderManagerMemos() {
-  const memos = getManagerMemos();
-
+function renderServerMemos() {
   if (memoCountText) {
-    memoCountText.textContent = `${memos.length}개 저장됨`;
+    memoCountText.textContent = `${serverMemos.length}개 저장됨`;
   }
 
-  if (memos.length === 0) {
+  if (!managerMemoList) return;
+
+  if (serverMemos.length === 0) {
     managerMemoList.innerHTML = `
       <div class="weekly-empty">
         아직 저장된 메모가 없습니다.
@@ -627,89 +720,112 @@ function renderManagerMemos() {
     return;
   }
 
-  managerMemoList.innerHTML = memos
-    .map(
-      (memo) => `
+  managerMemoList.innerHTML = serverMemos
+    .map((memo) => {
+      const title = memo.title || "제목 없는 메모";
+      const body = memo.body || "내용 없음";
+      const tag = memo.tag || "";
+      const createdAt = formatMemoDate(memo.createdAt);
+
+      return `
         <article class="manager-memo-item">
           <div class="manager-memo-item-header">
             <div>
-              <h4>${escapeHTML(memo.title || "제목 없는 메모")}</h4>
-              <p>${escapeHTML(memo.createdAt || "")}</p>
+              <h4>${escapeHTML(title)}</h4>
+              <p>${escapeHTML(createdAt)}</p>
             </div>
 
             <button
               class="daily-tune-action-button danger"
               type="button"
-              onclick="deleteManagerMemo('${escapeAttribute(memo.id)}')"
+              data-delete-server-memo="${escapeAttribute(memo.id)}"
             >
               삭제
             </button>
           </div>
 
           ${
-            memo.tag
-              ? `<p class="manager-memo-tag">${escapeHTML(memo.tag)}</p>`
+            tag
+              ? `<p class="manager-memo-tag">${escapeHTML(tag)}</p>`
               : ""
           }
 
-          <p class="summary">${escapeHTML(memo.body || "내용 없음")}</p>
+          <p class="summary">${escapeHTML(body).replaceAll("\n", "<br />")}</p>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
 
 /* =========================
-   메모 삭제
+   서버 메모 삭제
 ========================= */
 
-function deleteManagerMemo(memoId) {
+async function deleteServerMemo(memoId) {
+  if (!memoId) return;
+
   const confirmed = confirm("이 메모를 삭제할까?");
 
   if (!confirmed) return;
 
-  const memos = getManagerMemos().filter((memo) => memo.id !== memoId);
+  try {
+    await callManagerMemoApi({
+      action: "delete",
+      id: memoId
+    });
 
-  saveManagerMemos(memos);
-  renderManagerMemos();
+    await loadServerMemos();
+  } catch (error) {
+    console.error("서버 메모 삭제 실패:", error);
+    alert("메모 삭제 실패");
+  }
 }
 
 
 /* =========================
-   메모 전체 초기화
+   서버 메모 전체 삭제
 ========================= */
 
-function clearAllMemos() {
+async function clearAllServerMemos() {
   const confirmed = confirm("저장된 메모를 전부 삭제할까?");
 
   if (!confirmed) return;
 
-  saveManagerMemos([]);
-  renderManagerMemos();
+  try {
+    await callManagerMemoApi({
+      action: "clear"
+    });
+
+    await loadServerMemos();
+  } catch (error) {
+    console.error("서버 메모 전체 삭제 실패:", error);
+    alert("전체 삭제 실패");
+  }
 }
 
 
 /* =========================
-   메모 전체 복사
+   서버 메모 전체 복사
 ========================= */
 
-async function copyAllMemos() {
-  const memos = getManagerMemos();
-
-  if (memos.length === 0) {
+async function copyAllServerMemos() {
+  if (serverMemos.length === 0) {
     alert("복사할 메모가 없어.");
     return;
   }
 
-  const text = memos
-    .map(
-      (memo) =>
-        `[${memo.createdAt}]\n` +
-        `${memo.title}\n` +
-        `${memo.tag ? `태그: ${memo.tag}\n` : ""}` +
-        `${memo.body || ""}`
-    )
+  const text = serverMemos
+    .map((memo) => {
+      const lines = [];
+
+      lines.push(`[${formatMemoDate(memo.createdAt)}]`);
+      if (memo.title) lines.push(memo.title);
+      if (memo.tag) lines.push(`태그: ${memo.tag}`);
+      if (memo.body) lines.push(memo.body);
+
+      return lines.join("\n");
+    })
     .join("\n\n--------------------\n\n");
 
   try {
@@ -717,7 +833,7 @@ async function copyAllMemos() {
     markButtonCopied(copyAllManagerMemos, "복사됨!");
   } catch (error) {
     console.error("메모 복사 실패:", error);
-    alert("메모 복사에 실패했어.");
+    alert("메모 복사 실패");
   }
 }
 
@@ -726,14 +842,22 @@ async function copyAllMemos() {
    날짜/시간 표시
 ========================= */
 
-function formatDateTime(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  const hour = String(date.getHours()).padStart(2, "0");
-  const minute = String(date.getMinutes()).padStart(2, "0");
+function formatMemoDate(value) {
+  if (!value) return "";
 
-  return `${year}-${month}-${day} ${hour}:${minute}`;
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return String(value);
+  }
+
+  return date.toLocaleString("ko-KR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
 
 
@@ -744,7 +868,9 @@ function formatDateTime(date) {
 function markButtonCopied(button, copiedText) {
   if (!button) return;
 
-  const originalText = button.textContent;
+  const originalText = button.dataset.originalText || button.textContent;
+  button.dataset.originalText = originalText;
+
   button.textContent = copiedText;
   button.classList.add("copied");
 
@@ -795,7 +921,7 @@ if (addRouletteResultToMemo) {
 }
 
 if (saveManagerMemo) {
-  saveManagerMemo.addEventListener("click", saveNewManagerMemo);
+  saveManagerMemo.addEventListener("click", saveServerMemo);
 }
 
 if (clearMemoForm) {
@@ -803,11 +929,21 @@ if (clearMemoForm) {
 }
 
 if (copyAllManagerMemos) {
-  copyAllManagerMemos.addEventListener("click", copyAllMemos);
+  copyAllManagerMemos.addEventListener("click", copyAllServerMemos);
 }
 
 if (clearAllManagerMemos) {
-  clearAllManagerMemos.addEventListener("click", clearAllMemos);
+  clearAllManagerMemos.addEventListener("click", clearAllServerMemos);
+}
+
+if (managerMemoList) {
+  managerMemoList.addEventListener("click", (event) => {
+    const deleteButton = event.target.closest("[data-delete-server-memo]");
+
+    if (!deleteButton) return;
+
+    deleteServerMemo(deleteButton.dataset.deleteServerMemo);
+  });
 }
 
 
@@ -816,6 +952,4 @@ if (clearAllManagerMemos) {
 ========================= */
 
 loadManagerData();
-renderManagerMemos();
-
-const MANAGER_MEMO_API_URL = "https://script.google.com/macros/s/AKfycbzqX8DvEixZQdDBEhuFZfm_fJjY66ITdeqhDLuQmCvGkCRjpGVEvP3MZdFkW5uR3X4DWg/exec";
+loadServerMemos();
