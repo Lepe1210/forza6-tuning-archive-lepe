@@ -1,27 +1,33 @@
 /* =========================
-   PWA Service Worker
-   - 사이트 기본 파일을 캐시해서 앱처럼 빠르게 열리게 함
-   - Google Sheets CSV 데이터는 실시간 갱신을 위해 캐시하지 않음
+   Forza 6 Tuning Archive
+   Service Worker
+   - 기본 파일 캐시
+   - Google Sheets CSV는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v4";
+const CACHE_NAME = "forza-tuning-archive-v5";
 
 const STATIC_ASSETS = [
   "./",
   "./index.html",
   "./archive.html",
+  "./manager.html",
+
   "./style.css",
+
   "./script.js",
   "./archive.js",
+  "./manager.js",
+
   "./manifest.json",
+
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
 
 
 /* =========================
-   설치 단계
-   - 기본 파일들을 캐시에 저장
+   설치 시 기본 파일 캐시
 ========================= */
 
 self.addEventListener("install", (event) => {
@@ -36,8 +42,7 @@ self.addEventListener("install", (event) => {
 
 
 /* =========================
-   활성화 단계
-   - 오래된 캐시 삭제
+   이전 캐시 삭제
 ========================= */
 
 self.addEventListener("activate", (event) => {
@@ -57,21 +62,67 @@ self.addEventListener("activate", (event) => {
 
 /* =========================
    요청 처리
-   - 기본 사이트 파일은 캐시 우선
-   - Google Sheets CSV는 항상 네트워크 우선
+   - Google Sheets CSV는 캐시하지 않음
+   - HTML 문서는 네트워크 우선
+   - 그 외 정적 파일은 캐시 우선
 ========================= */
 
 self.addEventListener("fetch", (event) => {
-  const requestUrl = new URL(event.request.url);
+  const request = event.request;
+  const requestUrl = new URL(request.url);
 
-  if (requestUrl.hostname.includes("docs.google.com")) {
-    event.respondWith(fetch(event.request));
+  if (request.method !== "GET") {
+    return;
+  }
+
+  const isGoogleSheetsRequest =
+    requestUrl.hostname.includes("docs.google.com") ||
+    requestUrl.hostname.includes("googleusercontent.com");
+
+  if (isGoogleSheetsRequest) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
+  const isHtmlNavigation = request.mode === "navigate";
+
+  if (isHtmlNavigation) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const responseClone = response.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseClone);
+          });
+
+          return response;
+        })
+        .catch(() => {
+          return caches.match(request).then((cachedResponse) => {
+            return cachedResponse || caches.match("./index.html");
+          });
+        })
+    );
+
     return;
   }
 
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
+    caches.match(request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      return fetch(request).then((response) => {
+        const responseClone = response.clone();
+
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(request, responseClone);
+        });
+
+        return response;
+      });
     })
   );
 });
