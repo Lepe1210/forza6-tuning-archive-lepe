@@ -13,8 +13,7 @@
 const LIST_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=1875896272&single=true&output=csv";
 
-
-/* =========================
+  /* =========================
    localStorage 저장 키
 ========================= */
 
