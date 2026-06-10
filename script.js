@@ -1305,3 +1305,108 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+
+/* =========================
+   관리자 페이지 입장 게이트
+   - 비밀번호 원문 대신 SHA-256 해시값 비교
+   - GitHub 코드에 실제 비밀번호를 남기지 않기 위한 방식
+========================= */
+
+const MANAGER_PASSWORD_SALT = "forza6-manager-gate-v1";
+const MANAGER_PASSWORD_HASH = "d5609f2c4f2006ac4f8714120394872bb0780e4b533120dfd4e76d16b6179532";
+const MANAGER_ACCESS_SESSION_KEY = "forzaManagerAccess";
+
+const openManagerGate = document.getElementById("openManagerGate");
+const managerGateModal = document.getElementById("managerGateModal");
+const closeManagerGate = document.getElementById("closeManagerGate");
+const managerPasswordInput = document.getElementById("managerPasswordInput");
+const enterManagerGate = document.getElementById("enterManagerGate");
+const managerPasswordError = document.getElementById("managerPasswordError");
+
+async function createSHA256Hash(text) {
+  const data = new TextEncoder().encode(text);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function openManagerGateModal() {
+  if (!managerGateModal) return;
+
+  managerGateModal.classList.remove("hidden");
+
+  if (managerPasswordInput) {
+    managerPasswordInput.value = "";
+    managerPasswordInput.focus();
+  }
+
+  if (managerPasswordError) {
+    managerPasswordError.textContent = "";
+  }
+}
+
+function closeManagerGateModal() {
+  if (!managerGateModal) return;
+
+  managerGateModal.classList.add("hidden");
+}
+
+async function enterManagerPage() {
+  if (!managerPasswordInput) return;
+
+  const password = managerPasswordInput.value;
+
+  if (!password) {
+    managerPasswordError.textContent = "비밀번호를 입력해주세요.";
+    return;
+  }
+
+  try {
+    const inputHash = await createSHA256Hash(
+      `${MANAGER_PASSWORD_SALT}:${password}`
+    );
+
+    if (inputHash === MANAGER_PASSWORD_HASH) {
+      sessionStorage.setItem(MANAGER_ACCESS_SESSION_KEY, "ok");
+      window.location.href = "manager.html";
+      return;
+    }
+
+    managerPasswordError.textContent = "비밀번호가 맞지 않습니다.";
+    managerPasswordInput.value = "";
+    managerPasswordInput.focus();
+  } catch (error) {
+    console.error("관리자 비밀번호 확인 실패:", error);
+    managerPasswordError.textContent = "비밀번호 확인 중 오류가 발생했습니다.";
+  }
+}
+
+if (openManagerGate) {
+  openManagerGate.addEventListener("click", openManagerGateModal);
+}
+
+if (closeManagerGate) {
+  closeManagerGate.addEventListener("click", closeManagerGateModal);
+}
+
+if (enterManagerGate) {
+  enterManagerGate.addEventListener("click", enterManagerPage);
+}
+
+if (managerPasswordInput) {
+  managerPasswordInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      enterManagerPage();
+    }
+  });
+}
+
+if (managerGateModal) {
+  managerGateModal.addEventListener("click", (event) => {
+    if (event.target === managerGateModal) {
+      closeManagerGateModal();
+    }
+  });
+}

@@ -3,6 +3,16 @@
    관리자 페이지 전용 스크립트
 ========================= */
 
+/* =========================
+   관리자 페이지 직접 접근 방지
+   - index.html에서 비밀번호 통과 후 들어온 경우만 허용
+========================= */
+
+const MANAGER_ACCESS_SESSION_KEY = "forzaManagerAccess";
+
+if (sessionStorage.getItem(MANAGER_ACCESS_SESSION_KEY) !== "ok") {
+  window.location.replace("index.html");
+}
 
 /* =========================
    list 시트 CSV 링크
