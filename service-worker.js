@@ -5,7 +5,7 @@
    - Google Sheets CSV는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v6";
+const CACHE_NAME = "forza-tuning-archive-v7";
 
 const STATIC_ASSETS = [
   "./",
