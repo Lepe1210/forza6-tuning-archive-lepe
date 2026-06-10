@@ -1,4 +1,4 @@
-<!--마지막 수정일자: 2026.06.08/오늘의 튜닝 룰렛 버튼 및 모달 추가-->
+<!--마지막 수정일자: 2026.06.10/관리자 입장 톱니바퀴 버튼 및 비밀번호 모달 추가-->
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -309,9 +309,55 @@
   </div>
 
   <!-- =========================
+       관리자 페이지 입장 버튼
+       오른쪽 아래 작은 톱니바퀴 버튼
+  ========================== -->
+  <button
+    id="openManagerGate"
+    class="manager-gate-button"
+    type="button"
+    aria-label="관리자 페이지 열기"
+    title="관리자 페이지"
+  >
+    ⚙
+  </button>
+
+  <!-- =========================
+       관리자 페이지 비밀번호 모달
+       비밀번호가 맞으면 manager.html로 이동
+  ========================== -->
+  <div id="managerGateModal" class="modal hidden">
+    <div class="modal-content manager-gate-modal-content">
+      <button id="closeManagerGate" class="close-button" type="button">×</button>
+
+      <p class="eyebrow">MANAGER ACCESS</p>
+      <h2>관리자 페이지 입장</h2>
+      <p>
+        관리자용 룰렛과 메모장으로 이동하려면 비밀번호를 입력해주세요.
+      </p>
+
+      <div class="manager-password-row">
+        <input
+          id="managerPasswordInput"
+          class="manager-input"
+          type="password"
+          placeholder="비밀번호 입력"
+          autocomplete="current-password"
+        />
+
+        <button id="enterManagerGate" class="daily-tune-spin-button" type="button">
+          입장
+        </button>
+      </div>
+
+      <p id="managerPasswordError" class="manager-password-error"></p>
+    </div>
+  </div>
+
+  <!-- =========================
        동작 코드 연결
        구글 시트 데이터 불러오기 / 검색 / 필터 / 모달 처리는 script.js에서 담당
   ========================== -->
-  <script src="script.js"></script>
+  <script src="script.js?v=20260610-manager-gate"></script>
 </body>
 </html>
