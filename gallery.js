@@ -228,7 +228,7 @@ function renderGalleryCard(item) {
   const title = cleanValue(item.title) || "제목 없는 사진";
   const group = cleanValue(item.group) || "기타";
   const imageUrl = cleanValue(item.imageUrl);
-  const date = cleanValue(item.date);
+  const date = formatGalleryDate(item.date);
   const photographer = cleanValue(item.photographer);
 
   return `
@@ -272,7 +272,7 @@ function openGalleryModal(itemId) {
   const title = cleanValue(item.title) || "제목 없는 사진";
   const group = cleanValue(item.group) || "기타";
   const imageUrl = cleanValue(item.imageUrl);
-  const date = cleanValue(item.date);
+  const date = formatGalleryDate(item.date);
   const photographer = cleanValue(item.photographer);
 
   if (galleryModalImage) {
@@ -324,6 +324,35 @@ function closeGalleryImageModal() {
 
 function cleanValue(value) {
   return value ? String(value).trim() : "";
+}
+
+/* =========================
+   갤러리 날짜 표시 정리
+========================= */
+
+function formatGalleryDate(value) {
+  const rawValue = cleanValue(value);
+
+  if (!rawValue) {
+    return "";
+  }
+
+  // 이미 yyyy-MM-dd 형태면 그대로 사용
+  if (/^\d{4}-\d{2}-\d{2}$/.test(rawValue)) {
+    return rawValue;
+  }
+
+  const date = new Date(rawValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return rawValue;
+  }
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
 }
 
 
