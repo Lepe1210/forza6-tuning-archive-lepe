@@ -1,0 +1,132 @@
+<!--마지막 수정일자: 2026.06.20/갤러리 페이지 추가-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 기본 문서 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 브라우저 탭 제목 -->
+  <title>Gallery | Forza 6 Tuning Archive</title>
+
+  <!-- 링크 미리보기 설정 -->
+  <meta property="og:title" content="Forza 6 Tuning Archive Gallery" />
+  <meta
+    property="og:description"
+    content="모임 사진과 포르자 스크린샷을 모아두는 갤러리입니다."
+  />
+  <meta
+    property="og:image"
+    content="https://lepe1210.github.io/forza6-tuning-archive-lepe/preview.png"
+  />
+  <meta
+    property="og:url"
+    content="https://lepe1210.github.io/forza6-tuning-archive-lepe/gallery.html"
+  />
+  <meta property="og:type" content="website" />
+
+  <!-- PWA 설정 -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#101218" />
+
+  <!-- iOS 홈 화면 추가용 기본 설정 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Forza Tunes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- 디자인 파일 연결 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- =========================
+       상단 소개 영역
+  ========================== -->
+  <header class="hero gallery-hero">
+    <div>
+      <p class="eyebrow">FORZA 6 COMMUNITY GALLERY</p>
+      <h1>갤러리</h1>
+
+      <p class="hero-text">
+        모임 사진, 포토모드, 예쁜 스크린샷을 모아두는 공간입니다.
+      </p>
+
+      <div class="hero-link-row">
+        <a class="discord-link" href="index.html">
+          메인으로 돌아가기
+        </a>
+
+        <a class="discord-link notification-link" href="archive.html">
+          지난 시즌 튜닝 보기
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       메인 콘텐츠 영역
+  ========================== -->
+  <main class="container gallery-container">
+    <!-- =========================
+         갤러리 상태 및 필터
+    ========================== -->
+    <section class="gallery-toolbar">
+      <div>
+        <p class="eyebrow">GALLERY FILTER</p>
+        <h2>사진 목록</h2>
+        <p id="galleryCount" class="summary">
+          불러오는 중
+        </p>
+      </div>
+
+      <div class="gallery-filter-row">
+        <select id="galleryGroupFilter">
+          <option value="all">전체 분류</option>
+        </select>
+
+        <button id="refreshGallery" class="refresh-data-button" type="button">
+          새로고침
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+         갤러리 카드 목록
+         gallery.js가 이 안에 사진 카드를 넣음
+    ========================== -->
+    <section id="galleryGrid" class="gallery-grid">
+      <div class="weekly-empty">
+        갤러리 데이터를 불러오는 중입니다...
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       사진 크게 보기 모달
+  ========================== -->
+  <div id="galleryModal" class="modal hidden">
+    <div class="modal-content gallery-modal-content">
+      <button id="closeGalleryModal" class="close-button" type="button">×</button>
+
+      <img id="galleryModalImage" class="gallery-modal-image" src="" alt="" />
+
+      <div class="gallery-modal-info">
+        <p id="galleryModalGroup" class="eyebrow"></p>
+        <h2 id="galleryModalTitle"></h2>
+
+        <div class="gallery-modal-meta">
+          <span id="galleryModalDate"></span>
+          <span id="galleryModalPhotographer"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       동작 코드 연결
+  ========================== -->
+  <script src="gallery.js?v=20260620-gallery-1"></script>
+</body>
+</html>
