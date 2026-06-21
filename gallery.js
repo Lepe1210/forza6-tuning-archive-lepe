@@ -228,6 +228,7 @@ function renderGalleryCard(item) {
   const title = cleanValue(item.title) || "제목 없는 사진";
   const group = cleanValue(item.group) || "기타";
   const imageUrl = cleanValue(item.imageUrl);
+  const previewUrl = cleanValue(item.previewUrl) || imageUrl;
   const date = formatGalleryDate(item.date);
   const photographer = cleanValue(item.photographer);
 
@@ -239,7 +240,7 @@ function renderGalleryCard(item) {
       <div class="gallery-image-wrap">
         <img
           class="gallery-image"
-          src="${escapeAttribute(imageUrl)}"
+          src="${escapeAttribute(previewUrl)}"
           alt="${escapeAttribute(title)}"
           loading="lazy"
           onerror="this.closest('.gallery-card').classList.add('image-load-error')"
