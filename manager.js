@@ -3,6 +3,7 @@
    관리자 페이지 전용 스크립트
    - list 시트 기반 관리자 룰렛
    - Apps Script / Google Sheets 서버형 메모장
+   - 서버 메모 수정 기능 포함
 ========================= */
 
 
@@ -66,6 +67,14 @@ const clearAllManagerMemos = document.getElementById("clearAllManagerMemos");
 const managerMemoList = document.getElementById("managerMemoList");
 const memoCountText = document.getElementById("memoCountText");
 
+const MEMO_SAVE_DEFAULT_TEXT = saveManagerMemo
+  ? saveManagerMemo.textContent
+  : "메모 저장";
+
+const MEMO_CLEAR_DEFAULT_TEXT = clearMemoForm
+  ? clearMemoForm.textContent
+  : "입력 비우기";
+
 
 /* =========================
    데이터 저장용 변수
@@ -77,6 +86,7 @@ let currentRouletteResult = null;
 let isManagerRouletteSpinning = false;
 
 let serverMemos = [];
+let editingMemoId = null;
 
 
 /* =========================
@@ -528,6 +538,8 @@ function renderDetailItem(label, value) {
 function addCurrentResultToMemoForm() {
   if (!currentRouletteResult) return;
 
+  resetMemoEditMode();
+
   const vehicle = currentRouletteResult.vehicle;
   const title = `${formatVehicleName(vehicle)} / ${currentRouletteResult.pi} / ${currentRouletteResult.category}`;
 
@@ -634,6 +646,17 @@ async function loadServerMemos() {
     });
 
     serverMemos = Array.isArray(data.memos) ? data.memos : [];
+
+    if (editingMemoId) {
+      const editingMemoStillExists = serverMemos.some(
+        (memo) => String(memo.id) === String(editingMemoId)
+      );
+
+      if (!editingMemoStillExists) {
+        resetMemoEditMode();
+      }
+    }
+
     renderServerMemos();
   } catch (error) {
     console.error("서버 메모 불러오기 실패:", error);
@@ -654,7 +677,7 @@ async function loadServerMemos() {
 
 
 /* =========================
-   서버 메모 저장
+   서버 메모 저장 / 수정
 ========================= */
 
 async function saveServerMemo() {
@@ -668,14 +691,17 @@ async function saveServerMemo() {
     return;
   }
 
+  const isEditing = !!editingMemoId;
+
   if (saveManagerMemo) {
     saveManagerMemo.disabled = true;
-    saveManagerMemo.textContent = "저장 중...";
+    saveManagerMemo.textContent = isEditing ? "수정 중..." : "저장 중...";
   }
 
   try {
     await callManagerMemoApi({
-      action: "add",
+      action: isEditing ? "update" : "add",
+      id: editingMemoId || "",
       title,
       body,
       tag,
@@ -685,10 +711,10 @@ async function saveServerMemo() {
     clearMemoInputs();
     await loadServerMemos();
 
-    markButtonCopied(saveManagerMemo, "저장됨!");
+    markButtonCopied(saveManagerMemo, isEditing ? "수정됨!" : "저장됨!");
   } catch (error) {
-    console.error("서버 메모 저장 실패:", error);
-    alert("메모 저장 실패");
+    console.error("서버 메모 저장/수정 실패:", error);
+    alert(isEditing ? "메모 수정 실패" : "메모 저장 실패");
   } finally {
     if (saveManagerMemo) {
       saveManagerMemo.disabled = false;
@@ -705,6 +731,66 @@ function clearMemoInputs() {
   if (memoTitle) memoTitle.value = "";
   if (memoBody) memoBody.value = "";
   if (memoTag) memoTag.value = "";
+
+  resetMemoEditMode();
+}
+
+
+/* =========================
+   메모 수정 모드 초기화
+========================= */
+
+function resetMemoEditMode() {
+  editingMemoId = null;
+
+  if (saveManagerMemo) {
+    saveManagerMemo.textContent = MEMO_SAVE_DEFAULT_TEXT;
+    saveManagerMemo.dataset.originalText = MEMO_SAVE_DEFAULT_TEXT;
+  }
+
+  if (clearMemoForm) {
+    clearMemoForm.textContent = MEMO_CLEAR_DEFAULT_TEXT;
+  }
+}
+
+
+/* =========================
+   메모 수정 시작
+========================= */
+
+function startEditServerMemo(memoId) {
+  const memo = serverMemos.find((item) => String(item.id) === String(memoId));
+
+  if (!memo) {
+    alert("수정할 메모를 찾지 못했어.");
+    return;
+  }
+
+  editingMemoId = memo.id;
+
+  if (memoTitle) memoTitle.value = memo.title || "";
+  if (memoBody) memoBody.value = memo.body || "";
+  if (memoTag) memoTag.value = memo.tag || "";
+
+  if (saveManagerMemo) {
+    saveManagerMemo.textContent = "수정 저장";
+    saveManagerMemo.dataset.originalText = "수정 저장";
+  }
+
+  if (clearMemoForm) {
+    clearMemoForm.textContent = "수정 취소";
+  }
+
+  renderServerMemos();
+
+  if (memoTitle) {
+    memoTitle.focus();
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 
 
@@ -734,22 +820,33 @@ function renderServerMemos() {
       const body = memo.body || "내용 없음";
       const tag = memo.tag || "";
       const createdAt = formatMemoDate(memo.createdAt);
+      const isEditing = String(editingMemoId || "") === String(memo.id || "");
 
       return `
-        <article class="manager-memo-item">
+        <article class="manager-memo-item ${isEditing ? "editing" : ""}">
           <div class="manager-memo-item-header">
             <div>
               <h4>${escapeHTML(title)}</h4>
               <p>${escapeHTML(createdAt)}</p>
             </div>
 
-            <button
-              class="daily-tune-action-button danger"
-              type="button"
-              data-delete-server-memo="${escapeAttribute(memo.id)}"
-            >
-              삭제
-            </button>
+            <div class="manager-memo-action-row">
+              <button
+                class="daily-tune-action-button"
+                type="button"
+                data-edit-server-memo="${escapeAttribute(memo.id)}"
+              >
+                ${isEditing ? "수정 중" : "수정"}
+              </button>
+
+              <button
+                class="daily-tune-action-button danger"
+                type="button"
+                data-delete-server-memo="${escapeAttribute(memo.id)}"
+              >
+                삭제
+              </button>
+            </div>
           </div>
 
           ${
@@ -783,6 +880,10 @@ async function deleteServerMemo(memoId) {
       id: memoId
     });
 
+    if (String(editingMemoId || "") === String(memoId)) {
+      clearMemoInputs();
+    }
+
     await loadServerMemos();
   } catch (error) {
     console.error("서버 메모 삭제 실패:", error);
@@ -805,6 +906,7 @@ async function clearAllServerMemos() {
       action: "clear"
     });
 
+    clearMemoInputs();
     await loadServerMemos();
   } catch (error) {
     console.error("서버 메모 전체 삭제 실패:", error);
@@ -883,7 +985,7 @@ function markButtonCopied(button, copiedText) {
   button.classList.add("copied");
 
   setTimeout(() => {
-    button.textContent = originalText;
+    button.textContent = button.dataset.originalText || originalText;
     button.classList.remove("copied");
   }, 1200);
 }
@@ -946,11 +1048,18 @@ if (clearAllManagerMemos) {
 
 if (managerMemoList) {
   managerMemoList.addEventListener("click", (event) => {
+    const editButton = event.target.closest("[data-edit-server-memo]");
+
+    if (editButton) {
+      startEditServerMemo(editButton.dataset.editServerMemo);
+      return;
+    }
+
     const deleteButton = event.target.closest("[data-delete-server-memo]");
 
-    if (!deleteButton) return;
-
-    deleteServerMemo(deleteButton.dataset.deleteServerMemo);
+    if (deleteButton) {
+      deleteServerMemo(deleteButton.dataset.deleteServerMemo);
+    }
   });
 }
 

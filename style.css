@@ -2174,3 +2174,19 @@ input::placeholder {
   color: #ffffff;
   transform: translateY(-2px);
 }
+
+/* =========================
+   관리자 메모 수정 버튼
+========================= */
+
+.manager-memo-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.manager-memo-item.editing {
+  border-color: rgba(139, 122, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(139, 122, 255, 0.28);
+}
