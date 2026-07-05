@@ -3008,3 +3008,422 @@ body.modal-open {
   color: #1b1409;
   transform: translateY(-2px);
 }
+
+/* =========================================================
+   Racing Rivals 아코디언 전시관
+   한 번에 한 전시관만 펼쳐지는 구조
+========================================================= */
+
+
+/* =========================
+   접힌 전시관 목록
+========================= */
+
+.rivals-museum {
+  display: grid;
+  gap: 16px;
+}
+
+
+/* =========================
+   전시관 아코디언 외곽
+========================= */
+
+.rival-series-accordion {
+  scroll-margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 166, 96, 0.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 21, 18, 0.98),
+      rgba(9, 10, 13, 0.98)
+    );
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.rival-series-accordion:hover {
+  border-color: rgba(201, 166, 96, 0.38);
+  transform: translateY(-2px);
+}
+
+.rival-series-accordion.open {
+  border-color: rgba(220, 181, 101, 0.5);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(201, 166, 96, 0.12);
+  transform: none;
+}
+
+
+/* =========================
+   접힌 전시관 카드
+========================= */
+
+.rival-series-summary-card {
+  display: grid;
+  grid-template-columns:
+    minmax(150px, 220px)
+    minmax(0, 1fr)
+    52px;
+  gap: 22px;
+  align-items: center;
+  width: 100%;
+  padding: 18px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+
+/* =========================
+   접힌 카드 대표 이미지
+   1414 × 1000 비율 유지
+========================= */
+
+.rival-series-summary-image-wrap,
+.rival-series-summary-image-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1414 / 1000;
+  overflow: hidden;
+  border: 1px solid rgba(201, 166, 96, 0.18);
+  border-radius: 17px;
+  background: #07080a;
+}
+
+.rival-series-summary-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    transform 0.45s ease,
+    filter 0.3s ease;
+}
+
+.rival-series-summary-card:hover
+  .rival-series-summary-image {
+  transform: scale(1.035);
+  filter: brightness(1.06);
+}
+
+.rival-series-summary-image-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 6px;
+  padding: 16px;
+  color: rgba(245, 241, 232, 0.7);
+  text-align: center;
+}
+
+.rival-series-summary-image-placeholder span {
+  color: rgba(240, 213, 156, 0.56);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.rival-series-summary-image-placeholder strong {
+  font-size: 1rem;
+}
+
+
+/* =========================
+   접힌 카드 정보
+========================= */
+
+.rival-series-summary-content {
+  min-width: 0;
+}
+
+.rival-series-summary-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.rival-series-summary-number {
+  color: rgba(240, 213, 156, 0.56);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.rival-series-summary-era {
+  padding: 4px 8px;
+  border: 1px solid rgba(201, 166, 96, 0.2);
+  border-radius: 999px;
+  background: rgba(201, 166, 96, 0.07);
+  color: #e9d4a7;
+  font-size: 0.7rem;
+  font-weight: 850;
+}
+
+.rival-series-summary-content h2 {
+  margin: 0;
+  color: #f7f2e9;
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.rival-series-summary-subtitle {
+  margin: 7px 0 0;
+  color: #d4c29e;
+  font-size: 0.93rem;
+  font-weight: 750;
+}
+
+.rival-series-summary-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 11px 0 0;
+  color: rgba(245, 241, 232, 0.62);
+  font-size: 0.87rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.rival-series-summary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.rival-series-summary-meta span {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(245, 241, 232, 0.74);
+  font-size: 0.73rem;
+  font-weight: 800;
+}
+
+
+/* =========================
+   펼치기 아이콘
+========================= */
+
+.rival-series-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(201, 166, 96, 0.28);
+  border-radius: 50%;
+  background: rgba(201, 166, 96, 0.07);
+  color: #ebd29d;
+  font-size: 1.15rem;
+  font-weight: 900;
+  transition:
+    transform 0.35s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.rival-series-summary-card:hover
+  .rival-series-toggle-icon {
+  border-color: rgba(201, 166, 96, 0.55);
+  background: rgba(201, 166, 96, 0.14);
+}
+
+.rival-series-accordion.open
+  .rival-series-toggle-icon {
+  transform: rotate(180deg);
+  background: rgba(201, 166, 96, 0.18);
+}
+
+
+/* =========================
+   상세 전시 펼치기 애니메이션
+========================= */
+
+.rival-series-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  border-top: 1px solid transparent;
+  transition:
+    grid-template-rows 0.42s ease,
+    opacity 0.28s ease,
+    border-color 0.3s ease;
+}
+
+.rival-series-detail-shell {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.rival-series-accordion.open
+  .rival-series-detail {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  border-top-color: rgba(201, 166, 96, 0.14);
+}
+
+.rival-series-detail-content {
+  padding: 26px;
+}
+
+.rival-series-expanded-panel {
+  display: grid;
+  gap: 24px;
+}
+
+.rival-series-description h3 {
+  margin: 4px 0 8px;
+  color: #f7f2e9;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.rival-series-expanded-subtitle {
+  margin: 0 0 16px;
+  color: #d6c6a5;
+  font-weight: 750;
+}
+
+
+/* =========================
+   이미지 불러오기 실패
+========================= */
+
+.rival-series-summary-image-wrap.image-load-error::after {
+  content: "이미지를 불러오지 못했습니다.";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(5, 6, 8, 0.92);
+  color: #e5b1b1;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.rival-series-summary-image-wrap.image-load-error img {
+  opacity: 0;
+}
+
+
+/* =========================
+   태블릿
+========================= */
+
+@media (max-width: 900px) {
+  .rival-series-summary-card {
+    grid-template-columns:
+      minmax(130px, 190px)
+      minmax(0, 1fr)
+      46px;
+    gap: 16px;
+    padding: 15px;
+  }
+
+  .rival-series-summary-description {
+    -webkit-line-clamp: 1;
+  }
+
+  .rival-series-detail-content {
+    padding: 20px;
+  }
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 650px) {
+  .rivals-museum {
+    gap: 12px;
+  }
+
+  .rival-series-accordion {
+    border-radius: 19px;
+  }
+
+  .rival-series-summary-card {
+    grid-template-columns: 94px minmax(0, 1fr) 34px;
+    gap: 11px;
+    padding: 11px;
+  }
+
+  .rival-series-summary-image-wrap,
+  .rival-series-summary-image-placeholder {
+    border-radius: 13px;
+  }
+
+  .rival-series-summary-top {
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+
+  .rival-series-summary-number {
+    display: none;
+  }
+
+  .rival-series-summary-era {
+    padding: 3px 6px;
+    font-size: 0.63rem;
+  }
+
+  .rival-series-summary-content h2 {
+    font-size: 1.12rem;
+  }
+
+  .rival-series-summary-subtitle {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 4px;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .rival-series-summary-description {
+    display: none;
+  }
+
+  .rival-series-summary-meta {
+    gap: 5px;
+    margin-top: 7px;
+  }
+
+  .rival-series-summary-meta span {
+    padding: 4px 6px;
+    font-size: 0.63rem;
+  }
+
+  .rival-series-summary-meta span:last-child {
+    display: none;
+  }
+
+  .rival-series-toggle-icon {
+    width: 31px;
+    height: 31px;
+    font-size: 0.85rem;
+  }
+
+  .rival-series-detail-content {
+    padding: 14px 11px 17px;
+  }
+
+  .rival-series-expanded-panel {
+    gap: 16px;
+  }
+}
