@@ -1,0 +1,207 @@
+<!--마지막 수정일자: 2026.07.05/레이싱 라이벌 전시관 페이지 추가-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 기본 문서 설정 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 브라우저 탭 제목 -->
+  <title>Racing Rivals | Forza 6 Tuning Archive</title>
+
+  <!-- 링크 미리보기 설정 -->
+  <meta property="og:title" content="Forza 6 Racing Rivals" />
+  <meta
+    property="og:description"
+    content="실제 모터스포츠 라이벌 구도를 포르자 6 튜닝으로 재해석한 특별 전시관입니다."
+  />
+  <meta
+    property="og:image"
+    content="https://lepe1210.github.io/forza6-tuning-archive-lepe/preview.png"
+  />
+  <meta
+    property="og:url"
+    content="https://lepe1210.github.io/forza6-tuning-archive-lepe/rivals.html"
+  />
+  <meta property="og:type" content="website" />
+
+  <!-- 트위터/X 링크 미리보기 설정 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Forza 6 Racing Rivals" />
+  <meta
+    name="twitter:description"
+    content="DTM, ALMS, 르망 등 실제 모터스포츠의 라이벌 구도를 재현한 튜닝 컬렉션입니다."
+  />
+  <meta
+    name="twitter:image"
+    content="https://lepe1210.github.io/forza6-tuning-archive-lepe/preview.png"
+  />
+
+  <!-- PWA 설정 -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#101218" />
+
+  <!-- iOS 홈 화면 추가용 설정 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Forza Tunes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- 디자인 파일 연결 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- =========================
+       상단 전시관 소개
+  ========================== -->
+  <header class="hero rivals-hero">
+    <div class="rivals-hero-inner">
+      <p class="eyebrow">FORZA 6 MOTORSPORT EXHIBITION</p>
+
+      <h1>Racing Rivals</h1>
+
+      <p class="hero-text">
+        실제 모터스포츠 무대에서 맞붙었던 라이벌들을
+        포르자 6 튜닝으로 재해석한 특별 전시관입니다.
+      </p>
+
+      <div class="hero-link-row">
+        <a class="discord-link" href="index.html">
+          메인으로 돌아가기
+        </a>
+
+        <a class="discord-link gallery-link" href="gallery.html">
+          갤러리 보기
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       메인 콘텐츠
+  ========================== -->
+  <main class="container rivals-container">
+    <!-- =========================
+         전시관 안내 및 상태
+    ========================== -->
+    <section class="rivals-overview">
+      <div>
+        <p class="eyebrow">CURATED COLLECTION</p>
+        <h2>모터스포츠 라이벌 컬렉션</h2>
+
+        <p class="summary">
+          시대와 경기장을 대표했던 라이벌 차량의 특징을 살려
+          게임 안에서 다시 제작한 전시형 튜닝 컬렉션입니다.
+        </p>
+      </div>
+
+      <div class="rivals-overview-actions">
+        <div class="rivals-count-card">
+          <span class="detail-label">전시관</span>
+          <strong id="rivalSeriesCount">0개</strong>
+        </div>
+
+        <div class="rivals-count-card">
+          <span class="detail-label">전시 차량</span>
+          <strong id="rivalEntryCount">0대</strong>
+        </div>
+
+        <button
+          id="refreshRivals"
+          class="refresh-data-button"
+          type="button"
+        >
+          새로고침
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+         전시관 빠른 이동 메뉴
+         rivals.js에서 버튼을 생성함
+    ========================== -->
+    <nav
+      id="rivalSeriesNav"
+      class="rival-series-nav"
+      aria-label="라이벌 전시관 목록"
+    ></nav>
+
+    <!-- =========================
+         데이터 상태 문구
+    ========================== -->
+    <section class="stats rivals-status-row">
+      <span id="rivalsStatus">
+        전시관 데이터를 불러오는 중입니다.
+      </span>
+    </section>
+
+    <!-- =========================
+         실제 전시관 출력 영역
+         rivals.js가 시리즈별 전시관을 생성함
+    ========================== -->
+    <section id="rivalsMuseum" class="rivals-museum">
+      <div class="weekly-empty">
+        라이벌 전시관을 준비하고 있습니다...
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       전시 이미지 크게 보기 모달
+  ========================== -->
+  <div id="rivalImageModal" class="modal hidden">
+    <div class="modal-content rival-image-modal-content">
+      <button
+        id="closeRivalImageModal"
+        class="close-button"
+        type="button"
+        aria-label="이미지 닫기"
+      >
+        ×
+      </button>
+
+      <img
+        id="rivalModalImage"
+        class="rival-modal-image"
+        src=""
+        alt=""
+      />
+
+      <div class="rival-modal-info">
+        <p id="rivalModalEra" class="eyebrow"></p>
+        <h2 id="rivalModalTitle"></h2>
+        <p id="rivalModalText" class="summary"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       차량 상세 정보 모달
+       공유 코드와 기존 cars 데이터를 표시함
+  ========================== -->
+  <div id="rivalCarModal" class="modal hidden">
+    <div class="modal-content rival-car-modal-content">
+      <button
+        id="closeRivalCarModal"
+        class="close-button"
+        type="button"
+        aria-label="차량 상세 닫기"
+      >
+        ×
+      </button>
+
+      <div id="rivalCarModalBody"></div>
+    </div>
+  </div>
+
+  <!-- =========================
+       동작 코드 연결
+  ========================== -->
+  <script src="rivals.js?v=20260705-rivals-1"></script>
+</body>
+</html>

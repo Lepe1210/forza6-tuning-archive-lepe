@@ -2190,3 +2190,821 @@ input::placeholder {
   border-color: rgba(139, 122, 255, 0.55);
   box-shadow: 0 0 0 1px rgba(139, 122, 255, 0.28);
 }
+
+/* =========================================================
+   Racing Rivals
+   모터스포츠 박물관형 전시 페이지
+========================================================= */
+
+
+/* =========================
+   페이지 전체 분위기
+========================= */
+
+.rivals-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 9, 12, 0.98),
+      rgba(20, 18, 15, 0.96)
+    );
+  border-bottom: 1px solid rgba(201, 166, 96, 0.24);
+}
+
+.rivals-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(201, 166, 96, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.018),
+      transparent
+    );
+}
+
+.rivals-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.rivals-hero h1 {
+  letter-spacing: -0.04em;
+}
+
+.rivals-container {
+  display: grid;
+  gap: 28px;
+}
+
+
+/* =========================
+   상단 전시관 개요
+========================= */
+
+.rivals-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 28px;
+  border: 1px solid rgba(201, 166, 96, 0.18);
+  border-radius: 26px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.018)
+    );
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.rivals-overview h2 {
+  margin: 6px 0 10px;
+}
+
+.rivals-overview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.rivals-count-card {
+  min-width: 110px;
+  padding: 12px 16px;
+  border: 1px solid rgba(201, 166, 96, 0.2);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.rivals-count-card strong {
+  display: block;
+  margin-top: 4px;
+  color: #f0d59c;
+  font-size: 1.2rem;
+}
+
+
+/* =========================
+   전시관 빠른 이동
+========================= */
+
+.rival-series-nav {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+  scrollbar-width: thin;
+}
+
+.rival-series-nav-button {
+  flex: 0 0 auto;
+  min-width: 150px;
+  padding: 12px 16px;
+  border: 1px solid rgba(201, 166, 96, 0.2);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #f5f1e8;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.rival-series-nav-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 166, 96, 0.55);
+  background: rgba(201, 166, 96, 0.1);
+}
+
+.rival-series-nav-button span {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(240, 213, 156, 0.7);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.rival-series-nav-button strong {
+  font-size: 0.94rem;
+}
+
+.rivals-status-row {
+  border-color: rgba(201, 166, 96, 0.14);
+}
+
+
+/* =========================
+   전시관 전체
+========================= */
+
+.rivals-museum {
+  display: grid;
+  gap: 48px;
+}
+
+.rival-series-section {
+  position: relative;
+  scroll-margin-top: 24px;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid rgba(201, 166, 96, 0.18);
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      155deg,
+      rgba(20, 19, 17, 0.98),
+      rgba(10, 11, 14, 0.98)
+    );
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+}
+
+.rival-series-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(240, 213, 156, 0.7),
+      transparent
+    );
+}
+
+.rival-series-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.rival-exhibition-number {
+  flex: 0 0 auto;
+  padding-top: 7px;
+  color: rgba(240, 213, 156, 0.54);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  writing-mode: vertical-rl;
+}
+
+.rival-series-heading-text h2 {
+  margin: 2px 0 8px;
+  color: #f7f2e9;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.rival-series-subtitle {
+  margin: 0;
+  color: #d6c6a5;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+
+/* =========================
+   전시관 대표 이미지 영역
+   1414 × 1000 비율 고정
+========================= */
+
+.rival-series-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.42fr) minmax(280px, 0.58fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.rival-series-image-button,
+.rival-series-image-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1414 / 1000;
+  overflow: hidden;
+  border: 1px solid rgba(201, 166, 96, 0.22);
+  border-radius: 24px;
+  background: #090a0c;
+}
+
+.rival-series-image-button {
+  display: block;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.rival-series-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    transform 0.5s ease,
+    filter 0.3s ease;
+}
+
+.rival-series-image-button:hover .rival-series-image {
+  transform: scale(1.025);
+  filter: brightness(1.04);
+}
+
+.rival-series-image-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  padding: 24px;
+  color: rgba(245, 241, 232, 0.72);
+  text-align: center;
+}
+
+.rival-series-image-placeholder span {
+  color: rgba(240, 213, 156, 0.55);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.rival-series-image-placeholder strong {
+  font-size: 1.3rem;
+}
+
+.rival-image-open-label {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(5, 6, 8, 0.72);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.76rem;
+  font-weight: 800;
+  backdrop-filter: blur(10px);
+}
+
+.rival-series-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 26px;
+  border: 1px solid rgba(201, 166, 96, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(201, 166, 96, 0.07),
+      rgba(255, 255, 255, 0.018)
+    );
+}
+
+.rival-series-description > p {
+  margin: 0;
+  color: rgba(245, 241, 232, 0.78);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.rival-series-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rival-series-stats span {
+  padding: 7px 11px;
+  border: 1px solid rgba(201, 166, 96, 0.2);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  color: #e9d5aa;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+
+/* =========================
+   전시 차량 카드
+========================= */
+
+.rival-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 26px;
+}
+
+.rival-entry-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201, 166, 96, 0.15);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.018)
+    );
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.rival-entry-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(201, 166, 96, 0.36);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.25);
+}
+
+.rival-entry-number {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  left: 14px;
+  min-width: 42px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: rgba(6, 7, 9, 0.76);
+  color: #ecd49f;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.rival-entry-image-button,
+.rival-entry-image-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid rgba(201, 166, 96, 0.13);
+  background: #08090b;
+}
+
+.rival-entry-image-button {
+  display: block;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.rival-entry-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    transform 0.42s ease,
+    filter 0.3s ease;
+}
+
+.rival-entry-image-button:hover .rival-entry-image {
+  transform: scale(1.035);
+  filter: brightness(1.05);
+}
+
+.rival-entry-image-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  padding: 24px;
+  color: rgba(245, 241, 232, 0.72);
+  text-align: center;
+}
+
+.rival-entry-image-placeholder span {
+  color: rgba(240, 213, 156, 0.5);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.rival-entry-body {
+  padding: 22px;
+}
+
+.rival-entry-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.rival-entry-title-row h3 {
+  margin: 3px 0 0;
+  color: #f7f2e9;
+  font-size: 1.22rem;
+}
+
+.rival-entry-pi {
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border: 1px solid rgba(201, 166, 96, 0.3);
+  border-radius: 999px;
+  background: rgba(201, 166, 96, 0.09);
+  color: #f0d59c;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.rival-entry-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.rival-entry-role {
+  display: grid;
+  gap: 4px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 3px solid rgba(201, 166, 96, 0.76);
+  background: rgba(201, 166, 96, 0.055);
+}
+
+.rival-entry-role strong {
+  color: #ead8b1;
+}
+
+.rival-entry-description {
+  margin: 18px 0 0;
+  color: rgba(245, 241, 232, 0.74);
+  line-height: 1.72;
+}
+
+.rival-entry-share-code {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.rival-entry-share-code strong {
+  color: #f0d59c;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.rival-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.rival-entry-actions .daily-tune-action-button.primary {
+  border-color: rgba(201, 166, 96, 0.44);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(171, 128, 55, 0.95),
+      rgba(205, 169, 94, 0.9)
+    );
+  color: #15110a;
+}
+
+.rival-entry-actions .daily-tune-action-button.primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(191, 147, 67, 1),
+      rgba(229, 194, 119, 1)
+    );
+}
+
+
+/* =========================
+   이미지 로딩 실패
+========================= */
+
+.rival-series-image-button.image-load-error::after,
+.rival-entry-image-button.image-load-error::after {
+  content: "이미지를 불러오지 못했습니다.";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 6, 8, 0.88);
+  color: #e9b4b4;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.rival-series-image-button.image-load-error img,
+.rival-entry-image-button.image-load-error img {
+  opacity: 0;
+}
+
+
+/* =========================
+   이미지 원본 모달
+========================= */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.rival-image-modal-content {
+  width: min(1180px, calc(100vw - 28px));
+  max-width: 1180px;
+  padding: 18px;
+  border-color: rgba(201, 166, 96, 0.22);
+  background: rgba(10, 11, 14, 0.98);
+}
+
+.rival-modal-image {
+  display: block;
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #050608;
+}
+
+.rival-modal-info {
+  padding: 18px 5px 4px;
+}
+
+.rival-modal-info h2 {
+  margin: 5px 0 8px;
+}
+
+
+/* =========================
+   차량 상세 모달
+========================= */
+
+.rival-car-modal-content {
+  width: min(920px, calc(100vw - 28px));
+  max-width: 920px;
+  border-color: rgba(201, 166, 96, 0.22);
+  background:
+    linear-gradient(
+      155deg,
+      rgba(20, 19, 17, 0.99),
+      rgba(8, 9, 12, 0.99)
+    );
+}
+
+.rival-car-modal-heading {
+  padding-right: 38px;
+}
+
+.rival-car-modal-heading h2 {
+  margin: 4px 0 12px;
+}
+
+.rival-car-modal-role {
+  display: inline-flex;
+  margin: 3px 0 12px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(201, 166, 96, 0.1);
+  color: #e8d2a4;
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+
+/* =========================
+   태블릿
+========================= */
+
+@media (max-width: 980px) {
+  .rivals-overview {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .rivals-overview-actions {
+    justify-content: flex-start;
+  }
+
+  .rival-series-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .rival-series-description {
+    min-height: auto;
+  }
+
+  .rival-entry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 720px) {
+  .rivals-container {
+    gap: 20px;
+  }
+
+  .rivals-overview {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .rivals-overview-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rivals-overview-actions .refresh-data-button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .rivals-count-card {
+    min-width: 0;
+  }
+
+  .rival-series-section {
+    padding: 20px 14px;
+    border-radius: 22px;
+  }
+
+  .rival-series-section::before {
+    left: 14px;
+    right: 14px;
+  }
+
+  .rival-series-heading {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .rival-exhibition-number {
+    display: none;
+  }
+
+  .rival-series-heading-text h2 {
+    font-size: clamp(2rem, 12vw, 3.2rem);
+  }
+
+  .rival-series-subtitle {
+    font-size: 0.94rem;
+  }
+
+  .rival-series-hero {
+    gap: 14px;
+  }
+
+  .rival-series-image-button,
+  .rival-series-image-placeholder {
+    border-radius: 18px;
+  }
+
+  .rival-series-description {
+    padding: 19px;
+    border-radius: 18px;
+  }
+
+  .rival-entry-grid {
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .rival-entry-card {
+    border-radius: 20px;
+  }
+
+  .rival-entry-body {
+    padding: 18px;
+  }
+
+  .rival-entry-title-row {
+    gap: 10px;
+  }
+
+  .rival-entry-title-row h3 {
+    font-size: 1.08rem;
+  }
+
+  .rival-entry-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .rival-entry-actions button {
+    width: 100%;
+  }
+
+  .rival-image-open-label {
+    right: 10px;
+    bottom: 10px;
+    padding: 7px 10px;
+    font-size: 0.7rem;
+  }
+
+  .rival-image-modal-content,
+  .rival-car-modal-content {
+    width: calc(100vw - 18px);
+    padding: 12px;
+  }
+
+  .rival-modal-image {
+    max-height: 68vh;
+  }
+}
+
+/* =========================
+   메인 Racing Rivals 전시관 버튼
+========================= */
+
+.rivals-link {
+  border-color: rgba(214, 174, 92, 0.62);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(119, 80, 28, 0.98),
+      rgba(211, 166, 78, 0.94)
+    );
+  color: #fff8e8;
+  box-shadow: 0 12px 30px rgba(185, 133, 48, 0.26);
+}
+
+.rivals-link:hover {
+  border-color: rgba(255, 235, 189, 0.72);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(151, 103, 35, 1),
+      rgba(235, 190, 96, 1)
+    );
+  color: #1b1409;
+  transform: translateY(-2px);
+}
