@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
   schedule:
-    # 매시간 17분에 실행
-    - cron: "17 * * * *"
+    # 매시간 2, 17, 32, 47분에 실행
+    - cron: "2,17,32,47 * * * *"
 
 permissions:
   contents: write
