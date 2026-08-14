@@ -33,7 +33,6 @@ META_PATH = DATA_DIR / "archive-meta.json"
 # 현재 script.js의 parseCars()가 실제로 사용하는 필드명.
 # 임의로 이름을 바꾸지 않는다.
 CAR_FIELDS = [
-    "eventTitle",
     "id",
     "manufacturer",
     "carName",
