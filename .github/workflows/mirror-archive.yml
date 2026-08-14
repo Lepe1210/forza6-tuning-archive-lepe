@@ -1,0 +1,53 @@
+name: Mirror Forza Archive Data
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # 매시간 17분에 실행
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Mirror Google Sheets archive
+        run: python scripts/mirror_archive.py
+
+      - name: Check for data changes
+        id: changes
+        run: |
+          if [ -z "$(git status --porcelain -- data/)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          
+      - name: Commit updated archive data
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/cars.csv
+          git add data/cars.json
+          git add data/archive-meta.json
+
+          git commit -m "Update mirrored archive data"
+          git push
+
+      - name: No changes
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "Archive data is already up to date."
