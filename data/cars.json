@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "exocet18-a700",
+    "manufacturer": "Exomotive",
+    "carName": "Exocet Sport V8 XP-5 2018",
+    "className": "A 700",
+    "carType": "트랙 토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "대체 이걸 왜 다운그레이드를 여기까지 끌어내려서 타는 인간이 있는지 모르겠지만 그게 나야 / 근데 생각보다 괜찮은데? 엔진이 좋아서 그런가 싶기도 하고",
+    "power": "233hp",
+    "weight": "628kg",
+    "lateralG": "2.3G",
+    "shareCode": "111810378",
+    "summary": "아니 엔진 바꿨는데 비주얼이 안 바뀌어서 차에서 나면 안될 소리가 남 ㅋㅋㅋㅋㅋ",
+    "tuneNotes": "VVT엔진 / 세미슬릭 / 놀랍게도 기계식 그립으로만 버티는데 그냥 고카트임",
+    "updatedAt": "2026-08-15",
+    "testTrackBTime": "1:28.031",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "carreragt03-S1800-1",
     "manufacturer": "Porsche",
     "carName": "Carrera GT 2003",
