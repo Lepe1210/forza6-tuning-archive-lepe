@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "rzr21-a700",
+    "manufacturer": "RJ Anderson",
+    "carName": "#37 Polaris RZR Pro 4 Truck 2021",
+    "className": "A 700",
+    "carType": "언리미티드 오프로드",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "대체 진짜 경기용 트럭들은 내가 튜닝한 거랑 뭐가 다르지 싶어 궁금증에서 출발한 거",
+    "power": "878hp",
+    "weight": "1744kg",
+    "lateralG": "1.5G",
+    "shareCode": "346698824",
+    "summary": "에어로가 없는데도 이 정도 성능을 낸다고? 소리가 나오면서도 에어로가 포르자에서 얼마나 많은 역할을 하는지 시사점을 동시에 주는 차량인데 근데 타임어택 기록은 거짓말을 못함",
+    "tuneNotes": "그냥 기본 차에 경량화만 하고 엔진 출력 약간만 올렸는데도 이 PI에 이 정도 성능을?",
+    "updatedAt": "2026-08-16",
+    "testTrackBTime": "",
+    "testTrackCTime": "0:56.150"
+  },
+  {
+    "eventTitle": "",
     "id": "exocet18-a700",
     "manufacturer": "Exomotive",
     "carName": "Exocet Sport V8 XP-5 2018",
