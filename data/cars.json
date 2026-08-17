@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "sagaris05",
+    "manufacturer": "TVR",
+    "carName": "Sagaris 2005",
+    "className": "A 700",
+    "carType": "레트로 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "아니 이런 엔진도 들어가나 싶어서 일단 제조하고 봄",
+    "power": "800hp",
+    "weight": "1195kg",
+    "lateralG": "1.7G",
+    "shareCode": "697767056",
+    "summary": "엔진 하나를 위해 모든 걸 희생한 차",
+    "tuneNotes": "7700cc V12 때려넣기 위해 모든 걸 희생함",
+    "updatedAt": "2026-08-17",
+    "testTrackBTime": "1:31.606",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "rzr21-a700",
     "manufacturer": "RJ Anderson",
     "carName": "#37 Polaris RZR Pro 4 Truck 2021",
