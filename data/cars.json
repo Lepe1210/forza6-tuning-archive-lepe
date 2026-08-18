@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "continental62-c500",
+    "manufacturer": "Lincoln",
+    "carName": "Continental 1962",
+    "className": "C 500",
+    "carType": "로드 및 커스텀",
+    "drive": "RWD",
+    "category": "혼합",
+    "concept": "뭔가 평범한 걸 거부하고 싶어서 만진 게 후륜 오프로드 대형세단이라는 기괴한 조합으로 재탄생",
+    "power": "379hp",
+    "weight": "1665kg",
+    "lateralG": "1.5G",
+    "shareCode": "179296450",
+    "summary": "7000rpm까지 올릴 수 있는데 5000rpm이 레드라인 / 레드라인에서 변속하는 게 더 빠릅니다",
+    "tuneNotes": "오프로드 타이어 / 후륜 유지 / 랠리 세팅",
+    "updatedAt": "2026-08-18",
+    "testTrackBTime": "",
+    "testTrackCTime": "1:06.402"
+  },
+  {
+    "eventTitle": "",
     "id": "sagaris05",
     "manufacturer": "TVR",
     "carName": "Sagaris 2005",
