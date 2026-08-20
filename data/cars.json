@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "fd3s-A700-3",
+    "manufacturer": "Mazda",
+    "carName": "RX-7 Type R 1992",
+    "className": "A 700",
+    "carType": "레트로 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "원래 레이싱은 목숨걸고 하는 스포츠임/ 타다 죽어도 내 책임 아님 ㅇㅇ",
+    "power": "718hp",
+    "weight": "1121kg",
+    "lateralG": "1.6G",
+    "shareCode": "605535398",
+    "summary": "다시 돌아온 4로터 RX-7/ 조금 더 순한 버전 코너링은 이쪽이 좋음",
+    "tuneNotes": "경량화/ 스트리트 타이어/ 포르자 에어로/ 2.6L 4rotor",
+    "updatedAt": "2026-08-21",
+    "testTrackBTime": "1:30.700",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "griffith18-a700",
     "manufacturer": "TVR",
     "carName": "Griffith 2018",
