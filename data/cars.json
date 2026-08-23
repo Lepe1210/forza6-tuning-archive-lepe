@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "utdsedan55-c500",
+    "manufacturer": "Chevrolet",
+    "carName": "150 Utility Sedan 1955",
+    "className": "C 500",
+    "carType": "로드 및 커스텀",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "UAZ 차이카를 컨셉으로 두고 사이즈만 빼면 어지간하면 고증임",
+    "power": "193hp",
+    "weight": "1210kg",
+    "lateralG": "1.5G",
+    "shareCode": "205699848",
+    "summary": "미국산 탈을 썼지만 감성은 소련산(?)이에요 / 네 뭐라고요?",
+    "tuneNotes": "보어업 / 3단기어 / 세미슬릭",
+    "updatedAt": "2026-08-23",
+    "testTrackBTime": "1:51.496",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "fd3s-A700-3",
     "manufacturer": "Mazda",
     "carName": "RX-7 Type R 1992",
