@@ -21,6 +21,26 @@
   },
   {
     "eventTitle": "",
+    "id": "brz22-A700",
+    "manufacturer": "Subaru",
+    "carName": "BRZ 2022",
+    "className": "A 700",
+    "carType": "모던 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "언더스티어 성향이 강함/ 그래서 잘 안미끄러지긴 함",
+    "power": "408hp",
+    "weight": "1068kg",
+    "lateralG": "1.8G",
+    "shareCode": "426758378",
+    "summary": "빗길에서도 잘 달릴정도로 그저 안정적임/ 후륜구동 처음 타보는 사람이면 이걸로 적당히 연습하기 좋을지도",
+    "tuneNotes": "경량화/ 스포츠타이어/ 스바루 에어로",
+    "updatedAt": "2026-08-24",
+    "testTrackBTime": "1:31.909",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "utdsedan55-c500",
     "manufacturer": "Chevrolet",
     "carName": "150 Utility Sedan 1955",
@@ -5357,26 +5377,6 @@
     "tuneNotes": "랠리 스프링에 세미슬릭",
     "updatedAt": "2026-05-15",
     "testTrackBTime": "",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "brz22-A700",
-    "manufacturer": "Subaru",
-    "carName": "BRZ 2022",
-    "className": "A 700",
-    "carType": "모던 스포츠카",
-    "drive": "RWD",
-    "category": "온로드",
-    "concept": "",
-    "power": "",
-    "weight": "",
-    "lateralG": "",
-    "shareCode": "",
-    "summary": "",
-    "tuneNotes": "",
-    "updatedAt": "2026-08-24",
-    "testTrackBTime": "1:31.909",
     "testTrackCTime": ""
   }
 ]
