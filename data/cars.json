@@ -5358,5 +5358,25 @@
     "updatedAt": "2026-05-15",
     "testTrackBTime": "",
     "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
+    "id": "brz22-A700",
+    "manufacturer": "Subaru",
+    "carName": "BRZ 2022",
+    "className": "A 700",
+    "carType": "모던 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "",
+    "power": "",
+    "weight": "",
+    "lateralG": "",
+    "shareCode": "",
+    "summary": "",
+    "tuneNotes": "",
+    "updatedAt": "2026-08-24",
+    "testTrackBTime": "1:31.909",
+    "testTrackCTime": ""
   }
 ]
