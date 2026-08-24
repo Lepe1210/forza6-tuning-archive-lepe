@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "tacoma19-b600",
+    "manufacturer": "Toyota",
+    "carName": "Tacoma TRD Pro 2019",
+    "className": "B 600",
+    "carType": "픽업 및 4*4",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "창 넘기다가 파란 차가 보여서 출발했는데 이건 괜히 만졌나 싶기도 하고 내가 잘못 만진건가 싶기도 하고",
+    "power": "416hp",
+    "weight": "1559kg",
+    "lateralG": "1.5G",
+    "shareCode": "294281119",
+    "summary": "TRD답게 하체 세팅을 잘 해놓긴 했는데 그냥 타코마 자체가 영 안 좋은 거 같기도 하고 TRD가 너무 세팅을 잘 해서 날것의 맛이 없는 거 같기도 하고",
+    "tuneNotes": "오프로드 타이어 / 외부파츠 부착 안 함/실험적 LSD 세팅/후륜 중심",
+    "updatedAt": "2026-08-24",
+    "testTrackBTime": "",
+    "testTrackCTime": "1:01.416"
+  },
+  {
+    "eventTitle": "",
     "id": "utdsedan55-c500",
     "manufacturer": "Chevrolet",
     "carName": "150 Utility Sedan 1955",
