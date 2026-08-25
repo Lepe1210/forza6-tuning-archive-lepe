@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "class1buggy21-b600",
+    "manufacturer": "Alumicraft",
+    "carName": "#122 Class 1 buggy 2021",
+    "className": "B 600",
+    "carType": "언리미티드 버기",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "사막 버기래서 한번 만져봤는데 생각보다 재밌음",
+    "power": "521hp",
+    "weight": "1769kg",
+    "lateralG": "1.5G",
+    "shareCode": "611143497",
+    "summary": "후륜에 사연이 있길래 최대한 해보려 했는데 사연이 밥먹여 주는 거 아님 / 그 와중에 경량보다 고중량 출력으로 미는 게 오프로드에선 더 나은 듯",
+    "tuneNotes": "4륜스왑/겁나 큰 엔진/생각보다 큰 차체/사막버기 같은 승차감",
+    "updatedAt": "2026-08-25",
+    "testTrackBTime": "",
+    "testTrackCTime": "1:00.973"
+  },
+  {
+    "eventTitle": "",
     "id": "tacoma19-b600",
     "manufacturer": "Toyota",
     "carName": "Tacoma TRD Pro 2019",
