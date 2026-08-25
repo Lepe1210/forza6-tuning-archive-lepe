@@ -147,11 +147,13 @@ def parse_and_validate_csv(
             row.get("notes")
         )
 
+        # courseName 필수
         if not course_name:
             raise RuntimeError(
                 f"{line_number}행: courseName이 비어 있습니다."
             )
 
+        # courseName 중복 검사
         normalized_name = course_name.casefold()
 
         if normalized_name in seen_names:
@@ -161,25 +163,42 @@ def parse_and_validate_csv(
 
         seen_names.add(normalized_name)
 
+        # routeType 검사
         if route_type not in VALID_ROUTE_TYPES:
             raise RuntimeError(
                 f"{line_number}행: 잘못된 routeType입니다: "
                 f"{route_type or '(빈 값)'}"
             )
 
-        try:
-            course_bias = int(bias_text)
-        except ValueError as exc:
-            raise RuntimeError(
-                f"{line_number}행: courseBias가 정수가 아닙니다: "
-                f"{bias_text or '(빈 값)'}"
-            ) from exc
+        # ====================================================
+        # courseBias 검사
+        #
+        # Cross Country:
+        # - 빈칸 허용
+        # - JSON에서는 null
+        #
+        # Road / Dirt / Street:
+        # - 1~5 정수 필수
+        # ====================================================
 
-        if not 1 <= course_bias <= 5:
-            raise RuntimeError(
-                f"{line_number}행: courseBias는 1~5여야 합니다: "
-                f"{course_bias}"
-            )
+        if route_type == "Cross Country" and not bias_text:
+            course_bias = None
+
+        else:
+            try:
+                course_bias = int(bias_text)
+
+            except ValueError as exc:
+                raise RuntimeError(
+                    f"{line_number}행: courseBias가 정수가 아닙니다: "
+                    f"{bias_text or '(빈 값)'}"
+                ) from exc
+
+            if not 1 <= course_bias <= 5:
+                raise RuntimeError(
+                    f"{line_number}행: courseBias는 1~5여야 합니다: "
+                    f"{course_bias}"
+                )
 
         courses.append(
             {
@@ -244,6 +263,7 @@ def atomic_write_bytes(
     try:
         temp_path.write_bytes(data)
         os.replace(temp_path, path)
+
     finally:
         if temp_path.exists():
             temp_path.unlink()
@@ -280,7 +300,8 @@ def main() -> int:
         csv_text
     )
 
-    # 원본 CSV가 이전과 동일하면 JSON/meta도 수정하지 않음
+    # 원본 CSV가 이전과 동일하면
+    # JSON/meta도 수정하지 않는다.
     if existing_file_matches(
         CSV_PATH,
         normalized_csv,
