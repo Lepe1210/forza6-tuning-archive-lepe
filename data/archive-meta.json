@@ -1,8 +1,8 @@
 {
   "source": "Forza 6 Tuning Archive cars",
-  "updatedAt": "2026-08-14T13:34:29.156652Z",
-  "rowCount": 255,
-  "sha256": "3f98372798bfbb6cdd75e44294bed7241f4279ba244f742e69d62f5d724cfe1d",
+  "updatedAt": "2026-08-24T13:36:54.099030Z",
+  "rowCount": 269,
+  "sha256": "d1f9ae5a02df05005cfe7293a4109bb85db72cb15c55148572e0462985dd21f6",
   "files": {
     "csv": "cars.csv",
     "json": "cars.json"
