@@ -1,0 +1,10 @@
+{
+  "source": "Forza 6 Course Master",
+  "updatedAt": "2026-08-25T09:07:35.877175Z",
+  "rowCount": 77,
+  "sha256": "69922d67e5fdec407ced0bee9d4d44c5687d203a3bca405f55374dcb00d29ac1",
+  "files": {
+    "csv": "courses.csv",
+    "json": "courses.json"
+  }
+}
