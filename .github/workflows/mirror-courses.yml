@@ -1,0 +1,56 @@
+name: Mirror Forza Course Data
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # 매일 한국시간 03:37 (UTC 18:37)
+    - cron: "37 18 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Mirror Google Sheets courses
+        run: python scripts/mirror_courses.py
+
+      - name: Check for course data changes
+        id: changes
+        run: |
+          if [ -z "$(git status --porcelain -- data/courses.csv data/courses.json data/courses-meta.json)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit updated course data
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/courses.csv
+          git add data/courses.json
+          git add data/courses-meta.json
+
+          git commit -m "Update mirrored course data"
+
+          # cars 미러가 그 사이 원격에 커밋했을 경우 안전하게 통합
+          git pull --rebase origin main
+          git push
+
+      - name: No changes
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "Course data is already up to date."
