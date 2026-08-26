@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "4c14-a700",
+    "manufacturer": "Alfa Romeo",
+    "carName": "4C 2014",
+    "className": "A 700",
+    "carType": "모던 스포츠카",
+    "drive": "RWD",
+    "category": "페스티벌 시즌 숙제",
+    "concept": "전에 차는 진짜 타기 쉬운 건 맞았는데 끔찍하게 느려서 밸런스를 살리기 위해 노력해서 전체적으로 빨라짐",
+    "power": "350hp",
+    "weight": "776kg",
+    "lateralG": "1.9G",
+    "shareCode": "123540764",
+    "summary": "리메이크 / 이전에 만든 게 MR인줄 모르고 FR처럼 튜닝해버려서 내 과거의 실수를 만회하기 위해 새로 제작함",
+    "tuneNotes": "오프로드 타이어에 실키식스 엔진 그리고 에어로와 제대로 된 하체 세팅까지",
+    "updatedAt": "2026-08-26",
+    "testTrackBTime": "1:29.871",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "class1buggy21-b600",
     "manufacturer": "Alumicraft",
     "carName": "#122 Class 1 buggy 2021",
@@ -597,26 +617,6 @@
     "tuneNotes": "경량화/ 세미 슬릭/ 4.4L V8-TT 스왑",
     "updatedAt": "2026-08-06",
     "testTrackBTime": "1:23.777",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "4c14-a700",
-    "manufacturer": "Alfa Romeo",
-    "carName": "4C 2014",
-    "className": "A 700",
-    "carType": "모던 스포츠카",
-    "drive": "RWD",
-    "category": "페스티벌 시즌 숙제",
-    "concept": "진짜 타기 쉬운 저점 차를 만들자",
-    "power": "290hp",
-    "weight": "717kg",
-    "lateralG": "2.0G",
-    "shareCode": "176374405",
-    "summary": "시즌 페스티벌 하면서 운전실력이 나날이 퇴화되는 거 같은 유저를 배려하기 위해 만들어짐",
-    "tuneNotes": "오프로드 타이어에 3기통 엔진 스왑",
-    "updatedAt": "2026-08-06",
-    "testTrackBTime": "1:30.455",
     "testTrackCTime": ""
   },
   {
