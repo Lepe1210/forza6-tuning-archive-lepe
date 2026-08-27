@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "s80070-c500",
+    "manufacturer": "Honda",
+    "carName": "S800 1970",
+    "className": "C 500",
+    "carType": "컬트 자동차",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "새롭게 뭔가 시도해보고 싶은 게 생겨서 바로 첫 적용 해봤다가 사고 친 케이스",
+    "power": "157hp",
+    "weight": "598kg",
+    "lateralG": "1.6G",
+    "shareCode": "115232474",
+    "summary": "뭔가 특출나게 빠른 느낌은 아닌데 답답한 느낌은 없다고 해야하나 근데 기록보면 또 느린 것도 아님",
+    "tuneNotes": "새로운 하드웨어 세팅 이론을 바로 테스트했는데 결과가 생각보다 너무 좋게 나와버림",
+    "updatedAt": "2026-08-27",
+    "testTrackBTime": "1:47.559",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "4c14-a700",
     "manufacturer": "Alfa Romeo",
     "carName": "4C 2014",
