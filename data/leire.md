@@ -2,100 +2,84 @@
 
 ## 현재 시즌 메타
 
-- 상태: test
-- 기준 주차: 2026-08-20
-- 갱신: 2026-08-25 19:27 KST
-- 용도: `/추천` parser/Embed 개발용 완성형 테스트 데이터. 실제 시즌 최종본과 같은 수준으로 추천을 채웠지만 `상태: test`이므로 운영 확정 데이터로 간주하지 않는다.
+- 상태: confirmed
+- 기준 주차: 2026-08-27
+- 갱신: 2026-08-27 20:46 KST
+- 용도: `/추천` 운영용 확정 데이터. Horizon Mascot Party - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
 
-### 도전 — Modern Sports Cars
+### 도전 — Vision Chaser
 
-- 제한: Modern Sports Cars / A 700
-- 종목: Road
-- 코스:
-  - Coastline Sprint | Road | Bias 4 | 마지막에 긴 직선이 있음
-  - Edamame Circuit | Road | 코스 DB 미확인
-  - Festival Sprint | Road | Bias 3 | 중간에 급브레이크 구간이 있음
-
-#### 1픽
-
-- Tune ID: griffith18-a700
-- 차량: TVR Griffith 2018
-- className: A 700
-- shareCode: 141076383
-- 이유: 480hp와 1201kg으로 출력대중량비가 약 0.400이고 Track B 1:29.857로 후보군에서 빠른 편이다. Coastline Sprint의 긴 직선과 Bias 4 성격에서 절대 출력이 강점이고, Festival Sprint 같은 균형형 코스에서도 1.9G와 준수한 기록으로 손해가 적어 이번 3코스 조합의 종합 1픽.
-
-#### 2픽
-
-- Tune ID: 4c14-a700
-- 차량: Alfa Romeo 4C 2014
-- className: A 700
-- shareCode: 176374405
-- 이유: 717kg 초경량과 2.0G, 출력대중량비 약 0.404에 더해 아카이브 평가 자체가 타기 쉬운 저점형 세팅이다. 직선 비중이 큰 Coastline에서는 절대 출력 290hp가 Griffith보다 불리하지만, 제동과 방향 전환이 필요한 구간에서는 가벼운 차체가 큰 장점.
-
-#### 3픽
-
-- Tune ID: 124spider17-A700
-- 차량: Abarth 124 Spider 2017
-- className: A 700
-- shareCode: 312496513
-- 이유: 518hp / 1005kg으로 출력대중량비 약 0.515가 강점이라 중고속·직선 구간 잠재력이 높다. 다만 Track B 1:31.655이고 높은 에어로 때문에 실제 가속 체감이 기대만큼 빠르지 않다는 평가가 있어 Griffith와 4C보다는 한 단계 낮게 둔다.
-
-### 레이스 1 — Total AWD
-
-- 제한: Total AWD / B 600
-- 종목: Cross Country
-- 코스:
-  - Naruo Cross Country Circuit | Cross Country | Bias 없음
-  - Wind Farm Cross Country | Cross Country | Bias 없음
-  - Takashiro Cross Country | Cross Country | Bias 없음
-
-#### 1픽
-
-- Tune ID: defender20-b600
-- 차량: Land Rover Defender 110 X 2020
-- className: B 600
-- shareCode: 342014915
-- 이유: 실제 SUV 차체에 4WD, 오프로드 세팅을 갖추고 Track C 1:00.410을 기록했다. 출력 566hp와 그립의 균형이 좋다는 평가까지 있어 점프·요철과 차체 안정성이 중요한 Cross Country에서 성능과 실전성을 가장 고르게 확보한 후보.
-
-#### 2픽
-
-- Tune ID: f45019-b600
-- 차량: Ford Super Duty F-450 DRW Platinum 2020
-- className: B 600
-- shareCode: 107167805
-- 이유: 850hp의 절대 출력과 픽업/4x4 차체를 갖추고 Track C 1:00.444로 1픽과 거의 같은 기록을 냈다. 거대한 차체와 3192kg 중량 때문에 민첩성은 손해지만, 험지 돌파와 직선 가속이 중요한 CC에서는 확실한 강점이 있어 2픽.
-
-#### 3픽
-
-- Tune ID: 4runner19-b600
-- 차량: Toyota 4Runner TRD Pro 2019
-- className: B 600
-- shareCode: 104341261
-- 이유: 4WD 픽업·4x4 계열 SUV로 Cross Country 적합성이 높고 Track C 1:01.274도 충분히 경쟁력 있다. 상위 두 차량보다 기록과 절대 출력은 낮지만 차체 성격이 이벤트와 잘 맞고, 전용 오프로드 세팅의 안정성이 있어 무난한 3픽.
-
-### 레이스 2 — Hot Hatch
-
-- 제한: Hot Hatch / B 600
+- 제한: Modern Super Saloons / A 700
 - 종목: Street
 - 코스:
-  - Okishinaimura Run | Street | Bias 1 | 시작부터 아키나 5연속 헤어핀 내려가야함
-  - Hokubu Ascent | Street | Bias 4 | 중반에 코스 절반이 오르막 직선이고 직선 끝에 하드 브레이킹 헤어핀이 있음
-  - Sunflower Charge | Street | Bias 5 | 대부분 가속 위주이며 중반에 약간의 코너 구간이 있음
+  - Festival Chase | Street | Bias 2 | 중간에 낀 헤어핀 2개가 매우 어려운 편
+  - Cedar Run | Street | Bias 3 | 전체적으로 균형 잡힌 스프린트
+  - Matsumi Climb | Street | Bias 2 | 테크니컬 코너와 급격한 코너가 자주 있음
 
 #### 1픽
 
-- Tune ID: integra23-b600
-- 차량: Acura Integra A-Spec 2023
-- className: B 600
-- shareCode: 124746623
-- 이유: 330hp / 1154kg과 Track B 1:36.750으로 같은 B600 Hot Hatch 후보 중 직선 성능과 종합 기록이 가장 좋다. Okishinaimura의 저속 헤어핀보다 Hokubu와 Sunflower의 중고속·직선 비중이 더 큰 조합에서 높은 출력이 특히 유리해 종합 1픽.
+- Tune ID: camrytrd23-A700
+- 차량: Toyota Camry TRD 2023
+- className: A 700
+- shareCode: 921025861
+- 이유: 445hp / 1238kg, 1.8G에 Track B 1:30.670으로 후보군에서 종합 기록이 가장 좋다. 이번 코스가 Bias 2-3-2로 저·중속 비중이 높고 코너 탈출 안정성이 좋아 전체 3코스 기준 가장 무난하고 빠른 1픽.
 
 #### 2픽
 
-- Tune ID: civictyper07-B600
-- 차량: Honda Civic Type R 2007
+- Tune ID: Limo13-A700
+- 차량: Cadillac XTS Limousine 2013
+- className: A 700
+- shareCode: 176696679
+- 이유: 753hp / 1984kg의 대형 차체지만 4WD와 높은 절대 출력으로 코너 탈출과 재가속이 강하고 Track B 1:33.172도 확보했다. 실주행 검수에서 헤어핀 대응과 혼전 실전성이 확인되어 2픽으로 확정.
+
+#### 3픽
+
+- Tune ID: m4coupe14-A700
+- 차량: BMW M4 Coupé 2014
+- className: A 700
+- shareCode: 944673298
+- 이유: 515hp / 1502kg, 1.8G에 Track B 1:31.249로 Camry 다음으로 빠른 축에 속한다. V10 자연흡기 스왑과 온로드 세팅으로 균형은 좋지만 후륜과 중량 부담을 감안해 실전 종합 순위는 3픽.
+
+### 레이스 1 — Micro Circuits
+
+- 제한: Microcar Madness / A 700
+- 종목: Road
+- 코스:
+  - Soni Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 힘들 정도로 좁고 헤어핀이 3개 있음
+  - Hokubu Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 힘들 정도로 좁음
+  - Edamame Circuit | Road | Bias 1 | 이번 시즌 이벤트 전용 풋콩 서킷
+
+#### 1픽
+
+- Tune ID: metro86-A700
+- 차량: MG Metro 6R4 1986
+- className: A 700
+- shareCode: 960169335
+- 이유: 347hp / 1022kg, 1.9G, 4WD에 Track B 1:32.591과 Track C 0:55.996을 함께 가진 혼합형 세팅이다. 세 코스가 모두 Bias 1 초저속·좁은 서킷이라 출력보다 민첩성, 그립, 탈출 안정성이 중요하며 실제 실주행 검수까지 거쳐 단독 1픽으로 확정.
+
+### 레이스 2 — Modern Marvels
+
+- 제한: Modern Rally / B 600
+- 종목: Dirt
+- 코스:
+  - Taiyaki Scramble | Dirt | Bias 5 | 차를 날리면서 치고 나가면 따라잡기 어려운 고속형 코스
+  - Kawazu Nanadaru Scramble | Dirt | Bias 4 | 고속형이지만 중요한 온로드 구간에 나나타키 루프 다리가 있음
+  - Kinkaku-ji Trail | Dirt | Bias 4 | 마지막 90도 전까지 크게 벌어지지 않으면 마지막 직선에서 추월 가능
+
+#### 1픽
+
+- Tune ID: lanevox08-A700
+- 차량: Mitsubishi Lancer Evolution X GSR 2008
 - className: B 600
-- shareCode: 660060277
-- 이유: 270hp / 1070kg, 1.6G의 전륜 세팅으로 코너에서 액셀을 밟으면 차가 잘 돌아간다는 평가가 있어 Okishinaimura 같은 저속 헤어핀에서는 장점이 있다. 다만 Track B 1:39.494와 절대 출력에서 Integra에 밀려 고속 비중이 큰 나머지 두 코스를 감안하면 2픽이 적절하다.
+- shareCode: 785739992
+- 이유: 305hp / 1281kg, 1.7G, 4WD에 Track C 1:01.122로 같은 제한의 GR Yaris보다 약 0.54초 빠르다. 이번 코스가 Bias 5-4-4로 고속 비중이 높아 더 높은 절대 출력과 안정적인 접지가 유리하며 실주행 검수 후 1픽으로 확정.
+
+#### 2픽
+
+- Tune ID: yaris21-B600
+- 차량: Toyota GR Yaris 2021
+- className: B 600
+- shareCode: 736293437
+- 이유: 257hp / 1158kg, 1.8G, 4WD에 Track C 1:01.660으로 충분히 경쟁력 있다. 코너링은 강하지만 아카이브 평가대로 직선이 느린 편이라 고속형 3코스에서는 Evo X보다 불리해 2픽으로 확정.
