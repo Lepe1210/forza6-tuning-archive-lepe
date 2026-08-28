@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "wrx22-b600",
+    "manufacturer": "Subaru",
+    "carName": "WRX 2022",
+    "className": "B 600",
+    "carType": "모던 랠리",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "랠리와 가장 안 어울리는 세단으로 랠리를 해봅시다",
+    "power": "294hp",
+    "weight": "1162kg",
+    "lateralG": "1.7G",
+    "shareCode": "512619081",
+    "summary": "나 이거 생각보다 안 좋을 줄 알았는데 차는 그냥 만드는 거 나름일지도 모르겠음 / 그래서 좋다는 거임",
+    "tuneNotes": "새 LSD 세팅이 잘 먹는 듯 앞으로 이게 표준으로 자리 잡을지도",
+    "updatedAt": "2026-08-28",
+    "testTrackBTime": "",
+    "testTrackCTime": "1:00.509"
+  },
+  {
+    "eventTitle": "",
     "id": "s80070-c500",
     "manufacturer": "Honda",
     "carName": "S800 1970",
