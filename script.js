@@ -671,9 +671,11 @@ function renderCars() {
       matchesCategory &&
       matchesDecade
     );
+    });
 
   const sortedCars = sortCars(filteredCars, selectedSort);
 
+  
   carCount.textContent = `${sortedCars.length}대 표시 중`;
 
   if (sortedCars.length === 0) {
