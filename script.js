@@ -41,6 +41,7 @@ const classFilter = document.getElementById("classFilter");
 const typeFilter = document.getElementById("typeFilter");
 const driveFilter = document.getElementById("driveFilter");
 const categoryFilter = document.getElementById("categoryFilter");
+const decadeFilter = document.getElementById("decadeFilter");
 const sortFilter = document.getElementById("sortFilter");
 const resetFilters = document.getElementById("resetFilters");
 const refreshData = document.getElementById("refreshData");
@@ -181,6 +182,42 @@ function parseCars(csvText) {
 
 function cleanValue(value) {
   return value ? String(value).trim() : "";
+}
+
+/* =========================
+   차량명 끝의 4자리 연식 추출
+========================= */
+
+function getCarYear(carName) {
+  const text = cleanValue(carName);
+  const match = text.match(/(\d{4})\s*$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const year = Number(match[1]);
+
+  return Number.isInteger(year) ? year : null;
+}
+
+
+/* =========================
+   차량 연대 분류
+========================= */
+
+function getCarDecade(carName) {
+  const year = getCarYear(carName);
+
+  if (year >= 1960 && year <= 1969) return "1960";
+  if (year >= 1970 && year <= 1979) return "1970";
+  if (year >= 1980 && year <= 1989) return "1980";
+  if (year >= 1990 && year <= 1999) return "1990";
+  if (year >= 2000 && year <= 2009) return "2000";
+  if (year >= 2010 && year <= 2019) return "2010";
+  if (year >= 2020 && year <= 2029) return "2020";
+
+  return "other";
 }
 
 
@@ -591,6 +628,7 @@ function renderCars() {
   const selectedType = typeFilter.value;
   const selectedDrive = driveFilter.value;
   const selectedCategory = categoryFilter.value;
+  const selectedDecade = decadeFilter ? decadeFilter.value : "all";
   const selectedSort = sortFilter ? sortFilter.value : "default";
 
   const filteredCars = cars.filter((car) => {
@@ -621,9 +659,18 @@ function renderCars() {
     const matchesType = selectedType === "all" || car.carType === selectedType;
     const matchesDrive = selectedDrive === "all" || car.drive === selectedDrive;
     const matchesCategory = selectedCategory === "all" || car.category === selectedCategory;
+    const matchesDecade =
+      selectedDecade === "all" ||
+      getCarDecade(car.carName) === selectedDecade;
 
-    return matchesKeyword && matchesClass && matchesType && matchesDrive && matchesCategory;
-  });
+    return (
+      matchesKeyword &&
+      matchesClass &&
+      matchesType &&
+      matchesDrive &&
+      matchesCategory &&
+      matchesDecade
+    );
 
   const sortedCars = sortCars(filteredCars, selectedSort);
 
@@ -831,6 +878,10 @@ function resetAllFilters() {
   typeFilter.value = "all";
   driveFilter.value = "all";
   categoryFilter.value = "all";
+
+  if (decadeFilter) {
+  decadeFilter.value = "all";
+}
 
   if (sortFilter) {
     sortFilter.value = "default";
@@ -1240,6 +1291,10 @@ classFilter.addEventListener("change", renderCars);
 typeFilter.addEventListener("change", renderCars);
 driveFilter.addEventListener("change", renderCars);
 categoryFilter.addEventListener("change", renderCars);
+
+if (decadeFilter) {
+  decadeFilter.addEventListener("change", renderCars);
+}
 
 if (sortFilter) {
   sortFilter.addEventListener("change", renderCars);
