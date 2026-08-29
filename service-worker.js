@@ -5,7 +5,7 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v17";
+const CACHE_NAME = "forza-tuning-archive-v18";
 
 const STATIC_ASSETS = [
   "./",
@@ -14,6 +14,8 @@ const STATIC_ASSETS = [
   "./manager.html",
   "./gallery.html",
   "./rivals.html",
+  "./guide.html",
+  "./discord.html",
 
   "./style.css",
 
@@ -22,7 +24,7 @@ const STATIC_ASSETS = [
   "./manager.js",
   "./gallery.js",
   "./rivals.js",
-  
+
   "./manifest.json",
 
   "./icons/icon-192.png",
