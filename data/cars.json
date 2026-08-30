@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "unimog14-a700",
+    "manufacturer": "Mercedes-Benz",
+    "carName": "Unimog U5023 2014",
+    "className": "A 700",
+    "carType": "오프로드",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "솔직히 유니목은 대유쾌마운틴임",
+    "power": "2400hp",
+    "weight": "5725kg",
+    "lateralG": "1.4G",
+    "shareCode": "137528543",
+    "summary": "굳이 PI를 꽉 채우는 게 제일 빠르다는 게 아닌 걸 아는데도 고집부리다가 혹시나 싶어서 해봤는데 왜 진작 하지 않았을까 후회되는? 그런 작품 중 하나 / 선례로 남기기 위해 이렇게 박제함",
+    "tuneNotes": "2400마력 터보 엔진 / A700 아니고 676임",
+    "updatedAt": "2026-08-30",
+    "testTrackBTime": "",
+    "testTrackCTime": "0:58.669"
+  },
+  {
+    "eventTitle": "",
     "id": "Gtprot25-S1800-4",
     "manufacturer": "GR",
     "carName": "GT Prototype 2025",
