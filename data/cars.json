@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "rcf15-a700",
+    "manufacturer": "Lexus",
+    "carName": "RC F 2015",
+    "className": "A 700",
+    "carType": "모던 슈퍼 세단",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "분명히 주간숙제 때 쓸 특이한 걸 찾는데 이상하게 성능픽을 찾은 느낌",
+    "power": "634hp",
+    "weight": "1409kg",
+    "lateralG": "1.9G",
+    "shareCode": "134923027",
+    "summary": "정통 밸런스 후륜에서 이 정도 복병으로 좋은 게 튀어나올 줄은 꿈에도 몰랐음 / 막 꺾어서 타는 쉬운 녀석은 아니고 뭔가 리듬감을 가지고 타야하는 중급 이상 기체?",
+    "tuneNotes": "드리프트 타이어 / LFA에 들어가는 4800cc V10 / 바디킷 / 의외로 타이어 폭은 안 늘림",
+    "updatedAt": "2026-08-31",
+    "testTrackBTime": "1:27.952",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "unimog14-a700",
     "manufacturer": "Mercedes-Benz",
     "carName": "Unimog U5023 2014",
