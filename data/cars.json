@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "lx82-b600",
+    "manufacturer": "Volkswagen",
+    "carName": "Pickup LX 1982",
+    "className": "B 600",
+    "carType": "유틸리티 히어로",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "그냥 썩차 튜닝한다고 4륜에 오프로드에 적당히 좋았던 폭스바겐 엔진 넣고 던졌는데 그냥 차 구조가 좋은건가?",
+    "power": "319hp",
+    "weight": "871kg",
+    "lateralG": "1.5G",
+    "shareCode": "147815468",
+    "summary": "마치 갓 잡혀온 생선의 움직임을 차로 표현할 수 있다면 이 녀석일 듯 / 아니 차가 그냥 팔딱팔딱 뛰는 거 같은데 또 뭔가 몰아보면 바닥에 착 달라붙어 가는 오징어 같은 쫀쫀한 느낌이 있음",
+    "tuneNotes": "VR6 엔진 스왑 / 4륜 / 오프로드 타이어",
+    "updatedAt": "2026-09-02",
+    "testTrackBTime": "",
+    "testTrackCTime": "0:56.650"
+  },
+  {
+    "eventTitle": "",
     "id": "enzo02-S1800",
     "manufacturer": "Ferrari",
     "carName": "Enzo Ferrari 2002",
