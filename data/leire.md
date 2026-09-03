@@ -3,83 +3,67 @@
 ## 현재 시즌 메타
 
 - 상태: confirmed
-- 기준 주차: 2026-08-27
-- 갱신: 2026-08-27 20:46 KST
-- 용도: `/추천` 운영용 확정 데이터. Horizon Mascot Party - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
+- 기준 주차: 2026-09-03
+- 갱신: 2026-09-03 20:59 KST
+- 용도: `/추천` 운영용 확정 데이터. Horizon Mascot Party - Spring 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
 
-### 도전 — Vision Chaser
+### 도전 — Spring Cleaning
 
-- 제한: Modern Super Saloons / A 700
-- 종목: Street
-- 코스:
-  - Festival Chase | Street | Bias 2 | 중간에 낀 헤어핀 2개가 매우 어려운 편
-  - Cedar Run | Street | Bias 3 | 전체적으로 균형 잡힌 스프린트
-  - Matsumi Climb | Street | Bias 2 | 테크니컬 코너와 급격한 코너가 자주 있음
-
-#### 1픽
-
-- Tune ID: camrytrd23-A700
-- 차량: Toyota Camry TRD 2023
-- className: A 700
-- shareCode: 921025861
-- 이유: 445hp / 1238kg, 1.8G에 Track B 1:30.670으로 후보군에서 종합 기록이 가장 좋다. 이번 코스가 Bias 2-3-2로 저·중속 비중이 높고 코너 탈출 안정성이 좋아 전체 3코스 기준 가장 무난하고 빠른 1픽.
-
-#### 2픽
-
-- Tune ID: Limo13-A700
-- 차량: Cadillac XTS Limousine 2013
-- className: A 700
-- shareCode: 176696679
-- 이유: 753hp / 1984kg의 대형 차체지만 4WD와 높은 절대 출력으로 코너 탈출과 재가속이 강하고 Track B 1:33.172도 확보했다. 실주행 검수에서 헤어핀 대응과 혼전 실전성이 확인되어 2픽으로 확정.
-
-#### 3픽
-
-- Tune ID: m4coupe14-A700
-- 차량: BMW M4 Coupé 2014
-- className: A 700
-- shareCode: 944673298
-- 이유: 515hp / 1502kg, 1.8G에 Track B 1:31.249로 Camry 다음으로 빠른 축에 속한다. V10 자연흡기 스왑과 온로드 세팅으로 균형은 좋지만 후륜과 중량 부담을 감안해 실전 종합 순위는 3픽.
-
-### 레이스 1 — Micro Circuits
-
-- 제한: Microcar Madness / A 700
-- 종목: Road
-- 코스:
-  - Soni Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 힘들 정도로 좁고 헤어핀이 3개 있음
-  - Hokubu Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 힘들 정도로 좁음
-  - Edamame Circuit | Road | Bias 1 | 이번 시즌 이벤트 전용 풋콩 서킷
-
-#### 1픽
-
-- Tune ID: metro86-A700
-- 차량: MG Metro 6R4 1986
-- className: A 700
-- shareCode: 960169335
-- 이유: 347hp / 1022kg, 1.9G, 4WD에 Track B 1:32.591과 Track C 0:55.996을 함께 가진 혼합형 세팅이다. 세 코스가 모두 Bias 1 초저속·좁은 서킷이라 출력보다 민첩성, 그립, 탈출 안정성이 중요하며 실제 실주행 검수까지 거쳐 단독 1픽으로 확정.
-
-### 레이스 2 — Modern Marvels
-
-- 제한: Modern Rally / B 600
+- 제한: Total Rally / S1 800
 - 종목: Dirt
 - 코스:
-  - Taiyaki Scramble | Dirt | Bias 5 | 차를 날리면서 치고 나가면 따라잡기 어려운 고속형 코스
-  - Kawazu Nanadaru Scramble | Dirt | Bias 4 | 고속형이지만 중요한 온로드 구간에 나나타키 루프 다리가 있음
-  - Kinkaku-ji Trail | Dirt | Bias 4 | 마지막 90도 전까지 크게 벌어지지 않으면 마지막 직선에서 추월 가능
+  - Legend Island Trail | Dirt | Bias 2 | 중반 헤어핀 2개 있는 그래블에서 달아나면 후반에 못 따라옴
+  - Airfield Trail | Dirt | Bias 3 | 중반 타막 코스가 길이 급격히 넓어졌다 줄어들기를 반복함
+  - Sekibe Scramble | Dirt | Bias 1 | 우리 Track C 테스트 코스
 
 #### 1픽
 
-- Tune ID: lanevox08-A700
-- 차량: Mitsubishi Lancer Evolution X GSR 2008
-- className: B 600
-- shareCode: 785739992
-- 이유: 305hp / 1281kg, 1.7G, 4WD에 Track C 1:01.122로 같은 제한의 GR Yaris보다 약 0.54초 빠르다. 이번 코스가 Bias 5-4-4로 고속 비중이 높아 더 높은 절대 출력과 안정적인 접지가 유리하며 실주행 검수 후 1픽으로 확정.
+- Tune ID: quattro86-s1800-2
+- 차량: #2 Audi Sport quattro S1 1986
+- className: S1 800
+- shareCode: 290572116
+- 이유: 681hp / 1119kg, 2.0G, 4WD에 Track C 0:52.663으로 현재 Total Rally S1 후보군에서 가장 강한 실측 성능을 보인다. 이번 코스가 Bias 2-3-1로 저·중속 기술구간 비중이 높고 마지막 Sekibe Scramble이 Track C 테스트 코스 자체라 기록과 주행 안정성을 함께 본 결과 단독 1픽으로 확정.
+
+### 레이스 1 — Unlimited Buddies
+
+- 제한: Unlimited Buggies / A 700
+- 종목: Cross Country
+- 코스:
+  - Oka Cross Country Circuit | Cross Country | Bias 없음
+  - Shimanoyama Cross Country | Cross Country | Bias 없음
+  - Stadium Cross Country Circuit | Cross Country | Bias 없음
+
+#### 1픽
+
+- Tune ID: nomad16-A700
+- 차량: Ariel Nomad 2016
+- className: A 700
+- shareCode: 158436314
+- 이유: 312hp / 697kg, 1.6G, 4WD에 리메이크 후 Track C 0:57.205를 기록했다. 초경량 차체와 4WD 조합으로 요철과 재가속 대응이 좋고, 같은 제한의 Jimco보다 Track C가 1.185초 빨라 공용 추천 1픽으로 확정.
 
 #### 2픽
 
-- Tune ID: yaris21-B600
-- 차량: Toyota GR Yaris 2021
+- Tune ID: class120-a700
+- 차량: Jimco #179 Hammerhead Class 1 2020
+- className: A 700
+- shareCode: 159328644
+- 이유: 850hp / 1586kg, 1.5G, 4WD에 Track C 0:58.390을 기록했다. Nomad보다 기본 기록은 느리지만 대형 Class 1 버기 차체와 높은 절대 출력으로 점프, 요철, 긴 재가속 구간에서 다른 성격의 강점을 기대할 수 있어 2픽으로 확정.
+
+### 레이스 2 — Hot Hatch Chasers
+
+- 제한: Super Hot Hatch / B 600
+- 종목: Street
+- 코스:
+  - Minami Chase | Street | Bias 4 | 중간 3연속 헤어핀을 제외하면 대부분 직선형
+  - Daikoku Chase | Street | Bias 5 | 초반 저속 구간 이후 C1 고속도로로 올라가는 긴 직선 주로
+  - Tokyo City Docks Charge | Street | Bias 1 | 항구 도로를 그대로 써 도로 폭이 좁음
+
+#### 1픽
+
+- Tune ID: rs311-b600
+- 차량: Audi RS 3 Sportback 2011
 - className: B 600
-- shareCode: 736293437
-- 이유: 257hp / 1158kg, 1.8G, 4WD에 Track C 1:01.660으로 충분히 경쟁력 있다. 코너링은 강하지만 아카이브 평가대로 직선이 느린 편이라 고속형 3코스에서는 Evo X보다 불리해 2픽으로 확정.
+- shareCode: 181556807
+- 이유: 442hp / 1477kg, 1.6G, 4WD에 Track B 1:38.112를 기록했다. 4.2L V8 자연흡기 스왑과 뒤쪽 중심 구동배분으로 반응성과 탈출 안정성을 확보했고, 세 코스 중 Minami Chase와 Daikoku Chase가 Bias 4-5의 고속형이라 높은 절대 출력이 유리하다. 마지막 좁은 Tokyo City Docks까지 감안해도 현재 시트에 등록된 Super Hot Hatch B600 후보 중 종합 성능이 가장 좋아 단독 1픽으로 확정.
