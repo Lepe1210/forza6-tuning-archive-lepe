@@ -41,6 +41,26 @@
   },
   {
     "eventTitle": "",
+    "id": "rs311-b600",
+    "manufacturer": "Audi",
+    "carName": "RS 3 Sportback 2011",
+    "className": "B 600",
+    "carType": "슈퍼 핫 해치",
+    "drive": "4WD",
+    "category": "온로드",
+    "concept": "숙제용 자연흡기 세팅을 찾다가 출발해서 여기까지",
+    "power": "442hp",
+    "weight": "1477kg",
+    "lateralG": "1.6G",
+    "shareCode": "181556807",
+    "summary": "터보 싫어서 강제로 자연흡기 넣었는데 의외로 PI가 맞춰지고 운동성능은 타기 쉬움",
+    "tuneNotes": "4200cc V8 스왑 후 오프로드때나 쓰는 LSD 세팅을 적용 / 뒤쪽 배분7",
+    "updatedAt": "2026-09-03",
+    "testTrackBTime": "1:38.112",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "lx82-b600",
     "manufacturer": "Volkswagen",
     "carName": "Pickup LX 1982",
@@ -5557,26 +5577,6 @@
     "tuneNotes": "랠리 스프링에 세미슬릭",
     "updatedAt": "2026-05-15",
     "testTrackBTime": "",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "rs311-b600",
-    "manufacturer": "Audi",
-    "carName": "RS 3 Sportback 2011",
-    "className": "B 600",
-    "carType": "슈퍼 핫 해치",
-    "drive": "4WD",
-    "category": "온로드",
-    "concept": "숙제용 자연흡기 세팅을 찾다가 출발해서 여기까지",
-    "power": "442hp",
-    "weight": "1477kg",
-    "lateralG": "1.6G",
-    "shareCode": "181556807",
-    "summary": "터보 싫어서 강제로 자연흡기 넣었는데 의외로 PI가 맞춰지고 운동성능은 타기 쉬움",
-    "tuneNotes": "4200cc V8 스왑 후 오프로드때나 쓰는 LSD 세팅을 적용 / 뒤쪽 배분7",
-    "updatedAt": "2026-09-03",
-    "testTrackBTime": "1:38.112",
     "testTrackCTime": ""
   }
 ]
