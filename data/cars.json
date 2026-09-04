@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "rx811-a700",
+    "manufacturer": "Mazda",
+    "carName": "RX-8 R3 2011",
+    "className": "A 700",
+    "carType": "모던 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "파워후륜 처럼 만들고 싶은데 이상하게 밸런스 있는 게 나옴",
+    "power": "763hp",
+    "weight": "1201kg",
+    "lateralG": "1.7G",
+    "shareCode": "167090413",
+    "summary": "모던 스포츠카 급에서 파워후륜이 필요해서 만들었는데 이거 생각보다 안정적이라서 파워빌드가 맞나 싶음 / 대체 파워빌드의 정의가 어디까지 추락하는건지 살짝 의문",
+    "tuneNotes": "4로터 / 드리프트 타이어",
+    "updatedAt": "2026-09-04",
+    "testTrackBTime": "1:29.344",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "nomad16-A700",
     "manufacturer": "Ariel",
     "carName": "Nomad 2016",
