@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "mini65-b600",
+    "manufacturer": "Mini",
+    "carName": "Cooper S 1965",
+    "className": "B 600",
+    "carType": "클래식 랠리",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "B클래스 오프로드하는데 이젠 온로드도 뛰어야함",
+    "power": "183hp",
+    "weight": "607kg",
+    "lateralG": "1.7G",
+    "shareCode": "896904064",
+    "summary": "리메이크 / 성격 확실한 녀석에 더 성격을 얹어버림",
+    "tuneNotes": "새로운 LSD 세팅과 새로운 주행법? 으로 만들어진 괴작",
+    "updatedAt": "2026-09-05",
+    "testTrackBTime": "1:41.281",
+    "testTrackCTime": "0:58.875"
+  },
+  {
+    "eventTitle": "",
     "id": "rx811-a700",
     "manufacturer": "Mazda",
     "carName": "RX-8 R3 2011",
@@ -2898,26 +2918,6 @@
     "updatedAt": "2026-06-24",
     "testTrackBTime": "1:40.846",
     "testTrackCTime": "1:01.209"
-  },
-  {
-    "eventTitle": "",
-    "id": "mini65-b600",
-    "manufacturer": "Mini",
-    "carName": "Cooper S 1965",
-    "className": "B 600",
-    "carType": "클래식 랠리",
-    "drive": "4WD",
-    "category": "혼합",
-    "concept": "B클래스 오프로드용",
-    "power": "175hp",
-    "weight": "599kg",
-    "lateralG": "1.5G",
-    "shareCode": "170467798",
-    "summary": "무난한 걸 꿈꿨는데 지 성격이 너무 확실해져버림",
-    "tuneNotes": "오프로드로는 진짜 좋긴 한데 온로드 겸용으로 쓰기에는 좀 아깝고 그렇다고 랠리 뛰는 거에는 모자람이 없는 괴상한 녀석",
-    "updatedAt": "2026-06-23",
-    "testTrackBTime": "1:42.975",
-    "testTrackCTime": "0:59.787"
   },
   {
     "eventTitle": "",
