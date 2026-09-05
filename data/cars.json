@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "clio93-a700",
+    "manufacturer": "Renault",
+    "carName": "Clio Williams 1993",
+    "className": "A 700",
+    "carType": "레트로 핫 해치",
+    "drive": "FWD",
+    "category": "온로드",
+    "concept": "2026 F1 가슬리 폴포지션 기념 에디션",
+    "power": "398hp",
+    "weight": "880kg",
+    "lateralG": "1.8G",
+    "shareCode": "868543800",
+    "summary": "아니 대체 직빨의 알핀 / 너희들 어디까지 사고친거니 가슬리가 폴포지션이라니 / 차는 그거 기념 에디션으로 나옴",
+    "tuneNotes": "페인트 코드는 0.57 / 0.88 / 0.78",
+    "updatedAt": "2026-09-06",
+    "testTrackBTime": "1:29.595",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "mini65-b600",
     "manufacturer": "Mini",
     "carName": "Cooper S 1965",
