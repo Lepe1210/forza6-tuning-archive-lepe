@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "xjs90-a700",
+    "manufacturer": "Jaguar",
+    "carName": "XJ-S 1990",
+    "className": "A 700",
+    "carType": "컬트 자동차",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "원래 이거보다 더 심한 파워빌드를 하려했는데 그건 도저히 사람처럼 몰 수가 없어서 포기",
+    "power": "965hp",
+    "weight": "1483kg",
+    "lateralG": "1.6G",
+    "shareCode": "148762051",
+    "summary": "V12라고 적혀있긴 한데 어떤 V12인지는 말 안해줬잖아요?",
+    "tuneNotes": "세베라의 V12 / 드리프트 타이어 / 에어로 엄청 먹이고 / 진짜 머리 많이 싸맸음",
+    "updatedAt": "2026-09-08",
+    "testTrackBTime": "1:29.638",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "exige18-S1800-3",
     "manufacturer": "Lotus",
     "carName": "Exige Cup 430 2018",
