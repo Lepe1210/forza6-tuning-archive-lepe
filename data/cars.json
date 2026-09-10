@@ -21,6 +21,26 @@
   },
   {
     "eventTitle": "",
+    "id": "m181-a700",
+    "manufacturer": "BMW",
+    "carName": "M1 1981",
+    "className": "A 700",
+    "carType": "레트로 슈퍼카",
+    "drive": "RWD",
+    "category": "페스티벌 시즌 숙제",
+    "concept": "그냥 급하게 만든 건데 꽤 잘 나옴",
+    "power": "514hp",
+    "weight": "1048kg",
+    "lateralG": "1.8G",
+    "shareCode": "116414721",
+    "summary": "슈퍼카는 이런 맛이 있어야하지 / 타기 쉬움",
+    "tuneNotes": "M3 GTR에 들어가는 4리터 V8 때려넣음",
+    "updatedAt": "2026-09-10",
+    "testTrackBTime": "1:30.210",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "autodeltatipo68-S1800",
     "manufacturer": "Alfa Romeo",
     "carName": "Autodelta Tipo 33/2 Daytona 1968",
@@ -5717,26 +5737,6 @@
     "tuneNotes": "랠리 스프링에 세미슬릭",
     "updatedAt": "2026-05-15",
     "testTrackBTime": "",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "m181-a700",
-    "manufacturer": "BMW",
-    "carName": "M1 1981",
-    "className": "A 700",
-    "carType": "레트로 슈퍼카",
-    "drive": "RWD",
-    "category": "온로드",
-    "concept": "그냥 급하게 만든 건데 꽤 잘 나옴",
-    "power": "514hp",
-    "weight": "1048kg",
-    "lateralG": "1.8G",
-    "shareCode": "116414721",
-    "summary": "슈퍼카는 이런 맛이 있어야하지 / 타기 쉬움",
-    "tuneNotes": "M3 GTR에 들어가는 4리터 V8 때려넣음",
-    "updatedAt": "2026-09-10",
-    "testTrackBTime": "1:30.210",
     "testTrackCTime": ""
   }
 ]
