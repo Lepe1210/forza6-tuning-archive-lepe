@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "camarozl11le18-S1800",
+    "manufacturer": "Chevrolet",
+    "carName": "Camaro ZL1 1LE 2018",
+    "className": "S1 800",
+    "carType": "트랙 토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "미제 대구경 슈퍼차저 V8답게 토크가 치고 올라오는게 강함",
+    "power": "708hp",
+    "weight": "1337kg",
+    "lateralG": "2.1G",
+    "shareCode": "132437097",
+    "summary": "머슬카에서 트랙카로/ 슈퍼차저 사운드를 느껴보세요",
+    "tuneNotes": "경량화 / 세미 슬릭/ 스톡 에어로",
+    "updatedAt": "2026-09-10",
+    "testTrackBTime": "1:22.702",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "autodeltatipo68-S1800",
     "manufacturer": "Alfa Romeo",
     "carName": "Autodelta Tipo 33/2 Daytona 1968",
