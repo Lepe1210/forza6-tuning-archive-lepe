@@ -1,4 +1,6 @@
 id,manufacturer,carName,className,carType,drive,category,shareCode,power,weight,lateralG,concept,summary,tuneNotes,updatedAt,testTrackATime,testTrackBTime,testTrackCTime
+g4019-b600,Ginetta,G40 Junior 2019,B 600,트랙 토이,RWD,온로드,100 369 407,167hp,857kg,1.9G,일단 나왔으니까 만져 ㅋㅋㅋ,진짜 너무 느려서 핸들링용으로 타긴 하는데 연구 추가 필요,오프로드 타이어 너프,2026-09-11,,1:40.211,
+w125-S2900,Mclaren,W1 2025,S2 900,하이퍼카,RWD,온로드,404 985 283,1258hp,1455kg,2.5G,스톡은 언더가 좀 심해서 약 언더 정도로 세팅,R짜리 디튠/ 리어윙 움직이는거 재밌음,드리프트 타이어/ 포르자 에어로/ 안티랙,2026-09-11,,1:15.077,
 camarozl11le18-S1800,Chevrolet,Camaro ZL1 1LE 2018,S1 800,트랙 토이,RWD,온로드,132 437 097,708hp,1337kg,2.1G,미제 대구경 슈퍼차저 V8답게 토크가 치고 올라오는게 강함,머슬카에서 트랙카로/ 슈퍼차저 사운드를 느껴보세요,경량화 / 세미 슬릭/ 스톡 에어로,2026-09-10,,1:22.702,
 m181-a700,BMW,M1 1981,A 700,레트로 슈퍼카,RWD,페스티벌 시즌 숙제,116 414 721,514hp,1048kg,1.8G,그냥 급하게 만든 건데 꽤 잘 나옴,슈퍼카는 이런 맛이 있어야하지 / 타기 쉬움,M3 GTR에 들어가는 4리터 V8 때려넣음,2026-09-10,,1:30.210,
 autodeltatipo68-S1800,Alfa Romeo,Autodelta Tipo 33/2 Daytona 1968,S1 800,클래식 레이스카,RWD,온로드,789 403 553,425hp,688kg,2.1G,경량에 다운포스도 충분하고 출력도 좋아서 정말 빠름,낭만 넘치는 초경량 자연흡기 레이스카,드리프트 타이어/ 경량화/ 스톡 에어로,2026-09-09,,1:21.404,
