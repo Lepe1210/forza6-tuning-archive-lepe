@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "g4019-s1800",
+    "manufacturer": "Ginetta",
+    "carName": "G40 Junior 2019",
+    "className": "S1 800",
+    "carType": "트랙 토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "진짜 두뇌망상으로 상상만 했던 세팅 그대로 먹였는데 이게 너무 결과가 좋게 나와서 내가 더 당황스러움",
+    "power": "501hp",
+    "weight": "862kg",
+    "lateralG": "2.0G",
+    "shareCode": "133085150",
+    "summary": "이건 이제 애들용이 아닙니다 / 아이들용 레이싱카는 오늘 이 튜닝과 함께 사망했다고 봐도 무방합니다",
+    "tuneNotes": "아톰의 3000cc V8 스왑에 드리프트 타이어 / 정교한 에어로 설계",
+    "updatedAt": "2026-09-12",
+    "testTrackBTime": "1:17.392",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "g4019-b600",
     "manufacturer": "Ginetta",
     "carName": "G40 Junior 2019",
