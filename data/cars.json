@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "deluxe32-d400",
+    "manufacturer": "Ford",
+    "carName": "De Luxe Five Window Coupe 1932",
+    "className": "D 400",
+    "carType": "로드 및 커스텀",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "1910년대로 회귀해버린 느낌",
+    "power": "125hp",
+    "weight": "838kg",
+    "lateralG": "1.2G",
+    "shareCode": "139781609",
+    "summary": "뭔가 기묘한 주행감인데 그냥 느려서 그런가 운전 어려움이 있진 않음 / 1910년으로 회귀",
+    "tuneNotes": "뒤쪽으로만 브레이크가 잡히고요 / 출력은 그냥 느려요",
+    "updatedAt": "2026-09-14",
+    "testTrackBTime": "",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "g4019-s1800",
     "manufacturer": "Ginetta",
     "carName": "G40 Junior 2019",
