@@ -1,4 +1,5 @@
 id,manufacturer,carName,className,carType,drive,category,shareCode,power,weight,lateralG,concept,summary,tuneNotes,updatedAt,testTrackATime,testTrackBTime,testTrackCTime
+unimog14-a700,Mercedes-Benz,Unimog U5023 2014,B 600,오프로드,4WD,페스티벌 시즌 숙제,124 344 623,1609hp,7758kg,1.4G,솔직히 유니목은 대유쾌마운틴임,플그 이 ㅄㅅㄲ들 진짜,급조는 아니고 원래 만들어둔거,2026-09-18,,,
 corvettez0623-S1800,Chevrolet,Corvette Z06 2023,S1 800,트랙 토이,RWD,온로드,968 796 321,713hp,1318kg,2.1G,약 언더와 약 오버를 왔다갔다 하는 느낌,무난한 MR 트랙토이 ,경량화 / 세미 슬릭 / 스톡 에어로 / 스톡 엔진,2026-09-17,,1:22.340,
 turbos23-s1800,Porsche,911 Turbo S 2023,S1 800,모던 슈퍼카,RWD,페스티벌 시즌 숙제,145 823 389,711hp,1238kg,2.1G,주간숙제 급조용 병맛,생각보다 테무 느낌이 세게 듬 / 사륜도 아니고 터보도 없는 터보S,드리프트 타이어 / 하이캠,2026-09-17,,1:21.913,
 620r21-S1800-3,Mclaren,620R 2021,S1 800,트랙 토이,RWD,온로드,157 358 637,666hp,1165kg,2.2G,빠른 코너링과 안정적인 탈출 가속,그냥 차가 쉬움 / 윙 생긴게 마음에 안들면 136 376 162 성능 동일함,경량화 / 드리프트 타이어 / Vorsteiner 에어로,2026-09-17,,1:20.602,
