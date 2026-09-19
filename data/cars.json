@@ -15,7 +15,7 @@
     "shareCode": "775972556",
     "summary": "약 언더 성향이긴 한데 충분히 잘 돌아가는것 같음",
     "tuneNotes": "경량화 / 세미 슬릭",
-    "updatedAt": "2026-09-19",
+    "updatedAt": "2026-09-20",
     "testTrackBTime": "1:20.489",
     "testTrackCTime": ""
   },
@@ -37,6 +37,26 @@
     "tuneNotes": "PDSC 엔진 / 꽤 넉넉한 에어로 세팅 / 많이 잠근 LSD",
     "updatedAt": "2026-09-19",
     "testTrackBTime": "1:19.643",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
+    "id": "dbx21-a700",
+    "manufacturer": "Aston Martin",
+    "carName": "DBX 2021",
+    "className": "A 700",
+    "carType": "스포츠 유틸리티 영웅",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "빵틀리/랜드로버/애스턴마틴으로 이어지는 3대장 SUV 완성?",
+    "power": "820hp",
+    "weight": "1660kg",
+    "lateralG": "1.7G",
+    "shareCode": "133363283",
+    "summary": "프리미엄 영국 오프로드 3대장을 완성하고 싶었는데 솔직히 이거 설렁설렁 타는 게 각 잡고 타는 것보다 빠름 / 마음의 여유를 충분히 가지고 타야함",
+    "tuneNotes": "벌컨 엔진 넣고 에어로 좀 줬음",
+    "updatedAt": "2026-09-19",
+    "testTrackBTime": "0:55.931",
     "testTrackCTime": ""
   },
   {
