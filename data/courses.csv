@@ -57,22 +57,22 @@ Taiyaki Scramble,Dirt,5,그냥 차 날리면서 치고 나가면 못 따라감 �
 Takashiro Trail,Dirt,3,직선은 긴데 코너의 90%가 전부 90도 구간이라 애매해버림
 The Gauntlet,Dirt,3,그냥 너무 길고 그래블 타막 더트 다 혼합된 코스
 Waterfall Trail,Dirt,3,서쪽 그래블 산간 코스를 달리는 전통 랠리 코스
-City Docks Cross Country Circuit,Cross Country,,
-Edogawa Cross Country Circuit,Cross Country,,
-Izu Cross Country,Cross Country,,
-Legend Island Cross Country Circuit,Cross Country,,
-Nangan Cross Country Circuit,Cross Country,,
-Naruo Cross Country Circuit,Cross Country,,
-Oka Cross Country Circuit,Cross Country,,
-Ruriko-ji Cross Country,Cross Country,,
-Shimanoyama Cross Country,Cross Country,,
-Shinjuku Gyoen Cross Country,Cross Country,,
-Snow Forest Cross Country Circuit,Cross Country,,
-Soni Highlands Cross Country,Cross Country,,
-Stadium Cross Country Circuit,Cross Country,,
-Takashiro Cross Country,Cross Country,,
-Tateyama Alpine Cross Country,Cross Country,,
-Temple Cross Country,Cross Country,,
-The Titan,Cross Country,,
-Wind Farm Cross Country,Cross Country,,
-Yahikoyama Cross Country,Cross Country,,
+City Docks Cross Country Circuit,Cross Country,1,"전부 아스팔트, 점프 큰 거 3개, 코스가 전체적으로 비좁았음, 그냥 항구에다가 울타리랑 컨테이너로 길막고 컨테이너 올라타면서 크컨하는 느낌인데 추월하려면 이건 그냥 코너 입구에서 안쪽으로 억지로 밀고 들어간 다음에 탈출가속으로 승부봐야함"
+Edogawa Cross Country Circuit,Cross Country,1,"아스팔트9/흙1, 점프라고 하기에도 민망한 점프 2개, 비좁은 헤어핀 2개, 90도 코너 다수, 도심 공원에다가 울타리 쳐놓고 크로스컨트리라고 우기는 수준인데 대부분은 또 아스팔트임"
+Izu Cross Country,Cross Country,4,"흙5/논4/아스팔트1, 큰 점프 3번, 도강 1번(점프 직후 바로 도강임), 계단식 논을 내려가는데 논두렁을 수직으로 넘어야 해서 그냥 논두렁이 하나의 과속방지턱과 동일했음"
+Legend Island Cross Country Circuit,Cross Country,4,"흙9/아스팔트1, 작은 점프 3개, 긴 오르막 2개, 비좁은 90도 코너 2개, 급격한 다운힐 이후 270도 좁은 헤어핀 1개, 개인적으로 브레이킹 하기가 되게 까다로웠음 중요 브레이킹 포인트가 꽤 높은 속도에서 브레이크를 밟아야 했음"
+Nangan Cross Country Circuit,Cross Country,4,"아스팔트7/흙3, 큰 점프 2개, 급격한 코너 2.5개(하나가 좌 90도 우 180도의 복합 시케인이고 비좁은 편인데 추월 포인트가 아님), 코스 생긴거와 다르게 의외로 출력이 필요한 편 주요 코너들이 추월 포인트로 쓸 수 없어서 직선에서 따라잡는 게 효과가 더 좋음"
+Naruo Cross Country Circuit,Cross Country,3,"골프장 코스, 작은 점프 2개, 얕은 도강 2개, 헤어핀 1개, 마지막 코너는 논밭 위 완만한 270도 코너, 변수는 그렇게 많지 않으며 골프장 특성상 벙커가 있는데 이것도 주행에 영향을 주지 않는 수준"
+Oka Cross Country Circuit,Cross Country,2,"논밭7/흙3, 작은 점프 3개, 도강 2개, 헤어핀 3개(깊은 거 2개, 얕은 거 1개인데 얕은 거 라인이 매우 중요), 차가 계속 튀었음 무게가 있어서 버텼지 무게 없었으면 좀 고생했을지도"
+Ruriko-ji Cross Country,Cross Country,4,"눈5/흙+물5, 큰 점프 3개, 작은 점프 1개, 급한 코너는 딱히 없으며 코스 초반부는 스키장 꼭대기에서부터 내려가야 하는 코스고 중반 큰 점프 이후로는 물 흐르는 계곡을 따라 무슨 레프팅 하는 느낌임, 솔직히 ㅈㄴ 힘들었음"
+Shimanoyama Cross Country,Cross Country,3,"아스팔트7/흙3, 점프 다수, 급한 코너 다수, 아니 대체 왜 크로스컨트리에 테크니컬 코스를 넣었는지 모르겠는데 점프 후 착지가 아스팔트라서 차가 충격 흡수를 하기에 매우 힘들어했음"
+Shinjuku Gyoen Cross Country,Cross Country,4,"흙/논/아스팔트 복합, 점프 다수, 도강 2회, 비좁은 구간 있음, 차가 바운싱하는 문제에, 밀리는 문제에 아무튼 좀 다른 의미로도 골치아팠음"
+Snow Forest Cross Country Circuit,Cross Country,5,"스키장 코스/눈길, 큰 점프 1개, 작은 점프 2개, 긴 오르막 1개, 매우 급한 헤어핀 1개, 90도 코너 중 하나가 브레이킹 포인트가 눈이 아니라 얼음임, 직선 성능 모자라면 꽤 고생할 수도 있음"
+Soni Highlands Cross Country,Cross Country,3,"논5/흙5, 진짜 큰 점프 1개, 큰 점프 2개, 작은 점프 다수, 도강 2번인데 그 중 한번은 진짜 깊은 도강, 급한 코너 몇 개가 있긴 한데 코스 자체는 넓음, 중반부에 차가 계속 미세하게 바운싱을 해서 매우 힘들었음"
+Stadium Cross Country Circuit,Cross Country,2,"아스팔트5/흙5 혼합, 큰 점프 2개, 급격한 코너 4개 정도, 점프는 기준차량 기준으로도 버틸만 했음, 오히려 크컨 보다는 랠리 느낌이 좀 더 강했고 여기도 그냥 스타디움 근처에 울타리 쳐놓고 크컨이라 우기는 수준이었음"
+Takashiro Cross Country,Cross Country,5,"전부 흙, 큰 점프 2개, 급격한 코너 딱히 없음, 진짜 크로스컨트리 같은 느낌으로 시원하게 밀고 나가는 맛이 있는데 차가 계속 통통 튀어서 스핀과 전복 위협에 계속 시달렸음"
+Tateyama Alpine Cross Country,Cross Country,4,"흙9/아스팔트1, 큰 점프 3개, 깊은 도강 2번, 헤어핀 1개, 유일한 헤어핀이 아스팔트 구간에 있음, 차가 튀지는 않았는데 뭔가 뜨면서 그립이 모자라지는 감각은 있었음"
+Temple Cross Country,Cross Country,5,"흙9/아스팔트1, 큰 점프 1개, 좌우 복합 시케인 1개(라인 별로 없음), 긴 오르막 1개, 전체적으로 출력형 코스이며 추중비 비율이 꽤 많이 중요함"
+The Titan,Cross Country,3,모든 코스 복합으로 그냥 그지같은 거랑 좋은 거랑 다 모여있다고 보면 됨
+Wind Farm Cross Country,Cross Country,4,"논6/흙4, 점프 4번, 도강 다수, 차가 튀지는 않았지만 물에서 저항이 꽤 있었음"
+Yahikoyama Cross Country,Cross Country,3,"아스팔트5/흙5, 큰 점프 1개, 급한 코너가 아스팔트에 몰려있고 아스팔트 쪽 코너들은 다 좁은 편임, 차가 튄다는 문제는 딱히 없었음"
