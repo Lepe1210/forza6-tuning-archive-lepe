@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "gtblack21-S1800-1",
+    "manufacturer": "Mercedes-AMG",
+    "carName": "GT Black Series 2021",
+    "className": "S1 800",
+    "carType": "트랙 토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "저속코너 탈출 시 터보렉으로 인해 갑작스럽게 토크가 치고 올라오므로 주의할것",
+    "power": "720hp",
+    "weight": "1206kg",
+    "lateralG": "2.1G",
+    "shareCode": "177346568",
+    "summary": "리메이크 / 역시 엔진은 독일놈들이 잘만든다",
+    "tuneNotes": "경량화 / 드리프트 타이어",
+    "updatedAt": "2026-09-22",
+    "testTrackBTime": "1:20.125",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "오프로드 타이어 다운그레이드 / 타이어 폭에 변화를 주고 LSD를 더 뒤쪽 구동 쪽으로 밀었음",
     "manufacturer": "Audi",
     "carName": "#2 Audi Sport quattro S1 1986",
@@ -2317,26 +2337,6 @@
     "tuneNotes": "경량화/드리프트 타이어/ 순정 에어로",
     "updatedAt": "2026-07-06",
     "testTrackBTime": "1:22.497",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "gtblack21-S1800",
-    "manufacturer": "Mercedes-AMG",
-    "carName": "GT Black Series 2021",
-    "className": "S1 800",
-    "carType": "트랙 토이",
-    "drive": "RWD",
-    "category": "온로드",
-    "concept": "전반적으로 오버스티어 성향",
-    "power": "738hp",
-    "weight": "1209kg",
-    "lateralG": "2.1G",
-    "shareCode": "379532855",
-    "summary": "GT3 레이스카 느낌/ 스로틀 조작 주의",
-    "tuneNotes": "경량화/ 드리프트 타이어",
-    "updatedAt": "2026-07-06",
-    "testTrackBTime": "1:22.028",
     "testTrackCTime": ""
   },
   {
