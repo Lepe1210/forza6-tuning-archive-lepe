@@ -21,7 +21,7 @@
   },
   {
     "eventTitle": "",
-    "id": "오프로드 타이어 다운그레이드 / 타이어 폭에 변화를 주고 LSD를 더 뒤쪽 구동 쪽으로 밀었음",
+    "id": "quattroS186-S1800-4",
     "manufacturer": "Audi",
     "carName": "#2 Audi Sport quattro S1 1986",
     "className": "S1 800",
@@ -56,8 +56,8 @@
     "summary": "프리미엄 영국 오프로드 3대장을 완성하고 싶었는데 솔직히 이거 설렁설렁 타는 게 각 잡고 타는 것보다 빠름 / 마음의 여유를 충분히 가지고 타야함",
     "tuneNotes": "벌컨 엔진 넣고 에어로 좀 줬음",
     "updatedAt": "2026-09-20",
-    "testTrackBTime": "0:55.931",
-    "testTrackCTime": ""
+    "testTrackBTime": "",
+    "testTrackCTime": "0.55.931"
   },
   {
     "eventTitle": "",
