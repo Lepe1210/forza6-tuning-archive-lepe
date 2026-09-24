@@ -3,107 +3,83 @@
 ## 현재 시즌 메타
 
 - 상태: confirmed
-- 기준 주차: 2026-09-17
-- 갱신: 2026-09-17 21:41 KST
-- 용도: `/추천` 운영용 확정 데이터. British Automotive - Autumn 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
+- 기준 주차: 2026-09-24
+- 갱신: 2026-09-24 20:38 KST
+- 용도: `/추천` 운영용 확정 데이터. British Automotive - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
 
-### 도전 — Super Circuits
+### 도전 — Winter Rallies
 
-- 제한: Modern Supercars / S1 800
-- 종목: Road
+- 제한: Rally Monsters / A 700
+- 종목: Dirt
 - 코스:
-  - Shimanoyama Circuit | Road | Bias 1 | 드리프트 서킷에서 레이스 하는 건데 도로도 좁음
-  - Shirakawa Circuit | Road | Bias 2 | 탈출 재가속이 안 좋으면 다음 코너까지 직선 길이가 상대적으로 있는 편이라 못 따라잡을 수 있음
-  - Narai-Juku Circuit | Road | Bias 2 | 코스의 절반이 비좁거나 코너 커팅이 불가능
+  - Bamboo Forest Scramble | Dirt | Bias 2 | 랠리지만 코스의 80%가 타막이고 더트 20%는 직선에 가까움
+  - Ine Scramble | Dirt | Bias 2 | 도로 폭은 좁지 않지만 추월 라인을 잡기 어려움
+  - Ito Trail | Dirt | Bias 1 | 중간의 복잡한 테크니컬 코너와 헤어핀이 승부처
 
 #### 1픽
 
-- Tune ID: murlp67010-s1800
-- 차량: Lamborghini Murcielago LP 670-4 SV 2010
-- className: S1 800
-- shareCode: 122259919
-- 이유: 720hp / 1446kg, 2.2G, 4WD에 Track B 1:20.506을 기록했다. 이번 세 코스가 Bias 1 → 2 → 2의 저속·테크니컬 구성이라 안정적인 4WD 탈출과 높은 횡그립이 특히 유리하며, 실수 복구와 재가속까지 포함한 초보 친화적인 공용 1픽으로 확정.
+- Tune ID: metro86-A700
+- 차량: MG Metro 6R4 1986
+- className: A 700
+- shareCode: 960169335
+- 이유: 347hp / 1022kg, 1.9G, 4WD에 Track C 0:55.996을 기록했다. Bias 2 → 2 → 1의 저속·테크니컬 Dirt 구성에서 높은 횡그립과 가벼운 차체, 안정적인 4WD가 잘 맞고 Autoshow 상시 구매 차량이라 공용 1픽으로 확정.
 
 #### 2픽
 
-- Tune ID: mc2022-s1800-2
-- 차량: Maserati MC20 2022
-- className: S1 800
-- shareCode: 170278876
-- 이유: 826hp / 1545kg, 2.1G에 Track B 1:20.997을 기록했다. RWD지만 미끄러짐을 억제한 안정형 세팅이고 절대 출력이 높아 코너 탈출 뒤 이어지는 짧은 직선에서도 손해가 적다. 무르시보다 조작 부담은 조금 높지만 성능 대안으로 강한 2픽.
+- Tune ID: 207super07-A700
+- 차량: Peugeot 207 Super 2000 2007
+- className: A 700
+- shareCode: 149838177
+- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track C 0:55.565로 Metro보다 실측 기록이 빠르다. WRC 스타일의 혼합 노면 세팅과 높은 절대 출력이 강점이지만 Seasonal 획득 차량이라 접근성을 고려해 성능형 2픽으로 확정.
 
-#### 3픽
+### 레이스 1 — Country Pickups
 
-- Tune ID: turbos23-s1800
-- 차량: Porsche 911 Turbo S 2023
-- className: S1 800
-- shareCode: 145823389
-- 이유: 711hp / 1238kg, 2.1G, RWD에 Track B 1:21.913을 기록한 이번 주용 특수 세팅이다. 드리프트 타이어와 하이캠을 사용한 경량 후륜형 구성으로 좁은 서킷에서 민첩하게 움직일 수 있지만 4WD 무르시보다 운전자 개입이 더 필요해 숙련자용 3픽으로 확정.
-
-### 레이스 1 — Offroad Scramble
-
-- 제한: Total Buggies & Offroad / B 600
-- 종목: Dirt
+- 제한: Pickups & 4x4's / B 600
+- 종목: Cross Country
 - 코스:
-  - Chiheisen Scramble | Dirt | Bias 2 | 선형이 좋은 거 같은데 도로 폭이 좀 별로임
-  - Horizon Stadium Scramble | Dirt | Bias 3 | 차를 날리는 거랑 브레이킹 포인트가 중요한데 재미가 없는 코스
-  - Taiyaki Scramble | Dirt | Bias 5 | 그냥 차 날리면서 치고 나가면 못 따라감 접지만 나오면 좋음
+  - Soni Highlands Cross Country | Cross Country | Bias 3 | 큰 점프와 깊은 도강, 중반부 잔바운싱이 있으나 일반적인 SUV/픽업은 실주행상 큰 문제 없이 통과 가능
+  - Temple Cross Country | Cross Country | Bias 5 | 긴 오르막과 고속 구간 비중이 커 출력대중량비와 절대 출력이 중요
+  - Map 3 | Cross Country | 공식 구조화 페이지에서 코스명 누락, 시즌 이미지로 이벤트 제한은 교차검증 완료
 
 #### 1픽
+
+- Tune ID: wrangler12-b600
+- 차량: Jeep Wrangler Rubicon 2012
+- className: B 600
+- shareCode: 175028989
+- 이유: 507hp / 1513kg, 1.6G, 4WD에 Track C 0:59.914로 현재 후보 중 가장 빠른 실측 기록을 보인다. 짧은 휠베이스 특유의 울렁거림은 있으나 Soni 수준의 점프·요철에서는 실주행상 큰 문제가 없었고, Temple의 출력 요구에도 대응 가능한 추중비를 가져 공용 1픽으로 확정.
+
+#### 2픽
 
 - Tune ID: f45019-b600
 - 차량: Ford Super Duty F-450 DRW Platinum 2020
 - className: B 600
 - shareCode: 107167805
-- 이유: 현재 인게임 Total Buggies & Offroad 화이트리스트 적격 차량이며, 850hp / 3192kg, 1.4G, 4WD에 Track C 1:00.444를 기록했다. 세 후보 중 가장 빠른 실측 Track C와 압도적인 절대 출력, 안정적인 4WD를 함께 가져 Bias 2 → 3 → 5 Dirt 3연전의 공용 1픽으로 확정.
-
-#### 2픽
-
-- Tune ID: class1buggy21-b600
-- 차량: Alumicraft #122 Class 1 buggy 2021
-- className: B 600
-- shareCode: 611143497
-- 이유: 현재 인게임 화이트리스트 적격이며 521hp / 1769kg, 1.5G, 4WD에 Track C 1:00.973을 기록했다. MANX 2.0보다 Track C는 0.060초 느리지만 출력과 4WD 구성이 Bias 5인 Taiyaki Scramble의 고속 탈출까지 대응하기 좋아 3전 전체 균형을 보고 2픽으로 확정.
+- 이유: 850hp / 3192kg, 1.4G, 4WD에 Track C 1:00.444를 기록했다. 절대 출력이 매우 높고 차체 안정성이 좋아 특히 Bias 5인 Temple의 긴 오르막과 고속 구간에서 강점을 기대할 수 있어 출력형 2픽으로 확정.
 
 #### 3픽
 
-- Tune ID: manx2023-b600
-- 차량: Meyers MANX 2.0 2023
+- Tune ID: tacoma19-b600
+- 차량: Toyota Tacoma TRD Pro 2019
 - className: B 600
-- shareCode: 979588694
-- 이유: 현재 인게임 화이트리스트 적격이며 200hp / 744kg, 1.5G, RWD에 Track C 1:00.913을 기록했다. 초경량 차체 덕분에 기술 구간에서 빠르지만 절대 출력과 후륜구동 특성상 고속 비중이 큰 Taiyaki에서 #122보다 부담이 있어 3픽으로 확정.
+- shareCode: 294281119
+- 이유: 416hp / 1559kg, 1.5G, 4WD에 Track C 1:01.416을 기록했다. Wrangler보다 절대적인 고점은 낮지만 중량과 출력의 균형이 좋고 TRD 기반 하체 세팅으로 지형 대응력이 무난해 안정적인 대안 3픽으로 확정.
 
-### 레이스 2 — Toys on the Road
+### 레이스 2 — Cult Street
 
-- 제한: Track Toys / S1 800
-- 종목: Road
+- 제한: Cult Cars / D 400
+- 종목: Street
 - 코스:
-  - Satta Sprint | Road | Bias 5 | 얕은 코너 위주
-  - Daikoku Circuit | Road | Bias 2 | 도로 자체가 넓은 편
-  - Tokyo Railway Sprint | Road | Bias 3 | 고속형 탈을 썼지만 직각 코너 다수
+  - Rainbow Bridge Descent | Street | Bias 3 | 긴 직선 뒤 시가지로 진입하는 균형형 코스
+  - Okishinaimura Run | Street | Bias 1 | 시작부터 연속 헤어핀을 내려가는 극저속 테크니컬 코스
+  - Norikura Descent | Street | Bias 2 | 테크니컬 코너와 헤어핀 3개가 이어지는 저속형 코스
 
 #### 1픽
 
-- Tune ID: viper08-s1800
-- 차량: Dodge Viper SRT-10 ACR 2008
-- className: S1 800
-- shareCode: 540918225
-- 이유: 760hp / 1412kg, 2.2G에 Track B 1:19.408을 기록했다. 강한 절대 출력으로 Bias 5 Satta를 대응하면서도 높은 횡그립과 쉬운 주행 난도로 Daikoku·Tokyo Railway까지 안정적으로 소화할 수 있어 공용 1픽으로 확정.
-
-#### 2픽
-
-- Tune ID: g4019-s1800
-- 차량: Ginetta G40 Junior 2019
-- className: S1 800
-- shareCode: 133085150
-- 이유: 501hp / 862kg, 2.0G에 Track B 1:17.392로 현재 후보 중 가장 강한 실측 기록을 보인다. 극단적으로 가벼운 차체와 높은 성능 고점이 장점이지만 비-Autoshow 시즌 보상 차량이라 접근성이 떨어져 성능형 대안 2픽으로 확정.
-
-#### 3픽
-
-- Tune ID: gt323-s1800-1
-- 차량: Porsche 911 GT3 RS 2023
-- className: S1 800
-- shareCode: 389900544
-- 이유: 564hp / 1081kg, 2.3G에 Track B 1:18.333을 기록했다. 코너링 고점은 매우 높아 Bias 2~3 구간에서 강하지만 테스터 3명이 공통으로 초보자용 날먹 세팅이 아니라고 평가했고 스로틀 인내가 필요한 특성이 있어 숙련자용 3픽으로 확정.
+- Tune ID: s80070-d400
+- 차량: Honda S800 1970
+- className: D 400
+- shareCode: 128413839
+- 이유: 101hp / 588kg, 1.5G, RWD의 초경량 밸런스형 세팅이다. Bias 3 → 1 → 2로 이어지는 이번 Street 구성은 절대 출력보다 감속·방향전환·재가속 리듬이 중요하며, 후륜 유지와 낮은 중량이 특히 2·3맵에 잘 맞는다. Autoshow 상시 구매 차량이고 현재 아카이브의 유일한 적격 D400 튠이라 공용 1픽으로 확정.
