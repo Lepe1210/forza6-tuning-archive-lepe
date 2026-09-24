@@ -4,7 +4,7 @@
 
 - 상태: confirmed
 - 기준 주차: 2026-09-24
-- 갱신: 2026-09-24 20:38 KST
+- 갱신: 2026-09-24 22:03 KST
 - 용도: `/추천` 운영용 확정 데이터. British Automotive - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
@@ -20,11 +20,11 @@
 
 #### 1픽
 
-- Tune ID: metro86-A700
-- 차량: MG Metro 6R4 1986
+- Tune ID: arx18-a700
+- 차량: Subaru WRX STI ARX Supercar 2018
 - className: A 700
-- shareCode: 960169335
-- 이유: 347hp / 1022kg, 1.9G, 4WD에 Track C 0:55.996을 기록했다. Bias 2 → 2 → 1의 저속·테크니컬 Dirt 구성에서 높은 횡그립과 가벼운 차체, 안정적인 4WD가 잘 맞고 Autoshow 상시 구매 차량이라 공용 1픽으로 확정.
+- shareCode: 767377507
+- 이유: 564hp / 1369kg, 1.7G, 4WD에 Track B 1:29.634 / Track C 0:55.501을 기록했다. 첫 경기 Bamboo Forest Scramble이 약 80% 타막이라 Track B 대응력이 특히 중요하고, 동시에 Track C도 현재 후보 중 가장 빨라 온로드 비중과 Dirt 성능을 모두 놓치지 않는다. 팔찌 이벤트 보상 차량으로 Trial 정상 진입 시점에는 실질 접근성 페널티가 없어 공용 1픽으로 확정.
 
 #### 2픽
 
@@ -32,7 +32,7 @@
 - 차량: Peugeot 207 Super 2000 2007
 - className: A 700
 - shareCode: 149838177
-- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track C 0:55.565로 Metro보다 실측 기록이 빠르다. WRC 스타일의 혼합 노면 세팅과 높은 절대 출력이 강점이지만 Autoshow 상시 판매 차량이 아니라 Pink Wristband의 `Off Piste` 이벤트 보상으로 획득하는 차량이므로, 즉시 구매 접근성을 고려해 성능형 2픽으로 확정.
+- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track B 1:29.523 / Track C 0:55.565를 기록했다. Track B는 ARX보다 0.111초 빠르고 Track C도 사실상 동급이라 Bamboo Forest Scramble과 이후 Dirt 구간 모두 강하다. Pink Wristband의 `Off Piste` 이벤트 보상 차량으로 Trial 정상 진입 시점에는 실질 접근성 페널티가 없어 강력한 2픽으로 확정.
 
 ### 레이스 1 — Country Pickups
 
