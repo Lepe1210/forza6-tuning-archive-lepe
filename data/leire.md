@@ -4,7 +4,7 @@
 
 - 상태: confirmed
 - 기준 주차: 2026-09-24
-- 갱신: 2026-09-24 22:03 KST
+- 갱신: 2026-09-24 22:20 KST
 - 용도: `/추천` 운영용 확정 데이터. British Automotive - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
@@ -41,7 +41,7 @@
 - 코스:
   - Soni Highlands Cross Country | Cross Country | Bias 3 | 큰 점프와 깊은 도강, 중반부 잔바운싱이 있으나 일반적인 SUV/픽업은 실주행상 큰 문제 없이 통과 가능
   - Temple Cross Country | Cross Country | Bias 5 | 긴 오르막과 고속 구간 비중이 커 출력대중량비와 절대 출력이 중요
-  - Map 3 | Cross Country | 공식 구조화 페이지에서 코스명 누락, 시즌 이미지로 이벤트 제한은 교차검증 완료
+  - Edogawa Cross Country Circuit | Cross Country | Bias 1 | 아스팔트 비중이 매우 높고 비좁은 헤어핀과 90도 코너가 많은 도심형 특이 CC
 
 #### 1픽
 
@@ -72,9 +72,9 @@
 - 제한: Cult Cars / D 400
 - 종목: Street
 - 코스:
-  - Rainbow Bridge Descent | Street | Bias 3 | 긴 직선 뒤 시가지로 진입하는 균형형 코스
-  - Okishinaimura Run | Street | Bias 1 | 시작부터 연속 헤어핀을 내려가는 극저속 테크니컬 코스
   - Norikura Descent | Street | Bias 2 | 테크니컬 코너와 헤어핀 3개가 이어지는 저속형 코스
+  - Okishinaimura Run | Street | Bias 1 | 시작부터 연속 헤어핀을 내려가는 극저속 테크니컬 코스
+  - Sunflower Charge | Street | Bias 5 | 중반 코너를 제외하면 전반적으로 고속으로 밀어붙이는 출력형 코스
 
 #### 1픽
 
