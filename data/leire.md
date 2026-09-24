@@ -32,7 +32,7 @@
 - 차량: Peugeot 207 Super 2000 2007
 - className: A 700
 - shareCode: 149838177
-- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track C 0:55.565로 Metro보다 실측 기록이 빠르다. WRC 스타일의 혼합 노면 세팅과 높은 절대 출력이 강점이지만 Seasonal 획득 차량이라 접근성을 고려해 성능형 2픽으로 확정.
+- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track C 0:55.565로 Metro보다 실측 기록이 빠르다. WRC 스타일의 혼합 노면 세팅과 높은 절대 출력이 강점이지만 Autoshow 상시 판매 차량이 아니라 Pink Wristband의 `Off Piste` 이벤트 보상으로 획득하는 차량이므로, 즉시 구매 접근성을 고려해 성능형 2픽으로 확정.
 
 ### 레이스 1 — Country Pickups
 
