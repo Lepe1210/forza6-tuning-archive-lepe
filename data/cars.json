@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "integra01-b600-2",
+    "manufacturer": "Acura",
+    "carName": "Integra Type R 2001",
+    "className": "B 600",
+    "carType": "레트로 핫 해치",
+    "drive": "FWD",
+    "category": "온로드",
+    "concept": "이젠 영혼 비틀기도 아니라 마른 오징어는 짜면 물이 안 나옴",
+    "power": "350hp",
+    "weight": "1038kg",
+    "lateralG": "1.6G",
+    "shareCode": "624616758",
+    "summary": "리메이크 / 무슨 A급 중위권 애들이랑 비비는 성능 보고 그냥 난 생각을 포기했음 / 근데 운전법이 쉬운 편은 아님 vtec의 특성을 극한까지 끌어내야함",
+    "tuneNotes": "에어로 좀 먹이고 타이어 세팅 좀 바꾸고 원심형 슈퍼차저 달아서 극한의 고rpm 딸딸이를 쳤는데 이게 통함",
+    "updatedAt": "2026-09-25",
+    "testTrackBTime": "1:33.883",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "wrangler12-b600",
     "manufacturer": "Jeep",
     "carName": "Wrangler Rubicon 2012",
@@ -1402,7 +1422,7 @@
   {
     "eventTitle": "",
     "id": "rangerover15-a700",
-    "manufacturer": "Lang Rover",
+    "manufacturer": "Land Rover",
     "carName": "Range Rover Sport SVR 2015",
     "className": "A 700",
     "carType": "스포츠 유틸리티 영웅",
@@ -3897,26 +3917,6 @@
     "tuneNotes": "그립은 에어로로 누르고 엔진에 집중",
     "updatedAt": "2026-06-11",
     "testTrackBTime": "1:50.605",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "integra01-b700",
-    "manufacturer": "Acura",
-    "carName": "Integra Type R 2001",
-    "className": "B 600",
-    "carType": "레트로 핫 해치",
-    "drive": "FWD",
-    "category": "온로드",
-    "concept": "시빅 잡아보려고 어떻게든 영혼 비틀기로 깎아봄",
-    "power": "298hp",
-    "weight": "1026kg",
-    "lateralG": "1.6G",
-    "shareCode": "154861966",
-    "summary": "진짜 B클에선 FF가 더 좋은건가? / VTEC은 신이다",
-    "tuneNotes": "그냥 별 거 없음 / 해야할 개조를 했을 뿐",
-    "updatedAt": "2026-06-11",
-    "testTrackBTime": "1:36.812",
     "testTrackCTime": ""
   },
   {
