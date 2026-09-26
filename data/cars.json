@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "sportspider-a700",
+    "manufacturer": "Renault",
+    "carName": "Sport Spider 1998",
+    "className": "A 700",
+    "carType": "레트로 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "원래 B로 만드려다가 너무 구린 거 같아서 A로 올렸는데 이건 또 왜 좋음",
+    "power": "475hp",
+    "weight": "808kg",
+    "lateralG": "1.8G",
+    "shareCode": "105104415",
+    "summary": "르노 얘네들은 괴상한 걸 만드는 재주가 있는데 그 괴상한 거에다가 괴상한 걸 첨가하면 진짜 괴상하게 나옴",
+    "tuneNotes": "아톰에 들어가는 V8 Racing 엔진 스왑 / 앞에 유리 떼버림 / 의외로 순정 타이어임",
+    "updatedAt": "2026-09-26",
+    "testTrackBTime": "1:27.438",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "integra01-b600-2",
     "manufacturer": "Acura",
     "carName": "Integra Type R 2001",
