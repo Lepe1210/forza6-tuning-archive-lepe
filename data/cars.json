@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "gtblack20-S2900",
+    "manufacturer": "Mercedes-AMG",
+    "carName": "GT Black Series 2020",
+    "className": "S2 900",
+    "carType": "트랙 토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "어제 F1 보고 그냥 F1 엔진 구겨넣은 차 만들고 싶었음",
+    "power": "1086hp",
+    "weight": "1505kg",
+    "lateralG": "2.2G",
+    "shareCode": "168966658",
+    "summary": "환영팩이랑 다르게 이건 진짜 좋네 환영팩 기본 세팅이 꽤 안 좋다는 사실이 여기서 나오는 듯",
+    "tuneNotes": "F1 엔진 스왑 / 엄청난 슬릭 타이어 / 에어로 조정",
+    "updatedAt": "2026-09-27",
+    "testTrackBTime": "1:14.822",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "sportspider-a700",
     "manufacturer": "Renault",
     "carName": "Sport Spider 1998",
