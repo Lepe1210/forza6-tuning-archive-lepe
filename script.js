@@ -65,6 +65,7 @@ const dailyTuneResult = document.getElementById("dailyTuneResult");
 let cars = [];
 let weeklyCars = [];
 let isDailyTuneSpinning = false;
+let averageStatsByTrack = {};
 
 
 /* =========================
@@ -489,6 +490,10 @@ function renderAverageStats() {
 
   const trackBAverages = calculateAverageByPI("testTrackBTime");
   const trackCAverages = calculateAverageByPI("testTrackCTime");
+  averageStatsByTrack = {
+    testTrackBTime: new Map(trackBAverages.map((item) => [item.pi, item])),
+    testTrackCTime: new Map(trackCAverages.map((item) => [item.pi, item]))
+  };
 
   averageGrid.innerHTML = `
     ${renderAverageCard(TRACK_B_NAME, "trackB", trackBAverages)}
@@ -522,6 +527,7 @@ function renderAverageCard(trackName, trackId, averages) {
 
 function renderAverageItem(item, trackId, index) {
   const rankingId = `ranking-${trackId}-${index}`;
+  const trackKey = trackId === "trackB" ? "testTrackBTime" : "testTrackCTime";
 
   return `
     <div class="average-row">
@@ -535,6 +541,7 @@ function renderAverageItem(item, trackId, index) {
         ${escapeHTML(item.bestCar.manufacturer || "제조사 미입력")}
         ${escapeHTML(item.bestCar.carName || "차량명 미입력")}
         · ${secondsToLapTime(item.bestTime)}
+        ${renderRecordDifference(item.bestCar, trackKey)}
       </div>
 
       <button class="ranking-toggle" onclick="toggleRanking('${rankingId}', this)">
@@ -542,14 +549,14 @@ function renderAverageItem(item, trackId, index) {
       </button>
 
       <div id="${rankingId}" class="ranking-table">
-        ${item.rankings.map((ranking) => renderRankingRow(ranking)).join("")}
+        ${item.rankings.map((ranking) => renderRankingRow(ranking, trackKey)).join("")}
       </div>
     </div>
   `;
 }
 
 
-function renderRankingRow(ranking) {
+function renderRankingRow(ranking, trackKey) {
   return `
     <div class="ranking-row">
       <span class="ranking-rank">${ranking.rank}위</span>
@@ -562,9 +569,31 @@ function renderRankingRow(ranking) {
         ${escapeHTML(ranking.car.carName || "차량명 미입력")}
       </button>
 
-      <span class="ranking-time">${secondsToLapTime(ranking.seconds)}</span>
+      <span class="ranking-time-group">
+        <span class="ranking-time">${secondsToLapTime(ranking.seconds)}</span>
+        ${renderRecordDifference(ranking.car, trackKey)}
+      </span>
     </div>
   `;
+}
+
+/* 같은 PI·서킷의 아카이브 평균 기록과 비교한다. 음수일수록 빠르다. */
+function renderRecordDifference(car, trackKey) {
+  const seconds = lapTimeToSeconds(car[trackKey]);
+  const stats = averageStatsByTrack[trackKey]?.get(car.className);
+
+  if (seconds === null || !stats || stats.average <= 0) return "";
+
+  const difference = ((seconds - stats.average) / stats.average) * 100;
+  const roundedDifference = Number(difference.toFixed(3));
+  const isBest = Math.round(seconds * 1000) === Math.round(stats.bestTime * 1000);
+  const tone = isBest ? "best" : roundedDifference < 0 ? "faster" : roundedDifference > 0 ? "slower" : "equal";
+  const sign = roundedDifference > 0 ? "+" : roundedDifference < 0 ? "-" : "";
+  const display = `${sign}${Math.abs(roundedDifference).toFixed(3)}%`;
+  const trackName = trackKey === "testTrackBTime" ? TRACK_B_NAME : TRACK_C_NAME;
+  const description = `${car.className} / ${trackName} / 아카이브 ${stats.count}대 평균 ${secondsToLapTime(stats.average)} 기준`;
+
+  return `<span class="record-difference record-difference--${tone}" title="${escapeAttribute(description)}" aria-label="${escapeAttribute(`PI 평균 대비 ${display}. ${description}`)}">평균 대비 ${display}</span>`;
 }
 
 
@@ -832,8 +861,8 @@ function openCarDetail(id, source = "cars") {
       ${renderDetailItem("중량", car.weight)}
       ${renderDetailItem("횡G", car.lateralG)}
       ${renderDetailItem("최근 수정일", car.updatedAt)}
-      ${renderDetailItem(TRACK_B_NAME, car.testTrackBTime)}
-      ${renderDetailItem(TRACK_C_NAME, car.testTrackCTime)}
+      ${renderTrackTimeDetail(TRACK_B_NAME, car, "testTrackBTime")}
+      ${renderTrackTimeDetail(TRACK_C_NAME, car, "testTrackCTime")}
     </div>
 
     <h3>주행 평가</h3>
@@ -856,6 +885,18 @@ function renderDetailItem(label, value) {
     <div class="detail-item">
       <span class="detail-label">${escapeHTML(label)}</span>
       <span class="detail-value">${escapeHTML(value || "미입력")}</span>
+    </div>
+  `;
+}
+
+function renderTrackTimeDetail(label, car, trackKey) {
+  return `
+    <div class="detail-item">
+      <span class="detail-label">${escapeHTML(label)}</span>
+      <span class="detail-record-row">
+        <span class="detail-value">${escapeHTML(car[trackKey] || "미입력")}</span>
+        ${renderRecordDifference(car, trackKey)}
+      </span>
     </div>
   `;
 }
