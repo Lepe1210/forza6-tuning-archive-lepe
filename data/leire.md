@@ -3,83 +3,83 @@
 ## 현재 시즌 메타
 
 - 상태: confirmed
-- 기준 주차: 2026-08-27
-- 갱신: 2026-08-27 20:46 KST
-- 용도: `/추천` 운영용 확정 데이터. Horizon Mascot Party - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
+- 기준 주차: 2026-09-24
+- 갱신: 2026-09-24 22:20 KST
+- 용도: `/추천` 운영용 확정 데이터. British Automotive - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
 
-### 도전 — Vision Chaser
+### 도전 — Winter Rallies
 
-- 제한: Modern Super Saloons / A 700
-- 종목: Street
+- 제한: Rally Monsters / A 700
+- 종목: Dirt
 - 코스:
-  - Festival Chase | Street | Bias 2 | 중간에 낀 헤어핀 2개가 매우 어려운 편
-  - Cedar Run | Street | Bias 3 | 전체적으로 균형 잡힌 스프린트
-  - Matsumi Climb | Street | Bias 2 | 테크니컬 코너와 급격한 코너가 자주 있음
+  - Bamboo Forest Scramble | Dirt | Bias 2 | 랠리지만 코스의 80%가 타막이고 더트 20%는 직선에 가까움
+  - Ine Scramble | Dirt | Bias 2 | 도로 폭은 좁지 않지만 추월 라인을 잡기 어려움
+  - Ito Trail | Dirt | Bias 1 | 중간의 복잡한 테크니컬 코너와 헤어핀이 승부처
 
 #### 1픽
 
-- Tune ID: camrytrd23-A700
-- 차량: Toyota Camry TRD 2023
+- Tune ID: arx18-a700
+- 차량: Subaru WRX STI ARX Supercar 2018
 - className: A 700
-- shareCode: 921025861
-- 이유: 445hp / 1238kg, 1.8G에 Track B 1:30.670으로 후보군에서 종합 기록이 가장 좋다. 이번 코스가 Bias 2-3-2로 저·중속 비중이 높고 코너 탈출 안정성이 좋아 전체 3코스 기준 가장 무난하고 빠른 1픽.
+- shareCode: 767377507
+- 이유: 564hp / 1369kg, 1.7G, 4WD에 Track B 1:29.634 / Track C 0:55.501을 기록했다. 첫 경기 Bamboo Forest Scramble이 약 80% 타막이라 Track B 대응력이 특히 중요하고, 동시에 Track C도 현재 후보 중 가장 빨라 온로드 비중과 Dirt 성능을 모두 놓치지 않는다. 팔찌 이벤트 보상 차량으로 Trial 정상 진입 시점에는 실질 접근성 페널티가 없어 공용 1픽으로 확정.
 
 #### 2픽
 
-- Tune ID: Limo13-A700
-- 차량: Cadillac XTS Limousine 2013
+- Tune ID: 207super07-A700
+- 차량: Peugeot 207 Super 2000 2007
 - className: A 700
-- shareCode: 176696679
-- 이유: 753hp / 1984kg의 대형 차체지만 4WD와 높은 절대 출력으로 코너 탈출과 재가속이 강하고 Track B 1:33.172도 확보했다. 실주행 검수에서 헤어핀 대응과 혼전 실전성이 확인되어 2픽으로 확정.
+- shareCode: 149838177
+- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track B 1:29.523 / Track C 0:55.565를 기록했다. Track B는 ARX보다 0.111초 빠르고 Track C도 사실상 동급이라 Bamboo Forest Scramble과 이후 Dirt 구간 모두 강하다. Pink Wristband의 `Off Piste` 이벤트 보상 차량으로 Trial 정상 진입 시점에는 실질 접근성 페널티가 없어 강력한 2픽으로 확정.
+
+### 레이스 1 — Country Pickups
+
+- 제한: Pickups & 4x4's / B 600
+- 종목: Cross Country
+- 코스:
+  - Soni Highlands Cross Country | Cross Country | Bias 3 | 큰 점프와 깊은 도강, 중반부 잔바운싱이 있으나 일반적인 SUV/픽업은 실주행상 큰 문제 없이 통과 가능
+  - Temple Cross Country | Cross Country | Bias 5 | 긴 오르막과 고속 구간 비중이 커 출력대중량비와 절대 출력이 중요
+  - Edogawa Cross Country Circuit | Cross Country | Bias 1 | 아스팔트 비중이 매우 높고 비좁은 헤어핀과 90도 코너가 많은 도심형 특이 CC
+
+#### 1픽
+
+- Tune ID: wrangler12-b600
+- 차량: Jeep Wrangler Rubicon 2012
+- className: B 600
+- shareCode: 175028989
+- 이유: 507hp / 1513kg, 1.6G, 4WD에 Track C 0:59.914로 현재 후보 중 가장 빠른 실측 기록을 보인다. 짧은 휠베이스 특유의 울렁거림은 있으나 Soni 수준의 점프·요철에서는 실주행상 큰 문제가 없었고, Temple의 출력 요구에도 대응 가능한 추중비를 가져 공용 1픽으로 확정.
+
+#### 2픽
+
+- Tune ID: f45019-b600
+- 차량: Ford Super Duty F-450 DRW Platinum 2020
+- className: B 600
+- shareCode: 107167805
+- 이유: 850hp / 3192kg, 1.4G, 4WD에 Track C 1:00.444를 기록했다. 절대 출력이 매우 높고 차체 안정성이 좋아 특히 Bias 5인 Temple의 긴 오르막과 고속 구간에서 강점을 기대할 수 있어 출력형 2픽으로 확정.
 
 #### 3픽
 
-- Tune ID: m4coupe14-A700
-- 차량: BMW M4 Coupé 2014
-- className: A 700
-- shareCode: 944673298
-- 이유: 515hp / 1502kg, 1.8G에 Track B 1:31.249로 Camry 다음으로 빠른 축에 속한다. V10 자연흡기 스왑과 온로드 세팅으로 균형은 좋지만 후륜과 중량 부담을 감안해 실전 종합 순위는 3픽.
+- Tune ID: tacoma19-b600
+- 차량: Toyota Tacoma TRD Pro 2019
+- className: B 600
+- shareCode: 294281119
+- 이유: 416hp / 1559kg, 1.5G, 4WD에 Track C 1:01.416을 기록했다. Wrangler보다 절대적인 고점은 낮지만 중량과 출력의 균형이 좋고 TRD 기반 하체 세팅으로 지형 대응력이 무난해 안정적인 대안 3픽으로 확정.
 
-### 레이스 1 — Micro Circuits
+### 레이스 2 — Cult Street
 
-- 제한: Microcar Madness / A 700
-- 종목: Road
+- 제한: Cult Cars / D 400
+- 종목: Street
 - 코스:
-  - Soni Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 힘들 정도로 좁고 헤어핀이 3개 있음
-  - Hokubu Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 힘들 정도로 좁음
-  - Edamame Circuit | Road | Bias 1 | 이번 시즌 이벤트 전용 풋콩 서킷
+  - Norikura Descent | Street | Bias 2 | 테크니컬 코너와 헤어핀 3개가 이어지는 저속형 코스
+  - Okishinaimura Run | Street | Bias 1 | 시작부터 연속 헤어핀을 내려가는 극저속 테크니컬 코스
+  - Sunflower Charge | Street | Bias 5 | 중반 코너를 제외하면 전반적으로 고속으로 밀어붙이는 출력형 코스
 
 #### 1픽
 
-- Tune ID: metro86-A700
-- 차량: MG Metro 6R4 1986
-- className: A 700
-- shareCode: 960169335
-- 이유: 347hp / 1022kg, 1.9G, 4WD에 Track B 1:32.591과 Track C 0:55.996을 함께 가진 혼합형 세팅이다. 세 코스가 모두 Bias 1 초저속·좁은 서킷이라 출력보다 민첩성, 그립, 탈출 안정성이 중요하며 실제 실주행 검수까지 거쳐 단독 1픽으로 확정.
-
-### 레이스 2 — Modern Marvels
-
-- 제한: Modern Rally / B 600
-- 종목: Dirt
-- 코스:
-  - Taiyaki Scramble | Dirt | Bias 5 | 차를 날리면서 치고 나가면 따라잡기 어려운 고속형 코스
-  - Kawazu Nanadaru Scramble | Dirt | Bias 4 | 고속형이지만 중요한 온로드 구간에 나나타키 루프 다리가 있음
-  - Kinkaku-ji Trail | Dirt | Bias 4 | 마지막 90도 전까지 크게 벌어지지 않으면 마지막 직선에서 추월 가능
-
-#### 1픽
-
-- Tune ID: lanevox08-A700
-- 차량: Mitsubishi Lancer Evolution X GSR 2008
-- className: B 600
-- shareCode: 785739992
-- 이유: 305hp / 1281kg, 1.7G, 4WD에 Track C 1:01.122로 같은 제한의 GR Yaris보다 약 0.54초 빠르다. 이번 코스가 Bias 5-4-4로 고속 비중이 높아 더 높은 절대 출력과 안정적인 접지가 유리하며 실주행 검수 후 1픽으로 확정.
-
-#### 2픽
-
-- Tune ID: yaris21-B600
-- 차량: Toyota GR Yaris 2021
-- className: B 600
-- shareCode: 736293437
-- 이유: 257hp / 1158kg, 1.8G, 4WD에 Track C 1:01.660으로 충분히 경쟁력 있다. 코너링은 강하지만 아카이브 평가대로 직선이 느린 편이라 고속형 3코스에서는 Evo X보다 불리해 2픽으로 확정.
+- Tune ID: s80070-d400
+- 차량: Honda S800 1970
+- className: D 400
+- shareCode: 128413839
+- 이유: 101hp / 588kg, 1.5G, RWD의 초경량 밸런스형 세팅이다. Reddit 이미지 가이드 기준 코스는 Bias 2 → 1 → 5이며, Norikura와 Okishinaimura의 테크니컬 구간에서 낮은 중량과 방향전환 성능을 살려 앞 두 경기 승리를 노리는 구성이 적합하다. Sunflower Charge의 고속 비중은 약점이지만 Map 1·2 우선 전략과 Autoshow 접근성, 현재 아카이브의 유일한 적격 D400 튠이라는 점을 종합해 공용 1픽으로 확정.
