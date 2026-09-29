@@ -155,6 +155,7 @@ function parseCars(csvText) {
   return parseCSV(csvText)
     .map((row) => ({
       eventTitle: cleanValue(row.eventTitle),
+      eventGroup: cleanValue(row.eventGroup),
       id: cleanValue(row.id),
       manufacturer: cleanValue(row.manufacturer),
       carName: cleanValue(row.carName),
@@ -616,6 +617,18 @@ function toggleRanking(rankingId, button) {
    페스티벌 튜닝차량 섹션 표시
 ========================= */
 
+const WEEKLY_GROUP_ORDER = ["도전", "메인1", "메인2", "PR 스턴트"];
+
+function getWeeklyGroup(value) {
+  const normalized = cleanValue(value).replace(/\s+/g, "").toLowerCase();
+
+  if (normalized === "도전") return "도전";
+  if (normalized === "메인1") return "메인1";
+  if (normalized === "메인2") return "메인2";
+  if (normalized === "pr스턴트") return "PR 스턴트";
+  return "미분류";
+}
+
 function renderWeeklyCars() {
   const titleFromSheet = weeklyCars.find((car) => car.eventTitle)?.eventTitle;
 
@@ -626,21 +639,33 @@ function renderWeeklyCars() {
     return;
   }
 
-  weeklyGrid.innerHTML = weeklyCars
-    .map(
-      (car) => `
+  const groupedCars = new Map([...WEEKLY_GROUP_ORDER, "미분류"].map((group) => [group, []]));
+  weeklyCars.forEach((car) => groupedCars.get(getWeeklyGroup(car.eventGroup)).push(car));
+
+  weeklyGrid.innerHTML = [...groupedCars]
+    .filter(([, groupCars]) => groupCars.length > 0)
+    .map(([group, groupCars], groupIndex) => `
+      <section class="weekly-group" aria-labelledby="weekly-group-${groupIndex}">
+        <div class="weekly-group-heading">
+          <h3 id="weekly-group-${groupIndex}">${escapeHTML(group)}</h3>
+          <span>${groupCars.length}대</span>
+        </div>
+        <div class="weekly-group-cards">
+          ${groupCars.map((car) => `
       <article class="weekly-card" onclick="openCarDetail('${escapeAttribute(car.id)}', 'weekly')">
         ${renderBadges(car)}
 
         <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
-        <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
+        <h4>${escapeHTML(car.carName || "차량명 미입력")}</h4>
 
         <p class="share-code">공유 코드: ${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</p>
 
         <p class="summary">${escapeHTML(car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다.")}</p>
       </article>
-    `
-    )
+          `).join("")}
+        </div>
+      </section>
+    `)
     .join("");
 }
 
