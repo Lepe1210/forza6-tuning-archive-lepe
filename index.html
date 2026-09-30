@@ -40,7 +40,7 @@
 
   <!-- PWA 설정 -->
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#101218" />
+  <meta name="theme-color" content="#17254a" />
 
   <!-- iOS 홈 화면 추가용 기본 설정 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,60 +49,29 @@
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
   <!-- 디자인 파일 연결 -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260930-b-renewal-1" />
+<link rel="icon" href="icons/icon-32.png" type="image/png">
+<link rel="stylesheet" href="redesign.css?v=20260930-b-renewal-1">
+<script src="redesign.js?v=20260930-b-renewal-1" defer></script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
 </head>
 
-<body>
+<body class="archive-home">
   <!-- =========================
        상단 메인 소개 영역
   ========================== -->
-  <header class="hero">
-    <div>
-      <p class="eyebrow">FORZA 6 TUNING DATABASE</p>
-      <h1>Forza 6 Tuning Archive</h1>
-
-      <p class="hero-text">
-        차량별 튜닝값, 주행 평가, 빌드 콘셉트를 정리하는 개인 아카이브입니다.
-      </p>
-
-      <!-- 패독 / 이용 가이드 / 알림 / 갤러리 링크 -->
-      <div class="hero-link-row">
-
-        <a class="discord-link paddock-link" href="discord.html">
-          패독으로 들어가기
-        </a>
-
-        <a class="discord-link guide-link" href="guide.html">
-          사이트 이용 가이드
-        </a>
-
-        <a
-          class="discord-link notification-link"
-          href="https://discord.gg/qSN32APcrd"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          업데이트 알림 받기
-        </a>
-
-        <a class="discord-link gallery-link" href="gallery.html">
-          갤러리 보기
-        </a>
-
-        <a class="discord-link rivals-link" href="rivals.html">
-          Racing Rivals 전시관
-        </a>
-
-      </div>
-
-      <!-- 오늘의 튜닝 뽑기 버튼 -->
-      <div class="daily-tune-entry">
-        <button id="openDailyTune" class="daily-tune-button" type="button">
-          오늘의 튜닝 뽑기
-        </button>
-      </div>
-    </div>
-  </header>
+<header class="hero festival-hero" id="festival">
+<div class="festival-hero-layout"><div class="hero-copy">
+<p class="eyebrow">THE FESTIVAL SELECTION / WEEKLY ISSUE</p>
+<h1>이번 주의<br><span>출전 차량.</span></h1>
+<p class="hero-text">주간 페스티벌을 위한 튜닝을 한눈에.<br>고를 차가 정해졌다면 공유 코드만 챙기면 됩니다.</p><button id="openDailyTune" class="daily-pick" type="button">✦ 오늘의 튜닝 뽑기 <span>↗</span></button>
+</div><aside class="shortcut" aria-label="바로가기"><h2>Shortcut</h2><div class="shortcut-grid">
+<a class="shortcut-card" href="#tuningList"><span>전체 튜닝</span><b>↗</b></a>
+<a class="shortcut-card" href="archive.html"><span>지난 시즌</span><b>↗</b></a>
+<a class="shortcut-card" href="#records"><span>타임어택 보드</span><small>PI별 평균 기록</small><b>↗</b></a>
+<a class="shortcut-card" href="guide.html"><span>이용 가이드</span><b>↗</b></a>
+</div></aside></div>
+</header>
 
   <!-- =========================
        메인 콘텐츠 영역
@@ -132,7 +101,7 @@
       </div>
 
       <!-- weekly 시트 차량 카드가 들어가는 자리 -->
-      <section id="weeklyGrid" class="weekly-grid"></section>
+      <section id="weeklyGrid" class="weekly-groups"></section>
     </section>
 
 
@@ -140,7 +109,7 @@
          PI별 평균 기록 섹션
          cars 시트의 테스트 트랙 기록을 기준으로 계산함
     ========================== -->
-    <section class="average-section">
+    <section class="average-section" id="records">
       <div class="section-header">
         <p class="eyebrow">TEST TRACK AVERAGE</p>
         <h2>PI별 평균 기록</h2>
@@ -159,19 +128,14 @@
          검색 및 필터 영역
          cars 시트 전체 차량 DB를 필터링함
     ========================== -->
-    <section class="controls">
-
-      <!-- 차량명, 제조사, 콘셉트, 공유 코드 등을 검색 -->
-      <input
+<section class="listing-section" id="tuningList">
+<div class="listing-title"><p class="eyebrow">THE COMPLETE GARAGE / TUNING INDEX</p><h2>전체 차량 목록.</h2><span>The Tuning Catalogue</span></div>
+<div class="listing-finder"><div class="search-row"><input
         id="searchInput"
-        class="search-control"
+        class="search-control" aria-label="차량 검색"
         type="text"
         placeholder="차량명, 제조사, 콘셉트, 공유 코드 검색"
-      />
-
-      <!-- PI 필터 -->
-      <select id="classFilter">
-        <option value="all">전체 PI</option>
+      /><button id="toggleFilters" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filterFields">필터 ▾</button></div><div id="filterFields" class="filter-fields"><select id="classFilter" aria-label="전체 PI"><option value="all">전체 PI</option>
         <option value="D 400">D 400</option>
         <option value="C 500">C 500</option>
         <option value="B 600">B 600</option>
@@ -180,11 +144,7 @@
         <option value="S2 900">S2 900</option>
         <option value="R 998">R 998</option>
         <option value="X 999">X 999</option>
-      </select>
-
-      <!-- 차량 분류 필터 -->
-      <select id="typeFilter">
-        <option value="all">전체 분류</option>
+      </select><select id="typeFilter" aria-label="전체 분류"><option value="all">전체 분류</option>
         <option value="버기">버기</option>
         <option value="클래식 머슬">클래식 머슬</option>
         <option value="클래식 레이스카">클래식 레이스카</option>
@@ -222,27 +182,16 @@
         <option value="언리미티드 버기">언리미티드 버기</option>
         <option value="언리미티드 오프로드">언리미티드 오프로드</option>
         <option value="유틸리티 히어로">유틸리티 히어로</option>
-      </select>
-
-      <!-- 구동방식 필터 -->
-      <select id="driveFilter">
-        <option value="all">전체 구동방식</option>
+      </select><select id="driveFilter" aria-label="전체 구동방식"><option value="all">전체 구동방식</option>
         <option value="FWD">FWD</option>
         <option value="RWD">RWD</option>
         <option value="4WD">4WD</option>
-      </select>
-
-      <!-- 용도 필터 -->
-      <select id="categoryFilter">
-        <option value="all">전체 용도</option>
+      </select><select id="categoryFilter" aria-label="전체 용도"><option value="all">전체 용도</option>
         <option value="온로드">온로드</option>
         <option value="오프로드">오프로드</option>
         <option value="혼합">혼합</option>
         <option value="페스티벌 시즌 숙제">페스티벌 시즌 숙제</option>
-      </select>
-      <!-- 연대 필터 -->
-      <select id="decadeFilter">
-        <option value="all">전체 연대</option>
+      </select><select id="decadeFilter" aria-label="전체 연대"><option value="all">전체 연대</option>
         <option value="1960">60년대</option>
         <option value="1970">70년대</option>
         <option value="1980">80년대</option>
@@ -251,35 +200,25 @@
         <option value="2010">10년대</option>
         <option value="2020">20년대</option>
         <option value="other">기타</option>
-      </select>
-
-      <!-- 정렬 옵션 -->
-      <select id="sortFilter">
-        <option value="default">기본 정렬</option>
+      </select><select id="sortFilter" aria-label="기본 정렬"><option value="default">기본 정렬</option>
         <option value="manufacturer">제조사순</option>
         <option value="pi">PI순</option>
         <option value="updated">최근 수정순</option>
         <option value="trackB">레전드 섬 서킷 빠른 순</option>
         <option value="trackC">세키베(오프로드) 빠른 순</option>
-      </select>
+      </select></div></div>
 
-      <!-- 검색 및 필터 초기화 -->
-      <button id="resetFilters" class="reset-filter-button" type="button">
-        필터 초기화
-      </button>
-
-    </section>
 
 
     <!-- =========================
          전체 차량 표시 개수 + 새로고침 버튼
     ========================== -->
     <section class="stats stats-row">
-      <span id="carCount">0대 표시 중</span>
+      <span id="carCount" aria-live="polite">0대 표시 중</span><div class="stats-actions"><button id="resetFilters" class="reset-filter-button" type="button">필터 초기화</button>
 
       <button id="refreshData" class="refresh-data-button" type="button">
         데이터 새로고침
-      </button>
+      </button></div>
     </section>
 
 
@@ -287,7 +226,9 @@
          전체 차량 카드 목록
          cars 시트 데이터가 들어가는 자리
     ========================== -->
-    <section id="carGrid" class="car-grid"></section>
+    <section id="carGrid" class="car-grid catalogue-grid" aria-label="전체 튜닝 목록"></section>
+<nav class="catalogue-pagination" aria-label="튜닝 목록 페이지"><button id="previousPage" type="button">이전</button><span id="pageInfo" aria-live="polite"></span><button id="nextPage" type="button">다음</button></nav>
+</section>
   </main>
 
 
@@ -407,7 +348,8 @@
   <!-- =========================
        동작 코드 연결
   ========================== -->
-  <script src="script.js?v=20260928-record-difference-1"></script>
+  <script src="script.js?v=20260930-b-renewal-1"></script>
 
 </body>
 </html>
+

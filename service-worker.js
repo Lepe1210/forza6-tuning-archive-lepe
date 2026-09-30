@@ -5,7 +5,7 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v20";
+const CACHE_NAME = "forza-tuning-archive-v22-b-renewal";
 
 const STATIC_ASSETS = [
   "./",
@@ -17,13 +17,21 @@ const STATIC_ASSETS = [
   "./guide.html",
   "./discord.html",
 
-  "./style.css",
+  "./style.css?v=20260930-b-renewal-1",
+  "./redesign.css?v=20260930-b-renewal-1",
+  "./redesign.js?v=20260930-b-renewal-1",
+  "./assets/archive-icon.webp",
+  "./assets/festival-engraving.webp",
+  "./icons/icon-32.png",
+  "./assets/fonts/hahmlet-variable.woff2",
+  "./assets/fonts/bodoni-moda-latin.woff2",
+  "./assets/fonts/bodoni-moda-latin-ext.woff2",
 
-  "./script.js",
-  "./archive.js",
-  "./manager.js",
-  "./gallery.js",
-  "./rivals.js",
+  "./script.js?v=20260930-b-renewal-1",
+  "./archive.js?v=20260930-b-renewal-1",
+  "./manager.js?v=20260930-b-renewal-1",
+  "./gallery.js?v=20260930-b-renewal-1",
+  "./rivals.js?v=20260930-b-renewal-1",
 
   "./manifest.json",
 
@@ -133,3 +141,4 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+

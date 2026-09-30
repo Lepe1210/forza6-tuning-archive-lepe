@@ -10,7 +10,7 @@
 
   <!-- PWA 설정 -->
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#101218" />
+  <meta name="theme-color" content="#17254a" />
 
   <!-- iOS 홈 화면 추가용 기본 설정 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -19,7 +19,11 @@
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
   <!-- 메인 사이트와 같은 CSS 사용 -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260930-b-renewal-1" />
+<link rel="icon" href="icons/icon-32.png" type="image/png">
+<link rel="stylesheet" href="redesign.css?v=20260930-b-renewal-1">
+<script src="redesign.js?v=20260930-b-renewal-1" defer></script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
 </head>
 
 <body>
@@ -74,6 +78,6 @@
   </div>
 
   <!-- 지난 시즌 전용 스크립트 -->
-  <script src="archive.js"></script>
+  <script src="archive.js?v=20260930-b-renewal-1"></script>
 </body>
 </html>
