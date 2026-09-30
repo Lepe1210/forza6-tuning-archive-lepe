@@ -5,7 +5,7 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v24-b-feedback";
+const CACHE_NAME = "forza-tuning-archive-v25-lepe-guide";
 
 const STATIC_ASSETS = [
   "./",
@@ -15,6 +15,9 @@ const STATIC_ASSETS = [
   "./gallery.html",
   "./rivals.html",
   "./guide.html",
+  "./guide.css?v=20260930-lepe-guide-1",
+  "./guide.js?v=20260930-lepe-guide-1",
+  "./assets/lepe-guide.webp",
   "./discord.html",
 
   "./style.css?v=20260930-b-feedback-1",
@@ -141,4 +144,3 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
-
