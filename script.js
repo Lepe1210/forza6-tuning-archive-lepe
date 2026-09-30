@@ -715,7 +715,7 @@ function renderCars(preservePage = false) {
   if (!sortedCars.length) { carGrid.innerHTML = '<div class="empty">조건에 맞는 차량이 없습니다.</div>'; return; }
   carGrid.innerHTML = pageCars.map((car,index) => `
     <article class="catalogue-row ${isRecentTuning(car.updatedAt) ? "recent-tuning" : ""}">
-      <div class="catalogue-vehicle"><p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}${isRecentTuning(car.updatedAt) ? '<span class="recent-label">최근 튜닝</span>' : ""}</p><button class="catalogue-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="cars">${escapeHTML(car.carName || "차량명 미입력")}</button><p class="summary">${escapeHTML(car.summary || car.concept || "")}</p></div>
+      <div class="catalogue-vehicle"><p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}${isRecentTuning(car.updatedAt) ? '<span class="recent-label"><span aria-hidden="true">✦</span> 최근 튜닝</span>' : ""}</p><button class="catalogue-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="cars">${escapeHTML(car.carName || "차량명 미입력")}</button><p class="summary">${escapeHTML(car.summary || car.concept || "")}</p></div>
       <div class="catalogue-spec">${renderBadges(car)}</div>
       <button class="catalogue-expand" type="button" aria-label="${escapeAttribute(car.carName)} 튜닝 정보 펼치기" aria-expanded="false" aria-controls="catalogue-code-${index}">⌄</button>
       <div class="catalogue-code" id="catalogue-code-${index}"><small>공유 코드</small><strong>${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</strong><button class="code-copy" type="button" data-copy-code="${escapeAttribute(car.shareCode)}" ${car.shareCode ? "" : "disabled"}>코드 복사</button></div>

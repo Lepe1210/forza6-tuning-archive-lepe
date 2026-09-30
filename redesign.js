@@ -33,7 +33,7 @@
   syncTheme();
 
   // Returning home must not switch between separately cached root/index documents.
-  header.querySelector('.archive-brand').addEventListener('click', event => {
+  function returnHome(event) {
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const home = new URL('./', location.href);
     const atHome = location.pathname === home.pathname || location.pathname === home.pathname + 'index.html';
@@ -46,12 +46,14 @@
     menu.textContent = '메뉴 ▾';
     setOpen(false);
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-  });
+  }
+  header.querySelector('.archive-brand').addEventListener('click', returnHome);
 
   const dock = document.createElement('aside');
   dock.className = 'shortcut-side';
   dock.innerHTML = `<button class="shortcut-side-toggle" type="button" aria-label="바로가기 펼치기" aria-expanded="false" aria-controls="sideShortcutLinks">바로가기</button>
     <nav id="sideShortcutLinks" aria-label="고정 바로가기">
+      <a class="shortcut-home" href="./">메인</a>
       <a href="index.html#tuningList">전체 튜닝</a>
       <a href="archive.html">지난 시즌</a>
       <a href="index.html#records">타임어택 보드</a>
@@ -68,6 +70,7 @@
     toggle.setAttribute('aria-label', open ? '바로가기 접기' : '바로가기 펼치기');
     links.hidden = mobile.matches && !open;
   }
+  dock.querySelector('.shortcut-home').addEventListener('click', returnHome);
   toggle.addEventListener('click', () => setOpen(!dock.classList.contains('open')));
   dock.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
   document.addEventListener('keydown', event => {

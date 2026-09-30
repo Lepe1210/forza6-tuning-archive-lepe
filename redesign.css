@@ -63,6 +63,16 @@ html{scroll-behavior:smooth;scroll-padding-top:20px}body{font-family:Hahmlet,Bat
 @media(max-width:700px){
  .shortcut-side{right:0;width:44px}
  .shortcut-side-toggle{display:block;width:44px;min-height:88px;padding:12px 10px;background:var(--ink);border:1px solid var(--gold);color:var(--paper);writing-mode:vertical-rl;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px #0003}
- .shortcut-side nav{position:absolute;right:48px;top:0;width:144px}
+ .shortcut-side nav{position:absolute;right:48px;top:50%;transform:translateY(-50%);width:144px}
  .shortcut-side a{min-height:48px;font-size:12px;padding:12px}
 }
+
+/* Recent tunes stand out as complete rows, including in the compact catalogue. */
+.catalogue-row.recent-tuning{padding-left:12px;padding-right:10px;background:linear-gradient(110deg,#f3dfb4,#f6ead540);box-shadow:inset 4px 0 #a5432c}
+.catalogue-row.recent-tuning .recent-label{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;background:#9c3526;color:#fff8ee;border:1px solid #79251c;box-shadow:2px 2px 0 #a5432c30;font:800 12px/1.2 Hahmlet,serif;white-space:nowrap}
+.catalogue-row.recent-tuning .recent-label>span{font-size:14px}
+html[data-theme="dark"] .catalogue-row.recent-tuning{background:linear-gradient(110deg,#bfb09b,#c8beb540);box-shadow:inset 4px 0 #6b594d}
+html[data-theme="dark"] .catalogue-row.recent-tuning .recent-label{background:#5c4d43;border-color:#4b4038;color:#f2ede5;box-shadow:2px 2px 0 #5c4d4330}
+.shortcut-side .shortcut-home{background:var(--gold);color:var(--ink);font-size:13px}
+.shortcut-side .shortcut-home:hover{background:var(--paper);color:var(--ink)}
+@media(max-width:700px){.catalogue-row.recent-tuning{padding-left:10px;padding-right:6px}.catalogue-row.recent-tuning .recent-label{font-size:11px;padding:4px 7px}}
