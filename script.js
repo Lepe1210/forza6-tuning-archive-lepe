@@ -66,6 +66,8 @@ let cars = [];
 let weeklyCars = [];
 let isDailyTuneSpinning = false;
 let averageStatsByTrack = {};
+let cataloguePage = 1;
+const CATALOGUE_PAGE_SIZE = 30;
 
 
 /* =========================
@@ -155,6 +157,7 @@ function parseCars(csvText) {
   return parseCSV(csvText)
     .map((row) => ({
       eventTitle: cleanValue(row.eventTitle),
+      eventGroup: cleanValue(row.eventGroup),
       id: cleanValue(row.id),
       manufacturer: cleanValue(row.manufacturer),
       carName: cleanValue(row.carName),
@@ -616,32 +619,27 @@ function toggleRanking(rankingId, button) {
    페스티벌 튜닝차량 섹션 표시
 ========================= */
 
+const WEEKLY_GROUP_ORDER = ["도전", "메인1", "메인2", "PR 스턴트"];
+function getWeeklyGroup(value) {
+  const normalized = cleanValue(value).replace(/\s+/g, "").toLowerCase();
+  return WEEKLY_GROUP_ORDER.find(group => group.replace(/\s+/g, "").toLowerCase() === normalized) || "미분류";
+}
 function renderWeeklyCars() {
-  const titleFromSheet = weeklyCars.find((car) => car.eventTitle)?.eventTitle;
-
-  weeklyTitle.textContent = titleFromSheet || "페스티벌 튜닝차량";
-
-  if (weeklyCars.length === 0) {
-    weeklyGrid.innerHTML = `<div class="weekly-empty">페스티벌 튜닝차량이 아직 등록되지 않았습니다.</div>`;
-    return;
-  }
-
-  weeklyGrid.innerHTML = weeklyCars
-    .map(
-      (car) => `
-      <article class="weekly-card" onclick="openCarDetail('${escapeAttribute(car.id)}', 'weekly')">
-        ${renderBadges(car)}
-
-        <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
-        <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
-
-        <p class="share-code">공유 코드: ${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</p>
-
-        <p class="summary">${escapeHTML(car.summary || "페스티벌용 설명이 아직 입력되지 않았습니다.")}</p>
-      </article>
-    `
-    )
-    .join("");
+  weeklyTitle.textContent = weeklyCars.find(car => car.eventTitle)?.eventTitle || "이번 주 추천";
+  if (!weeklyCars.length) { weeklyGrid.innerHTML = '<div class="weekly-empty">페스티벌 튜닝차량이 아직 등록되지 않았습니다.</div>'; return; }
+  const groups = new Map([...WEEKLY_GROUP_ORDER, "미분류"].map(group => [group, []]));
+  weeklyCars.forEach(car => groups.get(getWeeklyGroup(car.eventGroup)).push(car));
+  weeklyGrid.innerHTML = [...groups].filter(([,entries]) => entries.length).map(([group,entries],i) => `
+    <section class="weekly-group" aria-labelledby="weekly-group-${i}">
+      <div class="weekly-group-heading"><h3 id="weekly-group-${i}"><small>${String(i+1).padStart(2,"0")} /</small> ${escapeHTML(group)}</h3><span>${entries.length}대</span></div>
+      <div class="weekly-group-cards">${entries.map(car => `
+        <article class="weekly-card">
+          <div class="weekly-meta"><span class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</span><span class="badge">${escapeHTML(car.className || "PI 미입력")}</span></div>
+          <button class="weekly-car-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="weekly">${escapeHTML(car.carName || "차량명 미입력")}</button>
+          <p class="summary">${escapeHTML(car.summary || "페스티벌 추천 튜닝")}</p>
+          <div class="weekly-code"><span><small>공유 코드</small><strong>${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</strong></span><button class="code-copy" type="button" data-copy-code="${escapeAttribute(car.shareCode)}" ${car.shareCode ? "" : "disabled"}>코드 복사</button></div>
+        </article>`).join("")}</div>
+    </section>`).join("");
 }
 
 
@@ -649,7 +647,8 @@ function renderWeeklyCars() {
    전체 차량 카드 목록 표시
 ========================= */
 
-function renderCars() {
+function renderCars(preservePage = false) {
+  if (preservePage !== true) cataloguePage = 1;
   const keyword = normalizeShareCode(searchInput.value).toLowerCase();
   const rawKeyword = searchInput.value.toLowerCase().trim();
 
@@ -705,32 +704,23 @@ function renderCars() {
   const sortedCars = sortCars(filteredCars, selectedSort);
 
   
-  carCount.textContent = `${sortedCars.length}대 표시 중`;
-
-  if (sortedCars.length === 0) {
-    carGrid.innerHTML = `<div class="empty">조건에 맞는 차량이 없습니다.</div>`;
-    return;
-  }
-
-  carGrid.innerHTML = sortedCars
-    .map(
-      (car) => `
-      <article
-        class="car-card ${isRecentTuning(car.updatedAt) ? "recent-tuning" : ""}"
-        onclick="openCarDetail('${escapeAttribute(car.id)}', 'cars')"
-      >
-        ${renderBadges(car)}
-
-        <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
-        <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
-
-        <p class="share-code">공유 코드: ${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</p>
-
-        <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
-      </article>
-    `
-    )
-    .join("");
+  const pages = Math.max(1, Math.ceil(sortedCars.length / CATALOGUE_PAGE_SIZE));
+  cataloguePage = Math.min(cataloguePage, pages);
+  const startIndex = (cataloguePage - 1) * CATALOGUE_PAGE_SIZE;
+  const pageCars = sortedCars.slice(startIndex, startIndex + CATALOGUE_PAGE_SIZE);
+  carCount.textContent = `${sortedCars.length}대 중 ${sortedCars.length ? startIndex + 1 : 0}–${startIndex + pageCars.length} 표시`;
+  document.getElementById("pageInfo").textContent = `${cataloguePage} / ${pages}`;
+  document.getElementById("previousPage").disabled = cataloguePage <= 1;
+  document.getElementById("nextPage").disabled = cataloguePage >= pages;
+  if (!sortedCars.length) { carGrid.innerHTML = '<div class="empty">조건에 맞는 차량이 없습니다.</div>'; return; }
+  carGrid.innerHTML = pageCars.map((car,index) => `
+    <article class="catalogue-row ${isRecentTuning(car.updatedAt) ? "recent-tuning" : ""}">
+      <div class="catalogue-vehicle"><p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}${isRecentTuning(car.updatedAt) ? '<span class="recent-label">최근 튜닝</span>' : ""}</p><button class="catalogue-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="cars">${escapeHTML(car.carName || "차량명 미입력")}</button><p class="summary">${escapeHTML(car.summary || car.concept || "")}</p></div>
+      <div class="catalogue-spec">${renderBadges(car)}</div>
+      <button class="catalogue-expand" type="button" aria-label="${escapeAttribute(car.carName)} 튜닝 정보 펼치기" aria-expanded="false" aria-controls="catalogue-code-${index}">⌄</button>
+      <div class="catalogue-code" id="catalogue-code-${index}"><small>공유 코드</small><strong>${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</strong><button class="code-copy" type="button" data-copy-code="${escapeAttribute(car.shareCode)}" ${car.shareCode ? "" : "disabled"}>코드 복사</button></div>
+      <button class="catalogue-detail" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="cars">상세 ↗</button>
+    </article>`).join("");
 }
 
 
@@ -1516,3 +1506,29 @@ if (managerGateModal) {
     }
   });
 }
+
+
+// Catalogue navigation keeps existing search and sort behavior.
+[carGrid, weeklyGrid].forEach(grid => grid.addEventListener("click", event => {
+  const button = event.target.closest("button");
+  if (!button) return;
+  if (button.hasAttribute("data-copy-code")) { copyShareCode(button.dataset.copyCode, button); return; }
+  if (button.hasAttribute("data-detail-id")) { openCarDetail(button.dataset.detailId, button.dataset.source); return; }
+  if (button.classList.contains("catalogue-expand")) {
+    const expanded = button.closest(".catalogue-row").classList.toggle("expanded");
+    button.setAttribute("aria-expanded", String(expanded));
+    button.setAttribute("aria-label", expanded ? "튜닝 정보 접기" : "튜닝 정보 펼치기");
+  }
+}));
+function changeCataloguePage(direction) {
+  cataloguePage += direction;
+  renderCars(true);
+  document.getElementById("tuningList").scrollIntoView({behavior: "smooth", block: "start"});
+}
+document.getElementById("previousPage").addEventListener("click", () => changeCataloguePage(-1));
+document.getElementById("nextPage").addEventListener("click", () => changeCataloguePage(1));
+document.getElementById("toggleFilters").addEventListener("click", function () {
+  const open = document.getElementById("filterFields").classList.toggle("open");
+  this.setAttribute("aria-expanded", String(open));
+  this.textContent = open ? "필터 ▴" : "필터 ▾";
+});
