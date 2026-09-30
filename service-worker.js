@@ -5,7 +5,7 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v26-shortcut-dock";
+const CACHE_NAME = "forza-tuning-archive-v27-shortcut-side";
 
 const STATIC_ASSETS = [
   "./",
@@ -20,9 +20,9 @@ const STATIC_ASSETS = [
   "./assets/lepe-guide.webp",
   "./discord.html",
 
-  "./style.css?v=20260930-shortcut-dock-1",
-  "./redesign.css?v=20260930-shortcut-dock-1",
-  "./redesign.js?v=20260930-shortcut-dock-1",
+  "./style.css?v=20260930-shortcut-side-1",
+  "./redesign.css?v=20260930-shortcut-side-1",
+  "./redesign.js?v=20260930-shortcut-side-1",
   "./assets/archive-icon.webp",
   "./assets/festival-engraving.webp",
   "./icons/icon-32.png",
@@ -30,11 +30,11 @@ const STATIC_ASSETS = [
   "./assets/fonts/bodoni-moda-latin.woff2",
   "./assets/fonts/bodoni-moda-latin-ext.woff2",
 
-  "./script.js?v=20260930-shortcut-dock-1",
-  "./archive.js?v=20260930-shortcut-dock-1",
-  "./manager.js?v=20260930-shortcut-dock-1",
-  "./gallery.js?v=20260930-shortcut-dock-1",
-  "./rivals.js?v=20260930-shortcut-dock-1",
+  "./script.js?v=20260930-shortcut-side-1",
+  "./archive.js?v=20260930-shortcut-side-1",
+  "./manager.js?v=20260930-shortcut-side-1",
+  "./gallery.js?v=20260930-shortcut-side-1",
+  "./rivals.js?v=20260930-shortcut-side-1",
 
   "./manifest.json",
 

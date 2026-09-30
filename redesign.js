@@ -32,33 +32,37 @@
   });
   syncTheme();
 
-  const shortcut = document.querySelector('.shortcut');
-  if (shortcut) {
-    const dock = document.createElement('nav');
-    dock.className = 'shortcut-dock';
-    dock.setAttribute('aria-label', '고정 바로가기');
-    dock.hidden = true;
-    shortcut.querySelectorAll('.shortcut-card').forEach(link => {
-      const item = document.createElement('a');
-      item.href = link.getAttribute('href');
-      item.textContent = link.querySelector('span').textContent;
-      dock.append(item);
-    });
-    document.body.append(dock);
-    const syncDock = () => {
-      const visible = shortcut.getBoundingClientRect().bottom <= 0;
-      dock.hidden = !visible;
-      root.classList.toggle('shortcut-dock-visible', visible);
-    };
-    let scheduled = false;
-    const schedule = () => {
-      if (scheduled) return;
-      scheduled = true;
-      requestAnimationFrame(() => { scheduled = false; syncDock(); });
-    };
-    window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', schedule);
-    window.addEventListener('pageshow', schedule);
-    syncDock();
+  const dock = document.createElement('aside');
+  dock.className = 'shortcut-side';
+  dock.innerHTML = `<button class="shortcut-side-toggle" type="button" aria-label="바로가기 펼치기" aria-expanded="false" aria-controls="sideShortcutLinks">바로가기</button>
+    <nav id="sideShortcutLinks" aria-label="고정 바로가기">
+      <a href="index.html#tuningList">전체 튜닝</a>
+      <a href="archive.html">지난 시즌</a>
+      <a href="index.html#records">타임어택 보드</a>
+      <a href="guide.html">이용 가이드</a>
+    </nav>`;
+  document.body.append(dock);
+  root.classList.add('has-side-shortcuts');
+  const toggle = dock.querySelector('button');
+  const links = dock.querySelector('nav');
+  const mobile = matchMedia('(max-width:700px)');
+  function setOpen(open) {
+    dock.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? '바로가기 접기' : '바로가기 펼치기');
+    links.hidden = mobile.matches && !open;
   }
+  toggle.addEventListener('click', () => setOpen(!dock.classList.contains('open')));
+  dock.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && dock.classList.contains('open')) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (!dock.contains(event.target)) setOpen(false);
+  });
+  mobile.addEventListener('change', () => setOpen(false));
+  setOpen(false);
 })();
