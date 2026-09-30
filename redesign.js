@@ -31,4 +31,34 @@
     this.textContent = open ? '메뉴 ▴' : '메뉴 ▾';
   });
   syncTheme();
+
+  const shortcut = document.querySelector('.shortcut');
+  if (shortcut) {
+    const dock = document.createElement('nav');
+    dock.className = 'shortcut-dock';
+    dock.setAttribute('aria-label', '고정 바로가기');
+    dock.hidden = true;
+    shortcut.querySelectorAll('.shortcut-card').forEach(link => {
+      const item = document.createElement('a');
+      item.href = link.getAttribute('href');
+      item.textContent = link.querySelector('span').textContent;
+      dock.append(item);
+    });
+    document.body.append(dock);
+    const syncDock = () => {
+      const visible = shortcut.getBoundingClientRect().bottom <= 0;
+      dock.hidden = !visible;
+      root.classList.toggle('shortcut-dock-visible', visible);
+    };
+    let scheduled = false;
+    const schedule = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => { scheduled = false; syncDock(); });
+    };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    window.addEventListener('pageshow', schedule);
+    syncDock();
+  }
 })();

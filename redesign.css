@@ -50,3 +50,18 @@ html{scroll-behavior:smooth;scroll-padding-top:20px}body{font-family:Hahmlet,Bat
   .ranking-row{grid-template-columns:25px minmax(0,1fr);gap:7px;padding:12px 9px}
   .ranking-time-group{grid-column:2;align-items:flex-start}
 }
+
+/* Keep compact shortcuts available once the hero shortcuts leave the viewport. */
+.shortcut-dock{position:fixed;top:0;left:0;right:0;z-index:19;display:flex;justify-content:center;gap:0;background:var(--ink);border-bottom:2px solid var(--gold);box-shadow:0 3px 12px #0003}
+.shortcut-dock[hidden]{display:none}
+.shortcut-dock a{display:flex;align-items:center;justify-content:center;padding:14px 25px;color:var(--paper);text-decoration:none;font-size:13px;font-weight:700;border-left:1px solid #ffffff20;min-height:48px}
+.shortcut-dock a:last-child{border-right:1px solid #ffffff20}
+.shortcut-dock a:hover{background:var(--blue);color:var(--gold)}
+html.shortcut-dock-visible{scroll-padding-top:72px}
+html.shortcut-dock-visible .listing-section{scroll-margin-top:16px}
+@media(max-width:700px){
+ .shortcut-dock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+ .shortcut-dock a{padding:12px 4px;font-size:10px;text-align:center;min-height:46px;word-break:keep-all}
+ html.shortcut-dock-visible{scroll-padding-top:62px}
+ html.shortcut-dock-visible .listing-finder{top:48px}
+}
