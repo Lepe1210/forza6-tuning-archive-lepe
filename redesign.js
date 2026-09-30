@@ -3,7 +3,7 @@
   const root = document.documentElement;
   const header = document.createElement('header');
   header.className = 'archive-topbar';
-  header.innerHTML = `<a class="archive-brand" href="index.html"><img src="assets/archive-icon.webp" alt="아카이브 아이콘" width="56" height="56"><span>Forza 6 <em>Archive.</em></span></a>
+  header.innerHTML = `<a class="archive-brand" href="./"><img src="assets/archive-icon.webp" alt="아카이브 아이콘" width="56" height="56"><span>Forza 6 <em>Archive.</em></span></a>
     <button class="archive-menu-toggle" type="button" aria-label="전체 메뉴 펼치기" aria-expanded="false" aria-controls="archiveNavigation">메뉴 ▾</button>
     <nav class="archive-navigation" id="archiveNavigation" aria-label="전체 메뉴">
       <a href="index.html#festival">페스티벌</a><a href="index.html#tuningList">전체 튜닝</a><a href="archive.html">지난 시즌</a><a href="index.html#records">기록</a>
@@ -31,6 +31,22 @@
     this.textContent = open ? '메뉴 ▴' : '메뉴 ▾';
   });
   syncTheme();
+
+  // Returning home must not switch between separately cached root/index documents.
+  header.querySelector('.archive-brand').addEventListener('click', event => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const home = new URL('./', location.href);
+    const atHome = location.pathname === home.pathname || location.pathname === home.pathname + 'index.html';
+    if (!atHome) return;
+    event.preventDefault();
+    history.replaceState(history.state, '', home.pathname + location.search);
+    header.classList.remove('menu-open');
+    const menu = header.querySelector('.archive-menu-toggle');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = '메뉴 ▾';
+    setOpen(false);
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  });
 
   const dock = document.createElement('aside');
   dock.className = 'shortcut-side';
