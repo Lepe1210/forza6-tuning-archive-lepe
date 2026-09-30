@@ -25,14 +25,14 @@
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
   <!-- 기존 사이트 디자인 -->
-  <link rel="stylesheet" href="style.css?v=20260930-b-renewal-2" />
+  <link rel="stylesheet" href="style.css?v=20260930-b-feedback-1" />
 <link rel="icon" href="icons/icon-32.png" type="image/png">
-<link rel="stylesheet" href="redesign.css?v=20260930-b-renewal-2">
-<script src="redesign.js?v=20260930-b-renewal-2" defer></script>
+<link rel="stylesheet" href="redesign.css?v=20260930-b-feedback-1">
+<script src="redesign.js?v=20260930-b-feedback-1" defer></script>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
 </head>
 
-<body>
+<body class="archive-guide">
 
   <!-- =========================
        상단
@@ -175,24 +175,7 @@
 
     
 
-  </main>
 
-
-  <!-- 이 페이지에서도 PWA Service Worker 등록 -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("./service-worker.js")
-          .catch((error) => {
-            console.error("Service Worker 등록 실패:", error);
-          });
-      });
-    }
-  </script>
-
-</body>
-</html>
 
     <!-- =========================
          페스티벌
@@ -456,3 +439,22 @@
         </a>
       </div>
     </section>
+
+  </main>
+
+
+  <!-- 이 페이지에서도 PWA Service Worker 등록 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .catch((error) => {
+            console.error("Service Worker 등록 실패:", error);
+          });
+      });
+    }
+  </script>
+
+</body>
+</html>
