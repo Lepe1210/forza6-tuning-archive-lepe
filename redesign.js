@@ -6,7 +6,7 @@
   header.innerHTML = `<a class="archive-brand" href="./"><img src="assets/archive-icon.webp" alt="아카이브 아이콘" width="56" height="56"><span>Forza 6 <em>Archive.</em></span></a>
     <button class="archive-menu-toggle" type="button" aria-label="전체 메뉴 펼치기" aria-expanded="false" aria-controls="archiveNavigation">메뉴 ▾</button>
     <nav class="archive-navigation" id="archiveNavigation" aria-label="전체 메뉴">
-      <a href="index.html#festival">페스티벌</a><a href="index.html#tuningList">전체 튜닝</a><a href="archive.html">지난 시즌</a><a href="index.html#records">기록</a>
+      <a href="./#festival">페스티벌</a><a href="./#tuningList">전체 튜닝</a><a href="archive.html">지난 시즌</a><a href="./#records">기록</a>
       <details class="archive-exhibition"><summary>전시관 ▾</summary><div><a href="gallery.html">갤러리</a><a href="rivals.html">라이벌 전시관</a></div></details>
       <a href="guide.html">이용 가이드</a><a href="https://discord.gg/qSN32APcrd" target="_blank" rel="noopener noreferrer">업데이트 알림 ↗</a>
       <a class="archive-paddock" href="discord.html">패독 ↗</a><button class="archive-theme-toggle" type="button" aria-label="다크모드로 전환" aria-pressed="false">☾</button>
@@ -44,6 +44,7 @@
     const menu = header.querySelector('.archive-menu-toggle');
     menu.setAttribute('aria-expanded', 'false');
     menu.textContent = '메뉴 ▾';
+    pendingSection = null;
     setOpen(false);
     window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   }
@@ -54,9 +55,9 @@
   dock.innerHTML = `<button class="shortcut-side-toggle" type="button" aria-label="바로가기 펼치기" aria-expanded="false" aria-controls="sideShortcutLinks">바로가기</button>
     <nav id="sideShortcutLinks" aria-label="고정 바로가기">
       <a class="shortcut-home" href="./">메인</a>
-      <a href="index.html#tuningList">전체 튜닝</a>
-      <a href="archive.html">지난 시즌</a>
-      <a href="index.html#records">타임어택 보드</a>
+      <a href="./#festivalPlaylist">페스티벌 플레이리스트</a>
+      <a href="./#records">타임어택 보드</a>
+      <a href="./#tuningList">전체 튜닝</a>
       <a href="guide.html">이용 가이드</a>
     </nav>`;
   document.body.append(dock);
@@ -84,4 +85,57 @@
   });
   mobile.addEventListener('change', () => setOpen(false));
   setOpen(false);
+
+  // Keep the requested section aligned after asynchronous home data fills in.
+  let pendingSection = null;
+  const sectionIds = new Set(['festival', 'festivalPlaylist', 'records', 'tuningList']);
+  function alignSection(id, smooth = false) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ block: 'start', behavior: smooth && !matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'instant' });
+  }
+  function requestSection(id, smooth = false) {
+    if (!sectionIds.has(id) || !document.getElementById(id)) return;
+    pendingSection = root.dataset.homeDataState === 'loading' ? id : null;
+    alignSection(id, smooth);
+  }
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const url = new URL(link.href, location.href);
+    const home = new URL('./', location.href);
+    const isHome = url.origin === location.origin && (url.pathname === home.pathname || url.pathname === home.pathname + 'index.html');
+    const id = url.hash.slice(1);
+    if (!isHome || !sectionIds.has(id) || !document.getElementById(id)) return;
+    event.preventDefault();
+    history.pushState(history.state, '', home.pathname + location.search + url.hash);
+    header.classList.remove('menu-open');
+    const menu = header.querySelector('.archive-menu-toggle');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = '메뉴 ▾';
+    setOpen(false);
+    requestSection(id, true);
+  });
+  function cancelPendingSection() { pendingSection = null; }
+  document.addEventListener('wheel', cancelPendingSection, { passive: true });
+  document.addEventListener('touchstart', cancelPendingSection, { passive: true });
+  document.addEventListener('keydown', event => {
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key) && !event.target.closest('input, textarea, select, button')) cancelPendingSection();
+  });
+  document.addEventListener('archive:home-data-ready', () => {
+    if (!pendingSection) return;
+    const id = pendingSection;
+    requestAnimationFrame(() => {
+      if (pendingSection !== id) return;
+      alignSection(id);
+      document.fonts.ready.then(() => {
+        if (pendingSection === id) { alignSection(id); pendingSection = null; }
+      });
+    });
+  });
+  const syncHash = () => requestSection(location.hash.slice(1));
+  window.addEventListener('hashchange', syncHash);
+  window.addEventListener('popstate', syncHash);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncHash, { once: true });
+  else syncHash();
 })();

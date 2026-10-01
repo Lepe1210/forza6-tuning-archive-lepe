@@ -46,13 +46,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Forza Tunes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/archive-192-v2.png" />
 
   <!-- 디자인 파일 연결 -->
-  <link rel="stylesheet" href="style.css?v=20261001-shortcut-recent-1" />
+  <link rel="stylesheet" href="style.css?v=20261001-feedback-fixes-1" />
 <link rel="icon" href="icons/icon-32.png" type="image/png">
-<link rel="stylesheet" href="redesign.css?v=20261001-shortcut-recent-1">
-<script src="redesign.js?v=20261001-shortcut-recent-1" defer></script>
+<link rel="stylesheet" href="redesign.css?v=20261001-feedback-fixes-1">
+<script src="redesign.js?v=20261001-feedback-fixes-1" defer></script>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
 </head>
 
@@ -66,9 +66,9 @@
 <h1>이번 주의<br><span>출전 차량.</span></h1>
 <p class="hero-text">주간 페스티벌을 위한 튜닝을 한눈에.<br>고를 차가 정해졌다면 공유 코드만 챙기면 됩니다.</p><button id="openDailyTune" class="daily-pick" type="button">✦ 오늘의 튜닝 뽑기 <span>↗</span></button>
 </div><aside class="shortcut" aria-label="바로가기"><h2>Shortcut</h2><div class="shortcut-grid">
-<a class="shortcut-card" href="#tuningList"><span>전체 튜닝</span><b>↗</b></a>
-<a class="shortcut-card" href="archive.html"><span>지난 시즌</span><b>↗</b></a>
+<a class="shortcut-card" href="#festivalPlaylist"><span>페스티벌 플레이리스트</span><b>↗</b></a>
 <a class="shortcut-card" href="#records"><span>타임어택 보드</span><small>PI별 평균 기록</small><b>↗</b></a>
+<a class="shortcut-card" href="#tuningList"><span>전체 튜닝</span><b>↗</b></a>
 <a class="shortcut-card" href="guide.html"><span>이용 가이드</span><b>↗</b></a>
 </div></aside></div>
 </header>
@@ -82,7 +82,7 @@
          페스티벌 튜닝차량 섹션
          weekly 시트 데이터를 불러와서 표시함
     ========================== -->
-    <section class="weekly-section">
+    <section class="weekly-section" id="festivalPlaylist">
       <div class="section-header weekly-header-row">
         <div>
           <p class="eyebrow">FESTIVAL PLAYLIST PICKS</p>
@@ -348,7 +348,7 @@
   <!-- =========================
        동작 코드 연결
   ========================== -->
-  <script src="script.js?v=20261001-shortcut-recent-1"></script>
+  <script src="script.js?v=20261001-feedback-fixes-1"></script>
 
 </body>
 </html>

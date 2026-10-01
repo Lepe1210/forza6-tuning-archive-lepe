@@ -5,7 +5,7 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v29-shortcut-recent";
+const CACHE_NAME = "forza-tuning-archive-v30-feedback-fixes";
 
 const STATIC_ASSETS = [
   "./",
@@ -20,9 +20,9 @@ const STATIC_ASSETS = [
   "./assets/lepe-guide.webp",
   "./discord.html",
 
-  "./style.css?v=20261001-shortcut-recent-1",
-  "./redesign.css?v=20261001-shortcut-recent-1",
-  "./redesign.js?v=20261001-shortcut-recent-1",
+  "./style.css?v=20261001-feedback-fixes-1",
+  "./redesign.css?v=20261001-feedback-fixes-1",
+  "./redesign.js?v=20261001-feedback-fixes-1",
   "./assets/archive-icon.webp",
   "./assets/festival-engraving.webp",
   "./icons/icon-32.png",
@@ -30,16 +30,30 @@ const STATIC_ASSETS = [
   "./assets/fonts/bodoni-moda-latin.woff2",
   "./assets/fonts/bodoni-moda-latin-ext.woff2",
 
-  "./script.js?v=20261001-shortcut-recent-1",
-  "./archive.js?v=20261001-shortcut-recent-1",
-  "./manager.js?v=20261001-shortcut-recent-1",
-  "./gallery.js?v=20261001-shortcut-recent-1",
-  "./rivals.js?v=20261001-shortcut-recent-1",
+  "./script.js?v=20261001-feedback-fixes-1",
+  "./archive.js?v=20261001-feedback-fixes-1",
+  "./manager.js?v=20261001-feedback-fixes-1",
+  "./gallery.js?v=20261001-feedback-fixes-1",
+  "./rivals.js?v=20261001-feedback-fixes-1",
 
   "./manifest.json",
 
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+  "./icons/archive-192-v2.png",
+  "./icons/archive-512-v2.png",
+  "./assets/rivals/dtm-1990s.webp",
+  "./assets/rivals/alms-2000s.webp",
+  "./assets/rivals/lemans-1967.webp",
+  "./assets/rivals/dtm-car-001.webp",
+  "./assets/rivals/dtm-car-002.webp",
+  "./assets/rivals/dtm-car-003.webp",
+  "./assets/rivals/dtm-car-004.webp",
+  "./assets/rivals/alms-2000s-car-001.webp",
+  "./assets/rivals/alms-2000s-car-002.webp",
+  "./assets/rivals/alms-2000s-car-003.webp",
+  "./assets/rivals/lemans-1967-car001.webp",
+  "./assets/rivals/lemans-1967-car002.webp"
 ];
 
 
@@ -97,28 +111,32 @@ self.addEventListener("fetch", (event) => {
     requestUrl.hostname.includes("script.google.com") ||
     requestUrl.hostname.includes("googleusercontent.com");
 
-  if (isGoogleDataRequest) {
+  if (isGoogleDataRequest || requestUrl.origin !== self.location.origin) {
     event.respondWith(fetch(request));
     return;
   }
 
   const isHtmlNavigation = request.mode === "navigate";
 
-  if (isHtmlNavigation) {
+  const isManifest = requestUrl.pathname.endsWith("/manifest.json");
+
+  if (isHtmlNavigation || isManifest) {
     event.respondWith(
       fetch(request, { cache: "no-cache" })
         .then((response) => {
           const responseClone = response.clone();
 
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseClone);
-          });
+          if (response.ok) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseClone);
+            });
+          }
 
           return response;
         })
         .catch(() => {
           return caches.match(request).then((cachedResponse) => {
-            return cachedResponse || caches.match("./index.html");
+            return cachedResponse || (isHtmlNavigation ? caches.match("./index.html") : Response.error());
           });
         })
     );
@@ -135,9 +153,11 @@ self.addEventListener("fetch", (event) => {
       return fetch(request).then((response) => {
         const responseClone = response.clone();
 
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(request, responseClone);
-        });
+        if (response.ok) {
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseClone);
+          });
+        }
 
         return response;
       });

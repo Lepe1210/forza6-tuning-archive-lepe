@@ -75,6 +75,7 @@ const CATALOGUE_PAGE_SIZE = 30;
 ========================= */
 
 async function loadAllData() {
+  document.documentElement.dataset.homeDataState = "loading";
   try {
     carGrid.innerHTML = `<div class="empty">전체 차량 데이터를 불러오는 중입니다...</div>`;
     weeklyGrid.innerHTML = `<div class="weekly-empty">페스티벌 튜닝차량 데이터를 불러오는 중입니다...</div>`;
@@ -114,6 +115,9 @@ async function loadAllData() {
   } catch (error) {
     console.error(error);
     renderLoadError();
+  } finally {
+    document.documentElement.dataset.homeDataState = "ready";
+    document.dispatchEvent(new Event("archive:home-data-ready"));
   }
 }
 

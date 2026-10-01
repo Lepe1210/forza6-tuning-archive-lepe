@@ -1,3 +1,35 @@
+// Known exhibition images are served from the archive to avoid external-host outages.
+const RIVAL_IMAGE_MIRRORS = {
+  "https://i.ibb.co/8DMd138c/1990s-DTM.png": "assets/rivals/dtm-1990s.webp",
+  "https://i.ibb.co/qMBWTG15/1990s-DTM.png": "assets/rivals/dtm-1990s.webp",
+  "https://i.ibb.co/Gvs2dQqb/2000-ALMS.png": "assets/rivals/alms-2000s.webp",
+  "https://i.ibb.co/Fbswh4Fj/2000-ALMS.png": "assets/rivals/alms-2000s.webp",
+  "https://i.ibb.co/XZjtpQzH/lemans.png": "assets/rivals/lemans-1967.webp",
+  "https://i.ibb.co/1f7TKg9c/lemans.png": "assets/rivals/lemans-1967.webp",
+  "https://i.ibb.co/zWDVhGzp/M3-E30.png": "assets/rivals/dtm-car-001.webp",
+  "https://i.ibb.co/9mSH9s76/M3-E30.png": "assets/rivals/dtm-car-001.webp",
+  "https://i.ibb.co/9krkW2Jv/Sirrera.png": "assets/rivals/dtm-car-002.webp",
+  "https://i.ibb.co/YFLFh86W/Sirrera.png": "assets/rivals/dtm-car-002.webp",
+  "https://i.ibb.co/FkKTB27X/190E.png": "assets/rivals/dtm-car-003.webp",
+  "https://i.ibb.co/357Z02hv/190E.png": "assets/rivals/dtm-car-003.webp",
+  "https://i.ibb.co/LDBwN7zp/242.png": "assets/rivals/dtm-car-004.webp",
+  "https://i.ibb.co/5XCDKHWc/242.png": "assets/rivals/dtm-car-004.webp",
+  "https://i.ibb.co/Z1xTGzSZ/C5.png": "assets/rivals/alms-2000s-car-001.webp",
+  "https://i.ibb.co/3Ych4mvJ/C5.png": "assets/rivals/alms-2000s-car-001.webp",
+  "https://i.ibb.co/fGpf5F09/viper.png": "assets/rivals/alms-2000s-car-002.webp",
+  "https://i.ibb.co/S7nb8yvc/viper.png": "assets/rivals/alms-2000s-car-002.webp",
+  "https://i.ibb.co/dJDh32nj/911gt2.png": "assets/rivals/alms-2000s-car-003.webp",
+  "https://i.ibb.co/4gpQDTBK/911gt2.png": "assets/rivals/alms-2000s-car-003.webp",
+  "https://i.ibb.co/3mhPcLRp/spa330.png": "assets/rivals/lemans-1967-car001.webp",
+  "https://i.ibb.co/HTg9qkht/spa330.png": "assets/rivals/lemans-1967-car001.webp",
+  "https://i.ibb.co/5gyng8xd/gt40.png": "assets/rivals/lemans-1967-car002.webp",
+  "https://i.ibb.co/LXWJXthM/gt40.png": "assets/rivals/lemans-1967-car002.webp"
+};
+function resolveRivalImageUrl(value) {
+  const url = cleanValue(value);
+  return RIVAL_IMAGE_MIRRORS[url] || url;
+}
+
 /* =========================
    Forza 6 Tuning Archive
    Racing Rivals Exhibition
@@ -515,8 +547,8 @@ function renderRivalSeriesAccordion(
     String(index + 1).padStart(2, "0");
 
   const previewUrl =
-    cleanValue(series.previewUrl) ||
-    cleanValue(series.heroImageUrl);
+    resolveRivalImageUrl(series.previewUrl) ||
+    resolveRivalImageUrl(series.heroImageUrl);
 
   const sectionId =
     getRivalSeriesSectionId(series.id);
@@ -802,10 +834,10 @@ function renderRivalSeriesDetail(series) {
     getSeriesExhibits(series.id);
 
   const heroImageUrl =
-    cleanValue(series.heroImageUrl);
+    resolveRivalImageUrl(series.heroImageUrl);
 
   const previewUrl =
-    cleanValue(series.previewUrl) ||
+    resolveRivalImageUrl(series.previewUrl) ||
     heroImageUrl;
 
   return `
@@ -925,6 +957,7 @@ function renderSeriesHeroImage(
       <img
         class="rival-series-image"
         src="${escapeAttribute(previewUrl || originalUrl)}"
+        data-fallback-src="${escapeAttribute(originalUrl && originalUrl !== previewUrl ? originalUrl : '')}"
         alt="${escapeAttribute(series.title)}"
         loading="lazy"
         decoding="async"
@@ -951,10 +984,10 @@ function renderRivalEntryCard(
   const car = exhibit.car;
 
   const originalImageUrl =
-    cleanValue(entry.imageUrl);
+    resolveRivalImageUrl(entry.imageUrl);
 
   const previewUrl =
-    cleanValue(entry.previewUrl) ||
+    resolveRivalImageUrl(entry.previewUrl) ||
     originalImageUrl;
 
   const entryNumber =
@@ -1124,6 +1157,7 @@ function renderRivalEntryImage(
       <img
         class="rival-entry-image"
         src="${escapeAttribute(previewUrl || originalUrl)}"
+        data-fallback-src="${escapeAttribute(originalUrl && originalUrl !== previewUrl ? originalUrl : '')}"
         alt="${escapeAttribute(
           `${car.manufacturer} ${car.carName}`.trim()
         )}"
@@ -1193,8 +1227,8 @@ function openRivalSeriesImage(seriesId) {
   if (!series) return;
 
   const imageUrl =
-    cleanValue(series.heroImageUrl) ||
-    cleanValue(series.previewUrl);
+    resolveRivalImageUrl(series.heroImageUrl) ||
+    resolveRivalImageUrl(series.previewUrl);
 
   if (!imageUrl) return;
 
@@ -1228,8 +1262,8 @@ function openRivalEntryImage(entryId) {
   });
 
   const imageUrl =
-    cleanValue(entry.imageUrl) ||
-    cleanValue(entry.previewUrl);
+    resolveRivalImageUrl(entry.imageUrl) ||
+    resolveRivalImageUrl(entry.previewUrl);
 
   if (!imageUrl) return;
 
@@ -1863,6 +1897,12 @@ function handleRivalImageError(event) {
   if (
     !(image instanceof HTMLImageElement)
   ) {
+    return;
+  }
+
+  if (image.dataset.fallbackSrc && !image.dataset.fallbackTried) {
+    image.dataset.fallbackTried = "true";
+    image.src = image.dataset.fallbackSrc;
     return;
   }
 
