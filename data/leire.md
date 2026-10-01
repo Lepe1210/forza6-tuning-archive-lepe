@@ -3,83 +3,91 @@
 ## 현재 시즌 메타
 
 - 상태: confirmed
-- 기준 주차: 2026-09-24
-- 갱신: 2026-09-24 22:20 KST
-- 용도: `/추천` 운영용 확정 데이터. British Automotive - Winter 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
+- 기준 주차: 2026-10-01
+- 갱신: 2026-10-01 19:31 KST
+- 용도: `/추천` 운영용 확정 데이터. British Automotive - Spring 주간의 도전 / 레이스 1 / 레이스 2 최종 추천.
 
 ## 현재 시즌 추천
 
-### 도전 — Winter Rallies
+### 도전 — Hyper Sprints
 
-- 제한: Rally Monsters / A 700
+- 제한: Hypercars / S1 800
+- 종목: Road
+- 코스:
+  - Ito Sprint | Road | Bias 4 | 순간적 반응보다 코너에서 얼마나 차가 버티는지가 중요
+  - Shimanoyama Sprint | Road | Bias 4 | 깊은 코너가 있고 중반 90도 코너 이후 급한 오르막이 이어짐
+  - Satta Sprint | Road | Bias 5 | 얕은 코너 위주의 고속형 스프린트
+
+#### 1픽
+
+- Tune ID: aventadorsvj18-s1800
+- 차량: Lamborghini Aventador SVJ 2018
+- className: S1 800
+- shareCode: 458705294
+- 이유: 818hp / 1431kg, 2.1G, 4WD에 Track B 1:19.987을 기록했다. 랠리 타이어와 앞뒤 에어로, 후륜 85% 구동배분을 사용해 높은 출력을 비교적 안정적으로 쓰는 세팅이며, Bias 4 → 4 → 5의 중고속·고속 코스 구성과 잘 맞는다. 현재 적격 후보 중 Track B가 가장 빠르고 Autoshow에서 즉시 구할 수 있어 Trial 공용 1픽으로 확정.
+
+#### 2픽
+
+- Tune ID: countachlpi800421-S1800-1
+- 차량: Lamborghini Countach LPI 800-4 2021
+- className: S1 800
+- shareCode: 802327992
+- 이유: 845hp / 1472kg, 2.1G, 4WD에 Track B 1:21.904를 기록했다. 포르자 에어로를 단 서킷형 세팅으로 세 코스의 고속 비중에 잘 맞으며, Aventador SVJ보다 기록은 느리지만 같은 AWD 기반의 강력한 대안이라 2픽으로 확정.
+
+### 레이스 1 — Rally on Dirt
+
+- 제한: Total Rally / B 600
 - 종목: Dirt
 - 코스:
-  - Bamboo Forest Scramble | Dirt | Bias 2 | 랠리지만 코스의 80%가 타막이고 더트 20%는 직선에 가까움
-  - Ine Scramble | Dirt | Bias 2 | 도로 폭은 좁지 않지만 추월 라인을 잡기 어려움
-  - Ito Trail | Dirt | Bias 1 | 중간의 복잡한 테크니컬 코너와 헤어핀이 승부처
+  - Oyashirazu Trail | Dirt | Bias 1 | 길이 좁고 코너가 급해 초반 위치 선점과 방향전환이 중요
+  - Horizon Stadium Scramble | Dirt | Bias 3 | 점프와 브레이킹 포인트가 중요
+  - Airfield Trail | Dirt | Bias 3 | 중반 타막에서 도로 폭이 크게 넓어졌다 좁아지는 구간이 반복됨
 
 #### 1픽
 
-- Tune ID: arx18-a700
-- 차량: Subaru WRX STI ARX Supercar 2018
-- className: A 700
-- shareCode: 767377507
-- 이유: 564hp / 1369kg, 1.7G, 4WD에 Track B 1:29.634 / Track C 0:55.501을 기록했다. 첫 경기 Bamboo Forest Scramble이 약 80% 타막이라 Track B 대응력이 특히 중요하고, 동시에 Track C도 현재 후보 중 가장 빨라 온로드 비중과 Dirt 성능을 모두 놓치지 않는다. 팔찌 이벤트 보상 차량으로 Trial 정상 진입 시점에는 실질 접근성 페널티가 없어 공용 1픽으로 확정.
+- Tune ID: mini65-b600
+- 차량: Mini Cooper S 1965
+- className: B 600
+- shareCode: 896904064
+- 이유: 183hp / 607kg, 1.7G, 4WD에 Track C 0:58.875로 현재 후보 중 가장 빠르다. 초경량 차체와 높은 횡가속 성능이 Bias 1인 Oyashirazu의 좁고 급한 코너에 특히 잘 맞고, 뒤의 Bias 3 두 경기에서도 Track C 실측 우위를 유지한다. Autoshow 접근성까지 갖춰 공용 1픽으로 확정.
 
 #### 2픽
 
-- Tune ID: 207super07-A700
-- 차량: Peugeot 207 Super 2000 2007
-- className: A 700
-- shareCode: 149838177
-- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track B 1:29.523 / Track C 0:55.565를 기록했다. Track B는 ARX보다 0.111초 빠르고 Track C도 사실상 동급이라 Bamboo Forest Scramble과 이후 Dirt 구간 모두 강하다. Pink Wristband의 `Off Piste` 이벤트 보상 차량으로 Trial 정상 진입 시점에는 실질 접근성 페널티가 없어 강력한 2픽으로 확정.
-
-### 레이스 1 — Country Pickups
-
-- 제한: Pickups & 4x4's / B 600
-- 종목: Cross Country
-- 코스:
-  - Soni Highlands Cross Country | Cross Country | Bias 3 | 큰 점프와 깊은 도강, 중반부 잔바운싱이 있으나 일반적인 SUV/픽업은 실주행상 큰 문제 없이 통과 가능
-  - Temple Cross Country | Cross Country | Bias 5 | 긴 오르막과 고속 구간 비중이 커 출력대중량비와 절대 출력이 중요
-  - Edogawa Cross Country Circuit | Cross Country | Bias 1 | 아스팔트 비중이 매우 높고 비좁은 헤어핀과 90도 코너가 많은 도심형 특이 CC
-
-#### 1픽
-
-- Tune ID: wrangler12-b600
-- 차량: Jeep Wrangler Rubicon 2012
+- Tune ID: wrx22-b600
+- 차량: Subaru WRX 2022
 - className: B 600
-- shareCode: 175028989
-- 이유: 507hp / 1513kg, 1.6G, 4WD에 Track C 0:59.914로 현재 후보 중 가장 빠른 실측 기록을 보인다. 짧은 휠베이스 특유의 울렁거림은 있으나 Soni 수준의 점프·요철에서는 실주행상 큰 문제가 없었고, Temple의 출력 요구에도 대응 가능한 추중비를 가져 공용 1픽으로 확정.
-
-#### 2픽
-
-- Tune ID: f45019-b600
-- 차량: Ford Super Duty F-450 DRW Platinum 2020
-- className: B 600
-- shareCode: 107167805
-- 이유: 850hp / 3192kg, 1.4G, 4WD에 Track C 1:00.444를 기록했다. 절대 출력이 매우 높고 차체 안정성이 좋아 특히 Bias 5인 Temple의 긴 오르막과 고속 구간에서 강점을 기대할 수 있어 출력형 2픽으로 확정.
+- shareCode: 512619081
+- 이유: 294hp / 1162kg, 1.7G, 4WD에 Track C 1:00.509를 기록했다. MINI보다 절대 기록은 느리지만 출력과 안정성의 균형이 좋아 Bias 3 구간까지 무난하게 대응 가능한 종합형 대안으로 2픽 확정.
 
 #### 3픽
 
-- Tune ID: tacoma19-b600
-- 차량: Toyota Tacoma TRD Pro 2019
+- Tune ID: delta92
+- 차량: Lancia Delta HF Integrale Evo 1992
 - className: B 600
-- shareCode: 294281119
-- 이유: 416hp / 1559kg, 1.5G, 4WD에 Track C 1:01.416을 기록했다. Wrangler보다 절대적인 고점은 낮지만 중량과 출력의 균형이 좋고 TRD 기반 하체 세팅으로 지형 대응력이 무난해 안정적인 대안 3픽으로 확정.
+- shareCode: 426516139
+- 이유: 295hp / 1110kg, 1.6G, 4WD에 Track C 1:00.731을 기록했다. WRX와 기록 차이가 작고 더 가벼운 차체와 균형 잡힌 Group A 성향을 갖춰 안정적인 3픽으로 확정.
 
-### 레이스 2 — Cult Street
+### 레이스 2 — Aston Martin Nights
 
-- 제한: Cult Cars / D 400
+- 제한: Aston Martin / A 700
 - 종목: Street
 - 코스:
-  - Norikura Descent | Street | Bias 2 | 테크니컬 코너와 헤어핀 3개가 이어지는 저속형 코스
-  - Okishinaimura Run | Street | Bias 1 | 시작부터 연속 헤어핀을 내려가는 극저속 테크니컬 코스
-  - Sunflower Charge | Street | Bias 5 | 중반 코너를 제외하면 전반적으로 고속으로 밀어붙이는 출력형 코스
+  - Festival Chase | Street | Bias 2 | 중간의 헤어핀 2개가 까다로운 저속·테크니컬 구간
+  - Matsumi Climb | Street | Bias 2 | 테크니컬 코너와 급격한 코너가 자주 이어짐
+  - Shimanoyama Charge | Street | Bias 5 | 고속으로 밀어붙이는 비중이 매우 큼
 
 #### 1픽
 
-- Tune ID: s80070-d400
-- 차량: Honda S800 1970
-- className: D 400
-- shareCode: 128413839
-- 이유: 101hp / 588kg, 1.5G, RWD의 초경량 밸런스형 세팅이다. Reddit 이미지 가이드 기준 코스는 Bias 2 → 1 → 5이며, Norikura와 Okishinaimura의 테크니컬 구간에서 낮은 중량과 방향전환 성능을 살려 앞 두 경기 승리를 노리는 구성이 적합하다. Sunflower Charge의 고속 비중은 약점이지만 Map 1·2 우선 전략과 Autoshow 접근성, 현재 아카이브의 유일한 적격 D400 튠이라는 점을 종합해 공용 1픽으로 확정.
+- Tune ID: db1117-a700
+- 차량: Aston Martin DB11 2017
+- className: A 700
+- shareCode: 856195645
+- 이유: 608hp / 1489kg, 1.9G, RWD의 보수적 랠리 타이어 세팅이며 사용자 실측 Track B 1:29.848로 충분한 실전성을 확인했다. 앞 두 경기의 Bias 2 테크니컬 구간을 버틸 핸들링과 마지막 Bias 5의 출력 요구를 함께 충족하고, Autoshow + Wheelspin 접근성이 있어 공용 1픽으로 확정.
+
+#### 2픽
+
+- Tune ID: db7gt03-A700
+- 차량: Aston Martin DB7 GT 2003
+- className: A 700
+- shareCode: 134750833
+- 이유: 591hp / 1396kg, 1.7G, RWD에 Track B 1:32.661을 기록한 온로드 순정 지향 세팅이다. DB11보다 실측 기록과 접근성은 떨어지지만 앞 두 Bias 2 Street 구간에 맞는 온로드 성향이라 대체용 2픽으로 확정. Car Pass 차량이라 기본 공용 접근성은 낮다.
