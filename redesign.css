@@ -99,3 +99,6 @@ html[data-theme="dark"] .catalogue-row.recent-tuning .recent-label{background:#5
  .shortcut-card{font-size:13px;word-break:keep-all}
  #festivalPlaylist,#records{scroll-margin-top:10px}
 }
+
+/* Keep vehicle previews fully opaque and readable on paper surfaces. */
+.catalogue-vehicle .summary,.weekly-card .summary{color:var(--ink);opacity:1}
