@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "espritv802-a700",
+    "manufacturer": "Lotus",
+    "carName": "Esprit V8 2002",
+    "className": "A 700",
+    "carType": "레트로 슈퍼카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "그냥 평소처럼 만졌는데 왜 좋지?",
+    "power": "476hp",
+    "weight": "1100kg",
+    "lateralG": "1.9G",
+    "shareCode": "168136166",
+    "summary": "아니 별로 안 좋을 줄 알았는데 이상하게 좋은데 근데 5단만 가면 차가 갑자기 개찐따가 되어버림",
+    "tuneNotes": "드리프트 타이어 / 에어로 / 요상한 5단인데 4단만 쓰는 세팅",
+    "updatedAt": "2026-10-02",
+    "testTrackBTime": "1:26.790",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "gtrnismo24-S1800-1",
     "manufacturer": "Nissan",
     "carName": "GT-R Nismo 2024",
