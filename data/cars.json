@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "stis20919-a700",
+    "manufacturer": "Subaru",
+    "carName": "STI S209 2019",
+    "className": "A 700",
+    "carType": "모던 랠리",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "모던 랠리 A클래스급에서 55초 내로 집어넣어보고 싶다는 일념 아래에 새 개발 기법을 적용",
+    "power": "544hp",
+    "weight": "1329kg",
+    "lateralG": "1.8G",
+    "shareCode": "823578786",
+    "summary": "랠리 몬스터에 있는 ARX의 열화판 느낌인데 열화판이라고 느린 게 아님",
+    "tuneNotes": "와이드바디 / 오프로드 / 자연흡기 엔진 쪽으로 가서 원심형 슈퍼차저 장착",
+    "updatedAt": "2026-10-06",
+    "testTrackBTime": "1:29.514",
+    "testTrackCTime": "0:55.609"
+  },
+  {
+    "eventTitle": "",
     "id": "stis20919-b600",
     "manufacturer": "Subaru",
     "carName": "STI S209 2019",
