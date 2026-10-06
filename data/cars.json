@@ -41,6 +41,26 @@
   },
   {
     "eventTitle": "",
+    "id": "f193-S1800",
+    "manufacturer": "Mclaren",
+    "carName": "F1 1993",
+    "className": "S1 800",
+    "carType": "레트로 슈퍼카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "퓨리스트 튜닝으로 하려 했는데 에어로 없으니깐 너무 느려서 포기",
+    "power": "639hp",
+    "weight": "1164kg",
+    "lateralG": "2.1G",
+    "shareCode": "422453422",
+    "summary": "이 차 좋아해서 만듬",
+    "tuneNotes": "경량화 / 세미슬릭 / 포르자 에어로",
+    "updatedAt": "2026-10-06",
+    "testTrackBTime": "1:21.849",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "stis20919-b600",
     "manufacturer": "Subaru",
     "carName": "STI S209 2019",
@@ -3196,7 +3216,7 @@
     "summary": "ALMS 1999년 바이퍼",
     "tuneNotes": "슬릭/경량화/640마력대로 맞춰놓음",
     "updatedAt": "2026-06-30",
-    "testTrackBTime": "1:24.463",
+    "testTrackBTime": "1:23.709",
     "testTrackCTime": ""
   },
   {
