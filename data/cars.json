@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "r34-S1800",
+    "manufacturer": "Nissan",
+    "carName": "Skyline GT-R V spec II 2000",
+    "className": "S1 800",
+    "carType": "레트로 스포츠카",
+    "drive": "4WD",
+    "category": "온로드",
+    "concept": "미쳐 날뛰는 사륜구동 / 같은 세팅 긴 기어비 171 584 460",
+    "power": "708hp",
+    "weight": "1244kg",
+    "lateralG": "1.9G",
+    "shareCode": "547357273",
+    "summary": "이렇게 재미있는 사륜구동은 처음이야",
+    "tuneNotes": "경량화 / 랠리 타이어 / 3.8L V6TT",
+    "updatedAt": "2026-10-08",
+    "testTrackBTime": "1:22.791",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "gloria95-a700",
     "manufacturer": "Nissan",
     "carName": "Gloria Gran Turismo 1995",
