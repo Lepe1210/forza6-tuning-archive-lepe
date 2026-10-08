@@ -623,7 +623,7 @@ function toggleRanking(rankingId, button) {
    페스티벌 튜닝차량 섹션 표시
 ========================= */
 
-const WEEKLY_GROUP_ORDER = ["도전", "메인1", "메인2", "PR 스턴트"];
+const WEEKLY_GROUP_ORDER = ["도전", "메인1", "메인2", "메인3", "PR 스턴트"];
 function getWeeklyGroup(value) {
   const normalized = cleanValue(value).replace(/\s+/g, "").toLowerCase();
   return WEEKLY_GROUP_ORDER.find(group => group.replace(/\s+/g, "").toLowerCase() === normalized) || "미분류";
