@@ -651,16 +651,37 @@ function renderWeeklyCars() {
    전체 차량 카드 목록 표시
 ========================= */
 
+function getSelectedFilterValues(filter) {
+  return filter ? Array.from(filter.querySelectorAll('input[type="checkbox"]:checked'), input => input.value) : [];
+}
+
+function matchesFilterSelection(selection, value) {
+  return selection.length === 0 || selection.includes(value);
+}
+
+function updateMultiFilterSummary(filter) {
+  const chosen = Array.from(filter.querySelectorAll('input[type="checkbox"]:checked'));
+  const names = chosen.map(input => input.nextElementSibling.textContent);
+  const label = filter.dataset.filterLabel;
+  const summary = filter.querySelector("summary");
+  filter.querySelector(".multi-filter-summary").textContent = names.length
+    ? names[0] + (names.length > 1 ? ` 외 ${names.length - 1}개` : "")
+    : `전체 ${label}`;
+  summary.setAttribute("aria-label", `${label}: ${names.join(", ") || "전체"}`);
+  summary.title = `${label}: ${names.join(", ") || "전체"}`;
+  filter.classList.toggle("has-selection", names.length > 0);
+}
+
 function renderCars(preservePage = false) {
   if (preservePage !== true) cataloguePage = 1;
   const keyword = normalizeShareCode(searchInput.value).toLowerCase();
   const rawKeyword = searchInput.value.toLowerCase().trim();
 
-  const selectedClass = classFilter.value;
-  const selectedType = typeFilter.value;
-  const selectedDrive = driveFilter.value;
-  const selectedCategory = categoryFilter.value;
-  const selectedDecade = decadeFilter ? decadeFilter.value : "all";
+  const selectedClass = getSelectedFilterValues(classFilter);
+  const selectedType = getSelectedFilterValues(typeFilter);
+  const selectedDrive = getSelectedFilterValues(driveFilter);
+  const selectedCategory = getSelectedFilterValues(categoryFilter);
+  const selectedDecade = getSelectedFilterValues(decadeFilter);
   const selectedSort = sortFilter ? sortFilter.value : "default";
 
   const filteredCars = cars.filter((car) => {
@@ -687,13 +708,11 @@ function renderCars(preservePage = false) {
       searchableText.includes(rawKeyword) ||
       normalizedSearchableText.includes(keyword);
 
-    const matchesClass = selectedClass === "all" || car.className === selectedClass;
-    const matchesType = selectedType === "all" || car.carType === selectedType;
-    const matchesDrive = selectedDrive === "all" || car.drive === selectedDrive;
-    const matchesCategory = selectedCategory === "all" || car.category === selectedCategory;
-    const matchesDecade =
-      selectedDecade === "all" ||
-      getCarDecade(car.carName) === selectedDecade;
+    const matchesClass = matchesFilterSelection(selectedClass, car.className);
+    const matchesType = matchesFilterSelection(selectedType, car.carType);
+    const matchesDrive = matchesFilterSelection(selectedDrive, car.drive);
+    const matchesCategory = matchesFilterSelection(selectedCategory, car.category);
+    const matchesDecade = matchesFilterSelection(selectedDecade, getCarDecade(car.carName));
 
     return (
       matchesKeyword &&
@@ -911,14 +930,11 @@ function closeCarDetail() {
 
 function resetAllFilters() {
   searchInput.value = "";
-  classFilter.value = "all";
-  typeFilter.value = "all";
-  driveFilter.value = "all";
-  categoryFilter.value = "all";
-
-  if (decadeFilter) {
-  decadeFilter.value = "all";
-}
+  multiFilters.forEach(filter => {
+    filter.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = false; });
+    updateMultiFilterSummary(filter);
+    filter.open = false;
+  });
 
   if (sortFilter) {
     sortFilter.value = "default";
@@ -1324,14 +1340,34 @@ function escapeAttribute(value) {
 ========================= */
 
 searchInput.addEventListener("input", renderCars);
-classFilter.addEventListener("change", renderCars);
-typeFilter.addEventListener("change", renderCars);
-driveFilter.addEventListener("change", renderCars);
-categoryFilter.addEventListener("change", renderCars);
-
-if (decadeFilter) {
-  decadeFilter.addEventListener("change", renderCars);
-}
+const multiFilters = [classFilter, typeFilter, driveFilter, categoryFilter, decadeFilter].filter(Boolean);
+multiFilters.forEach(filter => {
+  updateMultiFilterSummary(filter);
+  filter.addEventListener("change", () => {
+    updateMultiFilterSummary(filter);
+    renderCars();
+  });
+  filter.addEventListener("toggle", () => {
+    if (filter.open) multiFilters.forEach(other => { if (other !== filter) other.open = false; });
+  });
+  filter.querySelector("[data-clear-filter]").addEventListener("click", () => {
+    filter.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = false; });
+    updateMultiFilterSummary(filter);
+    renderCars();
+  });
+});
+document.addEventListener("click", event => {
+  multiFilters.forEach(filter => { if (!filter.contains(event.target)) filter.open = false; });
+});
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  multiFilters.forEach(filter => {
+    if (!filter.open) return;
+    const hadFocus = filter.contains(document.activeElement);
+    filter.open = false;
+    if (hadFocus) filter.querySelector("summary").focus();
+  });
+});
 
 if (sortFilter) {
   sortFilter.addEventListener("change", renderCars);
@@ -1535,4 +1571,6 @@ document.getElementById("toggleFilters").addEventListener("click", function () {
   const open = document.getElementById("filterFields").classList.toggle("open");
   this.setAttribute("aria-expanded", String(open));
   this.textContent = open ? "필터 ▴" : "필터 ▾";
+  if (!open) multiFilters.forEach(filter => { filter.open = false; });
 });
+

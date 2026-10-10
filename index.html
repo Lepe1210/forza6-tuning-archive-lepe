@@ -51,7 +51,7 @@
   <!-- 디자인 파일 연결 -->
   <link rel="stylesheet" href="style.css?v=20261002-summary-contrast-1" />
 <link rel="icon" href="icons/icon-32.png" type="image/png">
-<link rel="stylesheet" href="redesign.css?v=20261002-summary-contrast-1">
+<link rel="stylesheet" href="redesign.css?v=20261010-multi-filter-1">
 <script src="redesign.js?v=20261002-summary-contrast-1" defer></script>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
 </head>
@@ -135,72 +135,92 @@
         class="search-control" aria-label="차량 검색"
         type="text"
         placeholder="차량명, 제조사, 콘셉트, 공유 코드 검색"
-      /><button id="toggleFilters" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filterFields">필터 ▾</button></div><div id="filterFields" class="filter-fields"><select id="classFilter" aria-label="전체 PI"><option value="all">전체 PI</option>
-        <option value="D 400">D 400</option>
-        <option value="C 500">C 500</option>
-        <option value="B 600">B 600</option>
-        <option value="A 700">A 700</option>
-        <option value="S1 800">S1 800</option>
-        <option value="S2 900">S2 900</option>
-        <option value="R 998">R 998</option>
-        <option value="X 999">X 999</option>
-      </select><select id="typeFilter" aria-label="전체 분류"><option value="all">전체 분류</option>
-        <option value="버기">버기</option>
-        <option value="클래식 머슬">클래식 머슬</option>
-        <option value="클래식 레이스카">클래식 레이스카</option>
-        <option value="클래식 랠리">클래식 랠리</option>
-        <option value="클래식 스포츠카">클래식 스포츠카</option>
-        <option value="컬트 자동차">컬트 자동차</option>
-        <option value="드리프트 자동차">드리프트 자동차</option>
-        <option value="대중 국산차">대중 국산차</option>
-        <option value="익스트림 트랙토이">익스트림 트랙토이</option>
-        <option value="GT 자동차">GT 자동차</option>
-        <option value="핫 해치">핫 해치</option>
-        <option value="하이퍼카">하이퍼카</option>
-        <option value="모던 머슬">모던 머슬</option>
-        <option value="모던 랠리">모던 랠리</option>
-        <option value="모던 스포츠카">모던 스포츠카</option>
-        <option value="모던 슈퍼 세단">모던 슈퍼 세단</option>
-        <option value="모던 슈퍼카">모던 슈퍼카</option>
-        <option value="오프로드">오프로드</option>
-        <option value="픽업 및 4*4">픽업 및 4*4</option>
-        <option value="랠리 몬스터">랠리 몬스터</option>
-        <option value="희귀 클래식">희귀 클래식</option>
-        <option value="레트로 핫 해치">레트로 핫 해치</option>
-        <option value="레트로 머슬">레트로 머슬</option>
-        <option value="레트로 레이서">레트로 레이서</option>
-        <option value="레트로 랠리">레트로 랠리</option>
-        <option value="레트로 스포츠카">레트로 스포츠카</option>
-        <option value="레트로 슈퍼 세단">레트로 슈퍼 세단</option>
-        <option value="레트로 슈퍼카">레트로 슈퍼카</option>
-        <option value="로드 및 커스텀">로드 및 커스텀</option>
-        <option value="스포츠 유틸리티 영웅">스포츠 유틸리티 영웅</option>
-        <option value="슈퍼 GT">슈퍼 GT</option>
-        <option value="슈퍼 핫 해치">슈퍼 핫 해치</option>
-        <option value="트랙 토이">트랙 토이</option>
-        <option value="UTV">UTV</option>
-        <option value="언리미티드 버기">언리미티드 버기</option>
-        <option value="언리미티드 오프로드">언리미티드 오프로드</option>
-        <option value="유틸리티 히어로">유틸리티 히어로</option>
-      </select><select id="driveFilter" aria-label="전체 구동방식"><option value="all">전체 구동방식</option>
-        <option value="FWD">FWD</option>
-        <option value="RWD">RWD</option>
-        <option value="4WD">4WD</option>
-      </select><select id="categoryFilter" aria-label="전체 용도"><option value="all">전체 용도</option>
-        <option value="온로드">온로드</option>
-        <option value="오프로드">오프로드</option>
-        <option value="혼합">혼합</option>
-        <option value="페스티벌 시즌 숙제">페스티벌 시즌 숙제</option>
-      </select><select id="decadeFilter" aria-label="전체 연대"><option value="all">전체 연대</option>
-        <option value="1960">60년대</option>
-        <option value="1970">70년대</option>
-        <option value="1980">80년대</option>
-        <option value="1990">90년대</option>
-        <option value="2000">00년대</option>
-        <option value="2010">10년대</option>
-        <option value="2020">20년대</option>
-        <option value="other">기타</option>
-      </select><select id="sortFilter" aria-label="기본 정렬"><option value="default">기본 정렬</option>
+      /><button id="toggleFilters" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filterFields">필터 ▾</button></div><div id="filterFields" class="filter-fields"><details id="classFilter" class="multi-filter" data-filter-label="PI">
+  <summary aria-label="PI: 전체"><span class="multi-filter-summary">전체 PI</span><span aria-hidden="true">▾</span></summary>
+  <div class="multi-filter-panel">
+    <div class="multi-filter-panel-heading"><strong>PI · 다중 선택</strong><button type="button" data-clear-filter="classFilter">전체로 보기</button></div>
+    <div class="multi-filter-options" role="group" aria-label="PI 선택"><label class="multi-filter-option"><input type="checkbox" value="D 400" /><span>D 400</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="C 500" /><span>C 500</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="B 600" /><span>B 600</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="A 700" /><span>A 700</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="S1 800" /><span>S1 800</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="S2 900" /><span>S2 900</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="R 998" /><span>R 998</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="X 999" /><span>X 999</span></label></div>
+  </div>
+</details><details id="typeFilter" class="multi-filter" data-filter-label="차량 분류">
+  <summary aria-label="차량 분류: 전체"><span class="multi-filter-summary">전체 차량 분류</span><span aria-hidden="true">▾</span></summary>
+  <div class="multi-filter-panel">
+    <div class="multi-filter-panel-heading"><strong>차량 분류 · 다중 선택</strong><button type="button" data-clear-filter="typeFilter">전체로 보기</button></div>
+    <div class="multi-filter-options" role="group" aria-label="차량 분류 선택"><label class="multi-filter-option"><input type="checkbox" value="버기" /><span>버기</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="클래식 머슬" /><span>클래식 머슬</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="클래식 레이스카" /><span>클래식 레이스카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="클래식 랠리" /><span>클래식 랠리</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="클래식 스포츠카" /><span>클래식 스포츠카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="컬트 자동차" /><span>컬트 자동차</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="드리프트 자동차" /><span>드리프트 자동차</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="대중 국산차" /><span>대중 국산차</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="익스트림 트랙토이" /><span>익스트림 트랙토이</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="GT 자동차" /><span>GT 자동차</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="핫 해치" /><span>핫 해치</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="하이퍼카" /><span>하이퍼카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="모던 머슬" /><span>모던 머슬</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="모던 랠리" /><span>모던 랠리</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="모던 스포츠카" /><span>모던 스포츠카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="모던 슈퍼 세단" /><span>모던 슈퍼 세단</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="모던 슈퍼카" /><span>모던 슈퍼카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="오프로드" /><span>오프로드</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="픽업 및 4*4" /><span>픽업 및 4*4</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="랠리 몬스터" /><span>랠리 몬스터</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="희귀 클래식" /><span>희귀 클래식</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 핫 해치" /><span>레트로 핫 해치</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 머슬" /><span>레트로 머슬</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 레이서" /><span>레트로 레이서</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 랠리" /><span>레트로 랠리</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 스포츠카" /><span>레트로 스포츠카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 슈퍼 세단" /><span>레트로 슈퍼 세단</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="레트로 슈퍼카" /><span>레트로 슈퍼카</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="로드 및 커스텀" /><span>로드 및 커스텀</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="스포츠 유틸리티 영웅" /><span>스포츠 유틸리티 영웅</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="슈퍼 GT" /><span>슈퍼 GT</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="슈퍼 핫 해치" /><span>슈퍼 핫 해치</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="트랙 토이" /><span>트랙 토이</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="UTV" /><span>UTV</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="언리미티드 버기" /><span>언리미티드 버기</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="언리미티드 오프로드" /><span>언리미티드 오프로드</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="유틸리티 히어로" /><span>유틸리티 히어로</span></label></div>
+  </div>
+</details><details id="driveFilter" class="multi-filter" data-filter-label="구동방식">
+  <summary aria-label="구동방식: 전체"><span class="multi-filter-summary">전체 구동방식</span><span aria-hidden="true">▾</span></summary>
+  <div class="multi-filter-panel">
+    <div class="multi-filter-panel-heading"><strong>구동방식 · 다중 선택</strong><button type="button" data-clear-filter="driveFilter">전체로 보기</button></div>
+    <div class="multi-filter-options" role="group" aria-label="구동방식 선택"><label class="multi-filter-option"><input type="checkbox" value="FWD" /><span>FWD</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="RWD" /><span>RWD</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="4WD" /><span>4WD</span></label></div>
+  </div>
+</details><details id="categoryFilter" class="multi-filter" data-filter-label="용도">
+  <summary aria-label="용도: 전체"><span class="multi-filter-summary">전체 용도</span><span aria-hidden="true">▾</span></summary>
+  <div class="multi-filter-panel">
+    <div class="multi-filter-panel-heading"><strong>용도 · 다중 선택</strong><button type="button" data-clear-filter="categoryFilter">전체로 보기</button></div>
+    <div class="multi-filter-options" role="group" aria-label="용도 선택"><label class="multi-filter-option"><input type="checkbox" value="온로드" /><span>온로드</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="오프로드" /><span>오프로드</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="혼합" /><span>혼합</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="페스티벌 시즌 숙제" /><span>페스티벌 시즌 숙제</span></label></div>
+  </div>
+</details><details id="decadeFilter" class="multi-filter" data-filter-label="연대">
+  <summary aria-label="연대: 전체"><span class="multi-filter-summary">전체 연대</span><span aria-hidden="true">▾</span></summary>
+  <div class="multi-filter-panel">
+    <div class="multi-filter-panel-heading"><strong>연대 · 다중 선택</strong><button type="button" data-clear-filter="decadeFilter">전체로 보기</button></div>
+    <div class="multi-filter-options" role="group" aria-label="연대 선택"><label class="multi-filter-option"><input type="checkbox" value="1960" /><span>60년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="1970" /><span>70년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="1980" /><span>80년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="1990" /><span>90년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="2000" /><span>00년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="2010" /><span>10년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="2020" /><span>20년대</span></label>
+<label class="multi-filter-option"><input type="checkbox" value="other" /><span>기타</span></label></div>
+  </div>
+</details><select id="sortFilter" aria-label="기본 정렬"><option value="default">기본 정렬</option>
         <option value="manufacturer">제조사순</option>
         <option value="pi">PI순</option>
         <option value="updated">최근 수정순</option>
@@ -348,8 +368,9 @@
   <!-- =========================
        동작 코드 연결
   ========================== -->
-  <script src="script.js?v=20261008-main3-1"></script>
+  <script src="script.js?v=20261010-multi-filter-1"></script>
 
 </body>
 </html>
+
 

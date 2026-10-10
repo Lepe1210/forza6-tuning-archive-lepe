@@ -102,3 +102,22 @@ html[data-theme="dark"] .catalogue-row.recent-tuning .recent-label{background:#5
 
 /* Keep vehicle previews fully opaque and readable on paper surfaces. */
 .catalogue-vehicle .summary,.weekly-card .summary{color:var(--ink);opacity:1}
+
+
+/* Catalogue filters: OR within a filter, AND between filters. */
+.multi-filter{position:relative;min-width:0;color:var(--paper)}
+.multi-filter>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;list-style:none;cursor:pointer;min-height:42px;padding:11px 8px;background:var(--ink);border:1px solid #72809e;font-size:11px;box-sizing:border-box}
+.multi-filter>summary::-webkit-details-marker{display:none}
+.multi-filter-summary{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.multi-filter.has-selection>summary{border-color:var(--gold);color:var(--gold)}
+.multi-filter[open]{z-index:12}
+.multi-filter[open]>summary>span:last-child{transform:rotate(180deg)}
+.multi-filter-panel{position:absolute;left:0;top:calc(100% + 5px);width:max(100%,240px);max-width:calc(100vw - 36px);box-sizing:border-box;background:var(--paper);color:var(--ink);border:2px solid var(--gold);box-shadow:4px 4px 0 var(--ink);padding:12px}
+.multi-filter-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:11px}
+.multi-filter-panel-heading button{background:transparent;color:var(--ink);border:0;border-bottom:1px solid var(--ink);cursor:pointer;padding:6px 0;font-size:11px;white-space:nowrap}
+.multi-filter-options{max-height:min(300px,40dvh);overflow-y:auto;overscroll-behavior:contain;padding-top:6px}
+.multi-filter-option{display:flex;align-items:center;gap:10px;min-height:40px;padding:4px 6px;box-sizing:border-box;cursor:pointer;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.multi-filter-option:hover{background:var(--lavender)}
+.multi-filter-option input{flex:none;width:18px;height:18px;margin:0;accent-color:var(--blue)}
+.multi-filter-option:has(input:checked){background:var(--lavender);font-weight:700}
+@media(max-width:700px){.multi-filter>summary{font-size:12px;min-height:44px}.multi-filter:nth-child(even) .multi-filter-panel{left:auto;right:0}.multi-filter-option{min-height:44px}}
