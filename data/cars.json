@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "2cv70-d400",
+    "manufacturer": "Citroen",
+    "carName": "2CV 1970",
+    "className": "D 400",
+    "carType": "컬트 자동차",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "Historical 2CV 4×4 Cross Special",
+    "power": "70hp",
+    "weight": "641kg",
+    "lateralG": "1.4G",
+    "shareCode": "110007284",
+    "summary": "역사적 고증 기반인데 여러 요소가 짬뽕된 마치 키메라 같은 녀석",
+    "tuneNotes": "1972 Pop Cross의 602cc 튜닝/Raid Afrique의 145mm 타이어/Sahara 4×4의 구동방식",
+    "updatedAt": "2026-10-12",
+    "testTrackBTime": "",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "r34-S1800",
     "manufacturer": "Nissan",
     "carName": "Skyline GT-R V spec II 2000",
@@ -1133,11 +1153,11 @@
     "weight": "1162kg",
     "lateralG": "1.7G",
     "shareCode": "512619081",
-    "summary": "나 이거 생각보다 안 좋을 줄 알았는데 차는 그냥 만드는 거 나름일지도 모르겠음 / 그래서 좋다는 거임",
-    "tuneNotes": "새 LSD 세팅이 잘 먹는 듯 앞으로 이게 표준으로 자리 잡을지도 / 자연흡기임",
-    "updatedAt": "2026-08-28",
+    "summary": "리메이크도 했다는 거임 / 나 이거 생각보다 안 좋을 줄 알았는데 차는 그냥 만드는 거 나름일지도 모르겠음 / 그래서 좋다는 거임",
+    "tuneNotes": "새 LSD 세팅이 잘 먹는 듯 앞으로 이게 표준으로 자리 잡을지도 / 자연흡기 + 원심형 슈퍼차저",
+    "updatedAt": "2026-10-12",
     "testTrackBTime": "",
-    "testTrackCTime": "1:00.509"
+    "testTrackCTime": "0:59.514"
   },
   {
     "eventTitle": "",
