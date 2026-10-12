@@ -1329,15 +1329,15 @@
     "drive": "4WD",
     "category": "오프로드",
     "concept": "뭔가 B클에서 나쁘지 않을 거 같았는데 되게 정교한 오프로더 하나가 만들어짐",
-    "power": "566hp",
-    "weight": "1867kg",
+    "power": "608hp",
+    "weight": "1926kg",
     "lateralG": "1.5G",
-    "shareCode": "342014915",
-    "summary": "출력으로 밀어붙이는 맛이 아니라 출력과 그립 사이의 미묘한 밸런스가 되게 마치 잘 짜인 교향곡 같은 느낌인 차",
-    "tuneNotes": "오프로드 타이어 / 레인지로버 엔진 스왑 / LSD 5대5",
+    "shareCode": "146503178",
+    "summary": "리메이크했는데 성격은 안 변함 / 출력으로 밀어붙이는 맛이 아니라 출력과 그립 사이의 미묘한 밸런스가 되게 마치 잘 짜인 교향곡 같은 느낌인 차",
+    "tuneNotes": "오프로드 타이어 / 레인지로버 엔진 스왑해서 5000cc V8 DSC",
     "updatedAt": "2026-08-22",
     "testTrackBTime": "",
-    "testTrackCTime": "1:00.410"
+    "testTrackCTime": "1:00.303"
   },
   {
     "eventTitle": "",
@@ -2249,15 +2249,15 @@
     "drive": "4WD",
     "category": "오프로드",
     "concept": "진짜 진퉁 SUV는 랠리보다 빠를까? 싶었음",
-    "power": "403hp",
-    "weight": "1688kg",
+    "power": "425hp",
+    "weight": "1781kg",
     "lateralG": "1.4G",
-    "shareCode": "104341261",
-    "summary": "진짜 TRD 답게 하체는 잘 만져놨는데 뭔가 미끄러뜨리고 싶은 욕구가 매우 솟아오르지만 안 미끄러뜨려야 해서 운전자의 인내심을 매우 요구하는 중",
-    "tuneNotes": "그냥 멋진 바디킷에 오프로드 세팅",
-    "updatedAt": "2026-07-22",
+    "shareCode": "173224871",
+    "summary": "리메이크 / 슬립 = 타임로스 이 마인드로 안 미끄러지게 설계해서 오히려 주행질감은 훨씬 더 좋아졌음",
+    "tuneNotes": "롤케이지 / 바디킷은 좀 제거했고 엔진 힘이 좀 더 강해짐",
+    "updatedAt": "2026-10-12",
     "testTrackBTime": "",
-    "testTrackCTime": "1:01.274"
+    "testTrackCTime": "1:00.873"
   },
   {
     "eventTitle": "",
@@ -3077,7 +3077,7 @@
     "tuneNotes": "오프로드 타이어에 그룹A 사양의 엔진 마력과 무게를 맞춤",
     "updatedAt": "2026-07-02",
     "testTrackBTime": "",
-    "testTrackCTime": "1:01.619"
+    "testTrackCTime": "1:01.121"
   },
   {
     "eventTitle": "",
@@ -3097,7 +3097,7 @@
     "tuneNotes": "오프로드 타이어에 그룹A 사양의 엔진 마력과 무게를 맞춤",
     "updatedAt": "2026-07-02",
     "testTrackBTime": "",
-    "testTrackCTime": "1:00.731"
+    "testTrackCTime": "1:00.233"
   },
   {
     "eventTitle": "",
