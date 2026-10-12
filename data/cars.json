@@ -41,6 +41,26 @@
   },
   {
     "eventTitle": "",
+    "id": "5tub80-b600",
+    "manufacturer": "Renault",
+    "carName": "5 Turbo 1980",
+    "className": "B 600",
+    "carType": "레트로 랠리",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "그냥 한번에 다 털고 싶어서 만든 종합세트",
+    "power": "267hp",
+    "weight": "953kg",
+    "lateralG": "1.6G",
+    "shareCode": "695431923",
+    "summary": "이번에도 돌아온 시즌 국밥인데 리메이크",
+    "tuneNotes": "4륜 / 오프로드 / 개쩌는 그립?",
+    "updatedAt": "2026-10-12",
+    "testTrackBTime": "",
+    "testTrackCTime": "0:59.859"
+  },
+  {
+    "eventTitle": "",
     "id": "r34-S1800",
     "manufacturer": "Nissan",
     "carName": "Skyline GT-R V spec II 2000",
@@ -1257,7 +1277,7 @@
     "tuneNotes": "오프로드 타이어 / 외부파츠 부착 안 함/실험적 LSD 세팅/후륜 중심",
     "updatedAt": "2026-08-24",
     "testTrackBTime": "",
-    "testTrackCTime": "1:01.416"
+    "testTrackCTime": "1:00.752"
   },
   {
     "eventTitle": "",
@@ -3981,26 +4001,6 @@
   },
   {
     "eventTitle": "",
-    "id": "5tub80-b600",
-    "manufacturer": "Renault",
-    "carName": "5 Turbo 1980",
-    "className": "B 600",
-    "carType": "레트로 랠리",
-    "drive": "4WD",
-    "category": "혼합",
-    "concept": "그냥 한번에 다 털고 싶어서 만든 종합세트",
-    "power": "260hp",
-    "weight": "960kg",
-    "lateralG": "1.6G",
-    "shareCode": "131537025",
-    "summary": "이번에도 돌아온 시즌 국밥",
-    "tuneNotes": "4륜 / 오프로드 / 개쩌는 그립?",
-    "updatedAt": "2026-06-18",
-    "testTrackBTime": "1:40.133",
-    "testTrackCTime": "1:01.430"
-  },
-  {
-    "eventTitle": "",
     "id": "golf21-a700",
     "manufacturer": "Volkswagen",
     "carName": "Golf R 2021",
@@ -4014,7 +4014,7 @@
     "lateralG": "1.9G",
     "shareCode": "101829243",
     "summary": "A클 슈퍼 핫 해치가 없어서 만들었는데 상당히 좋은 게 나옴 / 급하면 오프로드에 던져도됨",
-    "tuneNotes": "개쩌는 터보/랠리 타이어",
+    "tuneNotes": "개쩌는 터보/오프로드 타이어/신세대공학(?)",
     "updatedAt": "2026-06-18",
     "testTrackBTime": "1:30.420",
     "testTrackCTime": "1:00.204"
