@@ -3,108 +3,100 @@
 ## 현재 시즌 메타
 
 - 상태: confirmed
-- 기준 주차: 2026-10-08
-- 갱신: 2026-10-08 KST
-- 용도: `/추천` 운영용 확정 데이터. Horizon Meets - Summer 주간의 도전 / 레이스 1 / 레이스 2 / 레이스 3 최종 추천.
+- 기준 주차: 2026-10-15
+- 갱신: 2026-10-15 KST
+- 용도: `/추천` 운영용 확정 데이터. Horizon Meets - Autumn 주간의 도전 / 레이스 1 / 레이스 2 / 레이스 3 최종 추천.
 
 ## 현재 시즌 추천
 
-### 도전 — Aim For the Top
+### 도전 — Take It From the Top
 
-- 제한: Total Muscle / A 700
-- 종목: Road
-- 코스:
-  - Soni Circuit | Road | Bias 1 | 극도로 좁은 도로와 헤어핀 3개
-  - Hokubu Circuit | Road | Bias 1 | 차량 2대가 휠투휠 하기도 어려울 정도로 좁음
-  - Shikisai Sprint | Road | Bias 3 | 초반 직선 위주, 중후반 테크니컬 코너 비중이 큼
-
-#### 1픽
-
-- Tune ID: genf14-a700
-- 차량: HSV Gen-F GTS 2014
-- className: A 700
-- shareCode: 139183976
-- 이유: 764hp / 1494kg, 1.8G, RWD에 Track B 1:29.682를 기록했다. 좁고 기술적인 앞 두 경기에서도 코너링 성능을 확보하면서 Shikisai의 직선 구간까지 감당할 출력이 있고, 여러 Total Muscle 대안을 다시 검토한 뒤에도 가장 좋은 종합 밸런스를 보여 도전 1픽으로 확정.
-
-### 레이스 1 — Vetting the Competition
-
-- 제한: Track Life / S1 800
-- 종목: Street
-- 코스:
-  - Hokubu Ascent | Street | Bias 4 | 긴 오르막 직선 뒤 강한 제동이 필요한 헤어핀
-  - Norikura Descent | Street | Bias 2 | 테크니컬 코너와 헤어핀 3개
-  - Kita Ine | Street | Bias 3 | 균형 잡힌 스프린트
-
-#### 1픽
-
-- Tune ID: viper08-s1800
-- 차량: Dodge Viper SRT-10 ACR 2008
-- className: S1 800
-- shareCode: 540918225
-- 이유: 760hp / 1412kg, 2.2G, RWD에 Track B 1:19.408을 기록했다. 출력형 Hokubu Ascent와 기술형 Norikura Descent를 모두 소화할 성능이 있고, 아카이브 설명에서도 난이도가 쉬운 편으로 평가된 세팅이라 이번 Track Life 메인 레이스는 단독 1픽으로 확정.
-
-### 레이스 2 — Ghost Hunter
-
-- 제한: Rally Monsters / A 700
+- 제한: Unlimited Offroad / A 700
 - 종목: Cross Country
 - 코스:
-  - Takashiro Cross Country | Cross Country | Bias 5 | 전부 흙, 큰 점프 2개, 바운싱이 심한 고속형 코스
-  - Oka Cross Country Circuit | Cross Country | Bias 2 | 논밭·도강·헤어핀과 작은 점프가 섞인 기술형 코스
-  - Temple Cross Country | Cross Country | Bias 5 | 큰 점프와 긴 오르막이 있는 출력형 코스
+  - Ruriko-ji Cross Country | Cross Country | Bias 4 | 눈5/흙+물5, 큰 점프 3개, 작은 점프 1개, 급한 코너는 딱히 없으며 코스 초반부는 스키장 꼭대기에서부터 내려가야 하는 코스고 중반 큰 점프 이후로는 물 흐르는 계곡을 따라 무슨 레프팅 하는 느낌임, 솔직히 ㅈㄴ 힘들었음
+  - Soni Highlands Cross Country | Cross Country | Bias 3 | 논5/흙5, 진짜 큰 점프 1개, 큰 점프 2개, 작은 점프 다수, 도강 2번인데 그 중 한번은 진짜 깊은 도강, 급한 코너 몇 개가 있긴 한데 코스 자체는 넓음, 중반부에 차가 계속 미세하게 바운싱을 해서 매우 힘들었음
+  - Shimanoyama Cross Country | Cross Country | Bias 3 | 아스팔트7/흙3, 점프 다수, 급한 코너 다수, 아니 대체 왜 크로스컨트리에 테크니컬 코스를 넣었는지 모르겠는데 점프 후 착지가 아스팔트라서 차가 충격 흡수를 하기에 매우 힘들어했음
 
 #### 1픽
 
-- Tune ID: metro86-A700
-- 차량: MG Metro 6R4 1986
+- Tune ID: warthog-a700
+- 차량: AMG Transport Dynamics M12S Warthog CST 2554
 - className: A 700
-- shareCode: 960169335
-- 이유: 347hp / 1022kg, 1.9G, 4WD에 Track C 0:55.996을 기록했다. 순수 기록은 ARX와 207보다 약간 느리지만 충분히 빠르고, Autoshow에서 바로 구할 수 있어 일반 Seasonal Championship의 공용 1픽으로 확정.
+- shareCode: 179104190
+- 이유: 1196hp / 2291kg, 1.5G, 4WD 및 Track C 0:55.885로 적격 아카이브 후보 중 가장 빠른 기록이다. Ruriko-ji의 Bias 4 출력 요구와 이어지는 Bias 3 지형에도 대응할 대형 오프로드 머신이며, Autoshow에서 상시 획득 가능해 공용 1픽으로 확정.
 
 #### 2픽
 
-- Tune ID: arx18-a700
-- 차량: Subaru WRX STI ARX Supercar 2018
+- Tune ID: rzr21-a700
+- 차량: RJ Anderson #37 Polaris RZR Pro 4 Truck 2021
 - className: A 700
-- shareCode: 767377507
-- 이유: 564hp / 1369kg, 1.7G, 4WD에 Track C 0:55.501로 세 후보 중 가장 빠르다. Takashiro와 Temple의 높은 출력 요구에 특히 잘 맞는 성능 우선 대안이다.
+- shareCode: 346698824
+- 이유: 878hp / 1744kg, 1.5G, 4WD에 Track C 0:56.150으로 Warthog와 0.265초 차이다. 상대적으로 가벼운 레이스 트럭이라 Soni Highlands의 도강·요철과 Shimanoyama의 기술 구간에 다른 거동으로 대응할 성능 대안이다. Wheelspin/Seasonal 비-Autoshow 차량.
 
 #### 3픽
 
-- Tune ID: 207super07-A700
-- 차량: Peugeot 207 Super 2000 2007
+- Tune ID: brocky17-A700
+- 차량: Ford #25 "BROCKY" Ultra4 bronco RTR 2017
 - className: A 700
-- shareCode: 149838177
-- 이유: 425hp / 1092kg, 1.7G, 4WD에 Track C 0:55.565를 기록했다. ARX와 거의 같은 수준의 Track C 기록을 가지면서 더 가벼워 Oka의 기술 구간까지 균형 있게 대응할 수 있는 대안이다.
+- shareCode: 157171566
+- 이유: 850hp / 2019kg, 1.5G, 4WD에 Track C 0:56.705를 기록했다. 7.2L V8과 큰 차체를 활용하는 언리미티드 오프로드 대안이며, Autoshow에서 획득할 수 있지만 아카이브에서 고점 세팅이 까다롭다고 평가된 차량이므로 3픽으로 확정.
 
-### 레이스 3 — Bee Happy
+### 레이스 1 — Coming In Hot
 
-- 제한: Modern Rally / B 600
+- 제한: Retro Hot Hatch / C 500
 - 종목: Dirt
 - 코스:
-  - Kawazu Nanadaru Scramble | Dirt | Bias 4 | 고속형이지만 중요한 온로드 구간에 나나타키 루프 다리가 있음
-  - Cherry Field Trail | Dirt | Bias 4 | 초반 급코너 뒤 후반 직선이 길고 시케인이 하나 있음
-  - Sunflower Scramble | Dirt | Bias 4 | 긴 그래블 백스트레이트 성격의 구간에서 가속력이 중요
+  - Oyashirazu Trail | Dirt | Bias 1 | 길이 좁고 코너가 급해서 치고나가면 답없음
+  - Ito Trail | Dirt | Bias 1 | 중간에 복잡한 테크니컬 코너와 헤어핀이 있어서 여기서 치고나가면 후반에 막을만 함
+  - Ine Scramble | Dirt | Bias 2 | 도로 폭이 좁은 건 아닌데 추월 라인을 잡기에는 어려움
 
 #### 1픽
 
-- Tune ID: stis20919-b600
-- 차량: Subaru STI S209 2019
+- Tune ID: preludesi94-c500
+- 차량: Honda Prelude Si 1994
+- className: C 500
+- shareCode: 180034828
+- 이유: 이번 시즌용으로 신규 제작한 AWD 180hp / 1132kg, 1.6G의 C500 랠리 세팅이다. Track C 1:05.637 실측이 있고, 좁고 급한 코너가 많은 Bias 1·1·2 코스에서 기존 FWD 온로드 후보보다 오프로드 적합성 근거가 분명하다. Autoshow 획득 가능. 대안 픽은 실측 부족으로 억지 추가하지 않는다.
+
+### 레이스 2 — Weekend Break
+
+- 제한: United States / B 600
+- 종목: Road
+- 코스:
+  - Ito Sprint | Road | Bias 4 | 순간적 반응보다는 코너에서 얼마나 차가 버티냐가 중요한 편
+  - Festival Sprint | Road | Bias 3 | 중간에 급브레이크 구간이 있음
+  - Tateyama Kurobe Sprint | Road | Bias 3 | 북쪽 산간을 달리는 코스라 코너가 급하고 오르막이 좀 있으며 도로 가장자리는 눈이 있음
+
+#### 1픽
+
+- Tune ID: racingpuma99-B600
+- 차량: Ford Racing Puma 1999
 - className: B 600
-- shareCode: 154264898
-- 이유: 379hp / 1354kg, 1.8G, 4WD에 Track C 0:59.804를 기록했다. GR Yaris와 실측 차이가 0.027초에 불과하면서 절대 출력은 훨씬 높고, 세 코스가 모두 Bias 4인 이번 구성과 잘 맞는다. 비교적 최근 제작된 Modern Rally 튠을 이번 주 대표로 쓰기로 사용자 최종 선택해 1픽으로 확정.
+- shareCode: 506621689
+- 이유: 235hp / 975kg, 1.9G, FWD, Track B 1:37.540으로 현재 적격 미국 B600 온로드 아카이브 후보 중 가장 빠른 기록이다. Ito Sprint의 Bias 4에서도 차가 코너를 버티는 것이 중요하고, 뒤 두 코스의 제동·급코너에도 가벼운 차체와 그립이 유리하다. FH6 공식 차량 목록에서 USA로 분류되며 Autoshow 획득 가능.
 
 #### 2픽
 
-- Tune ID: yaris21-B600
-- 차량: Toyota GR Yaris 2021
+- Tune ID: mustangboss69-B600
+- 차량: Ford Mustang Boss 302 1969
 - className: B 600
-- shareCode: 732155077
-- 이유: 272hp / 1129kg, 1.8G, 4WD에 Track C 0:59.777로 현재 후보 중 가장 빠른 기록을 갖고 있다. 출력은 S209보다 낮지만 가볍고 코너링 성능이 좋아 안정적인 2픽으로 확정.
+- shareCode: 174665713
+- 이유: 373hp / 1201kg, 1.6G, RWD 및 Track B 1:41.120의 고출력 머슬 대안. Racing Puma보다 순수 테스트 기록은 느리지만 Ito의 중고속 구간에서 절대 출력이 유용하고, 빈티지 레이스 타이어와 순정 엔진으로 온로드 주행 성향이 분명하다. Autoshow 획득 가능.
 
-#### 3픽
+### 레이스 3 — Fully Charged
 
-- Tune ID: wrx22-b600
-- 차량: Subaru WRX 2022
-- className: B 600
-- shareCode: 512619081
-- 이유: 294hp / 1162kg, 1.7G, 4WD에 Track C 1:00.509를 기록했다. 최신 LSD 세팅을 적용한 균형형 Modern Rally 튠으로, 앞 두 차보다 기록은 느리지만 세 코스 전반을 무난하게 소화할 3픽으로 확정.
+- 제한: Electric Vehicles / A 700
+- 종목: Street
+- 코스:
+  - Sunflower Charge | Street | Bias 5 | 얘도 그냥 때려밟는데 중반에 살짝 코너가 있음
+  - Matsumi Climb | Street | Bias 2 | 테크니컬 코너와 급격한 코너가 자주 있음
+  - Shimanoyama Charge | Street | Bias 5 | 그냥 때려 밟아야함
+
+#### 1픽
+
+- Tune ID: ioniq523-A700
+- 차량: Hyundai IONIQ 5 N 2023
+- className: A 700
+- shareCode: 120392857
+- 이유: 641hp / 1713kg, 1.6G, 4WD에 Track B 1:33.657 기록을 추가했고 최신 공유코드 120392857로 갱신됐다. 사용자가 기존 튠의 서스펜션을 온로드에 맞게 조절한 후 코너 진입도 의외로 괜찮다고 직접 평가했다. Bias 5·2·5의 고속 위주 구성에서 유일한 아카이브 순수 전기차 A700 실측 후보로, 쉬운 시즌 챔피언십 난이도도 고려해 단독 1픽으로 확정. Autoshow 획득 가능.
