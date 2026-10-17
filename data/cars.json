@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "fj40-b600",
+    "manufacturer": "Toyota",
+    "carName": "FJ40 1979",
+    "className": "B 600",
+    "carType": "픽업 및 4*4",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "아무래도 좀 다시 만지고 싶은 차의 순위권에 있어서 좀 만지게 됨",
+    "power": "421hp",
+    "weight": "1222kg",
+    "lateralG": "1.5G",
+    "shareCode": "379864828",
+    "summary": "전복의 잠재성은 있는데 일단 당장 타면서 뜬금없이 뒤집는 건 해결해서 어쨌든 좋은 게 좋은 거랬음",
+    "tuneNotes": "Racing V6 엔진 / 낮은 차체 / 전복 위험성 약간?",
+    "updatedAt": "2026-10-17",
+    "testTrackBTime": "",
+    "testTrackCTime": "0:58.986"
+  },
+  {
+    "eventTitle": "",
     "id": "preludesi94-c500",
     "manufacturer": "Honda",
     "carName": "Prelude Si 1994",
