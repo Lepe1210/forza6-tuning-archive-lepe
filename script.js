@@ -1,3 +1,5 @@
+let dailyExhibitionCars = [];
+const dailyTunePool = () => ArchiveExhibitions.pool(cars,dailyExhibitionCars);
 /* =========================
    Google Sheets CSV 링크
    cars   = 전체 튜닝 차량 DB
@@ -86,9 +88,10 @@ async function loadAllData() {
 
     carCount.textContent = "불러오는 중";
 
-    const [carsResponse, weeklyResponse] = await Promise.all([
+    const [carsResponse, weeklyResponse, exhibitionCars] = await Promise.all([
       fetch(CARS_CSV_URL),
-      fetch(WEEKLY_CSV_URL)
+      fetch(WEEKLY_CSV_URL),
+      ArchiveExhibitions.load().catch(error=>{console.warn(error);return [];})
     ]);
 
     if (!carsResponse.ok) {
@@ -102,6 +105,7 @@ async function loadAllData() {
     const carsCsvText = await carsResponse.text();
     const weeklyCsvText = await weeklyResponse.text();
 
+    dailyExhibitionCars = exhibitionCars;
     cars = parseCars(carsCsvText);
     weeklyCars = parseCars(weeklyCsvText);
 
@@ -1036,7 +1040,7 @@ function closeDailyTuneModal() {
 function renderDailyTuneModalState() {
   if (!dailyTuneSlotText || !spinDailyTune || !dailyTuneResult) return;
 
-  if (cars.length === 0) {
+  if (dailyTunePool().length === 0) {
     dailyTuneSlotText.textContent = "차량 데이터를 불러오는 중입니다...";
     spinDailyTune.disabled = true;
     dailyTuneResult.classList.add("hidden");
@@ -1047,7 +1051,7 @@ function renderDailyTuneModalState() {
   const saved = getSavedDailyTune();
 
   if (saved) {
-    const savedCar = cars.find((car) => car.id === saved.carId);
+    const savedCar = dailyTunePool().find((car) => car.id === saved.carId);
 
     if (savedCar) {
       dailyTuneSlotText.textContent = `${savedCar.manufacturer} ${savedCar.carName}`;
@@ -1058,6 +1062,7 @@ function renderDailyTuneModalState() {
     }
   }
 
+  if(saved)localStorage.removeItem(DAILY_TUNE_STORAGE_KEY);
   dailyTuneSlotText.textContent = "준비 완료";
   spinDailyTune.textContent = "뽑기 시작";
   spinDailyTune.disabled = false;
@@ -1071,12 +1076,12 @@ function renderDailyTuneModalState() {
 ========================= */
 
 function pickRandomCar() {
-  if (cars.length === 0) {
+  if (dailyTunePool().length === 0) {
     return null;
   }
 
-  const randomIndex = Math.floor(Math.random() * cars.length);
-  return cars[randomIndex];
+  const randomIndex = Math.floor(Math.random() * dailyTunePool().length);
+  return dailyTunePool()[randomIndex];
 }
 
 
@@ -1085,7 +1090,7 @@ function pickRandomCar() {
 ========================= */
 
 function startDailyTuneSpin() {
-  if (isDailyTuneSpinning || cars.length === 0) return;
+  if (isDailyTuneSpinning || dailyTunePool().length === 0) return;
 
   const saved = getSavedDailyTune();
 
@@ -1168,6 +1173,7 @@ function renderDailyTuneResult(car, alreadyPicked) {
         ${alreadyPicked ? "TODAY'S SAVED RESULT" : "TODAY'S RESULT"}
       </span>
 
+      ${car.atlasId?`<p class="summary">${escapeHTML(car.gameBase)}</p>`:""}
       <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
       <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
 
@@ -1227,6 +1233,7 @@ function renderDailyTuneResult(car, alreadyPicked) {
 
 function openDailyTuneDetail(carId) {
   closeDailyTuneModal();
+  if(carId.startsWith('atlas:')){location.href='rivals.html?exhibit='+encodeURIComponent(carId);return;}
   openCarDetail(carId, "cars");
 }
 
@@ -1236,7 +1243,7 @@ function openDailyTuneDetail(carId) {
 ========================= */
 
 async function shareDailyTune(carId, button) {
-  const car = cars.find((item) => item.id === carId);
+  const car = dailyTunePool().find((item) => item.id === carId);
 
   if (!car) return;
 
@@ -1573,4 +1580,5 @@ document.getElementById("toggleFilters").addEventListener("click", function () {
   this.textContent = open ? "필터 ▴" : "필터 ▾";
   if (!open) multiFilters.forEach(filter => { filter.open = false; });
 });
+
 

@@ -122,6 +122,8 @@ let rivalEntries = [];
 let rivalExhibits = [];
 
 let openSeriesId = null;
+let atlasCars = [];
+let atlasLoadFailed = false;
 
 
 /* =========================
@@ -135,7 +137,7 @@ async function loadRivalsData() {
     const carsUrl =
       `${CARS_CSV_URL}&cacheBust=${Date.now()}`;
 
-    const [carsResponse, rivalData] =
+    const [carsResponse, rivalData, atlasResult] =
       await Promise.all([
         fetch(carsUrl, {
           cache: "no-store"
@@ -143,7 +145,8 @@ async function loadRivalsData() {
 
         callRivalsApi({
           action: "rivalDataList"
-        })
+        }),
+        ArchiveExhibitions.load(true).then(vehicles=>({vehicles})).catch(()=>({vehicles:[],failed:true}))
       ]);
 
     if (!carsResponse.ok) {
@@ -164,6 +167,13 @@ async function loadRivalsData() {
       ? rivalData.entries
       : [];
 
+    atlasCars=atlasResult.vehicles;
+    atlasLoadFailed=!!atlasResult.failed;
+    if(atlasCars.length){
+      const seriesId='atlas-shuto';
+      rivalSeries.push({id:seriesId,title:'수도고 세계관',subtitle:'완간 미드나이트 · C1 러너 · 은회색 스피드스터 · 수도고 SPL',era:'SHUTO RECREATIONS',description:'원작 차량의 개성과 기계적 특징을 Forza Horizon 6에서 재현한 제작 컬렉션입니다.',previewUrl:atlasCars.find(c=>c.imageUrl)?.imageUrl||''});
+      rivalEntries.push(...atlasCars.map(c=>({id:c.id,carId:c.id,seriesId,role:c.character,exhibitText:c.concept,imageUrl:c.imageUrl,previewUrl:c.imageUrl})));
+    }
     openSeriesId = null;
 
     buildRivalExhibits();
@@ -172,6 +182,9 @@ async function loadRivalsData() {
     renderRivalSeriesNav();
     renderRivalsMuseum();
     renderRivalsStatus();
+    if(atlasLoadFailed&&rivalsStatus)rivalsStatus.textContent+=' · 수도고 차량 연결 실패 · 새로고침으로 재시도';
+    const requested=new URLSearchParams(location.search).get('exhibit');
+    if(requested&&rivalEntries.some(e=>e.id===requested)){openRivalSeries('atlas-shuto');openRivalCarDetail(requested);}
   } catch (error) {
     console.error(
       "라이벌 전시관 불러오기 실패:",
@@ -381,7 +394,7 @@ function parseCars(csvText) {
 
 function buildRivalExhibits() {
   rivalExhibits = rivalEntries.map((entry) => {
-    const car = cars.find((item) => {
+    const car = [...cars,...atlasCars].find((item) => {
       return String(item.id) ===
         String(entry.carId);
     });
@@ -807,6 +820,13 @@ function closeRivalSeries(seriesId) {
     String(openSeriesId || "") ===
     String(seriesId)
   ) {
+    atlasCars=atlasResult.vehicles;
+    atlasLoadFailed=!!atlasResult.failed;
+    if(atlasCars.length){
+      const seriesId='atlas-shuto';
+      rivalSeries.push({id:seriesId,title:'수도고 세계관',subtitle:'완간 미드나이트 · C1 러너 · 은회색 스피드스터 · 수도고 SPL',era:'SHUTO RECREATIONS',description:'원작 차량의 개성과 기계적 특징을 Forza Horizon 6에서 재현한 제작 컬렉션입니다.',previewUrl:atlasCars.find(c=>c.imageUrl)?.imageUrl||''});
+      rivalEntries.push(...atlasCars.map(c=>({id:c.id,carId:c.id,seriesId,role:c.character,exhibitText:c.concept,imageUrl:c.imageUrl,previewUrl:c.imageUrl})));
+    }
     openSeriesId = null;
   }
 
@@ -1032,6 +1052,7 @@ function renderRivalEntryCard(
           </span>
         </div>
 
+        ${car.atlasId ? `<p class="summary">${escapeHTML(car.gameBase)}</p>` : ''}
         <div class="rival-entry-badges">
           <span class="badge">
             ${escapeHTML(
@@ -1372,6 +1393,11 @@ function openRivalCarDetail(entryId) {
 
   const displayShareCode =
     formatShareCode(car.shareCode);
+
+  if(car.atlasId){
+    rivalCarModalBody.innerHTML=`<div class="rival-car-modal-heading"><p class="eyebrow">${escapeHTML(car.series.join(' · '))}</p><p class="rival-car-modal-role">${escapeHTML(car.character)}</p><h2>${escapeHTML(car.carName)}</h2><p class="summary">${escapeHTML(car.gameBase)}</p></div>${car.imageUrl?`<img src="${escapeAttribute(car.imageUrl)}" alt="${escapeAttribute(car.carName)} 전시 일러스트" style="width:100%;border-radius:12px">`:''}<p class="summary">${formatMultilineText(car.concept||'전시 소개 준비 중')}</p><div class="share-box"><span class="detail-label">튜닝 공유 코드</span><div class="share-code-row"><button class="copy-code-button" type="button" data-copy-rival-share-code="${escapeAttribute(shareCode)}">복사</button><strong>${escapeHTML(displayShareCode)}</strong></div></div><div class="detail-grid">${[['PI',car.className],['출력',car.power],['토크',car.torque],['중량',car.weight]].filter(([,v])=>v).map(([k,v])=>renderDetailItem(k,v)).join('')}</div>${car.tuneNotes?`<h3>재현 포인트</h3><p class="summary">${formatMultilineText(car.tuneNotes)}</p>`:''}<p class="summary">표시된 수치는 실제 게임 제작 결과입니다.</p>`;
+    if(rivalCarModal){rivalCarModal.classList.remove('hidden');document.body.classList.add('modal-open');}return;
+  }
 
   rivalCarModalBody.innerHTML = `
     <div class="rival-car-modal-heading">
