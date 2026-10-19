@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "nomad16-A700",
+    "manufacturer": "Ariel",
+    "carName": "Nomad 2016",
+    "className": "A 700",
+    "carType": "언리미티드 버기",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "오프로드용 버기",
+    "power": "285hp",
+    "weight": "644kg",
+    "lateralG": "1.6G",
+    "shareCode": "151546649",
+    "summary": "아마 마지막 리메이크 / 근데 마지막 리메이크 보상으로 나에게 큰 숙제를 던지고 감",
+    "tuneNotes": "스톡 엔진 / 진짜 경량화 영혼까지 끌어모아서 땡김 / 4륜 스왑",
+    "updatedAt": "2026-10-19",
+    "testTrackBTime": "",
+    "testTrackCTime": "0:55.267"
+  },
+  {
+    "eventTitle": "",
     "id": "205rallye91-b600",
     "manufacturer": "Peugeot",
     "carName": "205 Rallye 1991",
@@ -1238,26 +1258,6 @@
     "updatedAt": "2026-09-03",
     "testTrackBTime": "1:38.112",
     "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "nomad16-A700",
-    "manufacturer": "Ariel",
-    "carName": "Nomad 2016",
-    "className": "A 700",
-    "carType": "언리미티드 버기",
-    "drive": "4WD",
-    "category": "오프로드",
-    "concept": "오프로드용 버기",
-    "power": "285hp",
-    "weight": "644kg",
-    "lateralG": "1.6G",
-    "shareCode": "151546649",
-    "summary": "아마 마지막 리메이크 / 근데 마지막 리메이크 보상으로 나에게 큰 숙제를 던지고 감",
-    "tuneNotes": "스톡 엔진 / 진짜 경량화 영혼까지 끌어모아서 땡김 / 4륜 스왑",
-    "updatedAt": "2026-10-19",
-    "testTrackBTime": "",
-    "testTrackCTime": "0:55.267"
   },
   {
     "eventTitle": "",
@@ -4956,7 +4956,7 @@
     "summary": "진짜 이게 왜 안 넘어짐?",
     "tuneNotes": "모터바이크 엔진 / 3륜구동 / 오프로드 타이어 / 에어로 풀 세트",
     "updatedAt": "2026-06-03",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:44.468",
     "testTrackCTime": "1:02.837"
   },
   {
