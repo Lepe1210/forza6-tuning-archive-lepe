@@ -88,7 +88,7 @@ let isManagerRouletteSpinning = false;
 const TUNING_INVENTORY_TAG = '__forza_tuning_inventory_v1__';
 function parseTuningInventoryMemo(memo) {
   if(memo.tag!==TUNING_INVENTORY_TAG)return null;
-  try{const v=JSON.parse(memo.body);if(v.kind!=='tuning-inventory'||v.version!==1||typeof v.name!=='string'||typeof v.time!=='string'||typeof v.notes!=='string')return null;return {id:String(memo.id),name:v.name,time:v.time,notes:v.notes,createdAt:memo.createdAt};}catch{return null;}
+  try{const v=JSON.parse(memo.body);if(v.kind!=='tuning-inventory'||v.version!==1||typeof v.name!=='string'||typeof v.time!=='string'||typeof v.notes!=='string')return null;return {id:String(memo.id),name:v.name,time:v.time,notes:v.notes,track:['road','dirt'].includes(v.track)?v.track:'',createdAt:memo.createdAt};}catch{return null;}
 }
 let managerMemosLoaded = false;
 let inventoryMemos = [];
