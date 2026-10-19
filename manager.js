@@ -85,6 +85,13 @@ let rouletteCandidates = [];
 let currentRouletteResult = null;
 let isManagerRouletteSpinning = false;
 
+const TUNING_INVENTORY_TAG = '__forza_tuning_inventory_v1__';
+function parseTuningInventoryMemo(memo) {
+  if(memo.tag!==TUNING_INVENTORY_TAG)return null;
+  try{const v=JSON.parse(memo.body);if(v.kind!=='tuning-inventory'||v.version!==1||typeof v.name!=='string'||typeof v.time!=='string'||typeof v.notes!=='string')return null;return {id:String(memo.id),name:v.name,time:v.time,notes:v.notes,createdAt:memo.createdAt};}catch{return null;}
+}
+let managerMemosLoaded = false;
+let inventoryMemos = [];
 let serverMemos = [];
 let editingMemoId = null;
 
@@ -597,7 +604,12 @@ function callManagerMemoApi(params = {}) {
     const script = document.createElement("script");
     const separator = MANAGER_MEMO_API_URL.includes("?") ? "&" : "?";
 
+    const timeout = setTimeout(() => {
+      delete window[callbackName];script.remove();
+      reject(new Error("서버 응답 시간이 초과됐습니다. 새로고침으로 저장 여부를 확인해주세요."));
+    }, 15000);
     window[callbackName] = (data) => {
+      clearTimeout(timeout);
       delete window[callbackName];
       script.remove();
 
@@ -610,6 +622,7 @@ function callManagerMemoApi(params = {}) {
     };
 
     script.onerror = () => {
+      clearTimeout(timeout);
       delete window[callbackName];
       script.remove();
       reject(new Error("memo api load failed"));
@@ -645,7 +658,11 @@ async function loadServerMemos() {
       action: "list"
     });
 
-    serverMemos = Array.isArray(data.memos) ? data.memos : [];
+    managerMemosLoaded = true;
+    const allMemos = Array.isArray(data.memos) ? data.memos : [];
+    inventoryMemos = allMemos.map(parseTuningInventoryMemo).filter(Boolean);
+    serverMemos = allMemos.filter(memo=>!parseTuningInventoryMemo(memo));
+    if(window.renderTuningInventory)window.renderTuningInventory(true);
 
     if (editingMemoId) {
       const editingMemoStillExists = serverMemos.some(
@@ -660,6 +677,8 @@ async function loadServerMemos() {
     renderServerMemos();
   } catch (error) {
     console.error("서버 메모 불러오기 실패:", error);
+    managerMemosLoaded = false;
+    if(window.renderTuningInventory)window.renderTuningInventory(false);
 
     if (memoCountText) {
       memoCountText.textContent = "불러오기 실패";
@@ -897,14 +916,15 @@ async function deleteServerMemo(memoId) {
 ========================= */
 
 async function clearAllServerMemos() {
-  const confirmed = confirm("저장된 메모를 전부 삭제할까?");
+  const confirmed = confirm("저장된 일반 메모를 전부 삭제할까? 차량 재고 목록은 유지돼.");
 
   if (!confirmed) return;
 
   try {
-    await callManagerMemoApi({
-      action: "clear"
-    });
+    // Delete only ordinary notes; inventory records share the existing server storage.
+    for (const memo of serverMemos) {
+      await callManagerMemoApi({action:"delete", id:memo.id});
+    }
 
     clearMemoInputs();
     await loadServerMemos();
