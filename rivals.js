@@ -171,7 +171,7 @@ async function loadRivalsData() {
     atlasLoadFailed=!!atlasResult.failed;
     if(atlasCars.length){
       const seriesId='atlas-shuto';
-      rivalSeries.push({id:seriesId,title:'수도고 세계관',subtitle:'완간 미드나이트 · C1 러너 · 은회색 스피드스터 · 수도고 SPL',era:'SHUTO RECREATIONS',description:'원작 차량의 개성과 기계적 특징을 Forza Horizon 6에서 재현한 제작 컬렉션입니다.',previewUrl:atlasCars.find(c=>c.imageUrl)?.imageUrl||''});
+      rivalSeries.push({id:seriesId,title:'수도고 세계관',subtitle:'완간 미드나이트 · C1 러너 · 은회색 스피드스터 · 수도고 SPL',era:'SHUTO RECREATIONS',description:'원작 차량의 개성과 기계적 특징을 Forza Horizon 6에서 재현한 제작 컬렉션입니다.',previewUrl:'https://fh6-exhibition-feed.lepe1210xd.chatgpt.site/exhibition-images/shuto-cover-v1.webp',heroImageUrl:'https://fh6-exhibition-feed.lepe1210xd.chatgpt.site/exhibition-images/shuto-cover-v1.webp'});
       rivalEntries.push(...atlasCars.map(c=>({id:c.id,carId:c.id,seriesId,role:c.character,exhibitText:c.concept,imageUrl:c.imageUrl,previewUrl:c.imageUrl})));
     }
     openSeriesId = null;
