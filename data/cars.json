@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "mini65-a700",
+    "manufacturer": "Mini",
+    "carName": "Cooper S 1965",
+    "className": "A 700",
+    "carType": "클래식 랠리",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "새로 배운 LSD 세팅과 요즘 밀고 있는 저토크 고마력의 저평가화를 동시에 테스트 했는데 오우 이거는 좀",
+    "power": "310hp",
+    "weight": "613kg",
+    "lateralG": "1.7G",
+    "shareCode": "156045924",
+    "summary": "솔직히 이거 그냥 4륜 바이크 느낌으로 타야함 더 이상 차라고 부르기엔 조금 어려움",
+    "tuneNotes": "1000cc 모터바이크 엔진 / 4륜스왑 / 에어로 / 5대5 구동배분",
+    "updatedAt": "2026-10-20",
+    "testTrackBTime": "1:31.427",
+    "testTrackCTime": "0:54.815"
+  },
+  {
+    "eventTitle": "",
     "id": "nomad16-A700",
     "manufacturer": "Ariel",
     "carName": "Nomad 2016",
