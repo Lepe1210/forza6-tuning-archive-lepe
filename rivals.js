@@ -1047,12 +1047,14 @@ function renderRivalEntryCard(
 
         ${car.atlasId ? `<p class="summary">${escapeHTML(car.gameBase)}</p>` : ''}
         <div class="rival-entry-badges">
+          ${car.atlasId ? "" : `
           <span class="badge">
             ${escapeHTML(
               car.drive ||
                 "구동방식 미입력"
             )}
           </span>
+          `}
 
           <span class="badge">
             ${escapeHTML(
