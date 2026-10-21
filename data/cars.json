@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "wrxsti11-c500",
+    "manufacturer": "Subaru",
+    "carName": "WRX STI 2011",
+    "className": "C 500",
+    "carType": "모던 랠리",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "이걸 C클로 다운그레이드 친 걸 묵혀두고 있다가 이제서야 꺼냄",
+    "power": "303hp",
+    "weight": "1605kg",
+    "lateralG": "1.6G",
+    "shareCode": "174683458",
+    "summary": "차가 뭔가 되게 정적임 / 진짜 카레이서한테 할머니차 태운 느낌이라고 해야하나",
+    "tuneNotes": "엔진 다운그레이드 / 무게 겁나 늘린 뚱댕이",
+    "updatedAt": "2026-10-21",
+    "testTrackBTime": "",
+    "testTrackCTime": "1:04.666"
+  },
+  {
+    "eventTitle": "",
     "id": "mini65-a700",
     "manufacturer": "Mini",
     "carName": "Cooper S 1965",
