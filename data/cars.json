@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "s704-s1800",
+    "manufacturer": "Saleen",
+    "carName": "S7 2004",
+    "className": "S1 800",
+    "carType": "레트로 슈퍼카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "이거 만지려고 안 자고 버티고 있었음",
+    "power": "694hp",
+    "weight": "1097kg",
+    "lateralG": "2.1G",
+    "shareCode": "259608795",
+    "summary": "진짜 운전하는 느낌 자체만큼은 이 녀석이 장난 아님 / 엔진음 GOAT",
+    "tuneNotes": "순정 엔진 / 에어로 / 별 다른 거 없는 순정 그 자체로 너무 완벽함",
+    "updatedAt": "2026-10-23",
+    "testTrackBTime": "1:20.394",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "fj40-c500",
     "manufacturer": "Toyota",
     "carName": "FJ40 1979",
