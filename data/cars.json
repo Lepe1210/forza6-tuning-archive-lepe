@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "corvette02-a700",
+    "manufacturer": "Chevrolet",
+    "carName": "Corvette Z06 2002",
+    "className": "A 700",
+    "carType": "레트로 머슬",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "진짜 순전히 빨라서 레이싱 출전 정지 당했다는데 왠지 알 거 같음",
+    "power": "598hp",
+    "weight": "1210kg",
+    "lateralG": "1.9G",
+    "shareCode": "409787874",
+    "summary": "차가 꽤 독특하게 움직이는 면이 있음 / 말리는 듯 하다가 밀고 나가는 느낌이라고 해야하나",
+    "tuneNotes": "드리프트 타이어 / 순정 엔진 유지 / 살짝 안으로 말리는 세팅",
+    "updatedAt": "2026-10-28",
+    "testTrackBTime": "1:27.913",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "pro2truck16-a700",
     "manufacturer": "RJ Anderson",
     "carName": "#37 Polaris RZR Pro 2 Truck 2016",
