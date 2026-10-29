@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "beat91-b600",
+    "manufacturer": "Honda",
+    "carName": "Beat 1991",
+    "className": "B 600",
+    "carType": "대중 국산차",
+    "drive": "4WD",
+    "category": "페스티벌 시즌 숙제",
+    "concept": "시즌이 시즌인지라 안 만질 수가 없었음",
+    "power": "225hp",
+    "weight": "829kg",
+    "lateralG": "2.0G",
+    "shareCode": "134002969",
+    "summary": "언더스티어 좀 있긴 한데 이거 못 몰면 솔직히 좀 그래",
+    "tuneNotes": "4륜 / 1600cc VVT / 랠리 타이어 / 22ㄷ88 LSD",
+    "updatedAt": "2026-10-29",
+    "testTrackBTime": "",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "corvette02-a700",
     "manufacturer": "Chevrolet",
     "carName": "Corvette Z06 2002",
