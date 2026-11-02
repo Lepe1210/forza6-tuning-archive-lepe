@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "elise97-S1800",
+    "manufacturer": "Lotus",
+    "carName": "Elise GT1 1997",
+    "className": "S1 800",
+    "carType": "레트로 슈퍼카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "초경량 슈퍼카 컨셉답게 경량투자",
+    "power": "429hp",
+    "weight": "894kg",
+    "lateralG": "2.3G",
+    "shareCode": "136717889",
+    "summary": "리메이크 / 진짜 경량이 깡패인데 출력 낮은 게 이렇게 아쉬울 수 없었음",
+    "tuneNotes": "드리프트 타이어 / 정상화된 에어로 / 가벼움",
+    "updatedAt": "2026-11-01",
+    "testTrackBTime": "1:18.741",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "vivio94-c500",
     "manufacturer": "Subaru",
     "carName": "Vivio RX-R 1994",
@@ -6077,26 +6097,6 @@
     "tuneNotes": "직선이 길게 있는 길거리 레이싱에선 쓸만 할 것 같음",
     "updatedAt": "2026-05-20",
     "testTrackBTime": "1:25.417",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "elise97-S1800",
-    "manufacturer": "Lotus",
-    "carName": "Elise GT1 1997",
-    "className": "S1 800",
-    "carType": "레트로 슈퍼카",
-    "drive": "RWD",
-    "category": "온로드",
-    "concept": "초경량 슈퍼카 컨셉답게 경량투자",
-    "power": "429hp",
-    "weight": "894kg",
-    "lateralG": "2.3G",
-    "shareCode": "136717889",
-    "summary": "리메이크 / 진짜 경량이 깡패인데 출력 낮은 게 이렇게 아쉬울 수 없었음",
-    "tuneNotes": "드리프트 타이어 / 정상화된 에어로 / 가벼움",
-    "updatedAt": "2026-11-01",
-    "testTrackBTime": "1:18.741",
     "testTrackCTime": ""
   },
   {
