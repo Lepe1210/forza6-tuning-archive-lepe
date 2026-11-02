@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "factoryracing21-c500",
+    "manufacturer": "Polaris",
+    "carName": "RZR Pro XP Factory Racing LM 2021",
+    "className": "C 500",
+    "carType": "UTV",
+    "drive": "4WD",
+    "category": "오프로드",
+    "concept": "그냥 눈에 보여서 만들었음",
+    "power": "253hp",
+    "weight": "953kg",
+    "lateralG": "1.5G",
+    "shareCode": "155162915",
+    "summary": "타기 편한데다가 생각보다 잘 돌아감",
+    "tuneNotes": "오프로드 타이어 / 기본 엔진 / 노 에어로 / 5ㄷ5",
+    "updatedAt": "2026-11-02",
+    "testTrackBTime": "",
+    "testTrackCTime": "1:02.277"
+  },
+  {
+    "eventTitle": "",
     "id": "elise97-S1800",
     "manufacturer": "Lotus",
     "carName": "Elise GT1 1997",
@@ -5077,7 +5097,7 @@
     "tuneNotes": "모터바이크 엔진 / 3륜구동 / 오프로드 타이어 / 에어로 풀 세트",
     "updatedAt": "2026-06-03",
     "testTrackBTime": "1:44.468",
-    "testTrackCTime": "1:02.837"
+    "testTrackCTime": "1:02.167"
   },
   {
     "eventTitle": "",
