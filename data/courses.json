@@ -12,6 +12,18 @@
     "notes": "도로 자체가 넓은 편"
   },
   {
+    "courseName": "Edamame Time Attack Circuit",
+    "routeType": "Road",
+    "courseBias": 1,
+    "notes": "스타디움에 팬스 쳐서 만든 코스로 그냥 코스 자체가 작은데 코너 억지로 꼬아서 길이를 늘림"
+  },
+  {
+    "courseName": "Edo Circuit",
+    "routeType": "Road",
+    "courseBias": 2,
+    "notes": "시내라면서 왕복 2차선 이면도로만 고른 것도 실력인데 숏컷하지 말라고 체크포인트 설치 위치도 그지같이 해놨고 근데 도로가 좁은 거지 코너가 급한 건 아니라서 또 직선 성능을 대충 챙기면 묘해짐"
+  },
+  {
     "courseName": "Electric Town Circuit",
     "routeType": "Road",
     "courseBias": 2,
@@ -208,6 +220,12 @@
     "routeType": "Street",
     "courseBias": 5,
     "notes": "그냥 때려 밟아야함"
+  },
+  {
+    "courseName": "Shuto Charge",
+    "routeType": "Street",
+    "courseBias": 4,
+    "notes": "C1에서 제일 ㅈ같은 구간만 집어서 스트리트 레이스로 만들어놓음 / 로드에 있는 고속도로 서킷 생각하면 바로 요단강임"
   },
   {
     "courseName": "Sunflower Charge",

@@ -1,8 +1,8 @@
 {
   "source": "Forza 6 Course Master",
-  "updatedAt": "2026-10-30T22:35:48.624282Z",
-  "rowCount": 77,
-  "sha256": "5d06ea2a2f246a6ee2b8ffe4a77e8cf8729e7ef25a130de93be209e9a755bb71",
+  "updatedAt": "2026-11-03T23:36:20.860077Z",
+  "rowCount": 80,
+  "sha256": "c62b14295cd004cad01ca292a5d56118ffd10366d356267b4da014b2f737b9c4",
   "files": {
     "csv": "courses.csv",
     "json": "courses.json"

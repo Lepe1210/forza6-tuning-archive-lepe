@@ -1,6 +1,8 @@
 courseName,routeType,courseBias,notes
 Coastline Sprint,Road,4,마지막에 긴 직선이 있음
 Daikoku Circuit,Road,2,도로 자체가 넓은 편
+Edamame Time Attack Circuit,Road,1,스타디움에 팬스 쳐서 만든 코스로 그냥 코스 자체가 작은데 코너 억지로 꼬아서 길이를 늘림
+Edo Circuit,Road,2,시내라면서 왕복 2차선 이면도로만 고른 것도 실력인데 숏컷하지 말라고 체크포인트 설치 위치도 그지같이 해놨고 근데 도로가 좁은 거지 코너가 급한 건 아니라서 또 직선 성능을 대충 챙기면 묘해짐
 Electric Town Circuit,Road,2,코너 사이 구간이 길지만 코너가 급함
 Festival Sprint,Road,3,중간에 급브레이크 구간이 있음
 Highway Circuit,Road,5,고속형 코너 위주 / 벽타기 가능
@@ -34,6 +36,7 @@ Okishinaimura Run,Street,1,시작부터 아키나 5연속 헤어핀 내려가야
 Rainbow Bridge Descent,Street,3,직선이 긴데 직선이 시내 외곽에서 시가지로 진입하는 길임
 River Descent,Street,5,중반에 누가 스파게티로 만든 듯한 코스가 있는데 후반이 매우 긴 직선임
 Shimanoyama Charge,Street,5,그냥 때려 밟아야함
+Shuto Charge,Street,4,C1에서 제일 ㅈ같은 구간만 집어서 스트리트 레이스로 만들어놓음 / 로드에 있는 고속도로 서킷 생각하면 바로 요단강임
 Sunflower Charge,Street,5,얘도 그냥 때려밟는데 중반에 살짝 코너가 있음
 Tokyo City Docks Charge,Street,1,항구 도로를 그대로 쓴 거라서 도로가 좁음
 Airfield Trail,Dirt,5,후반 타막 코스 길이가 매우 직선에 길어서 솔직히 여기서 따라잡기 ㄱㄴ
