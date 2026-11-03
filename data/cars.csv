@@ -1,4 +1,5 @@
 id,manufacturer,carName,className,carType,drive,category,shareCode,power,weight,lateralG,concept,summary,tuneNotes,updatedAt,testTrackATime,testTrackBTime,testTrackCTime
+brz13-b600,Subaru,BRZ 2013,B 600,모던 스포츠카,RWD,온로드,447 965 545,323hp,1118kg,1.8G,전에 만들어 놨던 건데 꺼내야해서 꺼내게 됨,생각보다 아주 많이 안정적이고 쫀쫀한 느낌,바디킷 / 드리프트 타이어 / 원심형 슈퍼차저,2026-11-03,,1:35.912,
 factoryracing21-c500,Polaris,RZR Pro XP Factory Racing LM 2021,C 500,UTV,4WD,오프로드,155 162 915,253hp,953kg,1.5G,그냥 눈에 보여서 만들었음,타기 편한데다가 생각보다 잘 돌아감,오프로드 타이어 / 기본 엔진 / 노 에어로 / 5ㄷ5,2026-11-02,,,1:02.277
 elise97-S1800,Lotus,Elise GT1 1997,S1 800,레트로 슈퍼카,RWD,온로드,136 717 889,429hp,894kg,2.3G,초경량 슈퍼카 컨셉답게 경량투자,리메이크 / 진짜 경량이 깡패인데 출력 낮은 게 이렇게 아쉬울 수 없었음,드리프트 타이어 / 정상화된 에어로 / 가벼움,2026-11-01,0:51.921,1:18.741,
 vivio94-c500,Subaru,Vivio RX-R 1994,C 500,대중 국산차,4WD,혼합,167 726 814,115hp,658kg,1.7G,액티처럼 일단 작고 4륜이여서 오프로드로 던져봄,리메이크 / 작고 귀엽고 깜찍한데 소리는 뭔가 이 차에서 나면 안될 소리가 남,나 엔진스왑 안 했는데 왜 모터바이크 엔진 소리가 남? / 5ㄷ5 LSD,2026-10-31,,1:51.933,1:04.675

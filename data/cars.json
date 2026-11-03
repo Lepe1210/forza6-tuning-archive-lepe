@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "brz13-b600",
+    "manufacturer": "Subaru",
+    "carName": "BRZ 2013",
+    "className": "B 600",
+    "carType": "모던 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "전에 만들어 놨던 건데 꺼내야해서 꺼내게 됨",
+    "power": "323hp",
+    "weight": "1118kg",
+    "lateralG": "1.8G",
+    "shareCode": "447965545",
+    "summary": "생각보다 아주 많이 안정적이고 쫀쫀한 느낌",
+    "tuneNotes": "바디킷 / 드리프트 타이어 / 원심형 슈퍼차저",
+    "updatedAt": "2026-11-03",
+    "testTrackBTime": "1:35.912",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "factoryracing21-c500",
     "manufacturer": "Polaris",
     "carName": "RZR Pro XP Factory Racing LM 2021",
