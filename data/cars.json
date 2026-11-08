@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "g40jun19-s1800",
+    "manufacturer": "Ginetta",
+    "carName": "G40 Junior 2019",
+    "className": "S1 800",
+    "carType": "트랙 토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "지네타 너프 이후 리메이크로 성능의 98%까지 회복",
+    "power": "643hp",
+    "weight": "897kg",
+    "lateralG": "2.0G",
+    "shareCode": "438223836",
+    "summary": "공기 역학 쪽에서 공기 저항을 더 먹도록 너프먹은 거 같아서 엔진 출력으로 밀어붙이자는 마인드로 깎음 / 가속도가 너프 먹어서 그런가 생각보다 차가 잘 안 튀어나감",
+    "tuneNotes": "5200cc V10 LMS 엔진 / 드리프트 타이어 / 출력으로 밀어붙이는 세팅",
+    "updatedAt": "2026-11-08",
+    "testTrackBTime": "1:17.709",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "challengersrt15-a700",
     "manufacturer": "Dodge",
     "carName": "Challenger SRT Hellcat 2015",
@@ -2432,12 +2452,12 @@
     "power": "451hp",
     "weight": "1117kg",
     "lateralG": "1.6G",
-    "shareCode": "451637512",
+    "shareCode": "632349234",
     "summary": "그룹B의 전설을 포르자에 들여와서 그 맛을 게임에서 느껴보세요 / 그 당시 왜 오프로드는 4륜이 답이었나",
     "tuneNotes": "에어로 안 올렸고 엔진마력은 고증이고 타이어는 랠리 타이어인데 폭은 타막 세팅 기준",
     "updatedAt": "2026-08-08",
     "testTrackBTime": "1:32.215",
-    "testTrackCTime": "0:59.284"
+    "testTrackCTime": "0:58.887"
   },
   {
     "eventTitle": "",
