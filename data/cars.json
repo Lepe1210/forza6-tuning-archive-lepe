@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "m308-a700",
+    "manufacturer": "BMW",
+    "carName": "M3 2008",
+    "className": "A 700",
+    "carType": "모던 슈퍼 세단",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "니드포 시리즈에 있던 그 M3?",
+    "power": "535hp",
+    "weight": "1333kg",
+    "lateralG": "1.9G",
+    "shareCode": "156470517",
+    "summary": "뭔가 묵직한데 밀고 나가는 맛이 있는 독특한 녀석이 탄생",
+    "tuneNotes": "바디킷 / 드리프트 타이어 / 진짜 이때 V8은 전설이다",
+    "updatedAt": "2026-11-09",
+    "testTrackBTime": "1:28.210",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "g40jun19-s1800",
     "manufacturer": "Ginetta",
     "carName": "G40 Junior 2019",
