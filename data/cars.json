@@ -1,6 +1,46 @@
 [
   {
     "eventTitle": "",
+    "id": "beetle17",
+    "manufacturer": "Volkswagen",
+    "carName": "#34 Andretti Rally Cross Beetle 2017",
+    "className": "S1 800",
+    "carType": "랠리 몬스터",
+    "drive": "4WD",
+    "category": "혼합",
+    "concept": "빠른 랠리를 만들었는데 나는 모르겠다요",
+    "power": "730hp",
+    "weight": "1208kg",
+    "lateralG": "1.8G",
+    "shareCode": "116384352",
+    "summary": "리메이크 / 상당히 괜찮은 터보 랠리차가 탄생한 걸 축하해야할듯",
+    "tuneNotes": "오프로드 타이어 / 5ㄷ5 LSD",
+    "updatedAt": "2026-11-11",
+    "testTrackBTime": "1:25.133",
+    "testTrackCTime": "0:52.727"
+  },
+  {
+    "eventTitle": "",
+    "id": "celicassII03-B600",
+    "manufacturer": "Toyota",
+    "carName": "Celica Sport Specialty II 2003",
+    "className": "B 600",
+    "carType": "레트로 스포츠카",
+    "drive": "FWD",
+    "category": "온로드",
+    "concept": "느낌이 뭔가 불안불안한데 브레이킹만 신경쓰면 잘 달림",
+    "power": "367hp",
+    "weight": "972kg",
+    "lateralG": "1.4G",
+    "shareCode": "156520574",
+    "summary": "에어로 없이 이렇게 잘 버티다니",
+    "tuneNotes": "경량화 / 도로주행 타이어 / 애프터마켓 바디킷 / 원심SC",
+    "updatedAt": "2026-11-11",
+    "testTrackBTime": "1:37.106",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "gt323-s1800-3",
     "manufacturer": "Porsche",
     "carName": "911 GT3 RS 2023",
@@ -156,7 +196,7 @@
     "summary": "리메이크 / 그 때 당시 만든 게 너무 형편없다고 느껴서 다시 만들었는데 얼마나 형편없게 만들었는지 그냥 새로 탄생함",
     "tuneNotes": "오프로드 타이어 / 5대5 LSD / 에어로 과다현상 ㄷㄷ",
     "updatedAt": "2026-11-05",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:26.135",
     "testTrackCTime": "0:52.861"
   },
   {
@@ -616,7 +656,7 @@
     "summary": "차가 뭔가 되게 정적임 / 진짜 카레이서한테 할머니차 태운 느낌이라고 해야하나",
     "tuneNotes": "엔진 다운그레이드 / 무게 겁나 늘린 뚱댕이",
     "updatedAt": "2026-10-21",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:48.144",
     "testTrackCTime": "1:04.666"
   },
   {
@@ -676,7 +716,7 @@
     "summary": "가볍고 경쾌하고 근데 뭔가 사운드만 마음에 안 드는 게 특징",
     "tuneNotes": "순정엔진 / 4륜 스왑 / 에어로",
     "updatedAt": "2026-10-18",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:41.129",
     "testTrackCTime": "0:59.786"
   },
   {
@@ -916,7 +956,7 @@
     "summary": "리메이크도 했다는 거임 / 나 이거 생각보다 안 좋을 줄 알았는데 차는 그냥 만드는 거 나름일지도 모르겠음 / 그래서 좋다는 거임",
     "tuneNotes": "새 LSD 세팅이 잘 먹는 듯 앞으로 이게 표준으로 자리 잡을지도 / 자연흡기 + 원심형 슈퍼차저",
     "updatedAt": "2026-10-12",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:37.526",
     "testTrackCTime": "0:59.514"
   },
   {
@@ -936,7 +976,7 @@
     "summary": "이번에도 돌아온 시즌 국밥인데 리메이크",
     "tuneNotes": "4륜 / 오프로드 / 개쩌는 그립?",
     "updatedAt": "2026-10-12",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:40.249",
     "testTrackCTime": "0:59.859"
   },
   {
@@ -1076,7 +1116,7 @@
     "summary": "뭔가 지금까지 랠리랑은 질감이랑 운전법이 약간 다른데 기록으로는 이어지는 요상함",
     "tuneNotes": "와이드바디 / 오프로드 / 자연흡기 엔진 쪽으로 가서 원심형 슈퍼차저 장착",
     "updatedAt": "2026-10-05",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:38.786",
     "testTrackCTime": "0:59.804"
   },
   {
@@ -1096,7 +1136,7 @@
     "summary": "아우디 콰트로가 약간 날것의 느낌이 있다면 이건 좀 정제된 느낌인데 솔직히 정제된 느낌이라 더 어려운 듯",
     "tuneNotes": "Racing V12 엔진에 8단 기어 / 오프로드 타이어로 다운그레이드인데 다운그레이드 같지 않음",
     "updatedAt": "2026-10-05",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:20.723",
     "testTrackCTime": "0:51.836"
   },
   {
@@ -1176,7 +1216,7 @@
     "summary": "기록 자체는 좋은 편이 맞는데 차가 자기 주장이 조금 있어서 안 돌아가려는 성향이 조금 있음",
     "tuneNotes": "오프로드 타이어 / 원심형 슈퍼차저 / 의외로 자기 중심적인 세팅",
     "updatedAt": "2026-10-03",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:40.146",
     "testTrackCTime": "0:59.847"
   },
   {
@@ -2557,7 +2597,7 @@
     "tuneNotes": "에어로 안 올렸고 엔진마력은 고증이고 타이어는 랠리 타이어인데 폭은 타막 세팅 기준",
     "updatedAt": "2026-08-08",
     "testTrackBTime": "1:29.895",
-    "testTrackCTime": "1:01.719"
+    "testTrackCTime": "1:01.671"
   },
   {
     "eventTitle": "",
@@ -3756,7 +3796,7 @@
     "summary": "에보8이 너무 지루해서 새로 만듬",
     "tuneNotes": "와이드바디 / 엔진 업글 X",
     "updatedAt": "2026-07-02",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:41.590",
     "testTrackCTime": "1:00.557"
   },
   {
@@ -3776,7 +3816,7 @@
     "summary": "그룹A 랠리에서 뛰던 그 당시 셀리카",
     "tuneNotes": "오프로드 타이어에 그룹A 사양의 엔진 마력과 무게를 맞춤",
     "updatedAt": "2026-07-02",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:40.762",
     "testTrackCTime": "1:01.121"
   },
   {
@@ -3796,7 +3836,7 @@
     "summary": "그룹A 랠리에서 뛰던 그 당시 란치아",
     "tuneNotes": "오프로드 타이어에 그룹A 사양의 엔진 마력과 무게를 맞춤",
     "updatedAt": "2026-07-02",
-    "testTrackBTime": "",
+    "testTrackBTime": "1:40.657",
     "testTrackCTime": "1:00.233"
   },
   {
@@ -4198,26 +4238,6 @@
     "updatedAt": "2026-06-26",
     "testTrackBTime": "1:31.928",
     "testTrackCTime": "0:56.753"
-  },
-  {
-    "eventTitle": "",
-    "id": "beetle17",
-    "manufacturer": "Volkswagen",
-    "carName": "#34 Andretti Rally Cross Beetle 2017",
-    "className": "S1 800",
-    "carType": "랠리 몬스터",
-    "drive": "4WD",
-    "category": "혼합",
-    "concept": "빠른 랠리를 만들었는데 나는 모르겠다요",
-    "power": "730hp",
-    "weight": "1204kg",
-    "lateralG": "1.8G",
-    "shareCode": "154864335",
-    "summary": "뭔가 빠른 건 맞는데 컨트롤은 영 그래요 어렵다구요",
-    "tuneNotes": "오프로드 타이어 / 개쩌는 엔진 아마도",
-    "updatedAt": "2026-06-26",
-    "testTrackBTime": "",
-    "testTrackCTime": "0:54.383"
   },
   {
     "eventTitle": "",
