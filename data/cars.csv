@@ -1,4 +1,7 @@
 id,manufacturer,carName,className,carType,drive,category,shareCode,power,weight,lateralG,concept,summary,tuneNotes,updatedAt,testTrackATime,testTrackBTime,testTrackCTime,19열
+lancerev0395-b600,Mitsubishi,Lancer Evolution III GSR 1995,B 600,레트로 랠리,4WD,온로드,274 022 626,333hp,1081kg,1.6G,시즌 도전용 탕평책 정책을 위한 랜서,브레이크 일부러 좋은 거 끼워서 브레이킹 하나는 오버스펙으로 기가막힘,기본 타이어 / 에어로 / 롤케이지에 좋은 브레이크,2026-11-12,,1:39.211,,
+22b98-b600,Subaru,Impreza 22B-STi Version 1998,B 600,레트로 랠리,4WD,온로드,124 931 256,276hp,1287kg,1.6G,PI 제한에서 내가 얼마나 영혼비틀기를 할 수 있을까,이건 좀 약간 숙련자 픽 느낌인데 사실 감성 빼고 아무것도 없는 듯,그냥 모든 게 기본 그 자체라 쩝,2026-11-12,,1:39.841,,
+urus19-a700,Lamborghini,Urus 2019,A 700,스포츠 유틸리티 영웅,4WD,오프로드,900 210 675,797hp,1766kg,1.7G,시즌 스턴트 올인원 컨셉,운전 질감이 상당히 밋밋하면서도 독특함,오프로드 타이어 / 5ㄷ5 LSD / 19인치로 인치 다운 / 6500cc V12,2026-11-12,,,0:55.846,
 beetle17,Volkswagen,#34 Andretti Rally Cross Beetle 2017,S1 800,랠리 몬스터,4WD,혼합,116 384 352,730hp,1208kg,1.8G,빠른 랠리를 만들었는데 나는 모르겠다요,리메이크 / 상당히 괜찮은 터보 랠리차가 탄생한 걸 축하해야할듯,오프로드 타이어 / 5ㄷ5 LSD,2026-11-11,,1:25.133,0:52.727,
 celicassII03-B600,Toyota,Celica Sport Specialty II 2003,B 600,레트로 스포츠카,FWD,온로드,156 520 574,367hp,972kg,1.4G,느낌이 뭔가 불안불안한데 브레이킹만 신경쓰면 잘 달림,에어로 없이 이렇게 잘 버티다니,경량화 / 도로주행 타이어 / 애프터마켓 바디킷 / 원심SC,2026-11-11,,1:37.106,,
 gt323-s1800-3,Porsche,911 GT3 RS 2023,S1 800,트랙 토이,RWD,온로드,168 053 900,564hp,1079kg,2.3G,차의 한계가 매우 높음,911 순한맛 튜닝 리뉴얼의 다른 버전,경량화 / 드리프트 타이어,2026-11-10,,1:19.032,,
