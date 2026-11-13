@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "wrx08-b600",
+    "manufacturer": "Subaru",
+    "carName": "Impreza WRX STI 2008",
+    "className": "B 600",
+    "carType": "모던 랠리",
+    "drive": "4WD",
+    "category": "온로드",
+    "concept": "아무래도 탕평책은 실패했다는 거임",
+    "power": "391hp",
+    "weight": "1303kg",
+    "lateralG": "1.6G",
+    "shareCode": "693830255",
+    "summary": "아니 이거 왜 좋은 느낌이 나오지?",
+    "tuneNotes": "로드 타이어 / 에어로 / 자연흡기 + 원심형 슈퍼차저 스왑",
+    "updatedAt": "2026-11-13",
+    "testTrackBTime": "1:35.651",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "93519-S1800",
     "manufacturer": "Porsche",
     "carName": "#70 Porsche Motorsport 935 2019",
