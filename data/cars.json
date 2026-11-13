@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "93519-S1800",
+    "manufacturer": "Porsche",
+    "carName": "#70 Porsche Motorsport 935 2019",
+    "className": "S1 800",
+    "carType": "익스트림 트랙토이",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "아니 진짜 개 쩐다니깐요",
+    "power": "691hp",
+    "weight": "1255kg",
+    "lateralG": "2.2G",
+    "shareCode": "179097536",
+    "summary": "911GT3 같은데 엔진이 졸라 좋은",
+    "tuneNotes": "경량화 / 드리프트 타이어",
+    "updatedAt": "2026-11-13",
+    "testTrackBTime": "1:18.627",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "lancerev0395-b600",
     "manufacturer": "Mitsubishi",
     "carName": "Lancer Evolution III GSR 1995",
