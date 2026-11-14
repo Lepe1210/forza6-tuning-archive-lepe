@@ -3,3 +3,9 @@
 .lepe-guide .wrap{max-width:1160px}.lepe-guide .hero{background:transparent;padding:0 0 0;border-top:0}.lepe-guide .portrait img{max-width:none}.lepe-guide .intro{color:var(--paper)}.lepe-guide .guide-footer{padding:25px 0;border-top:5px double var(--gold);font-size:12px;display:flex;justify-content:space-between;gap:20px}
 
 .lepe-guide .hero>div{margin:0;max-width:none}
+
+/* Discreet manager shortcut in the guide footer. */
+.lepe-guide .guide-footer{align-items:center;flex-wrap:wrap;gap:12px}
+.lepe-guide .guide-manager-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;background:transparent;border:0;border-radius:50%;color:var(--paper);opacity:.22;text-decoration:none}
+.lepe-guide .guide-manager-link:hover{opacity:.85}
+.lepe-guide .guide-manager-link:focus-visible{opacity:1}
