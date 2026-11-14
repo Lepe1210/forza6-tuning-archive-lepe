@@ -1447,28 +1447,6 @@ if ("serviceWorker" in navigator) {
    - GitHub 코드에 실제 비밀번호를 남기지 않기 위한 방식
 ========================= */
 
-const openManagerGate=document.getElementById('openManagerGate');
-const managerGateModal=document.getElementById('managerGateModal');
-const closeManagerGate=document.getElementById('closeManagerGate');
-const managerPasswordInput=document.getElementById('managerPasswordInput');
-const enterManagerGate=document.getElementById('enterManagerGate');
-const managerPasswordError=document.getElementById('managerPasswordError');
-function closeManagerGateModal(){managerGateModal?.classList.add('hidden');if(managerPasswordInput)managerPasswordInput.value='';}
-openManagerGate?.addEventListener('click',()=>{managerGateModal?.classList.remove('hidden');managerPasswordError.textContent='';managerPasswordInput.value='';managerPasswordInput.focus();});
-closeManagerGate?.addEventListener('click',closeManagerGateModal);
-managerGateModal?.addEventListener('click',e=>{if(e.target===managerGateModal)closeManagerGateModal();});
-let managerLoginBusy=false;
-async function enterManagerPage(){
- if(managerLoginBusy)return;const password=managerPasswordInput.value;
- if(!password){managerPasswordError.textContent='비밀번호를 입력해주세요.';return;}
- managerLoginBusy=true;enterManagerGate.disabled=true;managerPasswordInput.value='';managerPasswordError.textContent='로그인 확인 중…';
- try{await ArchiveManagerSecurity.login(password);window.location.href='manager.html';}
- catch(error){managerPasswordError.textContent=error.message;managerPasswordInput.focus();}
- finally{managerLoginBusy=false;enterManagerGate.disabled=false;}
-}
-enterManagerGate?.addEventListener('click',enterManagerPage);
-managerPasswordInput?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();enterManagerPage();}});
-
 // Catalogue navigation keeps existing search and sort behavior.
 [carGrid, weeklyGrid].forEach(grid => grid.addEventListener("click", event => {
   const button = event.target.closest("button");

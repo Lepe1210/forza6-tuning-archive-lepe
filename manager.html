@@ -30,9 +30,26 @@
 <link rel="stylesheet" href="manager-inventory.css?v=20261019-inventory-track-1">
 <script src="redesign.js?v=20261002-summary-contrast-1" defer></script>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
+<style>
+#managerWorkspace[hidden],#managerLogin[hidden]{display:none!important}
+.manager-login-panel{max-width:540px;margin:64px auto;padding:32px}
+.manager-login-panel form{display:grid;gap:16px}
+.manager-login-panel label{display:grid;gap:8px}
+</style>
 </head>
 
 <body>
+<section id="managerLogin" class="container manager-login-panel" hidden>
+<p class="eyebrow">FORZA 6 TUNING MANAGER</p>
+<h1>관리자 로그인</h1>
+<form id="managerLoginForm">
+<label for="managerLoginPassword">비밀번호<input id="managerLoginPassword" class="manager-input" type="password" autocomplete="current-password" maxlength="200" required /></label>
+<button id="managerLoginSubmit" class="daily-tune-spin-button" type="submit">로그인</button>
+<p id="managerLoginMessage" class="manager-password-error" role="status" aria-live="polite"></p>
+</form>
+<a href="index.html">메인으로 돌아가기</a>
+</section>
+<div id="managerWorkspace" hidden>
   <!-- =========================
        관리자 페이지 상단 영역
   ========================== -->
@@ -242,8 +259,9 @@
   <!-- =========================
        관리자 페이지 동작 코드 연결
   ========================== -->
+</div>
   <script src="manager-security.js?v=20261114-manager-security-v2"></script>
-  <script src="manager.js?v=20261114-manager-security-v2"></script>
+  <script src="manager.js?v=20261115-manager-entry-1"></script>
   <script src="manager-inventory.js?v=20261019-inventory-track-1"></script>
 </body>
 </html>

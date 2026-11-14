@@ -11,7 +11,7 @@
    관리자 페이지 직접 접근 방지
 ========================= */
 
-if(!ArchiveManagerSecurity.hasSession())window.location.replace('index.html');
+
 
 const LIST_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=1875896272&single=true&output=csv";
@@ -1011,9 +1011,43 @@ if (managerMemoList) {
    최초 실행
 ========================= */
 
-if(ArchiveManagerSecurity.hasSession()){loadManagerData();loadServerMemos();}
-
-
-function leaveManager(){document.body.hidden=true;ArchiveManagerSecurity.logout().finally(()=>window.location.replace('index.html'));}
+const managerWorkspace=document.getElementById('managerWorkspace');
+const managerLogin=document.getElementById('managerLogin');
+const managerLoginMessage=document.getElementById('managerLoginMessage');
+function showManagerLogin(message=''){
+ managerWorkspace.hidden=true;managerLogin.hidden=false;
+ managerLoginMessage.textContent=message;
+ document.getElementById('managerLoginPassword').value='';
+ serverMemos=[];inventoryMemos=[];managerMemosLoaded=false;editingMemoId=null;
+ managerMemoList.innerHTML='';document.getElementById('inventoryList').innerHTML='';
+ managerWorkspace.querySelectorAll('form').forEach(form=>form.reset());
+ if(memoTitle)memoTitle.value='';if(memoBody)memoBody.value='';if(memoTag)memoTag.value='';
+ if(typeof inventoryBulkDrafts!=='undefined')inventoryBulkDrafts=[];
+ if(typeof inventoryEditDraft!=='undefined')inventoryEditDraft=null;
+ document.getElementById('inventoryBulkRows').innerHTML='';
+ window.renderTuningInventory?.(false);
+}
+async function showManagerWorkspace(){
+ if(!ArchiveManagerSecurity.hasSession()){showManagerLogin();return;}
+ managerLogin.hidden=true;managerWorkspace.hidden=false;
+ await Promise.all([loadManagerData(),loadServerMemos()]);
+}
+document.getElementById('managerLoginForm').addEventListener('submit',async event=>{
+ event.preventDefault();const button=document.getElementById('managerLoginSubmit');
+ if(button.disabled)return;
+ let password=document.getElementById('managerLoginPassword').value;
+ document.getElementById('managerLoginPassword').value='';
+ button.disabled=true;managerLoginMessage.textContent='로그인 확인 중…';
+ try{await ArchiveManagerSecurity.login(password);password='';await showManagerWorkspace();}
+ catch(error){showManagerLogin(error.message);}
+ finally{password='';button.disabled=false;}
+});
+async function leaveManager(){
+ managerWorkspace.hidden=true;
+ try{await ArchiveManagerSecurity.logout();}finally{showManagerLogin('로그아웃했어요.');}
+}
 document.getElementById('managerLogout')?.addEventListener('click',leaveManager);
-setInterval(()=>{if(!ArchiveManagerSecurity.hasSession()){document.body.hidden=true;window.location.replace('index.html');}},10000);
+setInterval(()=>{
+ if(!ArchiveManagerSecurity.hasSession()&&!managerWorkspace.hidden)showManagerLogin('인증이 만료됐어요. 다시 로그인해주세요.');
+},10000);
+if(ArchiveManagerSecurity.hasSession())showManagerWorkspace();else showManagerLogin();
