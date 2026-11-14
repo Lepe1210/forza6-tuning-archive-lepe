@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "gr86-A700",
+    "manufacturer": "Toyota",
+    "carName": "GR86 2022",
+    "className": "A 700",
+    "carType": "모던 스포츠카",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "그냥 최대한 뇌빼고 타기 좋은 차를 만들려고 노력함",
+    "power": "445hp",
+    "weight": "1102kg",
+    "lateralG": "1.9G",
+    "shareCode": "600163364",
+    "summary": "리메이크 / 약간 타임어택 사양을 억지로 공도용으로 개조한 거 같은 느낌인데 좋음",
+    "tuneNotes": "8단/와이드바디킷/ 랠리 타이어 /리어윙 / 좋은 브레이크라는 ㄹㅇ 타임어택용 같음",
+    "updatedAt": "2026-11-15",
+    "testTrackBTime": "1:28.175",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "wrx08-b600",
     "manufacturer": "Subaru",
     "carName": "Impreza WRX STI 2008",
@@ -36,7 +56,7 @@
     "summary": "911GT3 같은데 엔진이 졸라 좋은",
     "tuneNotes": "경량화 / 드리프트 타이어",
     "updatedAt": "2026-11-13",
-    "testTrackBTime": "1:18.627",
+    "testTrackBTime": "1:18.358",
     "testTrackCTime": ""
   },
   {
@@ -237,26 +257,6 @@
     "tuneNotes": "5200cc V10 LMS 엔진 / 드리프트 타이어 / 출력으로 밀어붙이는 세팅",
     "updatedAt": "2026-11-08",
     "testTrackBTime": "1:17.709",
-    "testTrackCTime": ""
-  },
-  {
-    "eventTitle": "",
-    "id": "gr86-A700",
-    "manufacturer": "Toyota",
-    "carName": "GR86 2022",
-    "className": "A 700",
-    "carType": "모던 스포츠카",
-    "drive": "RWD",
-    "category": "온로드",
-    "concept": "그냥 최대한 뇌빼고 타기 좋은 차를 만들려고 노력함",
-    "power": "445hp",
-    "weight": "1094kg",
-    "lateralG": "1.9G",
-    "shareCode": "704076914",
-    "summary": "리메이크 / 약간 타임어택 사양을 억지로 공도용으로 개조한 거 같은 느낌인데 좋음",
-    "tuneNotes": "와이드바디킷/세미슬릭/리어윙이라는 ㄹㅇ 타임어택용 같음",
-    "updatedAt": "2026-11-08",
-    "testTrackBTime": "1:28.878",
     "testTrackCTime": ""
   },
   {
