@@ -11,25 +11,7 @@
    관리자 페이지 직접 접근 방지
 ========================= */
 
-const MANAGER_ACCESS_SESSION_KEY = "forzaManagerAccess";
-const MANAGER_MEMO_AUTH_SESSION_KEY = "forzaManagerMemoAuth";
-
-const hasManagerAccess =
-  sessionStorage.getItem(MANAGER_ACCESS_SESSION_KEY) === "ok";
-
-const hasMemoAuth =
-  !!sessionStorage.getItem(MANAGER_MEMO_AUTH_SESSION_KEY);
-
-if (!hasManagerAccess || !hasMemoAuth) {
-  sessionStorage.removeItem(MANAGER_ACCESS_SESSION_KEY);
-  sessionStorage.removeItem(MANAGER_MEMO_AUTH_SESSION_KEY);
-  window.location.replace("index.html");
-}
-
-
-/* =========================
-   Google Sheets / Apps Script URL
-========================= */
+if(!ArchiveManagerSecurity.hasSession())window.location.replace('index.html');
 
 const LIST_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSbFvBegPwsW2UpUTUMyA8peYLKihKS9HJLqworTV6zC1Zxa96tT7643TsHxVWSTYEKHRtyDSdrD-C3/pub?gid=1875896272&single=true&output=csv";
@@ -572,66 +554,7 @@ function addCurrentResultToMemoForm() {
    서버형 메모 API 인증값 가져오기
 ========================= */
 
-function getManagerMemoAuth() {
-  return sessionStorage.getItem(MANAGER_MEMO_AUTH_SESSION_KEY) || "";
-}
-
-
-/* =========================
-   Apps Script 메모 API 호출
-   - JSONP 방식
-========================= */
-
-function callManagerMemoApi(params = {}) {
-  return new Promise((resolve, reject) => {
-    const auth = getManagerMemoAuth();
-
-    if (!auth) {
-      reject(new Error("memo auth missing"));
-      return;
-    }
-
-    const callbackName = `managerMemoCallback_${Date.now()}_${Math.random()
-      .toString(36)
-      .slice(2)}`;
-
-    const query = new URLSearchParams({
-      ...params,
-      auth,
-      callback: callbackName
-    });
-
-    const script = document.createElement("script");
-    const separator = MANAGER_MEMO_API_URL.includes("?") ? "&" : "?";
-
-    const timeout = setTimeout(() => {
-      delete window[callbackName];script.remove();
-      reject(new Error("서버 응답 시간이 초과됐습니다. 새로고침으로 저장 여부를 확인해주세요."));
-    }, 15000);
-    window[callbackName] = (data) => {
-      clearTimeout(timeout);
-      delete window[callbackName];
-      script.remove();
-
-      if (!data || data.ok === false) {
-        reject(new Error((data && data.message) || "memo api error"));
-        return;
-      }
-
-      resolve(data);
-    };
-
-    script.onerror = () => {
-      clearTimeout(timeout);
-      delete window[callbackName];
-      script.remove();
-      reject(new Error("memo api load failed"));
-    };
-
-    script.src = `${MANAGER_MEMO_API_URL}${separator}${query.toString()}`;
-    document.body.appendChild(script);
-  });
-}
+function callManagerMemoApi(params={}){return ArchiveManagerSecurity.call(params);}
 
 window.callManagerMemoApi = callManagerMemoApi;
 
@@ -1088,5 +1011,9 @@ if (managerMemoList) {
    최초 실행
 ========================= */
 
-loadManagerData();
-loadServerMemos();
+if(ArchiveManagerSecurity.hasSession()){loadManagerData();loadServerMemos();}
+
+
+function leaveManager(){document.body.hidden=true;ArchiveManagerSecurity.logout().finally(()=>window.location.replace('index.html'));}
+document.getElementById('managerLogout')?.addEventListener('click',leaveManager);
+setInterval(()=>{if(!ArchiveManagerSecurity.hasSession()){document.body.hidden=true;window.location.replace('index.html');}},10000);
