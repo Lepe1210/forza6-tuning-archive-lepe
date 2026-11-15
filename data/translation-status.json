@@ -5,8 +5,8 @@
       "name": "cars",
       "state": "checked",
       "textFields": 1018,
-      "sourceHash": "c224b83f8a7e98ea399a92b47ec61e3db291e2b382ac4fea1e8c8c940223814b",
-      "pendingCount": 0
+      "sourceHash": "12f08d0e80f09c16c87d90950db746b50c2efe2c2477c47a92b9b7978bcf131c",
+      "pendingCount": 1
     },
     {
       "name": "weekly",
@@ -37,5 +37,12 @@
       "pendingCount": 0
     }
   ],
-  "pending": []
+  "pending": [
+    {
+      "dataset": "cars",
+      "id": "93519-S1800",
+      "field": "summary",
+      "source": "911GT3 같은데 엔진이 졸라 좋은 / 안정적 버전"
+    }
+  ]
 }
