@@ -52,3 +52,7 @@ for (const page of ['index','archive','gallery','rivals','guide','discord']) {
   assert.ok(html.indexOf('src="content-en.js?') < html.indexOf('src="i18n.js?'), page);
 }
 console.log('PASS: content source matching, stale-source fallback, English note search and source uncertainty retained');
+
+assert.equal(t('Welcome to Japan (5월 4주차)'), 'Welcome to Japan (May · Week 4)');
+assert.equal(t("Lancer Evolution VIII MR '환영 팩' 2004"), "Lancer Evolution VIII MR 'Welcome Pack' 2004");
+assert.equal(t('전시 보기'), 'View exhibition');

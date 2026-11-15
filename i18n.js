@@ -461,6 +461,8 @@
     if (s === 'CSV 링크 또는 cars 시트 게시 상태를 확인해주세요.' || s === 'CSV 링크 또는 weekly 시트 게시 상태를 확인해주세요.') return 'Please check the published spreadsheet or try again later.';
     if (s === 'PI별 평균 기록을 계산하지 못했습니다.') return 'Could not calculate average times by PI.';
     let m;
+    if ((m = s.match(/^(.+) \((\d{1,2})월 (\d+)주차\)$/))) return `${m[1]} (${['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][Number(m[2])] || m[2]} · Week ${m[3]})`;
+    if ((m = s.match(/^([A-Za-z0-9# .()/-]+) '환영 팩' (\d{4})$/))) return `${m[1]} 'Welcome Pack' ${m[2]}`;
     if ((m = s.match(/^수도고 복각 (.+)$/))) return `Shutoko recreation · ${english(m[1])}`;
     if ((m = s.match(/^(.+) 대표 이미지 크게 보기$/))) return `${english(m[1])} · Enlarge cover image`;
     if ((m = s.match(/^(.*) · 한·영 CC$/))) return `${m[1]} · Korean / English CC`;
