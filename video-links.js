@@ -55,7 +55,9 @@
     img.height = 360;
     thumbnail.append(img, element('span', 'driving-video-play', '▶'));
     const body = element('div', 'driving-video-body');
-    body.append(element('strong', '', video.title));
+    const title = element('strong', '', video.title);
+    title.setAttribute('data-i18n-original', 'true');
+    body.append(title);
     const meta = [];
     if (video.carLabel) meta.push(video.carLabel);
     if (video.classLabel) meta.push(video.classLabel);
@@ -93,3 +95,4 @@
   window.ArchiveVideos = {mount};
   mountLatest();
 })();
+

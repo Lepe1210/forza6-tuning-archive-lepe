@@ -644,7 +644,7 @@ function renderWeeklyCars() {
         <article class="weekly-card">
           <div class="weekly-meta"><span class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</span><span class="badge">${escapeHTML(car.className || "PI 미입력")}</span></div>
           <button class="weekly-car-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="weekly">${escapeHTML(car.carName || "차량명 미입력")}</button>
-          <p class="summary">${escapeHTML(car.summary || "페스티벌 추천 튜닝")}</p>
+          <p class="summary" data-i18n-original="${Boolean(car.summary)}">${escapeHTML(car.summary || "페스티벌 추천 튜닝")}</p>
           <div class="weekly-code"><span><small>공유 코드</small><strong>${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</strong></span><button class="code-copy" type="button" data-copy-code="${escapeAttribute(car.shareCode)}" ${car.shareCode ? "" : "disabled"}>코드 복사</button></div>
         </article>`).join("")}</div>
     </section>`).join("");
@@ -665,7 +665,7 @@ function matchesFilterSelection(selection, value) {
 
 function updateMultiFilterSummary(filter) {
   const chosen = Array.from(filter.querySelectorAll('input[type="checkbox"]:checked'));
-  const names = chosen.map(input => input.nextElementSibling.textContent);
+  const names = chosen.map(input => input.value === "other" ? "기타" : /^\d{4}$/.test(input.value) ? input.value.slice(2) + "년대" : input.value);
   const label = filter.dataset.filterLabel;
   const summary = filter.querySelector("summary");
   filter.querySelector(".multi-filter-summary").textContent = names.length
@@ -703,6 +703,7 @@ function renderCars(preservePage = false) {
       ${car.concept}
       ${car.summary}
       ${car.tuneNotes}
+      ${window.ArchiveI18n?.searchTerms(car) || ""}
     `.toLowerCase();
 
     const normalizedSearchableText = normalizeShareCode(searchableText).toLowerCase();
@@ -742,7 +743,7 @@ function renderCars(preservePage = false) {
   if (!sortedCars.length) { carGrid.innerHTML = '<div class="empty">조건에 맞는 차량이 없습니다.</div>'; return; }
   carGrid.innerHTML = pageCars.map((car,index) => `
     <article class="catalogue-row ${isRecentTuning(car.updatedAt) ? "recent-tuning" : ""}">
-      <div class="catalogue-vehicle"><p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}${isRecentTuning(car.updatedAt) ? '<span class="recent-label"><span aria-hidden="true">✦</span> 최근 튜닝</span>' : ""}</p><button class="catalogue-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="cars">${escapeHTML(car.carName || "차량명 미입력")}</button><p class="summary">${escapeHTML(car.summary || car.concept || "")}</p></div>
+      <div class="catalogue-vehicle"><p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}${isRecentTuning(car.updatedAt) ? '<span class="recent-label"><span aria-hidden="true">✦</span> 최근 튜닝</span>' : ""}</p><button class="catalogue-title" type="button" data-detail-id="${escapeAttribute(car.id)}" data-source="cars">${escapeHTML(car.carName || "차량명 미입력")}</button><p class="summary" data-i18n-original="${Boolean(car.summary)}">${escapeHTML(car.summary || car.concept || "")}</p></div>
       <div class="catalogue-spec">${renderBadges(car)}</div>
       <button class="catalogue-expand" type="button" aria-label="${escapeAttribute(car.carName)} 튜닝 정보 펼치기" aria-expanded="false" aria-controls="catalogue-code-${index}">⌄</button>
       <div class="catalogue-code" id="catalogue-code-${index}"><small>공유 코드</small><strong>${escapeHTML(formatShareCode(car.shareCode) || "미입력")}</strong><button class="code-copy" type="button" data-copy-code="${escapeAttribute(car.shareCode)}" ${car.shareCode ? "" : "disabled"}>코드 복사</button></div>
@@ -851,7 +852,7 @@ function openCarDetail(id, source = "cars") {
 
     <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
     <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
-    <p class="summary">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
+    <p class="summary" data-i18n-original="${Boolean(car.concept)}">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
 
     <div class="share-box">
       <span class="detail-label">튜닝 공유 코드</span>
@@ -883,11 +884,11 @@ function openCarDetail(id, source = "cars") {
     </div>
 
     <h3>주행 평가</h3>
-    <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
+    <p class="summary" data-i18n-original="${Boolean(car.summary)}">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
 
     <h3>튜닝 메모</h3>
-    <p class="summary">${escapeHTML(car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다.")}</p>
-    <div data-driving-videos hidden></div>
+    <p class="summary" data-i18n-original="${Boolean(car.tuneNotes)}">${escapeHTML(car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다.")}</p>
+    <p class="i18n-original-notice" data-i18n-ignore>Build concepts, reviews and tuning notes are shown in their original Korean.</p><div data-driving-videos hidden></div>
   `;
 
   window.ArchiveVideos?.mount(car.shareCode, modalBody.querySelector("[data-driving-videos]"));
@@ -1175,7 +1176,7 @@ function renderDailyTuneResult(car, alreadyPicked) {
         ${alreadyPicked ? "TODAY'S SAVED RESULT" : "TODAY'S RESULT"}
       </span>
 
-      ${car.atlasId?`<p class="summary">${escapeHTML(car.gameBase)}</p>`:""}
+      ${car.atlasId?`<p class="summary" data-i18n-original="true">${escapeHTML(car.gameBase)}</p>`:""}
       <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
       <h3>${escapeHTML(car.carName || "차량명 미입력")}</h3>
 
@@ -1198,8 +1199,8 @@ function renderDailyTuneResult(car, alreadyPicked) {
         <strong>${escapeHTML(displayShareCode || "미입력")}</strong>
       </div>
 
-      <p class="summary">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
-      <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
+      <p class="summary" data-i18n-original="${Boolean(car.concept)}">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
+      <p class="summary" data-i18n-original="${Boolean(car.summary)}">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
 
       <div class="daily-tune-result-actions">
         <button
@@ -1250,21 +1251,22 @@ async function shareDailyTune(carId, button) {
   if (!car) return;
 
   const displayShareCode = formatShareCode(car.shareCode);
+  const tr = value => window.ArchiveI18n?.t(value) || value;
   const shareText =
-    `오늘의 랜덤 튜닝\n\n` +
+    `${tr("오늘의 랜덤 튜닝")}\n\n` +
     `${car.manufacturer} ${car.carName}\n` +
     `PI: ${car.className || "PI 미입력"}\n` +
-    `분류: ${car.carType || "분류 미입력"}\n` +
-    `구동방식: ${car.drive || "구동방식 미입력"}\n` +
-    `용도: ${car.category || "용도 미입력"}\n` +
-    `공유 코드: ${displayShareCode || "미입력"}\n\n` +
+    `${tr("차량 분류")}: ${tr(car.carType || "분류 미입력")}\n` +
+    `${tr("구동방식")}: ${tr(car.drive || "구동방식 미입력")}\n` +
+    `${tr("용도")}: ${tr(car.category || "용도 미입력")}\n` +
+    `${tr("공유 코드")}: ${tr(displayShareCode || "미입력")}\n\n` +
     `Forza 6 Tuning Archive\n` +
-    `${window.location.origin}${window.location.pathname}`;
+    `${window.location.origin}${window.location.pathname}${window.ArchiveI18n?.language === "en" ? "?lang=en" : ""}`;
 
   try {
     if (navigator.share) {
       await navigator.share({
-        title: "오늘의 랜덤 튜닝",
+        title: tr("오늘의 랜덤 튜닝"),
         text: shareText,
         url: window.location.href
       });
@@ -1474,6 +1476,7 @@ document.getElementById("toggleFilters").addEventListener("click", function () {
   this.textContent = open ? "필터 ▴" : "필터 ▾";
   if (!open) multiFilters.forEach(filter => { filter.open = false; });
 });
+
 
 
 

@@ -5,10 +5,12 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v43-youtube";
+const CACHE_NAME = "forza-tuning-archive-v44-i18n";
 
 const STATIC_ASSETS = [
-  "./video-links.js?v=20261115-youtube-1",
+  "./i18n.js?v=20261115-i18n-1",
+  "./i18n.css?v=20261115-i18n-1",
+  "./video-links.js?v=20261115-i18n-1",
   "./video-links.css?v=20261115-youtube-1",
   "./manager-security.js?v=20261114-manager-security-v2",
   "./",
@@ -25,7 +27,7 @@ const STATIC_ASSETS = [
 
   "./style.css?v=20261002-summary-contrast-1",
   "./redesign.css?v=20261010-multi-filter-1",
-  "./redesign.js?v=20261002-summary-contrast-1",
+  "./redesign.js?v=20261115-i18n-1",
   "./assets/archive-icon.webp",
   "./assets/festival-engraving.webp",
   "./icons/icon-32.png",
@@ -33,11 +35,11 @@ const STATIC_ASSETS = [
   "./assets/fonts/bodoni-moda-latin.woff2",
   "./assets/fonts/bodoni-moda-latin-ext.woff2",
 
-  "./script.js?v=20261115-youtube-1",
-  "./archive.js?v=20261115-youtube-1",
+  "./script.js?v=20261115-i18n-1",
+  "./archive.js?v=20261115-i18n-1",
   "./manager.js?v=20261115-manager-entry-1",
   "./gallery.js?v=20261002-summary-contrast-1",
-  "./rivals.js?v=20261115-youtube-1",
+  "./rivals.js?v=20261115-i18n-1",
 
   "./exhibition-feed.js?v=20261019-exhibition-1",
   "./manager-inventory.js?v=20261019-inventory-track-1",
@@ -170,6 +172,7 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
 
 
 

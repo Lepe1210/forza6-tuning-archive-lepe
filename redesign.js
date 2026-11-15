@@ -5,6 +5,7 @@
   header.className = 'archive-topbar';
   header.innerHTML = `<a class="archive-brand" href="./"><img src="assets/archive-icon.webp" alt="아카이브 아이콘" width="56" height="56"><span>Forza 6 <em>Archive.</em></span></a>
     <button class="archive-menu-toggle" type="button" aria-label="전체 메뉴 펼치기" aria-expanded="false" aria-controls="archiveNavigation">메뉴 ▾</button>
+    ${window.ArchiveI18n ? '<button class="archive-language-toggle" type="button" data-i18n-ignore aria-label="Switch to English">EN</button>' : ''}
     <nav class="archive-navigation" id="archiveNavigation" aria-label="전체 메뉴">
       <a href="./#festival">페스티벌</a><a href="./#tuningList">전체 튜닝</a><a href="archive.html">지난 시즌</a><a href="./#records">기록</a>
       <details class="archive-exhibition"><summary>전시관 ▾</summary><div><a href="gallery.html">갤러리</a><a href="rivals.html">라이벌 전시관</a></div></details>
@@ -139,3 +140,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncHash, { once: true });
   else syncHash();
 })();
+

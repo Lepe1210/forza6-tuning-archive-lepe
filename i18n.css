@@ -1,0 +1,10 @@
+.archive-language-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px 11px;background:transparent;border:1px solid var(--gold,#d7a15e);color:var(--gold,#d7a15e);font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;cursor:pointer;white-space:nowrap}
+.archive-language-toggle:focus-visible{outline:3px solid var(--gold,#d7a15e);outline-offset:3px}
+.i18n-original-notice{display:none;font-size:12px;line-height:1.7;opacity:.8}
+html[lang="en"] .i18n-original-notice{display:block}
+html[lang="en"] .hero-copy h1{font-size:clamp(40px,4.8vw,64px);letter-spacing:-.04em}
+html[lang="en"] .shortcut-card{font-size:15px}
+html[lang="en"] .weekly-group-heading h3{font-size:20px}
+html[lang="en"] .multi-filter-panel{min-width:250px}
+html[lang="en"] .lepe-guide h1{font-size:40px}
+@media(max-width:700px){html[lang="en"] .hero-copy h1{font-size:42px}html[lang="en"] .shortcut-card{font-size:13px}.archive-language-toggle{justify-self:start}html[lang="en"] .lepe-guide h1{font-size:32px}}

@@ -280,7 +280,7 @@ function renderArchiveCard(car) {
 
       <p class="share-code">공유 코드: ${escapeHTML(car.shareCode || "미입력")}</p>
 
-      <p class="summary">${escapeHTML(car.summary || "지난 시즌 튜닝 설명이 아직 입력되지 않았습니다.")}</p>
+      <p class="summary" data-i18n-original="${Boolean(car.summary)}">${escapeHTML(car.summary || "지난 시즌 튜닝 설명이 아직 입력되지 않았습니다.")}</p>
     </article>
   `;
 }
@@ -337,7 +337,7 @@ function openCarDetail(id) {
 
     <p class="manufacturer">${escapeHTML(car.manufacturer || "제조사 미입력")}</p>
     <h2>${escapeHTML(car.carName || "차량명 미입력")}</h2>
-    <p class="summary">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
+    <p class="summary" data-i18n-original="${Boolean(car.concept)}">${escapeHTML(car.concept || "빌드 콘셉트가 아직 입력되지 않았습니다.")}</p>
 
     <div class="share-box">
       <span class="detail-label">튜닝 공유 코드</span>
@@ -369,11 +369,11 @@ function openCarDetail(id) {
     </div>
 
     <h3>주행 평가</h3>
-    <p class="summary">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
+    <p class="summary" data-i18n-original="${Boolean(car.summary)}">${escapeHTML(car.summary || "주행 평가가 아직 입력되지 않았습니다.")}</p>
 
     <h3>튜닝 메모</h3>
-    <p class="summary">${escapeHTML(car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다.")}</p>
-    <div data-driving-videos hidden></div>
+    <p class="summary" data-i18n-original="${Boolean(car.tuneNotes)}">${escapeHTML(car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다.")}</p>
+    <p class="i18n-original-notice" data-i18n-ignore>Build concepts, reviews and tuning notes are shown in their original Korean.</p><div data-driving-videos hidden></div>
   `;
 
   window.ArchiveVideos?.mount(car.shareCode, modalBody.querySelector("[data-driving-videos]"));
@@ -477,3 +477,4 @@ modal.addEventListener("click", (event) => {
 ========================= */
 
 loadArchiveData();
+
