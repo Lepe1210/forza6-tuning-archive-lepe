@@ -373,8 +373,10 @@ function openCarDetail(id) {
 
     <h3>튜닝 메모</h3>
     <p class="summary">${escapeHTML(car.tuneNotes || "튜닝 메모가 아직 입력되지 않았습니다.")}</p>
+    <div data-driving-videos hidden></div>
   `;
 
+  window.ArchiveVideos?.mount(car.shareCode, modalBody.querySelector("[data-driving-videos]"));
   modal.classList.remove("hidden");
 }
 

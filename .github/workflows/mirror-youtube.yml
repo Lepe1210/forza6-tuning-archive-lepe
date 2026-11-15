@@ -1,0 +1,45 @@
+name: Mirror YouTube Driving Videos
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/mirror_youtube.py
+      - .github/workflows/mirror-youtube.yml
+  schedule:
+    - cron: "41 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-youtube
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - name: Check video matching rules
+        run: python -m unittest discover -s tests -p test_youtube.py
+      - name: Refresh public driving videos
+        run: python scripts/mirror_youtube.py
+      - name: Commit changed video catalogue
+        run: |
+          if [ -z "$(git status --porcelain -- data/videos.json)" ]; then
+            echo "Video catalogue unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/videos.json
+          git commit -m "Update public driving videos"
+          git pull --rebase origin main
+          git push origin HEAD:main

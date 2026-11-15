@@ -54,6 +54,7 @@
 <link rel="stylesheet" href="redesign.css?v=20261010-multi-filter-1">
 <script src="redesign.js?v=20261002-summary-contrast-1" defer></script>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem('forzaArchiveTheme')==='dark'?'dark':'light'}catch{}</script>
+<link rel="stylesheet" href="video-links.css?v=20261115-youtube-1">
 </head>
 
 <body class="archive-home">
@@ -249,6 +250,13 @@
     <section id="carGrid" class="car-grid catalogue-grid" aria-label="전체 튜닝 목록"></section>
 <nav class="catalogue-pagination" aria-label="튜닝 목록 페이지"><button id="previousPage" type="button">이전</button><span id="pageInfo" aria-live="polite"></span><button id="nextPage" type="button">다음</button></nav>
 </section>
+    <section class="driving-video-section" id="drivingVideos" hidden>
+      <div class="driving-video-heading">
+        <div><p class="eyebrow">DRIVING FILMS / KO_TB CLAN</p><h2>영상으로 먼저 달려봐.</h2><p>아카이브의 튜닝을 실제 주행 영상으로 만나보세요.</p></div>
+        <a class="driving-channel-link" href="https://www.youtube.com/@ko_tbclan" target="_blank" rel="noopener noreferrer">YouTube 채널 ↗</a>
+      </div>
+      <div class="driving-video-grid" id="drivingVideoGrid"></div>
+    </section>
   </main>
 
 
@@ -316,13 +324,15 @@
        동작 코드 연결
   ========================== -->
   <script src="exhibition-feed.js?v=20261019-exhibition-1"></script>
-  <script src="script.js?v=20261115-manager-entry-1"></script>
+  <script src="video-links.js?v=20261115-youtube-1"></script>
+<script src="script.js?v=20261115-youtube-1"></script>
 
 <!-- Cloudflare Web Analytics -->
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"d087ce20e6814710a5b88a96b0694b20"}'></script>
 <!-- End Cloudflare Web Analytics -->
 </body>
 </html>
+
 
 
 
