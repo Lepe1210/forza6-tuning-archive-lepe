@@ -1,0 +1,48 @@
+name: Check Content Translations
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '52 * * * *'
+  workflow_run:
+    workflows: ['Mirror Forza Archive Data']
+    types: [completed]
+  push:
+    paths:
+      - 'data/content-en.json'
+      - 'scripts/check_content_translations.py'
+      - '.github/workflows/content-translations.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: content-translation-check
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Detect new or changed source notes
+        run: python scripts/check_content_translations.py
+      - name: Save translation queue and generated English sidecar
+        run: |
+          git add data/translation-status.json content-en.js
+          if git diff --cached --quiet; then
+            echo 'Translation coverage is unchanged.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update English translation coverage'
+          git pull --rebase origin main
+          git push

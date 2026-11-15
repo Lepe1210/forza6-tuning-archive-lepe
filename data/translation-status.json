@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "name": "cars",
+      "state": "checked",
+      "textFields": 1018,
+      "sourceHash": "c224b83f8a7e98ea399a92b47ec61e3db291e2b382ac4fea1e8c8c940223814b",
+      "pendingCount": 0
+    },
+    {
+      "name": "weekly",
+      "state": "checked",
+      "textFields": 15,
+      "sourceHash": "1f1904450d7ae73971c6f11f6a880b7f2dd0dba76992dd4e23b1277e7c51ecee",
+      "pendingCount": 0
+    },
+    {
+      "name": "past",
+      "state": "checked",
+      "textFields": 420,
+      "sourceHash": "3aa7c687f5e3a403659ea1793ee8cc0afd2301d17e68850e2f4ba68b2a0d6e78",
+      "pendingCount": 0
+    },
+    {
+      "name": "rivals",
+      "state": "checked",
+      "textFields": 27,
+      "sourceHash": "5a378ca8b797046ac75c76014c84734082679e2114cf2a6dc279f051fdefb82c",
+      "pendingCount": 0
+    },
+    {
+      "name": "atlas",
+      "state": "checked",
+      "textFields": 60,
+      "sourceHash": "1d8bdf866277919c03f0ec0602678a984e30561933efbcfae7974b9ae93b9ec7",
+      "pendingCount": 0
+    }
+  ],
+  "pending": []
+}

@@ -1045,7 +1045,7 @@ function renderRivalEntryCard(
           </span>
         </div>
 
-        ${car.atlasId ? `<p class="summary" data-i18n-original="true">${escapeHTML(car.gameBase)}</p>` : ''}
+        ${car.atlasId ? `<p class="summary">${escapeHTML(car.gameBase)}</p>` : ''}
         <div class="rival-entry-badges">
           ${car.atlasId ? "" : `
           <span class="badge">
@@ -1390,7 +1390,7 @@ function openRivalCarDetail(entryId) {
     formatShareCode(car.shareCode);
 
   if(car.atlasId){
-    rivalCarModalBody.innerHTML=`<div class="rival-car-modal-heading"><p class="eyebrow">${escapeHTML(car.series.join(' · '))}</p><p class="rival-car-modal-role">${escapeHTML(car.character)}</p><h2>${escapeHTML(car.carName)}</h2><p class="summary" data-i18n-original="true">${escapeHTML(car.gameBase)}</p></div>${car.imageUrl?`<img src="${escapeAttribute(car.imageUrl)}" alt="${escapeAttribute(car.carName)} 전시 일러스트" style="width:100%;border-radius:12px">`:''}<p class="summary" data-i18n-original="true">${formatMultilineText(car.concept||'전시 소개 준비 중')}</p><div class="share-box"><span class="detail-label">튜닝 공유 코드</span><div class="share-code-row"><button class="copy-code-button" type="button" data-copy-rival-share-code="${escapeAttribute(shareCode)}">복사</button><strong>${escapeHTML(displayShareCode)}</strong></div></div><div class="detail-grid">${[['PI',car.className],['출력',car.power],['토크',car.torque],['중량',car.weight]].filter(([,v])=>v).map(([k,v])=>renderDetailItem(k,v)).join('')}</div>${car.tuneNotes?`<h3>재현 포인트</h3><p class="summary" data-i18n-original="true">${formatMultilineText(car.tuneNotes)}</p>`:''}<p class="summary">표시된 수치는 실제 게임 제작 결과입니다.</p><p class="i18n-original-notice" data-i18n-ignore>Build concepts, reviews and tuning notes are shown in their original Korean.</p><div data-driving-videos hidden></div>`;
+    rivalCarModalBody.innerHTML=`<div class="rival-car-modal-heading"><p class="eyebrow">${escapeHTML(car.series.join(' · '))}</p><p class="rival-car-modal-role">${escapeHTML(car.character)}</p><h2>${escapeHTML(car.carName)}</h2><p class="summary">${escapeHTML(car.gameBase)}</p></div>${car.imageUrl?`<img src="${escapeAttribute(car.imageUrl)}" alt="${escapeAttribute(car.carName)} 전시 일러스트" style="width:100%;border-radius:12px">`:''}<p class="summary">${formatMultilineText(car.concept||'전시 소개 준비 중')}</p><div class="share-box"><span class="detail-label">튜닝 공유 코드</span><div class="share-code-row"><button class="copy-code-button" type="button" data-copy-rival-share-code="${escapeAttribute(shareCode)}">복사</button><strong>${escapeHTML(displayShareCode)}</strong></div></div><div class="detail-grid">${[['PI',car.className],['출력',car.power],['토크',car.torque],['중량',car.weight]].filter(([,v])=>v).map(([k,v])=>renderDetailItem(k,v)).join('')}</div>${car.tuneNotes?`<h3>재현 포인트</h3><p class="summary">${formatMultilineText(car.tuneNotes)}</p>`:''}<p class="summary">표시된 수치는 실제 게임 제작 결과입니다.</p><p class="i18n-original-notice" data-i18n-ignore>English translations follow the original notes. New or revised notes may appear in Korean until translated.</p><div data-driving-videos hidden></div>`;
     window.ArchiveVideos?.mount(car.shareCode, rivalCarModalBody.querySelector("[data-driving-videos]"));
     if(rivalCarModal){rivalCarModal.classList.remove('hidden');document.body.classList.add('modal-open');}return;
   }
@@ -1522,7 +1522,7 @@ function openRivalCarDetail(entryId) {
 
     <h3>빌드 콘셉트</h3>
 
-    <p class="summary" data-i18n-original="true">
+    <p class="summary">
       ${formatMultilineText(
         car.concept ||
           "빌드 콘셉트가 아직 입력되지 않았습니다."
@@ -1531,7 +1531,7 @@ function openRivalCarDetail(entryId) {
 
     <h3>주행 평가</h3>
 
-    <p class="summary" data-i18n-original="true">
+    <p class="summary">
       ${formatMultilineText(
         car.summary ||
           "주행 평가가 아직 입력되지 않았습니다."
@@ -1540,13 +1540,13 @@ function openRivalCarDetail(entryId) {
 
     <h3>튜닝 메모</h3>
 
-    <p class="summary" data-i18n-original="true">
+    <p class="summary">
       ${formatMultilineText(
         car.tuneNotes ||
           "튜닝 메모가 아직 입력되지 않았습니다."
       )}
     </p>
-    <p class="i18n-original-notice" data-i18n-ignore>Build concepts, reviews and tuning notes are shown in their original Korean.</p><div data-driving-videos hidden></div>
+    <p class="i18n-original-notice" data-i18n-ignore>English translations follow the original notes. New or revised notes may appear in Korean until translated.</p><div data-driving-videos hidden></div>
   `;
 
   window.ArchiveVideos?.mount(car.shareCode, rivalCarModalBody.querySelector("[data-driving-videos]"));
@@ -1880,12 +1880,7 @@ function cleanValue(value) {
 }
 
 function formatMultilineText(value) {
-  return escapeHTML(
-    cleanValue(value)
-  ).replaceAll(
-    "\n",
-    "<br />"
-  );
+  return `<span data-i18n-content>${escapeHTML(cleanValue(value)).replaceAll("\n", "<br />")}</span>`;
 }
 
 

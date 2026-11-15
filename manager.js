@@ -963,6 +963,7 @@ function escapeAttribute(value) {
 
 if (reloadManagerData) {
   reloadManagerData.addEventListener("click", loadManagerData);
+  reloadManagerData.addEventListener("click", loadTranslationStatus);
 }
 
 if (spinManagerRoulette) {
@@ -1027,10 +1028,30 @@ function showManagerLogin(message=''){
  document.getElementById('inventoryBulkRows').innerHTML='';
  window.renderTuningInventory?.(false);
 }
+async function loadTranslationStatus(){
+ const label=document.getElementById('translationStatusText');
+ const list=document.getElementById('translationPendingList');
+ if(!label||!list)return;
+ label.textContent='번역 상태 확인 중…';list.replaceChildren();
+ try{
+  const response=await fetch('https://raw.githubusercontent.com/Lepe1210/forza6-tuning-archive-lepe/main/data/translation-status.json',{cache:'no-store',signal:AbortSignal.timeout(8000)});
+  if(!response.ok)throw Error('status unavailable');
+  const data=await response.json();
+  if(data.schemaVersion!==1||!Array.isArray(data.pending)||!Array.isArray(data.sources))throw Error('invalid status');
+  const unavailable=data.sources.filter(source=>source.state!=='checked').length;
+  label.textContent=`번역 대기 ${data.pending.length}개`+(unavailable?` · 원문 확인 실패 ${unavailable}곳 (번역 상태 미확인)`:' · 확인된 원문 전체 번역됨');
+  if(data.pending.length&&!unavailable)label.textContent=`번역 대기 ${data.pending.length}개 · 원문 변경 확인`;
+  for(const item of data.pending){
+   const li=document.createElement('li');
+   li.textContent=`[${item.dataset}] ${item.id} / ${item.field}: ${item.source}`;
+   list.appendChild(li);
+  }
+ }catch{label.textContent='번역 상태를 불러오지 못했어요. 잠시 후 다시 확인해주세요.';}
+}
 async function showManagerWorkspace(){
  if(!ArchiveManagerSecurity.hasSession()){showManagerLogin();return;}
  managerLogin.hidden=true;managerWorkspace.hidden=false;
- await Promise.all([loadManagerData(),loadServerMemos()]);
+ await Promise.all([loadManagerData(),loadServerMemos(),loadTranslationStatus()]);
 }
 document.getElementById('managerLoginForm').addEventListener('submit',async event=>{
  event.preventDefault();const button=document.getElementById('managerLoginSubmit');

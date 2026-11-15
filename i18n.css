@@ -8,3 +8,6 @@ html[lang="en"] .weekly-group-heading h3{font-size:20px}
 html[lang="en"] .multi-filter-panel{min-width:250px}
 html[lang="en"] .lepe-guide h1{font-size:40px}
 @media(max-width:700px){html[lang="en"] .hero-copy h1{font-size:42px}html[lang="en"] .shortcut-card{font-size:13px}.archive-language-toggle{justify-self:start}html[lang="en"] .lepe-guide h1{font-size:32px}}
+
+html[lang="en"] [data-i18n-content][lang="en"]{white-space:pre-line}
+html[lang="en"] [data-translation-pending]::after{content:" [English translation pending]";font-size:11px;opacity:.7}

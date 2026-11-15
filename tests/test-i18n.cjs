@@ -42,3 +42,13 @@ assert.match(home, /value="클래식 머슬"/);
 assert.match(home, /value="레트로 머슬"/);
 assert.match(home, /value="모던 머슬"/);
 console.log('PASS: English labels, exact categories, dynamic counts, reverse labels, original notes/data, search aliases and six-page wiring');
+
+assert.equal(i18n.contentTranslation('그냥 좋음'), 'Just good.');
+assert.equal(i18n.contentTranslation('그냥 좋음 / 새 원문'), undefined);
+assert.match(i18n.searchTerms({concept:'그냥 좋음'}), /Just good/);
+assert.match(t('엔진 고증에 대한 정확한 정보가 그 어디에도 찾을 수가 없어서 임의로 450마력 세팅\n싱글 터보 사양 반영완료'), /recreation choice, not a confirmed figure.*\nSingle-turbo/s);
+for (const page of ['index','archive','gallery','rivals','guide','discord']) {
+  const html = fs.readFileSync(path.join(root, page + '.html'), 'utf8');
+  assert.ok(html.indexOf('src="content-en.js?') < html.indexOf('src="i18n.js?'), page);
+}
+console.log('PASS: content source matching, stale-source fallback, English note search and source uncertainty retained');

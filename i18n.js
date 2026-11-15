@@ -434,12 +434,21 @@
   "새로고침으로 재시도": "Refresh to retry"
 };
   const normalize = text => String(text).replace(/\s+/g, ' ').trim();
+  // Content is matched to its exact source (apart from whitespace), never to car IDs.
+  // Editing the Korean source invalidates the old translation automatically.
+  const contentEN = typeof module !== 'undefined' && module.exports
+    ? require('./data/content-en.json').translations
+    : (window.ArchiveContentEnglish?.translations || {});
+  const content = new Map(Object.entries(contentEN).map(([source, translation]) => [normalize(source), translation]));
+  function contentTranslation(source) { return content.get(normalize(source)); }
+
   const reverse = new Map();
   for (const [ko, en] of Object.entries(EN)) if (!reverse.has(en)) reverse.set(en, ko);
   let language = 'ko';
   function english(text) {
     const s = normalize(text);
     if (Object.hasOwn(EN, s)) return EN[s];
+    if (content.has(s)) return content.get(s);
     if (s === '메인의 페스티벌 추천에서 도전·메인1·메인2·메인3·PR 스턴트에 맞는 튜닝을 찾아봐. 추천 카드에는 공유 코드가 바로 보여서 펼치지 않고도 복사할 수 있어.') return 'The home page has picks for The Trial, Seasonal Championships 1–3 and PR Stunts. Share codes are visible on the cards, so you can copy them without opening the details.';
     if (s === 'CSV 링크 또는 cars 시트 게시 상태를 확인해주세요.' || s === 'CSV 링크 또는 weekly 시트 게시 상태를 확인해주세요.') return 'Please check the published spreadsheet or try again later.';
     if (s === 'PI별 평균 기록을 계산하지 못했습니다.') return 'Could not calculate average times by PI.';
@@ -473,10 +482,10 @@
     return lang === 'en' ? english(original) : original;
   }
   function searchTerms(car) {
-    return [car.carType, car.category, car.drive].map(v => t(v || '', 'en')).join(' ') +
+    return [car.carType, car.category, car.drive, car.concept, car.summary, car.tuneNotes].filter(Boolean).map(v => t(v || '', 'en')).join(' ') +
       ({'4WD':' all-wheel drive AWD', 'FWD':' front-wheel drive', 'RWD':' rear-wheel drive'}[car.drive] || '');
   }
-  const api = {t, searchTerms, get language() { return language; }};
+  const api = {t, searchTerms, contentTranslation, get language() { return language; }};
   if (typeof module !== 'undefined' && module.exports) { module.exports = api; return; }
   const STORAGE_KEY = 'forzaArchiveLanguage';
   const valid = value => value === 'ko' || value === 'en';
@@ -493,9 +502,39 @@
   }
   const originalText = new WeakMap();
   const originalAttrs = new WeakMap();
+  const originalContent = new WeakMap();
   const attributes = ['placeholder', 'aria-label', 'title', 'alt'];
   const ignored = element => !element || element.closest('script,style,textarea,[contenteditable], [data-i18n-ignore], [data-i18n-original="true"]');
+  function translateContent(element) {
+    let state = originalContent.get(element);
+    // Text with <br> must be translated as a single field, retaining paragraph breaks.
+    const readSource = () => Array.from(element.childNodes).map(node =>
+      node.nodeType === 1 && node.tagName === 'BR' ? '\n' : node.textContent).join('');
+    if (!state || element.innerHTML !== state.last) {
+      state = {source:readSource(), nodes:Array.from(element.childNodes, node => node.cloneNode(true))};
+    }
+    const translatedUI = english(state.source);
+    const translation = contentTranslation(state.source) ?? (translatedUI !== state.source ? translatedUI : undefined);
+    if (language === 'en' && translation !== undefined) {
+      if (element.textContent !== translation) element.textContent = translation;
+      element.setAttribute('lang', 'en');
+      element.removeAttribute('data-translation-pending');
+    } else {
+      if (state.last !== undefined && element.innerHTML === state.last) element.replaceChildren(...state.nodes.map(node => node.cloneNode(true)));
+      const korean = /[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(state.source);
+      if (korean) element.setAttribute('lang', 'ko');
+      else element.removeAttribute('lang');
+      element.toggleAttribute('data-translation-pending', language === 'en' && korean && translation === undefined);
+    }
+    state.last = element.innerHTML;
+    originalContent.set(element, state);
+  }
   function convert(node) {
+    if (node.nodeType === 1 && node.hasAttribute('data-i18n-content') && !ignored(node)) {
+      translateContent(node);
+      return;
+    }
+    if ((node.nodeType === 1 ? node.parentElement : node.parentElement)?.closest('[data-i18n-content]')) return;
     if (node.nodeType === 3) {
       if (ignored(node.parentElement) || !node.nodeValue.trim()) return;
       let state = originalText.get(node);
@@ -544,7 +583,10 @@
       if (record.type === 'childList') record.addedNodes.forEach(node => roots.add(node));
       else roots.add(record.target);
     }
-    for (const root of roots) if (root.isConnected) scan(root);
+    for (const root of roots) if (root.isConnected) {
+      const element = root.nodeType === 1 ? root : root.parentElement;
+      scan(element?.closest('[data-i18n-content]') || root);
+    }
     observer.observe(document.body, options);
   });
   function updateButton() {
