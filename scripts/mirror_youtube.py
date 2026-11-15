@@ -11,6 +11,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import re
 import urllib.request
+from urllib.parse import urlparse, parse_qs
 
 CHANNEL_ID = "UCKYhJ5TvLEwq-uDHBHflLgQ"
 CHANNEL_URL = "https://www.youtube.com/@ko_tbclan"
@@ -128,8 +129,9 @@ def parse_public_page(html, video_id):
         raise ValueError("Public watch-page metadata unavailable or owner mismatch")
     meta = PublicMeta()
     meta.feed(html)
-    if meta.values.get("canonical") != "https://www.youtube.com/watch?v=" + video_id:
-        raise ValueError("Public watch-page ID mismatch")
+    canonical = urlparse(meta.values.get("canonical", ""))
+    if canonical.hostname != "www.youtube.com" or canonical.path != "/watch" or parse_qs(canonical.query).get("v") != [video_id]:
+        raise ValueError(f"Public watch-page ID mismatch: requested {video_id}, canonical {meta.values.get('canonical', '')}")
     # A collapsed description may omit later tuning codes. Do not erase a
     # previously verified match using such a fragment.
     if description.rstrip().endswith(("...", "…")) and not TUNE_CODE.search(description):

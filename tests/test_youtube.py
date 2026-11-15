@@ -59,6 +59,7 @@ class YouTubeMirrorTests(unittest.TestCase):
         html = '<link rel="canonical" href="https://www.youtube.com/watch?v=abcdefghijk"><meta itemprop="datePublished" content="2026-11-14">'
         html += "var ytInitialData = " + json.dumps(page) + ";"
         self.assertEqual(mirror.parse_public_page(html, "abcdefghijk")["shareCodes"], ["112867646"])
+        self.assertEqual(mirror.parse_public_page(html.replace("watch?v=abcdefghijk", "watch?v=abcdefghijk&amp;hl=en"), "abcdefghijk")["shareCodes"], ["112867646"])
         with self.assertRaises(ValueError):
             mirror.parse_public_page(html, "another1234")
 
