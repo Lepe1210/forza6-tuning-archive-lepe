@@ -63,6 +63,13 @@ class YouTubeMirrorTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             mirror.parse_public_page(html, "another1234")
 
+    def test_public_feed_and_owner_validation(self):
+        xml = '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/">'
+        xml += '<yt:channelId>' + mirror.CHANNEL_ID + '</yt:channelId><entry><yt:videoId>abcdefghijk</yt:videoId><title>[Forza Horizon 6] Test</title><published>2026-11-15T03:00:00Z</published><media:group><media:description>튜닝 공유코드: 112 867 646\n이벤트맵 공유코드: 802 790 898</media:description></media:group></entry></feed>'
+        self.assertEqual(mirror.parse_feed(xml)[0]["shareCodes"], ["112867646"])
+        with self.assertRaises(ValueError):
+            mirror.parse_feed(xml.replace(mirror.CHANNEL_ID, "another-channel"))
+
 
 if __name__ == "__main__":
     unittest.main()

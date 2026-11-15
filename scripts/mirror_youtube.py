@@ -12,6 +12,7 @@ from pathlib import Path
 import re
 import urllib.request
 from urllib.parse import urlparse, parse_qs
+import xml.etree.ElementTree as ET
 
 CHANNEL_ID = "UCKYhJ5TvLEwq-uDHBHflLgQ"
 CHANNEL_URL = "https://www.youtube.com/@ko_tbclan"
@@ -154,24 +155,54 @@ def fetch_video(video_id):
     return parse_public_page(html, video_id)
 
 
+def parse_feed(xml):
+    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015", "m": "http://search.yahoo.com/mrss/"}
+    feed = ET.fromstring(xml)
+    if feed.findtext("yt:channelId", namespaces=ns) != CHANNEL_ID:
+        raise ValueError("Unexpected feed channel")
+    entries = []
+    for entry in feed.findall("a:entry", ns):
+        title = entry.findtext("a:title", "", ns)
+        video_id = entry.findtext("yt:videoId", "", ns)
+        if not VIDEO_ID.fullmatch(video_id) or not re.search(r"Forza\s*Horizon\s*6|포르자\s*호라이즌\s*6", title, re.I):
+            continue
+        description = entry.findtext("m:group/m:description", None, ns)
+        if description is None:
+            raise ValueError("Feed descriptions unavailable")
+        data = {"videoDetails": {"videoId": video_id, "channelId": CHANNEL_ID, "title": title,
+                "shortDescription": description, "isCrawlable": True},
+                "microformat": {"playerMicroformatRenderer": {"publishDate": entry.findtext("a:published", "", ns)}}}
+        entries.append(parse_video(data, video_id))
+    if not entries:
+        raise ValueError("No public FH6 feed entries")
+    return entries
+
+
 def main():
     previous = json.loads(OUTPUT.read_text()) if OUTPUT.exists() else {}
-    ids = channel_video_ids(extract_json(read_url(CHANNEL_URL + "/videos"), "ytInitialData"))
     videos = {v["id"]: v for v in previous.get("videos", [])}
     succeeded = 0
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-        jobs = {pool.submit(fetch_video, video_id): video_id for video_id in ids}
-        for job in concurrent.futures.as_completed(jobs):
-            video_id = jobs[job]
-            try:
-                entry = job.result()
-                succeeded += 1
-                if entry is None:
-                    videos.pop(video_id, None)
-                else:
-                    videos[video_id] = entry
-            except Exception as error:
-                print(f"Warning: {video_id}: {error}; previous entry kept")
+    try:
+        entries = parse_feed(read_url("https://www.youtube.com/feeds/videos.xml?channel_id=" + CHANNEL_ID))
+        videos.update({v["id"]: v for v in entries})
+        succeeded = len(entries)
+        print(f"Read {succeeded} public FH6 entries from channel feed")
+    except Exception as error:
+        print(f"Channel feed unavailable ({error}); checking public channel page")
+        ids = channel_video_ids(extract_json(read_url(CHANNEL_URL + "/videos"), "ytInitialData"))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+            jobs = {pool.submit(fetch_video, video_id): video_id for video_id in ids}
+            for job in concurrent.futures.as_completed(jobs):
+                video_id = jobs[job]
+                try:
+                    entry = job.result()
+                    succeeded += 1
+                    if entry is None:
+                        videos.pop(video_id, None)
+                    else:
+                        videos[video_id] = entry
+                except Exception as error:
+                    print(f"Warning: {video_id}: {error}; previous entry kept")
     if not succeeded:
         raise RuntimeError("All YouTube reads failed; previous catalogue kept")
     ordered = sorted(videos.values(), key=lambda v: (v["publishedAt"], v["id"]), reverse=True)
