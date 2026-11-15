@@ -500,7 +500,10 @@
       if (ignored(node.parentElement) || !node.nodeValue.trim()) return;
       let state = originalText.get(node);
       if (!state || node.nodeValue !== state.last) state = {source: reverse.get(normalize(node.nodeValue)) || node.nodeValue};
-      const translated = language === 'en' ? english(state.source) : state.source;
+      const localized = language === 'en' ? english(state.source) : state.source;
+      const translated = language === 'en' && localized !== state.source
+        ? state.source.match(/^\s*/)[0] + localized + state.source.match(/\s*$/)[0]
+        : localized;
       if (node.nodeValue !== translated) node.nodeValue = translated;
       state.last = translated;
       originalText.set(node, state);
