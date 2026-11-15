@@ -431,6 +431,14 @@
   "표시된 수치는 실제 게임 제작 결과입니다.": "These figures are from the completed in-game build.",
   "전시관 전체 접기": "Collapse all exhibitions",
   "전시관 전체 펼치기": "Expand all exhibitions",
+  "전시 보기": "View exhibition",
+  "이미지 크게 보기": "Enlarge image",
+  "원본 이미지": "Original image",
+  "사진 크게 보기": "Enlarge photo",
+  "튜닝 상세 보기": "Tune details",
+  "수도고 복각": "Shutoko recreation",
+  "원작 재현": "Fictional-car recreation",
+  "전시 전용": "Exhibition only",
   "새로고침으로 재시도": "Refresh to retry"
 };
   const normalize = text => String(text).replace(/\s+/g, ' ').trim();
@@ -453,6 +461,8 @@
     if (s === 'CSV 링크 또는 cars 시트 게시 상태를 확인해주세요.' || s === 'CSV 링크 또는 weekly 시트 게시 상태를 확인해주세요.') return 'Please check the published spreadsheet or try again later.';
     if (s === 'PI별 평균 기록을 계산하지 못했습니다.') return 'Could not calculate average times by PI.';
     let m;
+    if ((m = s.match(/^수도고 복각 (.+)$/))) return `Shutoko recreation · ${english(m[1])}`;
+    if ((m = s.match(/^(.+) 대표 이미지 크게 보기$/))) return `${english(m[1])} · Enlarge cover image`;
     if ((m = s.match(/^(.*) · 한·영 CC$/))) return `${m[1]} · Korean / English CC`;
     if ((m = s.match(/^촬영: (.+)$/))) return `Photo: ${m[1]}`;
     if ((m = s.match(/^(.*) · 수도고 차량 연결 실패 · 새로고침으로 재시도$/))) return `${english(m[1])} · Could not load Shutoko cars · Refresh to retry`;
@@ -472,7 +482,7 @@
     if ((m = s.match(/^(PI|차량 분류|구동방식|용도|연대): (.+)$/))) return `${english(m[1])}: ${m[2].split(', ').map(english).join(', ')}`;
     if ((m = s.match(/^공유 코드: (.+)$/))) return `Share code: ${english(m[1])}`;
     if ((m = s.match(/^(.+) 튜닝 정보 펼치기$/))) return `Expand tune information: ${m[1]}`;
-    if ((m = s.match(/^(.+) (대표 이미지 크게 보기|이미지 크게 보기|전시 일러스트)$/))) return `${m[1]} · ${m[2] === '전시 일러스트' ? 'exhibition illustration' : 'Enlarge image'}`;
+    if ((m = s.match(/^(.+) (대표 이미지 크게 보기|이미지 크게 보기|전시 일러스트)$/))) return `${english(m[1])} · ${m[2] === '전시 일러스트' ? 'exhibition illustration' : 'Enlarge image'}`;
     if ((m = s.match(/^PI 평균 대비 ([+-]?[\d.]+%)\. (.+)$/))) return `vs. PI average ${m[1]}. ${english(m[2])}`;
     if ((m = s.match(/^(.+) \/ (.+) \/ 아카이브 (\d+)대 평균 (.+) 기준$/))) return `${m[1]} / ${english(m[2])} / archive average ${m[4]} across ${m[3]} cars`;
     return text;
