@@ -7,6 +7,7 @@ older entries already collected remain in the catalogue.
 import concurrent.futures
 import datetime as dt
 import json
+from html.parser import HTMLParser
 from pathlib import Path
 import re
 import urllib.request
@@ -100,9 +101,55 @@ def parse_video(data, video_id):
     }
 
 
+class PublicMeta(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.values = {}
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "meta":
+            self.values[attrs.get("itemprop") or attrs.get("property") or attrs.get("name")] = attrs.get("content", "")
+        elif tag == "link" and attrs.get("rel") == "canonical":
+            self.values["canonical"] = attrs.get("href", "")
+
+
+def parse_public_page(html, video_id):
+    # Video playback can be unavailable on a server while the public title,
+    # description and owner are still present in the normal watch-page HTML.
+    page = extract_json(html, "ytInitialData")
+    secondary = next((n["videoSecondaryInfoRenderer"] for n in walk(page) if "videoSecondaryInfoRenderer" in n), {})
+    primary = next((n["videoPrimaryInfoRenderer"] for n in walk(page) if "videoPrimaryInfoRenderer" in n), {})
+    owner = secondary.get("owner", {}).get("videoOwnerRenderer", {}).get("navigationEndpoint", {}).get("browseEndpoint", {}).get("browseId")
+    description = secondary.get("attributedDescription", {}).get("content")
+    if description is None:
+        description = "".join(v.get("text", "") for v in secondary.get("description", {}).get("runs", []))
+    if not primary or not secondary or owner != CHANNEL_ID:
+        raise ValueError("Public watch-page metadata unavailable or owner mismatch")
+    meta = PublicMeta()
+    meta.feed(html)
+    if meta.values.get("canonical") != "https://www.youtube.com/watch?v=" + video_id:
+        raise ValueError("Public watch-page ID mismatch")
+    # A collapsed description may omit later tuning codes. Do not erase a
+    # previously verified match using such a fragment.
+    if description.rstrip().endswith(("...", "…")) and not TUNE_CODE.search(description):
+        raise ValueError("Only a shortened description is available")
+    title = "".join(v.get("text", "") for v in primary.get("title", {}).get("runs", []))
+    data = {"videoDetails": {"videoId": video_id, "channelId": owner, "title": title,
+            "shortDescription": description, "isCrawlable": True},
+            "microformat": {"playerMicroformatRenderer": {"publishDate": meta.values.get("datePublished", "")}}}
+    return parse_video(data, video_id)
+
+
 def fetch_video(video_id):
     html = read_url("https://www.youtube.com/watch?v=" + video_id)
-    return parse_video(extract_json(html, "ytInitialPlayerResponse"), video_id)
+    try:
+        player = extract_json(html, "ytInitialPlayerResponse")
+    except ValueError:
+        player = {}
+    if player.get("videoDetails"):
+        return parse_video(player, video_id)
+    return parse_public_page(html, video_id)
 
 
 def main():

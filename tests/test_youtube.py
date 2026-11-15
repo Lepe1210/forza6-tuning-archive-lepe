@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 import unittest
 
@@ -49,6 +50,17 @@ class YouTubeMirrorTests(unittest.TestCase):
 
     def test_embedded_json_does_not_stop_at_nested_braces(self):
         self.assertEqual(mirror.extract_json('var ytInitialData = {"a":{"b":"};"}};</script>', "ytInitialData"), {"a": {"b": "};"}})
+
+    def test_public_description_without_playback_metadata(self):
+        page = {"contents": [
+            {"videoPrimaryInfoRenderer": {"title": {"runs": [{"text": "FH6"}]}}},
+            {"videoSecondaryInfoRenderer": {"owner": {"videoOwnerRenderer": {"navigationEndpoint": {"browseEndpoint": {"browseId": mirror.CHANNEL_ID}}}},
+             "attributedDescription": {"content": "튜닝 공유코드: 112 867 646\n이벤트맵 공유코드: 802 790 898"}}}]}
+        html = '<link rel="canonical" href="https://www.youtube.com/watch?v=abcdefghijk"><meta itemprop="datePublished" content="2026-11-14">'
+        html += "var ytInitialData = " + json.dumps(page) + ";"
+        self.assertEqual(mirror.parse_public_page(html, "abcdefghijk")["shareCodes"], ["112867646"])
+        with self.assertRaises(ValueError):
+            mirror.parse_public_page(html, "another1234")
 
 
 if __name__ == "__main__":
