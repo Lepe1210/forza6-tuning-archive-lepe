@@ -52,7 +52,7 @@ class YouTubeMirrorTests(unittest.TestCase):
         self.assertEqual(mirror.extract_json('var ytInitialData = {"a":{"b":"};"}};</script>', "ytInitialData"), {"a": {"b": "};"}})
 
     def test_public_description_without_playback_metadata(self):
-        page = {"contents": [
+        page = {"currentVideoEndpoint": {"watchEndpoint": {"videoId": "abcdefghijk"}}, "contents": [
             {"videoPrimaryInfoRenderer": {"title": {"runs": [{"text": "FH6"}]}}},
             {"videoSecondaryInfoRenderer": {"owner": {"videoOwnerRenderer": {"navigationEndpoint": {"browseEndpoint": {"browseId": mirror.CHANNEL_ID}}}},
              "attributedDescription": {"content": "튜닝 공유코드: 112 867 646\n이벤트맵 공유코드: 802 790 898"}}}]}
@@ -60,6 +60,7 @@ class YouTubeMirrorTests(unittest.TestCase):
         html += "var ytInitialData = " + json.dumps(page) + ";"
         self.assertEqual(mirror.parse_public_page(html, "abcdefghijk")["shareCodes"], ["112867646"])
         self.assertEqual(mirror.parse_public_page(html.replace("watch?v=abcdefghijk", "watch?v=abcdefghijk&amp;hl=en"), "abcdefghijk")["shareCodes"], ["112867646"])
+        self.assertEqual(mirror.parse_public_page(html.replace('<link rel="canonical" href="https://www.youtube.com/watch?v=abcdefghijk">', ''), "abcdefghijk")["shareCodes"], ["112867646"])
         with self.assertRaises(ValueError):
             mirror.parse_public_page(html, "another1234")
 

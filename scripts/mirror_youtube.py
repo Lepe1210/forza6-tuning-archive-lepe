@@ -11,7 +11,6 @@ from html.parser import HTMLParser
 from pathlib import Path
 import re
 import urllib.request
-from urllib.parse import urlparse, parse_qs
 import xml.etree.ElementTree as ET
 
 CHANNEL_ID = "UCKYhJ5TvLEwq-uDHBHflLgQ"
@@ -130,17 +129,28 @@ def parse_public_page(html, video_id):
         raise ValueError("Public watch-page metadata unavailable or owner mismatch")
     meta = PublicMeta()
     meta.feed(html)
-    canonical = urlparse(meta.values.get("canonical", ""))
-    if canonical.hostname != "www.youtube.com" or canonical.path != "/watch" or parse_qs(canonical.query).get("v") != [video_id]:
-        raise ValueError(f"Public watch-page ID mismatch: requested {video_id}, canonical {meta.values.get('canonical', '')}")
+    # Some public watch pages omit the optional canonical HTML link. Use the
+    # watch page's current-video endpoint, never a recommended video's ID.
+    current_id = page.get("currentVideoEndpoint", {}).get("watchEndpoint", {}).get("videoId")
+    if current_id != video_id:
+        raise ValueError("Public watch-page current-video ID mismatch")
     # A collapsed description may omit later tuning codes. Do not erase a
     # previously verified match using such a fragment.
     if description.rstrip().endswith(("...", "…")) and not TUNE_CODE.search(description):
         raise ValueError("Only a shortened description is available")
     title = "".join(v.get("text", "") for v in primary.get("title", {}).get("runs", []))
+    published = meta.values.get("datePublished", "")
+    if not published or published == "undefined":
+        visible_date = primary.get("dateText", {}).get("simpleText", "")
+        for pattern in ("%b %d, %Y", "%Y. %m. %d.", "%Y-%m-%d", "%d %b %Y"):
+            try:
+                published = dt.datetime.strptime(visible_date, pattern).date().isoformat()
+                break
+            except ValueError:
+                pass
     data = {"videoDetails": {"videoId": video_id, "channelId": owner, "title": title,
             "shortDescription": description, "isCrawlable": True},
-            "microformat": {"playerMicroformatRenderer": {"publishDate": meta.values.get("datePublished", "")}}}
+            "microformat": {"playerMicroformatRenderer": {"publishDate": published}}}
     return parse_video(data, video_id)
 
 
