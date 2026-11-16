@@ -16,7 +16,7 @@ const catalogue = {schemaVersion:1,channelId:'UCKYhJ5TvLEwq-uDHBHflLgQ',videos:[
 function environment(entries=[binding], options={}) {
   const window={}; const calls=[];
   vm.runInNewContext(source,{window,AbortController,setTimeout,clearTimeout,console:{warn(){}},
-    document:{getElementById:()=>null,createElement:tag=>new Element(tag)},
+    document:{getElementById:id=>options.latest?.[id] || null,createElement:tag=>new Element(tag)},
     fetch:async url=>{calls.push(url);return {ok: !options.noHistory || !url.includes('share-code-history'),json:async()=>url.includes('share-code-history')?{schemaVersion:1,entries}:catalogue};}});
   return {api:window.ArchiveVideos,calls};
 }
@@ -46,5 +46,10 @@ const links = el => [...(el.href?[el.href]:[]),...el.children.flatMap(links)];
   const reused=new Element('div');await Promise.all([env.api.mount(car,reused),env.api.mount({...car,id:'other-id',shareCode:'999999999'},reused)]);
   assert.deepEqual(links(reused),['https://www.youtube.com/watch?v=unrelated01']);
   assert.equal(env.calls.length,2);
+  const latestSection=new Element('section'), latestGrid=new Element('div');
+  environment([binding], {latest:{drivingVideos:latestSection,drivingVideoGrid:latestGrid}});
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(links(latestGrid).length,3);
+  assert.doesNotMatch(text(latestGrid),/리메이크 이전/); // map() indices are not tune-version flags.
   console.log('PASS: remakes, earlier-version labels, mirror lag, archived versions, stable identity, ambiguity, history failure and reused-target race');
 })().catch(error=>{console.error(error);process.exitCode=1;});

@@ -146,7 +146,7 @@
     if (!section || !grid) return;
     const videos = (await load()).slice(0, 3);
     if (!videos.length) return;
-    grid.replaceChildren(...videos.map(card));
+    grid.replaceChildren(...videos.map(video => card(video)));
     section.hidden = false;
   }
   window.ArchiveVideos = {mount};
