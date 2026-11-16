@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1018,
-      "sourceHash": "12f08d0e80f09c16c87d90950db746b50c2efe2c2477c47a92b9b7978bcf131c",
-      "pendingCount": 1
+      "textFields": 1021,
+      "sourceHash": "11d5466dd6b392c1bc2e7d38e0e407993ee91c0d0e86c7088094551637555cfa",
+      "pendingCount": 4
     },
     {
       "name": "weekly",
@@ -38,6 +38,24 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "2000gtr73-b600",
+      "field": "concept",
+      "source": "튜닝하다가 차는 쓰레기고 비는 ㅈㄴ 오고 아주 그냥 뭐 같아서 튜너가 흑화해버림"
+    },
+    {
+      "dataset": "cars",
+      "id": "2000gtr73-b600",
+      "field": "summary",
+      "source": "그냥 미쳤다고 파워후륜으로 만들어서 일본산 머스탱으로 제조함 / 타는 방법이 여타 차랑 좀 다른 느낌인데 뭔가 물 흐르듯 코너를 타기보단 최대한 빨리 정렬시켜서 일단 밟아야함"
+    },
+    {
+      "dataset": "cars",
+      "id": "2000gtr73-b600",
+      "field": "tuneNotes",
+      "source": "LS엔진 / 기본 타이어 / 파워후륜"
+    },
     {
       "dataset": "cars",
       "id": "93519-S1800",
