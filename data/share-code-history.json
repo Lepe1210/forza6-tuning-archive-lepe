@@ -92,6 +92,15 @@
       ]
     },
     {
+      "carId": "2000gtr73-b600",
+      "manufacturer": "Nissan",
+      "carName": "Skyline H/T 2000GT-R 1973",
+      "currentCode": "161264241",
+      "codes": [
+        "161264241"
+      ]
+    },
+    {
       "carId": "205rallye91-b600",
       "manufacturer": "Peugeot",
       "carName": "205 Rallye 1991",
@@ -639,10 +648,11 @@
       "carId": "93519-S1800",
       "manufacturer": "Porsche",
       "carName": "#70 Porsche Motorsport 935 2019",
-      "currentCode": "139441901",
+      "currentCode": "160312811",
       "codes": [
         "179097536",
-        "139441901"
+        "139441901",
+        "160312811"
       ]
     },
     {
