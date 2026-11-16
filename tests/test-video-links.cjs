@@ -4,6 +4,7 @@ const vm = require('node:vm');
 const source = fs.readFileSync(require('node:path').join(__dirname, '../video-links.js'), 'utf8');
 class Element {
   constructor(tag) { this.tag = tag; this.children = []; this.hidden = false; this.isConnected = true; }
+  setAttribute(name, value) { (this.attributes ||= {})[name] = value; }
   append(...items) { this.children.push(...items); }
   replaceChildren(...items) { this.children = items; }
 }

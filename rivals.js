@@ -1391,7 +1391,7 @@ function openRivalCarDetail(entryId) {
 
   if(car.atlasId){
     rivalCarModalBody.innerHTML=`<div class="rival-car-modal-heading"><p class="eyebrow">${escapeHTML(car.series.join(' · '))}</p><p class="rival-car-modal-role">${escapeHTML(car.character)}</p><h2>${escapeHTML(car.carName)}</h2><p class="summary">${escapeHTML(car.gameBase)}</p></div>${car.imageUrl?`<img src="${escapeAttribute(car.imageUrl)}" alt="${escapeAttribute(car.carName)} 전시 일러스트" style="width:100%;border-radius:12px">`:''}<p class="summary">${formatMultilineText(car.concept||'전시 소개 준비 중')}</p><div class="share-box"><span class="detail-label">튜닝 공유 코드</span><div class="share-code-row"><button class="copy-code-button" type="button" data-copy-rival-share-code="${escapeAttribute(shareCode)}">복사</button><strong>${escapeHTML(displayShareCode)}</strong></div></div><div class="detail-grid">${[['PI',car.className],['출력',car.power],['토크',car.torque],['중량',car.weight]].filter(([,v])=>v).map(([k,v])=>renderDetailItem(k,v)).join('')}</div>${car.tuneNotes?`<h3>재현 포인트</h3><p class="summary">${formatMultilineText(car.tuneNotes)}</p>`:''}<p class="summary">표시된 수치는 실제 게임 제작 결과입니다.</p><p class="i18n-original-notice" data-i18n-ignore>English translations follow the original notes. New or revised notes may appear in Korean until translated.</p><div data-driving-videos hidden></div>`;
-    window.ArchiveVideos?.mount(car.shareCode, rivalCarModalBody.querySelector("[data-driving-videos]"));
+    window.ArchiveVideos?.mount(car, rivalCarModalBody.querySelector("[data-driving-videos]"));
     if(rivalCarModal){rivalCarModal.classList.remove('hidden');document.body.classList.add('modal-open');}return;
   }
 
@@ -1549,7 +1549,7 @@ function openRivalCarDetail(entryId) {
     <p class="i18n-original-notice" data-i18n-ignore>English translations follow the original notes. New or revised notes may appear in Korean until translated.</p><div data-driving-videos hidden></div>
   `;
 
-  window.ArchiveVideos?.mount(car.shareCode, rivalCarModalBody.querySelector("[data-driving-videos]"));
+  window.ArchiveVideos?.mount(car, rivalCarModalBody.querySelector("[data-driving-videos]"));
   if (rivalCarModal) {
     rivalCarModal.classList.remove("hidden");
     document.body.classList.add("modal-open");

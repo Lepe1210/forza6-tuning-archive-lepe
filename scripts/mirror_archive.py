@@ -10,6 +10,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+from share_code_history import read_history, observe, write_history
+
 
 # ============================================================
 # Forza 6 Tuning Archive
@@ -313,6 +315,14 @@ def main() -> int:
     csv_text = decode_csv(raw_csv_bytes)
 
     cars = parse_and_validate_csv(csv_text)
+
+    # Capture both sides BEFORE replacing cars.json, including unchanged CSV runs.
+    # A remake must not erase the last observed code for the stable vehicle ID.
+    history = read_history()
+    if JSON_PATH.exists():
+        observe(history, json.loads(JSON_PATH.read_text(encoding="utf-8")))
+    observe(history, cars)
+    write_history(history)
 
     normalized_csv = normalize_csv_bytes(
         csv_text

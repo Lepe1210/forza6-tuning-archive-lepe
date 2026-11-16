@@ -5,14 +5,14 @@
    - Google Sheets CSV / Apps Script API는 캐시하지 않고 항상 네트워크에서 읽음
 ========================= */
 
-const CACHE_NAME = "forza-tuning-archive-v48-content-en";
+const CACHE_NAME = "forza-tuning-archive-v49-video-history";
 
 const STATIC_ASSETS = [
   "./content-en.js?v=20261115-content-en-1",
-  "./i18n.js?v=20261115-content-en-3",
+  "./i18n.js?v=20261116-video-history-1",
   "./i18n.css?v=20261115-content-en-1",
-  "./video-links.js?v=20261115-i18n-1",
-  "./video-links.css?v=20261115-youtube-1",
+  "./video-links.js?v=20261116-video-history-1",
+  "./video-links.css?v=20261116-video-history-1",
   "./manager-security.js?v=20261114-manager-security-v2",
   "./",
   "./index.html",
@@ -36,11 +36,11 @@ const STATIC_ASSETS = [
   "./assets/fonts/bodoni-moda-latin.woff2",
   "./assets/fonts/bodoni-moda-latin-ext.woff2",
 
-  "./script.js?v=20261115-content-en-1",
-  "./archive.js?v=20261115-content-en-1",
+  "./script.js?v=20261116-video-history-1",
+  "./archive.js?v=20261116-video-history-1",
   "./manager.js?v=20261115-content-en-1",
   "./gallery.js?v=20261002-summary-contrast-1",
-  "./rivals.js?v=20261115-content-en-1",
+  "./rivals.js?v=20261116-video-history-1",
 
   "./exhibition-feed.js?v=20261019-exhibition-1",
   "./manager-inventory.js?v=20261019-inventory-track-1",

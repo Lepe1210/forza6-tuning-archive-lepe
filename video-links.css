@@ -18,3 +18,7 @@
 .driving-video-detail{margin-top:28px;padding-top:8px;border-top:1px solid currentColor}
 .driving-video-detail .driving-video-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
 @media(max-width:700px){.driving-video-grid{grid-template-columns:1fr}.driving-video-section{margin:32px 0}.driving-video-heading{gap:12px}.driving-video-detail .driving-video-grid{grid-template-columns:1fr}}
+
+.driving-video-history-heading{margin-top:28px}
+.driving-video-history-note{font-size:13px;line-height:1.7;margin-bottom:16px}
+.driving-video-version{align-self:flex-start;border:1px solid currentColor;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700}

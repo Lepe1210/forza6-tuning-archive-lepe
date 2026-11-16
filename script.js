@@ -891,7 +891,7 @@ function openCarDetail(id, source = "cars") {
     <p class="i18n-original-notice" data-i18n-ignore>English translations follow the original notes. New or revised notes may appear in Korean until translated.</p><div data-driving-videos hidden></div>
   `;
 
-  window.ArchiveVideos?.mount(car.shareCode, modalBody.querySelector("[data-driving-videos]"));
+  window.ArchiveVideos?.mount(car, modalBody.querySelector("[data-driving-videos]"));
   modal.classList.remove("hidden");
 }
 

@@ -1,0 +1,3445 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "carId": "03782-a700",
+      "manufacturer": "Lancia",
+      "carName": "037 Stradale 1982",
+      "currentCode": "420430618",
+      "codes": [
+        "420430618"
+      ]
+    },
+    {
+      "carId": "037stra92-A700",
+      "manufacturer": "Lancia",
+      "carName": "037 Stradale 1982",
+      "currentCode": "293914937",
+      "codes": [
+        "293914937"
+      ]
+    },
+    {
+      "carId": "102015-R998",
+      "manufacturer": "Ultima",
+      "carName": "Evolution Coupe 1020 2015",
+      "currentCode": "496041481",
+      "codes": [
+        "496041481"
+      ]
+    },
+    {
+      "carId": "102015-R998-2",
+      "manufacturer": "Ultima",
+      "carName": "Evolution Coupe 1020 2015",
+      "currentCode": "153726851",
+      "codes": [
+        "153726851"
+      ]
+    },
+    {
+      "carId": "124spider17-A700",
+      "manufacturer": "Abarth",
+      "carName": "124 Spider 2017",
+      "currentCode": "312496513",
+      "codes": [
+        "312496513"
+      ]
+    },
+    {
+      "carId": "12ccoupe11-S1800",
+      "manufacturer": "Mclaren",
+      "carName": "12C Coupé 2011",
+      "currentCode": "348793428",
+      "codes": [
+        "348793428"
+      ]
+    },
+    {
+      "carId": "131-c500",
+      "manufacturer": "Abarth",
+      "carName": "FIAT 131 1980",
+      "currentCode": "112136726",
+      "codes": [
+        "112136726"
+      ]
+    },
+    {
+      "carId": "155q492-a700",
+      "manufacturer": "Alfa Romeo",
+      "carName": "155 Q4 1992",
+      "currentCode": "145778106",
+      "codes": [
+        "145778106"
+      ]
+    },
+    {
+      "carId": "155q492-a700-3",
+      "manufacturer": "Alfa Romeo",
+      "carName": "155 Q4 1992",
+      "currentCode": "113764028",
+      "codes": [
+        "113764028"
+      ]
+    },
+    {
+      "carId": "190e90-a700",
+      "manufacturer": "Mercedes-Benz",
+      "carName": "190E 2.5-16 Evo II 1990",
+      "currentCode": "131811919",
+      "codes": [
+        "131811919"
+      ]
+    },
+    {
+      "carId": "205rallye91-b600",
+      "manufacturer": "Peugeot",
+      "carName": "205 Rallye 1991",
+      "currentCode": "117405548",
+      "codes": [
+        "117405548"
+      ]
+    },
+    {
+      "carId": "205tub84-a700",
+      "manufacturer": "Peugeot",
+      "carName": "205 Turbo 16 1984",
+      "currentCode": "655153392",
+      "codes": [
+        "655153392"
+      ]
+    },
+    {
+      "carId": "207super07-A700",
+      "manufacturer": "Peugeot",
+      "carName": "207 Super 2000 2007",
+      "currentCode": "149838177",
+      "codes": [
+        "149838177"
+      ]
+    },
+    {
+      "carId": "22b98-b600",
+      "manufacturer": "Subaru",
+      "carName": "Impreza 22B-STi Version 1998",
+      "currentCode": "124931256",
+      "codes": [
+        "124931256"
+      ]
+    },
+    {
+      "carId": "240sx93-B600",
+      "manufacturer": "Nissan",
+      "carName": "240SX 1993",
+      "currentCode": "184342029",
+      "codes": [
+        "184342029"
+      ]
+    },
+    {
+      "carId": "242tub83-a700",
+      "manufacturer": "Volvo",
+      "carName": "242 Turbo Evolution 1983",
+      "currentCode": "181939406",
+      "codes": [
+        "181939406"
+      ]
+    },
+    {
+      "carId": "250gt62-B600",
+      "manufacturer": "Ferrari",
+      "carName": "250 GT Berlinetta Lusso 1962",
+      "currentCode": "740920249",
+      "codes": [
+        "740920249"
+      ]
+    },
+    {
+      "carId": "296gtb22-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "296 GTB 2022",
+      "currentCode": "183949845",
+      "codes": [
+        "183949845"
+      ]
+    },
+    {
+      "carId": "2cv70-d400",
+      "manufacturer": "Citroen",
+      "carName": "2CV 1970",
+      "currentCode": "110007284",
+      "codes": [
+        "110007284"
+      ]
+    },
+    {
+      "carId": "300065-C500",
+      "manufacturer": "Austin-Healey",
+      "carName": "3000 MKIII 1965",
+      "currentCode": "181616339",
+      "codes": [
+        "181616339"
+      ]
+    },
+    {
+      "carId": "300065-b600",
+      "manufacturer": "Austin-Healey",
+      "carName": "3000 MKIII 1965",
+      "currentCode": "124674385",
+      "codes": [
+        "124674385"
+      ]
+    },
+    {
+      "carId": "370z19-a700",
+      "manufacturer": "Nissan",
+      "carName": "370Z Nismo 2019",
+      "currentCode": "337506678",
+      "codes": [
+        "337506678"
+      ]
+    },
+    {
+      "carId": "458italia09-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "458 Italia 2009",
+      "currentCode": "418922909",
+      "codes": [
+        "418922909"
+      ]
+    },
+    {
+      "carId": "459speciale13-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "458 Speciale 2013",
+      "currentCode": "804278190",
+      "codes": [
+        "804278190"
+      ]
+    },
+    {
+      "carId": "488gtb15-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "488 GTB 2015",
+      "currentCode": "811464174",
+      "codes": [
+        "811464174"
+      ]
+    },
+    {
+      "carId": "488pista19-S1800-1",
+      "manufacturer": "Ferrari",
+      "carName": "488 Pista 2019",
+      "currentCode": "518046153",
+      "codes": [
+        "518046153"
+      ]
+    },
+    {
+      "carId": "488pista19-S1800-2",
+      "manufacturer": "Ferrari",
+      "carName": "488 Pista 2019",
+      "currentCode": "142082395",
+      "codes": [
+        "142082395"
+      ]
+    },
+    {
+      "carId": "488pista19-S1800-3",
+      "manufacturer": "Ferrari",
+      "carName": "488 pista 2019",
+      "currentCode": "164765811",
+      "codes": [
+        "164765811"
+      ]
+    },
+    {
+      "carId": "488pista19-S1800-5",
+      "manufacturer": "Ferrari",
+      "carName": "488 Pista 2019",
+      "currentCode": "127103732",
+      "codes": [
+        "127103732"
+      ]
+    },
+    {
+      "carId": "4c14-a700",
+      "manufacturer": "Alfa Romeo",
+      "carName": "4C 2014",
+      "currentCode": "123540764",
+      "codes": [
+        "176374405",
+        "123540764"
+      ]
+    },
+    {
+      "carId": "4runner19-b600",
+      "manufacturer": "Toyota",
+      "carName": "4Runner TRD Pro 2019",
+      "currentCode": "173224871",
+      "codes": [
+        "104341261",
+        "173224871"
+      ]
+    },
+    {
+      "carId": "512tr92-A700",
+      "manufacturer": "Ferrari",
+      "carName": "512 TR 1992",
+      "currentCode": "150399526",
+      "codes": [
+        "150399526"
+      ]
+    },
+    {
+      "carId": "570s15-S1800-1",
+      "manufacturer": "Mclaren",
+      "carName": "570S Coupé 2015",
+      "currentCode": "958764676",
+      "codes": [
+        "958764676"
+      ]
+    },
+    {
+      "carId": "5tub80-a700",
+      "manufacturer": "Renault",
+      "carName": "5 Turbo 1980",
+      "currentCode": "393838729",
+      "codes": [
+        "393838729"
+      ]
+    },
+    {
+      "carId": "5tub80-b600",
+      "manufacturer": "Renault",
+      "carName": "5 Turbo 1980",
+      "currentCode": "695431923",
+      "codes": [
+        "131537025",
+        "695431923"
+      ]
+    },
+    {
+      "carId": "600lt18-S1800-1",
+      "manufacturer": "Mclaren",
+      "carName": "600LT Coupé 2018",
+      "currentCode": "752216269",
+      "codes": [
+        "752216269"
+      ]
+    },
+    {
+      "carId": "600lt18-s1800",
+      "manufacturer": "Mclaren",
+      "carName": "600LT Coupé 2018",
+      "currentCode": "159390255",
+      "codes": [
+        "159390255"
+      ]
+    },
+    {
+      "carId": "620r21-S1800",
+      "manufacturer": "Mclaren",
+      "carName": "620R 2021",
+      "currentCode": "604308400",
+      "codes": [
+        "604308400"
+      ]
+    },
+    {
+      "carId": "620r21-S1800-2",
+      "manufacturer": "Mclaren",
+      "carName": "620R 2021",
+      "currentCode": "618089982",
+      "codes": [
+        "646616045",
+        "618089982"
+      ]
+    },
+    {
+      "carId": "620r21-S1800-3",
+      "manufacturer": "Mclaren",
+      "carName": "620R 2021",
+      "currentCode": "157358637",
+      "codes": [
+        "157358637"
+      ]
+    },
+    {
+      "carId": "718gt4rs22-S1800",
+      "manufacturer": "Porsche",
+      "carName": "718 Cayman GT4 RS 2022",
+      "currentCode": "115621396",
+      "codes": [
+        "115621396"
+      ]
+    },
+    {
+      "carId": "718gt4rs22-S1800-1",
+      "manufacturer": "Porsche",
+      "carName": "718 Cayman GT4 RS 2022",
+      "currentCode": "180939804",
+      "codes": [
+        "180939804"
+      ]
+    },
+    {
+      "carId": "718gt4rs22-S1800-3",
+      "manufacturer": "Porsche",
+      "carName": "718 Cayman GT4 RS 2022",
+      "currentCode": "465469406",
+      "codes": [
+        "465469406"
+      ]
+    },
+    {
+      "carId": "718gts18-A700",
+      "manufacturer": "Porsche",
+      "carName": "718 Cayman GTS 2018",
+      "currentCode": "281420530",
+      "codes": [
+        "281420530"
+      ]
+    },
+    {
+      "carId": "718gts18-A700-1",
+      "manufacturer": "Porsche",
+      "carName": "718 Cayman GTS 2018",
+      "currentCode": "346102458",
+      "codes": [
+        "346102458"
+      ]
+    },
+    {
+      "carId": "765lt21-S1800",
+      "manufacturer": "Mclaren",
+      "carName": "765LT 2021",
+      "currentCode": "915159730",
+      "codes": [
+        "915159730"
+      ]
+    },
+    {
+      "carId": "812sufa17-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "812 Superfast 2017",
+      "currentCode": "966235645",
+      "codes": [
+        "966235645"
+      ]
+    },
+    {
+      "carId": "812superfast17-S2900",
+      "manufacturer": "Ferrari",
+      "carName": "812 Superfast  2017",
+      "currentCode": "125900177",
+      "codes": [
+        "125900177"
+      ]
+    },
+    {
+      "carId": "8613-A700",
+      "manufacturer": "Toyota",
+      "carName": "86 2013",
+      "currentCode": "190854429",
+      "codes": [
+        "190854429"
+      ]
+    },
+    {
+      "carId": "8ccomp07-A700",
+      "manufacturer": "Alfa Romeo",
+      "carName": "8C Competizione 2007",
+      "currentCode": "172073417",
+      "codes": [
+        "172073417"
+      ]
+    },
+    {
+      "carId": "911GT304-A700-1",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 2004",
+      "currentCode": "155885168",
+      "codes": [
+        "155885168"
+      ]
+    },
+    {
+      "carId": "911carreraRS73-B600",
+      "manufacturer": "Porsche",
+      "carName": "911 Carrera RS 1973",
+      "currentCode": "115342717",
+      "codes": [
+        "115342717"
+      ]
+    },
+    {
+      "carId": "911carreras19-S1800",
+      "manufacturer": "Porsche",
+      "carName": "911 Carrera S 2019",
+      "currentCode": "616169315",
+      "codes": [
+        "616169315"
+      ]
+    },
+    {
+      "carId": "911carreras19-S1800-1",
+      "manufacturer": "Porsche",
+      "carName": "911 Carrera S 2019",
+      "currentCode": "138624663",
+      "codes": [
+        "138624663"
+      ]
+    },
+    {
+      "carId": "911gt295-s1800",
+      "manufacturer": "Porsche",
+      "carName": "911 GT2 1995",
+      "currentCode": "448345251",
+      "codes": [
+        "448345251"
+      ]
+    },
+    {
+      "carId": "911gt2rs18-S2900",
+      "manufacturer": "Porsche",
+      "carName": "911 GT2 RS 2018",
+      "currentCode": "162130888",
+      "codes": [
+        "162130888"
+      ]
+    },
+    {
+      "carId": "911gt2rs2018-S1900",
+      "manufacturer": "Porsche",
+      "carName": "911 GT2 RS 2018",
+      "currentCode": "275351686",
+      "codes": [
+        "275351686"
+      ]
+    },
+    {
+      "carId": "911gt312-S1800",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 4.0 2012",
+      "currentCode": "140577494",
+      "codes": [
+        "140577494"
+      ]
+    },
+    {
+      "carId": "911gt312-S1800-1",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 4.0 2012",
+      "currentCode": "599703795",
+      "codes": [
+        "599703795"
+      ]
+    },
+    {
+      "carId": "911gt321-S1800",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 2021",
+      "currentCode": "820807654",
+      "codes": [
+        "820807654"
+      ]
+    },
+    {
+      "carId": "911gt3rs19-S1800",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 2019",
+      "currentCode": "144678168",
+      "codes": [
+        "144678168"
+      ]
+    },
+    {
+      "carId": "911gt3rs19-S1800-2",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 2019",
+      "currentCode": "378435776",
+      "codes": [
+        "378435776"
+      ]
+    },
+    {
+      "carId": "911gt3rs23-S1800",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 2023",
+      "currentCode": "127567447",
+      "codes": [
+        "127567447"
+      ]
+    },
+    {
+      "carId": "911turbo3.3-A700",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo 3.3 1982",
+      "currentCode": "151373169",
+      "codes": [
+        "151373169"
+      ]
+    },
+    {
+      "carId": "911turbo3.3-A700-1",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo 3.3 1982",
+      "currentCode": "466153428",
+      "codes": [
+        "466153428"
+      ]
+    },
+    {
+      "carId": "911turbo3.3-A700-2",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo 3.3 1982",
+      "currentCode": "156249891",
+      "codes": [
+        "156249891"
+      ]
+    },
+    {
+      "carId": "911turbo82-A700-5",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo 3.3 1982",
+      "currentCode": "164715066",
+      "codes": [
+        "164715066"
+      ]
+    },
+    {
+      "carId": "911turboS23-S1800",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo S 2023",
+      "currentCode": "103346519",
+      "codes": [
+        "103346519"
+      ]
+    },
+    {
+      "carId": "911turboS23-S1800-1",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo S 2023",
+      "currentCode": "274752576",
+      "codes": [
+        "274752576"
+      ]
+    },
+    {
+      "carId": "911turbosleicht93-A700",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo S Leichtbau 1993",
+      "currentCode": "986286772",
+      "codes": [
+        "986286772"
+      ]
+    },
+    {
+      "carId": "93519-S1800",
+      "manufacturer": "Porsche",
+      "carName": "#70 Porsche Motorsport 935 2019",
+      "currentCode": "139441901",
+      "codes": [
+        "179097536",
+        "139441901"
+      ]
+    },
+    {
+      "carId": "962cr-s1800",
+      "manufacturer": "Schuppan",
+      "carName": "962CR 1993",
+      "currentCode": "121589603",
+      "codes": [
+        "121589603"
+      ]
+    },
+    {
+      "carId": "F40-A700",
+      "manufacturer": "Ferrari",
+      "carName": "F40 1987",
+      "currentCode": "395628938",
+      "codes": [
+        "395628938"
+      ]
+    },
+    {
+      "carId": "Golfmk610-B600",
+      "manufacturer": "Volkswagen",
+      "carName": "Golf R 2010",
+      "currentCode": "103634074",
+      "codes": [
+        "103634074"
+      ]
+    },
+    {
+      "carId": "Gtprot25-S1800",
+      "manufacturer": "GR",
+      "carName": "GT Prototype 2025",
+      "currentCode": "156480355",
+      "codes": [
+        "156480355"
+      ]
+    },
+    {
+      "carId": "Gtprot25-S1800-1",
+      "manufacturer": "GR",
+      "carName": "GT Prototype 2025",
+      "currentCode": "687968554",
+      "codes": [
+        "687968554"
+      ]
+    },
+    {
+      "carId": "Gtprot25-S1800-2",
+      "manufacturer": "GR",
+      "carName": "GT Prototype 2025",
+      "currentCode": "162458103",
+      "codes": [
+        "162458103"
+      ]
+    },
+    {
+      "carId": "Gtprot25-S1800-4",
+      "manufacturer": "GR",
+      "carName": "GT Prototype 2025",
+      "currentCode": "576618425",
+      "codes": [
+        "576618425"
+      ]
+    },
+    {
+      "carId": "Limo13-A700",
+      "manufacturer": "Cadillac",
+      "carName": "XTS Limousine 2013",
+      "currentCode": "176696679",
+      "codes": [
+        "176696679"
+      ]
+    },
+    {
+      "carId": "Limo13-A700-2",
+      "manufacturer": "Cadillac",
+      "carName": "XTS Limousine 2013",
+      "currentCode": "151266154",
+      "codes": [
+        "151266154"
+      ]
+    },
+    {
+      "carId": "Limo13-B600",
+      "manufacturer": "Cadillac",
+      "carName": "XTS Limousine 2013",
+      "currentCode": "143271425",
+      "codes": [
+        "143271425"
+      ]
+    },
+    {
+      "carId": "acty94-A700",
+      "manufacturer": "Honda",
+      "carName": "Acty 1994",
+      "currentCode": "165046120",
+      "codes": [
+        "165046120"
+      ]
+    },
+    {
+      "carId": "acty94-B600",
+      "manufacturer": "Honda",
+      "carName": "Acty 1994",
+      "currentCode": "414866687",
+      "codes": [
+        "414866687"
+      ]
+    },
+    {
+      "carId": "acty94-c500",
+      "manufacturer": "Honda",
+      "carName": "Acty 1994",
+      "currentCode": "236534007",
+      "codes": [
+        "627032041",
+        "236534007"
+      ]
+    },
+    {
+      "carId": "ae86-C500",
+      "manufacturer": "Toyota",
+      "carName": "Sprinter Trueno GT Apex 1985",
+      "currentCode": "275140014",
+      "codes": [
+        "275140014"
+      ]
+    },
+    {
+      "carId": "amghammercoupe87-B600",
+      "manufacturer": "Mercedes-Benz",
+      "carName": "AMG Hammer Coupe 1987",
+      "currentCode": "716355060",
+      "codes": [
+        "716355060"
+      ]
+    },
+    {
+      "carId": "arx18-S1800",
+      "manufacturer": "Subaru",
+      "carName": "WRX STI ARX Supercar 2018",
+      "currentCode": "165034426",
+      "codes": [
+        "165034426"
+      ]
+    },
+    {
+      "carId": "arx18-a700",
+      "manufacturer": "Subaru",
+      "carName": "WRX STI ARX Supercar 2018",
+      "currentCode": "767377507",
+      "codes": [
+        "767377507"
+      ]
+    },
+    {
+      "carId": "atlas:akihiko-r35",
+      "manufacturer": "수도고 복각",
+      "carName": "하토리의 FR R35 · 아키히코 제작",
+      "currentCode": "621579516",
+      "codes": [
+        "621579516"
+      ]
+    },
+    {
+      "carId": "atlas:aris-r35",
+      "manufacturer": "수도고 복각",
+      "carName": "아리수 가라지의 R35 · 아라이즈",
+      "currentCode": "164041716",
+      "codes": [
+        "164041716"
+      ]
+    },
+    {
+      "carId": "atlas:blackbird",
+      "manufacturer": "수도고 복각",
+      "carName": "블랙버드",
+      "currentCode": "130066553",
+      "codes": [
+        "130066553"
+      ]
+    },
+    {
+      "carId": "atlas:crs-r34",
+      "manufacturer": "수도고 복각",
+      "carName": "쿠도의 FR R34 · CRS 배틀 사양",
+      "currentCode": "126020051",
+      "codes": [
+        "126020051"
+      ]
+    },
+    {
+      "carId": "atlas:eiji-evo",
+      "manufacturer": "수도고 복각",
+      "carName": "에이지의 에보",
+      "currentCode": "138227322",
+      "codes": [
+        "138227322"
+      ]
+    },
+    {
+      "carId": "atlas:hiramoto-r32",
+      "manufacturer": "수도고 복각",
+      "carName": "히라모토의 R32",
+      "currentCode": "953793558",
+      "codes": [
+        "953793558"
+      ]
+    },
+    {
+      "carId": "atlas:ishida-testarossa",
+      "manufacturer": "수도고 복각",
+      "carName": "이시다의 테스타로사",
+      "currentCode": "166266066",
+      "codes": [
+        "166266066"
+      ]
+    },
+    {
+      "carId": "atlas:kei-supra",
+      "manufacturer": "수도고 복각",
+      "carName": "케이의 수프라",
+      "currentCode": "449724507",
+      "codes": [
+        "449724507"
+      ]
+    },
+    {
+      "carId": "atlas:masaki-fd",
+      "manufacturer": "수도고 복각",
+      "carName": "마사키의 RGO FD",
+      "currentCode": "213368533",
+      "codes": [
+        "213368533"
+      ]
+    },
+    {
+      "carId": "atlas:reina-r32",
+      "manufacturer": "수도고 복각",
+      "carName": "레이나의 R32",
+      "currentCode": "173361720",
+      "codes": [
+        "173361720"
+      ]
+    },
+    {
+      "carId": "atlas:rgo-r33",
+      "manufacturer": "수도고 복각",
+      "carName": "RGO R33",
+      "currentCode": "118270675",
+      "codes": [
+        "118270675"
+      ]
+    },
+    {
+      "carId": "atlas:yuji-s2000",
+      "manufacturer": "수도고 복각",
+      "carName": "유우지의 S2000",
+      "currentCode": "216694133",
+      "codes": [
+        "216694133"
+      ]
+    },
+    {
+      "carId": "atom13-s2900",
+      "manufacturer": "Ariel",
+      "carName": "Atom 500 V8 2013",
+      "currentCode": "830355237",
+      "codes": [
+        "830355237"
+      ]
+    },
+    {
+      "carId": "autodeltatipo68-A700",
+      "manufacturer": "Alfa Romeo",
+      "carName": "Autodelta Tipo 33/2 Daytona 1968",
+      "currentCode": "119190116",
+      "codes": [
+        "119190116"
+      ]
+    },
+    {
+      "carId": "autodeltatipo68-S1800",
+      "manufacturer": "Alfa Romeo",
+      "carName": "Autodelta Tipo 33/2 Daytona 1968",
+      "currentCode": "789403553",
+      "codes": [
+        "789403553"
+      ]
+    },
+    {
+      "carId": "aventadorsvj18-s1800",
+      "manufacturer": "Lamborghini",
+      "carName": "Aventador SVJ 2018",
+      "currentCode": "458705294",
+      "codes": [
+        "458705294"
+      ]
+    },
+    {
+      "carId": "az193-D400",
+      "manufacturer": "Autozam",
+      "carName": "AZ-1 1993",
+      "currentCode": "104267754",
+      "codes": [
+        "104267754"
+      ]
+    },
+    {
+      "carId": "beat91-B600",
+      "manufacturer": "Honda",
+      "carName": "Beat 1991",
+      "currentCode": "787604152",
+      "codes": [
+        "787604152"
+      ]
+    },
+    {
+      "carId": "beat91-b600",
+      "manufacturer": "Honda",
+      "carName": "Beat 1991",
+      "currentCode": "134002969",
+      "codes": [
+        "134002969"
+      ]
+    },
+    {
+      "carId": "beetle17",
+      "manufacturer": "Volkswagen",
+      "carName": "#34 Andretti Rally Cross Beetle 2017",
+      "currentCode": "116384352",
+      "codes": [
+        "154864335",
+        "116384352"
+      ]
+    },
+    {
+      "carId": "bentayga-a700",
+      "manufacturer": "Bentley",
+      "carName": "Bentayga 2016",
+      "currentCode": "612557887",
+      "codes": [
+        "612557887"
+      ]
+    },
+    {
+      "carId": "brat80-c500",
+      "manufacturer": "Subaru",
+      "carName": "Brat GL 1980",
+      "currentCode": "980963677",
+      "codes": [
+        "980963677"
+      ]
+    },
+    {
+      "carId": "brocky17-A700",
+      "manufacturer": "Ford",
+      "carName": "#25 \"BROCKY\" Ultra4 bronco RTR 2017",
+      "currentCode": "157171566",
+      "codes": [
+        "157171566"
+      ]
+    },
+    {
+      "carId": "brz13-b600",
+      "manufacturer": "Subaru",
+      "carName": "BRZ 2013",
+      "currentCode": "447965545",
+      "codes": [
+        "447965545"
+      ]
+    },
+    {
+      "carId": "brz22-A700",
+      "manufacturer": "Subaru",
+      "carName": "BRZ 2022",
+      "currentCode": "426758378",
+      "codes": [
+        "426758378"
+      ]
+    },
+    {
+      "carId": "c63scoupe16-A700",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "C 63 S Coupé 2016",
+      "currentCode": "130281688",
+      "codes": [
+        "130281688"
+      ]
+    },
+    {
+      "carId": "camarozl11le18-S1800",
+      "manufacturer": "Chevrolet",
+      "carName": "Camaro ZL1 1LE 2018",
+      "currentCode": "132437097",
+      "codes": [
+        "132437097"
+      ]
+    },
+    {
+      "carId": "camrytrd23-A700",
+      "manufacturer": "Toyota",
+      "carName": "Camry TRD 2023",
+      "currentCode": "921025861",
+      "codes": [
+        "921025861"
+      ]
+    },
+    {
+      "carId": "camrytrd23-B600",
+      "manufacturer": "Toyota",
+      "carName": "Camry TRD 2023",
+      "currentCode": "237363098",
+      "codes": [
+        "237363098"
+      ]
+    },
+    {
+      "carId": "carreragt03-S1800",
+      "manufacturer": "Porsche",
+      "carName": "Carrera GT 2003",
+      "currentCode": "465488625",
+      "codes": [
+        "465488625"
+      ]
+    },
+    {
+      "carId": "carreragt03-S1800-1",
+      "manufacturer": "Porsche",
+      "carName": "Carrera GT 2003",
+      "currentCode": "171197921",
+      "codes": [
+        "171197921"
+      ]
+    },
+    {
+      "carId": "celica92-b600",
+      "manufacturer": "Toyota",
+      "carName": "Celica GT-Four ST185 1992",
+      "currentCode": "638930973",
+      "codes": [
+        "638930973"
+      ]
+    },
+    {
+      "carId": "celica94-C500-1",
+      "manufacturer": "Toyota",
+      "carName": "Celica GT-Four ST205 1994",
+      "currentCode": "153252848",
+      "codes": [
+        "153252848"
+      ]
+    },
+    {
+      "carId": "celicassII03-B600",
+      "manufacturer": "Toyota",
+      "carName": "Celica Sport Specialty II 2003",
+      "currentCode": "156520574",
+      "codes": [
+        "156520574"
+      ]
+    },
+    {
+      "carId": "challengersrt15-a700",
+      "manufacturer": "Dodge",
+      "carName": "Challenger SRT Hellcat 2015",
+      "currentCode": "591488570",
+      "codes": [
+        "591488570"
+      ]
+    },
+    {
+      "carId": "charday-A700",
+      "manufacturer": "Dodge",
+      "carName": "Charger Daytona HEMI 1969",
+      "currentCode": "156962244",
+      "codes": [
+        "156962244"
+      ]
+    },
+    {
+      "carId": "chaser97",
+      "manufacturer": "Toyota",
+      "carName": "Chaser 2.5 Tourer V 1997",
+      "currentCode": "113068804",
+      "codes": [
+        "113068804"
+      ]
+    },
+    {
+      "carId": "chaser97-a700",
+      "manufacturer": "Toyota",
+      "carName": "Chaser 2.5 Tourer V 1997",
+      "currentCode": "175785064",
+      "codes": [
+        "175785064"
+      ]
+    },
+    {
+      "carId": "civic97-C500",
+      "manufacturer": "Honda",
+      "carName": "Civic Type R 1997",
+      "currentCode": "113931104",
+      "codes": [
+        "113931104"
+      ]
+    },
+    {
+      "carId": "civiccrxmugen84-b600",
+      "manufacturer": "Honda",
+      "carName": "Civic CRX Mugen 1984",
+      "currentCode": "150360336",
+      "codes": [
+        "150360336"
+      ]
+    },
+    {
+      "carId": "civicsi86-d500",
+      "manufacturer": "Honda",
+      "carName": "Civic Si 1986",
+      "currentCode": "715941105",
+      "codes": [
+        "715941105"
+      ]
+    },
+    {
+      "carId": "civictyper07-B600",
+      "manufacturer": "Honda",
+      "carName": "Civic Type R 2007",
+      "currentCode": "660060277",
+      "codes": [
+        "660060277"
+      ]
+    },
+    {
+      "carId": "civictyper18-A700",
+      "manufacturer": "Honda",
+      "carName": "Civic Type R 2018",
+      "currentCode": "177629386",
+      "codes": [
+        "177629386"
+      ]
+    },
+    {
+      "carId": "class120-a700",
+      "manufacturer": "Jimco",
+      "carName": "#179 Hammerhead Class 1 2020",
+      "currentCode": "159328644",
+      "codes": [
+        "159328644"
+      ]
+    },
+    {
+      "carId": "class1buggy21-b600",
+      "manufacturer": "Alumicraft",
+      "carName": "#122 Class 1 buggy 2021",
+      "currentCode": "611143497",
+      "codes": [
+        "611143497"
+      ]
+    },
+    {
+      "carId": "clio93-a700",
+      "manufacturer": "Renault",
+      "carName": "Clio Williams 1993",
+      "currentCode": "868543800",
+      "codes": [
+        "868543800"
+      ]
+    },
+    {
+      "carId": "cobra65-a700",
+      "manufacturer": "Shelby",
+      "carName": "Cobra 427 S/C",
+      "currentCode": "832474546",
+      "codes": [
+        "832474546"
+      ]
+    },
+    {
+      "carId": "cobra65-a700",
+      "manufacturer": "Shelby",
+      "carName": "Cobra 427 S/C 1965",
+      "currentCode": "832474546",
+      "codes": [
+        "832474546"
+      ]
+    },
+    {
+      "carId": "continental62-c500",
+      "manufacturer": "Lincoln",
+      "carName": "Continental 1962",
+      "currentCode": "179296450",
+      "codes": [
+        "179296450"
+      ]
+    },
+    {
+      "carId": "corrado95-b600",
+      "manufacturer": "Volkswagen",
+      "carName": "Corrado VR6 1995",
+      "currentCode": "115819310",
+      "codes": [
+        "115819310"
+      ]
+    },
+    {
+      "carId": "corvette02-a700",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette Z06 2002",
+      "currentCode": "409787874",
+      "codes": [
+        "409787874"
+      ]
+    },
+    {
+      "carId": "corvette02-s1800",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette Z06 2002",
+      "currentCode": "130641602",
+      "codes": [
+        "130641602"
+      ]
+    },
+    {
+      "carId": "corvettecoupe20-S1800",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette Stingray Coupe 2020",
+      "currentCode": "818489640",
+      "codes": [
+        "818489640"
+      ]
+    },
+    {
+      "carId": "corvettez0602-A700",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette Z06 2002",
+      "currentCode": "542120655",
+      "codes": [
+        "542120655"
+      ]
+    },
+    {
+      "carId": "corvettez0623-S1800",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette Z06 2023",
+      "currentCode": "968796321",
+      "codes": [
+        "968796321"
+      ]
+    },
+    {
+      "carId": "corvettezr109-S1800",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette ZR1 2009",
+      "currentCode": "167252512",
+      "codes": [
+        "167252512"
+      ]
+    },
+    {
+      "carId": "corvettezr119-S1800",
+      "manufacturer": "Chevrolet",
+      "carName": "Corvette ZR1 2019",
+      "currentCode": "151101076",
+      "codes": [
+        "151101076"
+      ]
+    },
+    {
+      "carId": "cosmo72-b600",
+      "manufacturer": "Mazda",
+      "carName": "Cosmo 110S Series II 1972",
+      "currentCode": "932792359",
+      "codes": [
+        "932792359"
+      ]
+    },
+    {
+      "carId": "countachlp500088-A700",
+      "manufacturer": "Lamborghini",
+      "carName": "Countach LP5000 QV 1988",
+      "currentCode": "756257316",
+      "codes": [
+        "756257316"
+      ]
+    },
+    {
+      "carId": "countachlpi800421-S1800",
+      "manufacturer": "Lamborghini",
+      "carName": "Countach LPI 800-4 2021",
+      "currentCode": "479888702",
+      "codes": [
+        "479888702"
+      ]
+    },
+    {
+      "carId": "countachlpi800421-S1800-1",
+      "manufacturer": "Lamborghini",
+      "carName": "Countach LPI 800-4 2021",
+      "currentCode": "802327992",
+      "codes": [
+        "802327992"
+      ]
+    },
+    {
+      "carId": "crxwtac90-S1800",
+      "manufacturer": "Honda",
+      "carName": "#19 101 Motorsport CRX WTAC 1990",
+      "currentCode": "932495186",
+      "codes": [
+        "932495186"
+      ]
+    },
+    {
+      "carId": "db1117-a700",
+      "manufacturer": "Aston Martin",
+      "carName": "DB11 2017",
+      "currentCode": "856195645",
+      "codes": [
+        "856195645"
+      ]
+    },
+    {
+      "carId": "db7gt03-A700",
+      "manufacturer": "Aston Martin",
+      "carName": "DB7 GT 2003",
+      "currentCode": "134750833",
+      "codes": [
+        "134750833"
+      ]
+    },
+    {
+      "carId": "dbssuperleg19-S1800",
+      "manufacturer": "Aston Martin",
+      "carName": "DBS Superleggera 2019",
+      "currentCode": "117098550",
+      "codes": [
+        "117098550"
+      ]
+    },
+    {
+      "carId": "dbx21-a700",
+      "manufacturer": "Aston Martin",
+      "carName": "DBX 2021",
+      "currentCode": "133363283",
+      "codes": [
+        "133363283"
+      ]
+    },
+    {
+      "carId": "defender20-b600",
+      "manufacturer": "Land Rover",
+      "carName": "Defender 110 X 2020",
+      "currentCode": "146503178",
+      "codes": [
+        "342014915",
+        "146503178"
+      ]
+    },
+    {
+      "carId": "delta92",
+      "manufacturer": "Lancia",
+      "carName": "Delta HF Integrale Evo 1992",
+      "currentCode": "426516139",
+      "codes": [
+        "426516139"
+      ]
+    },
+    {
+      "carId": "deltas4-A700",
+      "manufacturer": "Lancia",
+      "carName": "Delta S4 1986",
+      "currentCode": "178337333",
+      "codes": [
+        "178337333"
+      ]
+    },
+    {
+      "carId": "deltas4-A700-1",
+      "manufacturer": "Lancia",
+      "carName": "Delta S4 1986",
+      "currentCode": "129691202",
+      "codes": [
+        "129691202"
+      ]
+    },
+    {
+      "carId": "deltas4-S1800",
+      "manufacturer": "Lancia",
+      "carName": "Delta S4 1986",
+      "currentCode": "503202838",
+      "codes": [
+        "503202838"
+      ]
+    },
+    {
+      "carId": "deluxe32-d400",
+      "manufacturer": "Ford",
+      "carName": "De Luxe Five Window Coupe 1932",
+      "currentCode": "139781609",
+      "codes": [
+        "139781609"
+      ]
+    },
+    {
+      "carId": "diablogtr99-S2900",
+      "manufacturer": "Lamborghini",
+      "carName": "Diablo GTR 1999",
+      "currentCode": "141538787",
+      "codes": [
+        "141538787"
+      ]
+    },
+    {
+      "carId": "diablosv97-A700",
+      "manufacturer": "Lamborghini",
+      "carName": "Diablo SV 1997",
+      "currentCode": "631496266",
+      "codes": [
+        "631496266"
+      ]
+    },
+    {
+      "carId": "diablosv97-A700-1",
+      "manufacturer": "Lamborghini",
+      "carName": "Diablo SV 1997",
+      "currentCode": "312655921",
+      "codes": [
+        "312655921"
+      ]
+    },
+    {
+      "carId": "dino246gt69-B600",
+      "manufacturer": "Ferrari",
+      "carName": "Dino 246 GT 1969",
+      "currentCode": "653339418",
+      "codes": [
+        "653339418"
+      ]
+    },
+    {
+      "carId": "ek9-B600",
+      "manufacturer": "Honda",
+      "carName": "Civic Type R 1997",
+      "currentCode": "606304006",
+      "codes": [
+        "606304006"
+      ]
+    },
+    {
+      "carId": "ek9-B600-1",
+      "manufacturer": "Honda",
+      "carName": "Civic Type R 1997",
+      "currentCode": "124358305",
+      "codes": [
+        "124358305"
+      ]
+    },
+    {
+      "carId": "elise97-S1800",
+      "manufacturer": "Lotus",
+      "carName": "Elise GT1 1997",
+      "currentCode": "136717889",
+      "codes": [
+        "741187086",
+        "136717889"
+      ]
+    },
+    {
+      "carId": "elise99-A700",
+      "manufacturer": "Lotus",
+      "carName": "Elise Series 1 sport 190",
+      "currentCode": "228471318",
+      "codes": [
+        "228471318"
+      ]
+    },
+    {
+      "carId": "elise99-A700",
+      "manufacturer": "Lotus",
+      "carName": "Elise Series 1 sport 190 1999",
+      "currentCode": "172365918",
+      "codes": [
+        "228471318",
+        "172365918"
+      ]
+    },
+    {
+      "carId": "emira23-S1800",
+      "manufacturer": "Lotus",
+      "carName": "Emira 2023",
+      "currentCode": "318841055",
+      "codes": [
+        "318841055"
+      ]
+    },
+    {
+      "carId": "emira23-S1800-1",
+      "manufacturer": "Lotus",
+      "carName": "Emira 2023",
+      "currentCode": "118311428",
+      "codes": [
+        "118311428"
+      ]
+    },
+    {
+      "carId": "enzo02-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "Enzo Ferrari 2002",
+      "currentCode": "149867118",
+      "codes": [
+        "149867118"
+      ]
+    },
+    {
+      "carId": "espritv802-a700",
+      "manufacturer": "Lotus",
+      "carName": "Esprit V8 2002",
+      "currentCode": "168136166",
+      "codes": [
+        "168136166"
+      ]
+    },
+    {
+      "carId": "evo601-B600",
+      "manufacturer": "Mitsubishi",
+      "carName": "Lancer Evolution VI GSR TM Edition 2001",
+      "currentCode": "277013727",
+      "codes": [
+        "277013727"
+      ]
+    },
+    {
+      "carId": "evo804-A700",
+      "manufacturer": "Mitsubishi",
+      "carName": "Lancer Evolution VIII MR '환영 팩' 2004",
+      "currentCode": "127940087",
+      "codes": [
+        "127940087"
+      ]
+    },
+    {
+      "carId": "evo804-A700-1",
+      "manufacturer": "Mitsubishi",
+      "carName": "Lancer Evolution VIII MR 2004",
+      "currentCode": "142610067",
+      "codes": [
+        "142610067"
+      ]
+    },
+    {
+      "carId": "evo906-A700",
+      "manufacturer": "Mitsubishi",
+      "carName": "Lancer Evolution IX MR 2006",
+      "currentCode": "186656355",
+      "codes": [
+        "186656355"
+      ]
+    },
+    {
+      "carId": "exige18-S1800",
+      "manufacturer": "Lotus",
+      "carName": "Exige Cup 430 2018",
+      "currentCode": "141961321",
+      "codes": [
+        "279733791",
+        "141961321"
+      ]
+    },
+    {
+      "carId": "exige18-S1800-3",
+      "manufacturer": "Lotus",
+      "carName": "Exige Cup 430 2018",
+      "currentCode": "166635552",
+      "codes": [
+        "166635552"
+      ]
+    },
+    {
+      "carId": "exige18-a700",
+      "manufacturer": "Lotus",
+      "carName": "Exige Cup 430 2018",
+      "currentCode": "812053906",
+      "codes": [
+        "812053906"
+      ]
+    },
+    {
+      "carId": "exigecup43018-3",
+      "manufacturer": "Lotus",
+      "carName": "Exige Cup 430 2018",
+      "currentCode": "775972556",
+      "codes": [
+        "775972556"
+      ]
+    },
+    {
+      "carId": "exocet18-a700",
+      "manufacturer": "Exomotive",
+      "carName": "Exocet Sport V8 XP-5 2018",
+      "currentCode": "111810378",
+      "codes": [
+        "111810378"
+      ]
+    },
+    {
+      "carId": "f-25019-A700",
+      "manufacturer": "Deberti",
+      "carName": "Ford Super Duty F-250 2019",
+      "currentCode": "739834431",
+      "codes": [
+        "163861449",
+        "739834431"
+      ]
+    },
+    {
+      "carId": "f12tdf15-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "F12tdf 2015",
+      "currentCode": "124155982",
+      "codes": [
+        "124155982"
+      ]
+    },
+    {
+      "carId": "f15023-B600",
+      "manufacturer": "Ford",
+      "carName": "F-150 Raptor R 'Welcome Pack' 2023",
+      "currentCode": "291811119",
+      "codes": [
+        "291811119"
+      ]
+    },
+    {
+      "carId": "f15086-c500",
+      "manufacturer": "Ford",
+      "carName": "F-150 XLT Lariat 1986",
+      "currentCode": "103829650",
+      "codes": [
+        "103829650"
+      ]
+    },
+    {
+      "carId": "f193-S1800",
+      "manufacturer": "Mclaren",
+      "carName": "F1 1993",
+      "currentCode": "422453422",
+      "codes": [
+        "422453422"
+      ]
+    },
+    {
+      "carId": "f45019-a700",
+      "manufacturer": "Ford",
+      "carName": "Super Duty F-450 DRW Platinum 2020",
+      "currentCode": "832773626",
+      "codes": [
+        "832773626"
+      ]
+    },
+    {
+      "carId": "f45019-b600",
+      "manufacturer": "Ford",
+      "carName": "Super Duty F-450 DRW Platinum 2020",
+      "currentCode": "107167805",
+      "codes": [
+        "107167805"
+      ]
+    },
+    {
+      "carId": "f5095-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "F50 1995",
+      "currentCode": "891013668",
+      "codes": [
+        "891013668"
+      ]
+    },
+    {
+      "carId": "factoryracing21-c500",
+      "manufacturer": "Polaris",
+      "carName": "RZR Pro XP Factory Racing LM 2021",
+      "currentCode": "155162915",
+      "codes": [
+        "155162915"
+      ]
+    },
+    {
+      "carId": "fairladyz94-a700",
+      "manufacturer": "Nissan",
+      "carName": "Fairlady Z Version S Twin Turbo 1994",
+      "currentCode": "461057974",
+      "codes": [
+        "461057974"
+      ]
+    },
+    {
+      "carId": "fc90-B600",
+      "manufacturer": "Mazda",
+      "carName": "Savanna RX-7 1990",
+      "currentCode": "105101048",
+      "codes": [
+        "105101048"
+      ]
+    },
+    {
+      "carId": "fd3s-A700",
+      "manufacturer": "Mazda",
+      "carName": "RX-7 Type R 1992",
+      "currentCode": "862311744",
+      "codes": [
+        "862311744"
+      ]
+    },
+    {
+      "carId": "fd3s-A700-1",
+      "manufacturer": "Mazda",
+      "carName": "RX-7 Type R 1992",
+      "currentCode": "118628850",
+      "codes": [
+        "118628850"
+      ]
+    },
+    {
+      "carId": "fd3s-A700-2",
+      "manufacturer": "Mazda",
+      "carName": "RX-7 Type R 1992",
+      "currentCode": "605535398",
+      "codes": [
+        "605535398"
+      ]
+    },
+    {
+      "carId": "fd3s-A700-3",
+      "manufacturer": "Mazda",
+      "carName": "RX-7 Type R 1992",
+      "currentCode": "187894734",
+      "codes": [
+        "605535398",
+        "121503436",
+        "548301814",
+        "187894734"
+      ]
+    },
+    {
+      "carId": "fiesta17race-s1800",
+      "manufacturer": "Ford",
+      "carName": "#14 Rahal Letterman Lanigan Racing Fiesta 2017",
+      "currentCode": "556031310",
+      "codes": [
+        "759744209",
+        "556031310"
+      ]
+    },
+    {
+      "carId": "fj40-b600",
+      "manufacturer": "Toyota",
+      "carName": "FJ40 1979",
+      "currentCode": "379864828",
+      "codes": [
+        "379864828"
+      ]
+    },
+    {
+      "carId": "fj40-c500",
+      "manufacturer": "Toyota",
+      "carName": "FJ40 1979",
+      "currentCode": "825733148",
+      "codes": [
+        "825733148"
+      ]
+    },
+    {
+      "carId": "g4019-b600",
+      "manufacturer": "Ginetta",
+      "carName": "G40 Junior 2019",
+      "currentCode": "100369407",
+      "codes": [
+        "100369407"
+      ]
+    },
+    {
+      "carId": "g4019-s1800",
+      "manufacturer": "Ginetta",
+      "carName": "G40 Junior 2019",
+      "currentCode": "177037551",
+      "codes": [
+        "133085150",
+        "177037551"
+      ]
+    },
+    {
+      "carId": "g40jun19-s1800",
+      "manufacturer": "Ginetta",
+      "carName": "G40 Junior 2019",
+      "currentCode": "727375015",
+      "codes": [
+        "438223836",
+        "727375015"
+      ]
+    },
+    {
+      "carId": "galant92-c500",
+      "manufacturer": "Mitsubishi",
+      "carName": "Galant VR-4 1992",
+      "currentCode": "158779623",
+      "codes": [
+        "485729648",
+        "158779623"
+      ]
+    },
+    {
+      "carId": "genf14-a700",
+      "manufacturer": "HSV",
+      "carName": "Gen-F GTS 2014",
+      "currentCode": "139183976",
+      "codes": [
+        "139183976"
+      ]
+    },
+    {
+      "carId": "giuliasprint68-a700",
+      "manufacturer": "Alfa Romeo",
+      "carName": "Giulia Sprint GTA Stradale 1965",
+      "currentCode": "111994262",
+      "codes": [
+        "111994262"
+      ]
+    },
+    {
+      "carId": "glanza96",
+      "manufacturer": "Toyota",
+      "carName": "Starlet Glanza V 1996",
+      "currentCode": "133117962",
+      "codes": [
+        "133117962"
+      ]
+    },
+    {
+      "carId": "gloria95-a700",
+      "manufacturer": "Nissan",
+      "carName": "Gloria Gran Turismo 1995",
+      "currentCode": "157713649",
+      "codes": [
+        "157713649"
+      ]
+    },
+    {
+      "carId": "golf21-a700",
+      "manufacturer": "Volkswagen",
+      "carName": "Golf R 2021",
+      "currentCode": "101829243",
+      "codes": [
+        "101829243"
+      ]
+    },
+    {
+      "carId": "gordini67-c500",
+      "manufacturer": "Renault",
+      "carName": "8 Gordini 1967",
+      "currentCode": "928609740",
+      "codes": [
+        "117530597",
+        "928609740"
+      ]
+    },
+    {
+      "carId": "gr86-A700",
+      "manufacturer": "Toyota",
+      "carName": "GR86 2022",
+      "currentCode": "600163364",
+      "codes": [
+        "520202721",
+        "704076914",
+        "600163364"
+      ]
+    },
+    {
+      "carId": "gr86-B600",
+      "manufacturer": "Toyota",
+      "carName": "GR86 2022",
+      "currentCode": "345972251",
+      "codes": [
+        "345972251"
+      ]
+    },
+    {
+      "carId": "griffith18-a700",
+      "manufacturer": "TVR",
+      "carName": "Griffith 2018",
+      "currentCode": "141076383",
+      "codes": [
+        "141076383"
+      ]
+    },
+    {
+      "carId": "gt17-S1800",
+      "manufacturer": "Ford",
+      "carName": "GT 2017",
+      "currentCode": "638651826",
+      "codes": [
+        "638651826"
+      ]
+    },
+    {
+      "carId": "gt323-s1800-1",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 2023",
+      "currentCode": "389900544",
+      "codes": [
+        "389900544"
+      ]
+    },
+    {
+      "carId": "gt323-s1800-2",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 2023",
+      "currentCode": "114289177",
+      "codes": [
+        "114279177",
+        "114289177"
+      ]
+    },
+    {
+      "carId": "gt323-s1800-3",
+      "manufacturer": "Porsche",
+      "carName": "911 GT3 RS 2023",
+      "currentCode": "168053900",
+      "codes": [
+        "168053900"
+      ]
+    },
+    {
+      "carId": "gt4066-a700",
+      "manufacturer": "Ford",
+      "carName": "#2 GT40 Mk.II 1966",
+      "currentCode": "177427135",
+      "codes": [
+        "177427135"
+      ]
+    },
+    {
+      "carId": "gtblack20-S2900",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT Black Series 2020",
+      "currentCode": "168966658",
+      "codes": [
+        "168966658"
+      ]
+    },
+    {
+      "carId": "gtblack21-S1800",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT Black Series 2021",
+      "currentCode": "379532855",
+      "codes": [
+        "379532855"
+      ]
+    },
+    {
+      "carId": "gtblack21-S1800-1",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT Black Series 2021",
+      "currentCode": "177346568",
+      "codes": [
+        "177346568"
+      ]
+    },
+    {
+      "carId": "gtblackwelcome20-R998",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT Black Series '환영팩' 2020",
+      "currentCode": "133167227",
+      "codes": [
+        "133167227"
+      ]
+    },
+    {
+      "carId": "gtblackwelcome20-S2900",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT Black Series '환영팩' 2020",
+      "currentCode": "172447995",
+      "codes": [
+        "172447995"
+      ]
+    },
+    {
+      "carId": "gtr17-S1800",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT R 2017",
+      "currentCode": "117783720",
+      "codes": [
+        "117783720"
+      ]
+    },
+    {
+      "carId": "gtrnismo24-S1800",
+      "manufacturer": "Nissan",
+      "carName": "GT-R Nismo 2024",
+      "currentCode": "116246381",
+      "codes": [
+        "116246381"
+      ]
+    },
+    {
+      "carId": "gtrnismo24-S1800-1",
+      "manufacturer": "Nissan",
+      "carName": "GT-R Nismo 2024",
+      "currentCode": "178375543",
+      "codes": [
+        "152582505",
+        "178375543"
+      ]
+    },
+    {
+      "carId": "gts15-S1800",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "GT S 2015",
+      "currentCode": "769346933",
+      "codes": [
+        "769346933"
+      ]
+    },
+    {
+      "carId": "huracan14-s1800",
+      "manufacturer": "Lamborghini",
+      "carName": "Huracan LP 610-4 2014",
+      "currentCode": "165438147",
+      "codes": [
+        "165438147"
+      ]
+    },
+    {
+      "carId": "huracan23-s1800",
+      "manufacturer": "Lamborghini",
+      "carName": "Huracan Sterrato 2023",
+      "currentCode": "787342044",
+      "codes": [
+        "787342044"
+      ]
+    },
+    {
+      "carId": "huracanlp610414-S1800",
+      "manufacturer": "Lamborghini",
+      "carName": "Huracan LP 610-4 2014",
+      "currentCode": "137944993",
+      "codes": [
+        "137944993"
+      ]
+    },
+    {
+      "carId": "i2021-S1800",
+      "manufacturer": "Hyundai",
+      "carName": "I20 N 2021",
+      "currentCode": "538158993",
+      "codes": [
+        "538158993"
+      ]
+    },
+    {
+      "carId": "i82015-a700",
+      "manufacturer": "BMW",
+      "carName": "I8 2015",
+      "currentCode": "140214299",
+      "codes": [
+        "140214299"
+      ]
+    },
+    {
+      "carId": "impalaSS96-B600",
+      "manufacturer": "Chevrolet",
+      "carName": "Impala Super Sport 1996",
+      "currentCode": "106260860",
+      "codes": [
+        "106260860"
+      ]
+    },
+    {
+      "carId": "integra01-b600-2",
+      "manufacturer": "Acura",
+      "carName": "Integra Type R 2001",
+      "currentCode": "624616758",
+      "codes": [
+        "624616758"
+      ]
+    },
+    {
+      "carId": "integra01-b700",
+      "manufacturer": "Acura",
+      "carName": "Integra Type R 2001",
+      "currentCode": "154861966",
+      "codes": [
+        "154861966"
+      ]
+    },
+    {
+      "carId": "integra23-b600",
+      "manufacturer": "Acura",
+      "carName": "Integra A-Spec 2023",
+      "currentCode": "124746623",
+      "codes": [
+        "124746623"
+      ]
+    },
+    {
+      "carId": "integrawtac01-S2900",
+      "manufacturer": "Honda",
+      "carName": "#33 Integra WTAC",
+      "currentCode": "202910540",
+      "codes": [
+        "202910540"
+      ]
+    },
+    {
+      "carId": "integrawtac01-S2900",
+      "manufacturer": "Honda",
+      "carName": "#33 Integra WTAC 2001",
+      "currentCode": "202910540",
+      "codes": [
+        "202910540"
+      ]
+    },
+    {
+      "carId": "ioniq523-A700",
+      "manufacturer": "Hyundai",
+      "carName": "IONIQ 5 N 2023",
+      "currentCode": "120392857",
+      "codes": [
+        "179235169",
+        "120392857"
+      ]
+    },
+    {
+      "carId": "ioniq523-S2",
+      "manufacturer": "Hyundai",
+      "carName": "IONIQ 5 N 2023",
+      "currentCode": "149118795",
+      "codes": [
+        "149118795"
+      ]
+    },
+    {
+      "carId": "is200-A700",
+      "manufacturer": "Toyota",
+      "carName": "Altezza RS200 Z Edition 1999",
+      "currentCode": "361202382",
+      "codes": [
+        "361202382"
+      ]
+    },
+    {
+      "carId": "jimmy70-c500",
+      "manufacturer": "GMC",
+      "carName": "Jimmy 1970",
+      "currentCode": "425474859",
+      "codes": [
+        "425474859"
+      ]
+    },
+    {
+      "carId": "lafer13-s1800-2",
+      "manufacturer": "Ferrari",
+      "carName": "La Ferrari 2013",
+      "currentCode": "366171015",
+      "codes": [
+        "366171015"
+      ]
+    },
+    {
+      "carId": "lancerev0395-b600",
+      "manufacturer": "Mitsubishi",
+      "carName": "Lancer Evolution III GSR 1995",
+      "currentCode": "274022626",
+      "codes": [
+        "274022626"
+      ]
+    },
+    {
+      "carId": "lanevox08-A700",
+      "manufacturer": "Mitsubishi",
+      "carName": "Lancer Evolution X GSR 2008",
+      "currentCode": "785739992",
+      "codes": [
+        "785739992"
+      ]
+    },
+    {
+      "carId": "legacy90-B600",
+      "manufacturer": "Subaru",
+      "carName": "Legacy RS 1990",
+      "currentCode": "934071641",
+      "codes": [
+        "910641485",
+        "934071641"
+      ]
+    },
+    {
+      "carId": "lfa10-S1800",
+      "manufacturer": "Lexus",
+      "carName": "LFA 2010",
+      "currentCode": "304682008",
+      "codes": [
+        "304682008"
+      ]
+    },
+    {
+      "carId": "lx82-b600",
+      "manufacturer": "Volkswagen",
+      "carName": "Pickup LX 1982",
+      "currentCode": "147815468",
+      "codes": [
+        "147815468"
+      ]
+    },
+    {
+      "carId": "m181-a700",
+      "manufacturer": "BMW",
+      "carName": "M1 1981",
+      "currentCode": "116414721",
+      "codes": [
+        "116414721"
+      ]
+    },
+    {
+      "carId": "m2coupe20-A700",
+      "manufacturer": "BMW",
+      "carName": "M2 Competition Coupé 2020",
+      "currentCode": "768514673",
+      "codes": [
+        "768514673"
+      ]
+    },
+    {
+      "carId": "m2coupe20-A700-1",
+      "manufacturer": "BMW",
+      "carName": "M2 Competition Coupé 2020",
+      "currentCode": "922387422",
+      "codes": [
+        "922387422"
+      ]
+    },
+    {
+      "carId": "m308-A700",
+      "manufacturer": "BMW",
+      "carName": "M3 2008",
+      "currentCode": "912362386",
+      "codes": [
+        "912362386"
+      ]
+    },
+    {
+      "carId": "m308-a700",
+      "manufacturer": "BMW",
+      "carName": "M3 2008",
+      "currentCode": "156470517",
+      "codes": [
+        "156470517"
+      ]
+    },
+    {
+      "carId": "m388-a700",
+      "manufacturer": "BMW",
+      "carName": "M3 1988",
+      "currentCode": "541021804",
+      "codes": [
+        "541021804"
+      ]
+    },
+    {
+      "carId": "m3gtr05-a700",
+      "manufacturer": "BMW",
+      "carName": "M3 2005",
+      "currentCode": "152346868",
+      "codes": [
+        "152346868"
+      ]
+    },
+    {
+      "carId": "m3gts10-S1800",
+      "manufacturer": "BMW",
+      "carName": "M3 GTS 2010",
+      "currentCode": "568037784",
+      "codes": [
+        "568037784"
+      ]
+    },
+    {
+      "carId": "m4compcoupe21-S1800",
+      "manufacturer": "BMW",
+      "carName": "M4 Competition Coupé 2021",
+      "currentCode": "164687096",
+      "codes": [
+        "164687096"
+      ]
+    },
+    {
+      "carId": "m4coupe14-A700",
+      "manufacturer": "BMW",
+      "carName": "M4 Coupé 2014",
+      "currentCode": "944673298",
+      "codes": [
+        "944673298"
+      ]
+    },
+    {
+      "carId": "m4gts16-S1800",
+      "manufacturer": "BMW",
+      "carName": "M4 GTS 2016",
+      "currentCode": "183869347",
+      "codes": [
+        "183869347"
+      ]
+    },
+    {
+      "carId": "m503-A700",
+      "manufacturer": "BMW",
+      "carName": "M5 2003",
+      "currentCode": "127167673",
+      "codes": [
+        "127167673"
+      ]
+    },
+    {
+      "carId": "m588-c500",
+      "manufacturer": "BMW",
+      "carName": "M5 1988",
+      "currentCode": "599705059",
+      "codes": [
+        "599705059"
+      ]
+    },
+    {
+      "carId": "m60010-S2900",
+      "manufacturer": "Noble",
+      "carName": "M600 2010",
+      "currentCode": "146411426",
+      "codes": [
+        "146411426"
+      ]
+    },
+    {
+      "carId": "maloo14-A700",
+      "manufacturer": "HSV",
+      "carName": "Limited Edition Gen-F GTS Maloo 2014",
+      "currentCode": "875851114",
+      "codes": [
+        "875851114"
+      ]
+    },
+    {
+      "carId": "manta84-a700",
+      "manufacturer": "Opel",
+      "carName": "Manta 400 1984",
+      "currentCode": "113595666",
+      "codes": [
+        "113595666"
+      ]
+    },
+    {
+      "carId": "manx2023-b600",
+      "manufacturer": "Meyers",
+      "carName": "MANX 2.0 2023",
+      "currentCode": "988170425",
+      "codes": [
+        "979588694",
+        "988170425"
+      ]
+    },
+    {
+      "carId": "manx71-b600",
+      "manufacturer": "Meyers",
+      "carName": "Manx 1971",
+      "currentCode": "177889057",
+      "codes": [
+        "177889057"
+      ]
+    },
+    {
+      "carId": "mc1204-s1800",
+      "manufacturer": "Maserati",
+      "carName": "MC12 2004",
+      "currentCode": "610980564",
+      "codes": [
+        "610980564"
+      ]
+    },
+    {
+      "carId": "mc2022-S1800",
+      "manufacturer": "Maserati",
+      "carName": "MC20 2022",
+      "currentCode": "179002750",
+      "codes": [
+        "179002750"
+      ]
+    },
+    {
+      "carId": "mc2022-s1800-2",
+      "manufacturer": "Maserati",
+      "carName": "MC20 2022",
+      "currentCode": "170278876",
+      "codes": [
+        "170278876"
+      ]
+    },
+    {
+      "carId": "metro86-A700",
+      "manufacturer": "MG",
+      "carName": "Metro 6R4 1986",
+      "currentCode": "960169335",
+      "codes": [
+        "687584826",
+        "960169335"
+      ]
+    },
+    {
+      "carId": "metro86-S1800",
+      "manufacturer": "MG",
+      "carName": "Metro 6R4 1986",
+      "currentCode": "112219566",
+      "codes": [
+        "112219566"
+      ]
+    },
+    {
+      "carId": "mini65-a700",
+      "manufacturer": "Mini",
+      "carName": "Cooper S 1965",
+      "currentCode": "156045924",
+      "codes": [
+        "156045924"
+      ]
+    },
+    {
+      "carId": "mini65-b600",
+      "manufacturer": "Mini",
+      "carName": "Cooper S 1965",
+      "currentCode": "896904064",
+      "codes": [
+        "170467798",
+        "896904064"
+      ]
+    },
+    {
+      "carId": "minicab90-B600",
+      "manufacturer": "Mitsubishi",
+      "carName": "#269 A.T.K the Clock Racing Minicab T.A 1990",
+      "currentCode": "358307701",
+      "codes": [
+        "358307701"
+      ]
+    },
+    {
+      "carId": "mono14-s1800",
+      "manufacturer": "BAC",
+      "carName": "Mono 2014",
+      "currentCode": "741743641",
+      "codes": [
+        "741743641"
+      ]
+    },
+    {
+      "carId": "montero95-c500",
+      "manufacturer": "Mitsubishi",
+      "carName": "Montero Exceed 2800 TD 1995",
+      "currentCode": "882439784",
+      "codes": [
+        "418705463",
+        "882439784"
+      ]
+    },
+    {
+      "carId": "montero97-c500",
+      "manufacturer": "Mitsubishi",
+      "carName": "Montero Evolution 1997",
+      "currentCode": "545123946",
+      "codes": [
+        "545123946"
+      ]
+    },
+    {
+      "carId": "mr2sc89-B600",
+      "manufacturer": "Toyota",
+      "carName": "MR2 SC 1989",
+      "currentCode": "453825168",
+      "codes": [
+        "453825168"
+      ]
+    },
+    {
+      "carId": "murlp67010-s1800",
+      "manufacturer": "Lamborghini",
+      "carName": "Murcielago LP 670-4 SV 2010",
+      "currentCode": "122259919",
+      "codes": [
+        "122259919"
+      ]
+    },
+    {
+      "carId": "mustangboss69-B600",
+      "manufacturer": "Ford",
+      "carName": "Mustang Boss 302 1969",
+      "currentCode": "174665713",
+      "codes": [
+        "174665713"
+      ]
+    },
+    {
+      "carId": "mustanggt24-S1800",
+      "manufacturer": "Ford",
+      "carName": "Mustang GT 2024",
+      "currentCode": "616068131",
+      "codes": [
+        "616068131"
+      ]
+    },
+    {
+      "carId": "mustangshelbygt50013-A700",
+      "manufacturer": "Ford",
+      "carName": "Mustang Shelby GT500 2013",
+      "currentCode": "125388211",
+      "codes": [
+        "125388211"
+      ]
+    },
+    {
+      "carId": "mustangsvt00-B600",
+      "manufacturer": "Ford",
+      "carName": "Mustang SVT Cobra R 2000",
+      "currentCode": "969729382",
+      "codes": [
+        "969729382"
+      ]
+    },
+    {
+      "carId": "mx5rf22-A700",
+      "manufacturer": "Mazda",
+      "carName": "MX-5 Miata RF 2022",
+      "currentCode": "132373853",
+      "codes": [
+        "132373853"
+      ]
+    },
+    {
+      "carId": "nomad16-A700",
+      "manufacturer": "Ariel",
+      "carName": "Nomad 2016",
+      "currentCode": "151546649",
+      "codes": [
+        "936679097",
+        "158436314",
+        "151546649"
+      ]
+    },
+    {
+      "carId": "nsx22-S1800",
+      "manufacturer": "Acura",
+      "carName": "NSX Type S 2022",
+      "currentCode": "133612779",
+      "codes": [
+        "133612779"
+      ]
+    },
+    {
+      "carId": "nsxr05-A700",
+      "manufacturer": "Honda",
+      "carName": "NSX-R 2005",
+      "currentCode": "482899601",
+      "codes": [
+        "482899601"
+      ]
+    },
+    {
+      "carId": "nsxr92-A700",
+      "manufacturer": "Honda",
+      "carName": "NSX-R 1992",
+      "currentCode": "563235923",
+      "codes": [
+        "563235923"
+      ]
+    },
+    {
+      "carId": "nsxr92-A700-1",
+      "manufacturer": "Honda",
+      "carName": "NSX-R 1992",
+      "currentCode": "537709667",
+      "codes": [
+        "537709667"
+      ]
+    },
+    {
+      "carId": "one115-S2900",
+      "manufacturer": "Koenigsegg",
+      "carName": "One:1 2015",
+      "currentCode": "107977367",
+      "codes": [
+        "107977367"
+      ]
+    },
+    {
+      "carId": "pantera84-b600",
+      "manufacturer": "De Tomaso",
+      "carName": "Pantera GT5 1984",
+      "currentCode": "171974515",
+      "codes": [
+        "171974515"
+      ]
+    },
+    {
+      "carId": "police10-A700",
+      "manufacturer": "Ford",
+      "carName": "Crown Victoria Police interceptor 2010",
+      "currentCode": "808879534",
+      "codes": [
+        "808879534"
+      ]
+    },
+    {
+      "carId": "portofino18-S1800-1",
+      "manufacturer": "Ferrari",
+      "carName": "Portofino 2018",
+      "currentCode": "601265459",
+      "codes": [
+        "601265459"
+      ]
+    },
+    {
+      "carId": "preludesi94-B600",
+      "manufacturer": "Honda",
+      "carName": "Prelude Si 1994",
+      "currentCode": "671634826",
+      "codes": [
+        "671634826"
+      ]
+    },
+    {
+      "carId": "preludesi94-c500",
+      "manufacturer": "Honda",
+      "carName": "Prelude Si 1994",
+      "currentCode": "180034828",
+      "codes": [
+        "180034828"
+      ]
+    },
+    {
+      "carId": "pro2truck16-a700",
+      "manufacturer": "RJ Anderson",
+      "carName": "#37 Polaris RZR Pro 2 Truck 2016",
+      "currentCode": "168714467",
+      "codes": [
+        "168714467"
+      ]
+    },
+    {
+      "carId": "quattro83-a700",
+      "manufacturer": "Audi",
+      "carName": "Sport Quattro 1983",
+      "currentCode": "632349234",
+      "codes": [
+        "451637512",
+        "632349234"
+      ]
+    },
+    {
+      "carId": "quattro86-s1800-2",
+      "manufacturer": "Audi",
+      "carName": "#2 Audi Sport quattro S1 1986",
+      "currentCode": "290572116",
+      "codes": [
+        "290572116"
+      ]
+    },
+    {
+      "carId": "quattroS186-S1800-4",
+      "manufacturer": "Audi",
+      "carName": "#2 Audi Sport quattro S1 1986",
+      "currentCode": "475219919",
+      "codes": [
+        "475219919"
+      ]
+    },
+    {
+      "carId": "r34-B600",
+      "manufacturer": "Nissan",
+      "carName": "Skyline GT-R V spec II 2000",
+      "currentCode": "129845807",
+      "codes": [
+        "129845807"
+      ]
+    },
+    {
+      "carId": "r34-S1800",
+      "manufacturer": "Nissan",
+      "carName": "Skyline GT-R V spec II 2000",
+      "currentCode": "547357273",
+      "codes": [
+        "547357273"
+      ]
+    },
+    {
+      "carId": "racingpuma99-B600",
+      "manufacturer": "Ford",
+      "carName": "Racing Puma 1999",
+      "currentCode": "506621689",
+      "codes": [
+        "506621689"
+      ]
+    },
+    {
+      "carId": "rallyegolf89-b600",
+      "manufacturer": "Volkswagen",
+      "carName": "Rallye Golf 1989",
+      "currentCode": "105247800",
+      "codes": [
+        "105247800"
+      ]
+    },
+    {
+      "carId": "ram06-a700",
+      "manufacturer": "Dodge",
+      "carName": "Ram SRT-10 2006",
+      "currentCode": "184081975",
+      "codes": [
+        "184081975"
+      ]
+    },
+    {
+      "carId": "rangerover15-a700",
+      "manufacturer": "Land Rover",
+      "carName": "Range Rover Sport SVR 2015",
+      "currentCode": "977968329",
+      "codes": [
+        "977968329"
+      ]
+    },
+    {
+      "carId": "rangerover15-a700",
+      "manufacturer": "Lang Rover",
+      "carName": "Range Rover Sport SVR 2015",
+      "currentCode": "977968329",
+      "codes": [
+        "977968329"
+      ]
+    },
+    {
+      "carId": "rcf15-a700",
+      "manufacturer": "Lexus",
+      "carName": "RC F 2015",
+      "currentCode": "134923027",
+      "codes": [
+        "134923027"
+      ]
+    },
+    {
+      "carId": "reliant72-C500",
+      "manufacturer": "Reliant",
+      "carName": "Supervan III 1972",
+      "currentCode": "629489550",
+      "codes": [
+        "629489550"
+      ]
+    },
+    {
+      "carId": "roma20-S1800",
+      "manufacturer": "Ferrari",
+      "carName": "Roma 2020",
+      "currentCode": "707288065",
+      "codes": [
+        "707288065"
+      ]
+    },
+    {
+      "carId": "roma20-S1800-1",
+      "manufacturer": "Ferrari",
+      "carName": "Roma 2020",
+      "currentCode": "269294066",
+      "codes": [
+        "269294066"
+      ]
+    },
+    {
+      "carId": "rs20085",
+      "manufacturer": "Ford",
+      "carName": "RS200 Evolution 1985",
+      "currentCode": "138020539",
+      "codes": [
+        "138020539"
+      ]
+    },
+    {
+      "carId": "rs311-b600",
+      "manufacturer": "Audi",
+      "carName": "RS 3 Sportback 2011",
+      "currentCode": "181556807",
+      "codes": [
+        "181556807"
+      ]
+    },
+    {
+      "carId": "rs320-S1800",
+      "manufacturer": "Audi",
+      "carName": "RS 3 Sedan 2020",
+      "currentCode": "183732598",
+      "codes": [
+        "183732598"
+      ]
+    },
+    {
+      "carId": "rs713-A700",
+      "manufacturer": "Audi",
+      "carName": "RS 7 Sportback 2013",
+      "currentCode": "135416805",
+      "codes": [
+        "135416805"
+      ]
+    },
+    {
+      "carId": "rx7gslse85-b600",
+      "manufacturer": "Mazda",
+      "carName": "RX-7 GSL-SE 1985",
+      "currentCode": "672875221",
+      "codes": [
+        "672875221"
+      ]
+    },
+    {
+      "carId": "rx811-a700",
+      "manufacturer": "Mazda",
+      "carName": "RX-8 R3 2011",
+      "currentCode": "167090413",
+      "codes": [
+        "167090413"
+      ]
+    },
+    {
+      "carId": "rxc15-S2900",
+      "manufacturer": "Radical",
+      "carName": "RXC Turbo 2015",
+      "currentCode": "380139809",
+      "codes": [
+        "380139809"
+      ]
+    },
+    {
+      "carId": "rzr21-a700",
+      "manufacturer": "RJ Anderson",
+      "carName": "#37 Polaris RZR Pro 4 Truck 2021",
+      "currentCode": "346698824",
+      "codes": [
+        "346698824"
+      ]
+    },
+    {
+      "carId": "rzrpro21-c500",
+      "manufacturer": "Polaris",
+      "carName": "RZR Pro XP Ultimate 2021",
+      "currentCode": "172893091",
+      "codes": [
+        "172893091"
+      ]
+    },
+    {
+      "carId": "s1389-C500-1",
+      "manufacturer": "Nissan",
+      "carName": "Silvia K's 1989",
+      "currentCode": "143673228",
+      "codes": [
+        "143673228"
+      ]
+    },
+    {
+      "carId": "s1502-a700",
+      "manufacturer": "Nissan",
+      "carName": "Silvia Spec-R 2002",
+      "currentCode": "147905955",
+      "codes": [
+        "147905955"
+      ]
+    },
+    {
+      "carId": "s200003-A700",
+      "manufacturer": "Honda",
+      "carName": "S2000 2003",
+      "currentCode": "172364616",
+      "codes": [
+        "172364616"
+      ]
+    },
+    {
+      "carId": "s200003-A700-1",
+      "manufacturer": "Honda",
+      "carName": "S2000 2003",
+      "currentCode": "117867718",
+      "codes": [
+        "117867718"
+      ]
+    },
+    {
+      "carId": "s200004-A700",
+      "manufacturer": "Honda",
+      "carName": "S2000 2003",
+      "currentCode": "947394314",
+      "codes": [
+        "947394314"
+      ]
+    },
+    {
+      "carId": "s704-s1800",
+      "manufacturer": "Saleen",
+      "carName": "S7 2004",
+      "currentCode": "259608795",
+      "codes": [
+        "259608795"
+      ]
+    },
+    {
+      "carId": "s717-S1800",
+      "manufacturer": "Saleen",
+      "carName": "S7 LM 2017",
+      "currentCode": "734695578",
+      "codes": [
+        "734695578"
+      ]
+    },
+    {
+      "carId": "s80070-c500",
+      "manufacturer": "Honda",
+      "carName": "S800 1970",
+      "currentCode": "115232474",
+      "codes": [
+        "115232474"
+      ]
+    },
+    {
+      "carId": "s80070-d400",
+      "manufacturer": "Honda",
+      "carName": "S800 1970",
+      "currentCode": "128413839",
+      "codes": [
+        "128413839"
+      ]
+    },
+    {
+      "carId": "sabre-S2900",
+      "manufacturer": "Mclaren",
+      "carName": "Sabre 2021",
+      "currentCode": "102471374",
+      "codes": [
+        "102471374"
+      ]
+    },
+    {
+      "carId": "sagaris05",
+      "manufacturer": "TVR",
+      "carName": "Sagaris 2005",
+      "currentCode": "697767056",
+      "codes": [
+        "697767056"
+      ]
+    },
+    {
+      "carId": "sera91-b600",
+      "manufacturer": "Toyota",
+      "carName": "Sera 1991",
+      "currentCode": "661486467",
+      "codes": [
+        "661486467"
+      ]
+    },
+    {
+      "carId": "sierra87-a700",
+      "manufacturer": "Ford",
+      "carName": "Sierra Cosworth RS500 1987",
+      "currentCode": "146502341",
+      "codes": [
+        "146502341"
+      ]
+    },
+    {
+      "carId": "slc4320-A700",
+      "manufacturer": "Mercedes-AMG",
+      "carName": "SLC 43 Final Edition 2020",
+      "currentCode": "105229838",
+      "codes": [
+        "105229838"
+      ]
+    },
+    {
+      "carId": "spa33067-a700",
+      "manufacturer": "Ferrari",
+      "carName": "#24 Ferrari SPA 330 P4 1967",
+      "currentCode": "905142400",
+      "codes": [
+        "905142400"
+      ]
+    },
+    {
+      "carId": "speed310-a700",
+      "manufacturer": "Mazda",
+      "carName": "Speed 3 2010",
+      "currentCode": "170307960",
+      "codes": [
+        "170307960"
+      ]
+    },
+    {
+      "carId": "speed98-s1800",
+      "manufacturer": "TVR",
+      "carName": "Cerbera Speed 12 1998",
+      "currentCode": "560614149",
+      "codes": [
+        "560614149"
+      ]
+    },
+    {
+      "carId": "speed98-s1800-1",
+      "manufacturer": "TVR",
+      "carName": "Cerbera Speed 12 1998",
+      "currentCode": "432022402",
+      "codes": [
+        "432022402"
+      ]
+    },
+    {
+      "carId": "sportquaS186-S1800",
+      "manufacturer": "Audi",
+      "carName": "#2 Audi Sport quattro S1 1986",
+      "currentCode": "130337191",
+      "codes": [
+        "130337191"
+      ]
+    },
+    {
+      "carId": "sportquaS186-S1800-1",
+      "manufacturer": "Audi",
+      "carName": "#2 Audi Sport quattro S1 1986",
+      "currentCode": "272525763",
+      "codes": [
+        "272525763"
+      ]
+    },
+    {
+      "carId": "sportquaS186-S1800-2",
+      "manufacturer": "Audi",
+      "carName": "#2 Audi Sport quattro S1 1986",
+      "currentCode": "166912977",
+      "codes": [
+        "166912977"
+      ]
+    },
+    {
+      "carId": "sportspider-a700",
+      "manufacturer": "Renault",
+      "carName": "Sport Spider 1998",
+      "currentCode": "105104415",
+      "codes": [
+        "105104415"
+      ]
+    },
+    {
+      "carId": "stagea97-A700",
+      "manufacturer": "Nissan",
+      "carName": "Stagea RS FOUR V 1997",
+      "currentCode": "160923992",
+      "codes": [
+        "160923992"
+      ]
+    },
+    {
+      "carId": "stagea97-b600",
+      "manufacturer": "Nissan",
+      "carName": "Stagea RS FOUR V 1997",
+      "currentCode": "929214392",
+      "codes": [
+        "929214392"
+      ]
+    },
+    {
+      "carId": "stis20919-a700",
+      "manufacturer": "Subaru",
+      "carName": "STI S209 2019",
+      "currentCode": "823578786",
+      "codes": [
+        "823578786"
+      ]
+    },
+    {
+      "carId": "stis20919-b600",
+      "manufacturer": "Subaru",
+      "carName": "STI S209 2019",
+      "currentCode": "154264898",
+      "codes": [
+        "154264898"
+      ]
+    },
+    {
+      "carId": "supervan394-s1800",
+      "manufacturer": "Ford",
+      "carName": "Supervan 3 1994",
+      "currentCode": "308168455",
+      "codes": [
+        "308168455"
+      ]
+    },
+    {
+      "carId": "supra98-B600",
+      "manufacturer": "Toyota",
+      "carName": "Supra RZ 1998",
+      "currentCode": "544637989",
+      "codes": [
+        "544637989"
+      ]
+    },
+    {
+      "carId": "tacoma19-b600",
+      "manufacturer": "Toyota",
+      "carName": "Tacoma TRD Pro 2019",
+      "currentCode": "294281119",
+      "codes": [
+        "294281119"
+      ]
+    },
+    {
+      "carId": "taxi05-B600",
+      "manufacturer": "Toyota",
+      "carName": "Crown Super Deluxe Taxi 2005",
+      "currentCode": "130598319",
+      "codes": [
+        "130598319"
+      ]
+    },
+    {
+      "carId": "taxi17-C500",
+      "manufacturer": "Toyota",
+      "carName": "JPN Taxi 2017",
+      "currentCode": "107705708",
+      "codes": [
+        "107705708"
+      ]
+    },
+    {
+      "carId": "thunderbird57-a700",
+      "manufacturer": "Ford",
+      "carName": "Thunderbird 1957",
+      "currentCode": "835467254",
+      "codes": [
+        "835467254"
+      ]
+    },
+    {
+      "carId": "tomica-A700",
+      "manufacturer": "Nissan",
+      "carName": "#11 Tomica Skyline Turbo Super Silhouette 1983",
+      "currentCode": "456393562",
+      "codes": [
+        "456393562"
+      ]
+    },
+    {
+      "carId": "turbos23-s1800",
+      "manufacturer": "Porsche",
+      "carName": "911 Turbo S 2023",
+      "currentCode": "145823389",
+      "codes": [
+        "145823389"
+      ]
+    },
+    {
+      "carId": "unimog14-a700",
+      "manufacturer": "Mercedes-Benz",
+      "carName": "Unimog U5023 2014",
+      "currentCode": "137528543",
+      "codes": [
+        "137528543"
+      ]
+    },
+    {
+      "carId": "unimog14-b600",
+      "manufacturer": "Mercedes-Benz",
+      "carName": "Unimog U5023 2014",
+      "currentCode": "124344623",
+      "codes": [
+        "124344623"
+      ]
+    },
+    {
+      "carId": "urus19-a700",
+      "manufacturer": "Lamborghini",
+      "carName": "Urus 2019",
+      "currentCode": "900210675",
+      "codes": [
+        "900210675"
+      ]
+    },
+    {
+      "carId": "utdsedan55-c500",
+      "manufacturer": "Chevrolet",
+      "carName": "150 Utility Sedan 1955",
+      "currentCode": "205699848",
+      "codes": [
+        "205699848"
+      ]
+    },
+    {
+      "carId": "van422-S2900",
+      "manufacturer": "Ford",
+      "carName": "Supervan 4 2022",
+      "currentCode": "715508872",
+      "codes": [
+        "715508872"
+      ]
+    },
+    {
+      "carId": "velostern19-A700",
+      "manufacturer": "Hyundai",
+      "carName": "Veloster N 2019",
+      "currentCode": "316347181",
+      "codes": [
+        "316347181"
+      ]
+    },
+    {
+      "carId": "velostern19-A700-2",
+      "manufacturer": "Hyundai",
+      "carName": "Veloster N 2019",
+      "currentCode": "123404935",
+      "codes": [
+        "123404935"
+      ]
+    },
+    {
+      "carId": "viper08-s1800",
+      "manufacturer": "Dodge",
+      "carName": "Viper SRT-10 ACR 2008",
+      "currentCode": "540918225",
+      "codes": [
+        "540918225"
+      ]
+    },
+    {
+      "carId": "viper99-s1800",
+      "manufacturer": "Dodge",
+      "carName": "Viper GTS ACR 1999",
+      "currentCode": "725172533",
+      "codes": [
+        "725172533"
+      ]
+    },
+    {
+      "carId": "viperacr16-S1800",
+      "manufacturer": "Dodge",
+      "carName": "Viper ACR 2016",
+      "currentCode": "205122957",
+      "codes": [
+        "205122957"
+      ]
+    },
+    {
+      "carId": "vipergts13-a700",
+      "manufacturer": "SRT",
+      "carName": "Viper GTS 2013",
+      "currentCode": "410433483",
+      "codes": [
+        "410433483"
+      ]
+    },
+    {
+      "carId": "vipergtsacr99-A700",
+      "manufacturer": "Dodge",
+      "carName": "Viper GTS ACR 1999",
+      "currentCode": "157191052",
+      "codes": [
+        "157191052"
+      ]
+    },
+    {
+      "carId": "vivio94-c500",
+      "manufacturer": "Subaru",
+      "carName": "Vivio RX-R 1994",
+      "currentCode": "167726814",
+      "codes": [
+        "110816032",
+        "167726814"
+      ]
+    },
+    {
+      "carId": "w125-S2900",
+      "manufacturer": "Mclaren",
+      "carName": "W1 2025",
+      "currentCode": "404985283",
+      "codes": [
+        "404985283"
+      ]
+    },
+    {
+      "carId": "warthog-a700",
+      "manufacturer": "AMG Transport Dynamics",
+      "carName": "M12S Warthog CST 2554",
+      "currentCode": "646132577",
+      "codes": [
+        "179104190",
+        "646132577"
+      ]
+    },
+    {
+      "carId": "wrangler12-b600",
+      "manufacturer": "Jeep",
+      "carName": "Wrangler Rubicon 2012",
+      "currentCode": "128297068",
+      "codes": [
+        "175028989",
+        "128297068"
+      ]
+    },
+    {
+      "carId": "wrx08-b600",
+      "manufacturer": "Subaru",
+      "carName": "Impreza WRX STI 2008",
+      "currentCode": "693830255",
+      "codes": [
+        "693830255"
+      ]
+    },
+    {
+      "carId": "wrx22-b600",
+      "manufacturer": "Subaru",
+      "carName": "WRX 2022",
+      "currentCode": "248645585",
+      "codes": [
+        "512619081",
+        "248645585"
+      ]
+    },
+    {
+      "carId": "wrxsti11-c500",
+      "manufacturer": "Subaru",
+      "carName": "WRX STI 2011",
+      "currentCode": "174683458",
+      "codes": [
+        "174683458"
+      ]
+    },
+    {
+      "carId": "xclass18-A700",
+      "manufacturer": "Mercedes-Benz",
+      "carName": "X-Class 2018",
+      "currentCode": "123925142",
+      "codes": [
+        "123925142"
+      ]
+    },
+    {
+      "carId": "xj220s93-S1800",
+      "manufacturer": "Jaguar",
+      "carName": "XJ220S TWR 1993",
+      "currentCode": "112867646",
+      "codes": [
+        "112867646"
+      ]
+    },
+    {
+      "carId": "xjs90-a700",
+      "manufacturer": "Jaguar",
+      "carName": "XJ-S 1990",
+      "currentCode": "148762051",
+      "codes": [
+        "148762051"
+      ]
+    },
+    {
+      "carId": "yaris21-B600",
+      "manufacturer": "Toyota",
+      "carName": "GR Yaris 2021",
+      "currentCode": "732155077",
+      "codes": [
+        "736293437",
+        "732155077"
+      ]
+    },
+    {
+      "carId": "zonda09-s2900",
+      "manufacturer": "Pagani",
+      "carName": "Zonda R 2009",
+      "currentCode": "164755436",
+      "codes": [
+        "164755436"
+      ]
+    },
+    {
+      "carId": "오프로드 타이어 다운그레이드 / 타이어 폭에 변화를 주고 LSD를 더 뒤쪽 구동 쪽으로 밀었음",
+      "manufacturer": "Audi",
+      "carName": "#2 Audi Sport quattro S1 1986",
+      "currentCode": "475219919",
+      "codes": [
+        "475219919"
+      ]
+    }
+  ]
+}

@@ -439,6 +439,9 @@
   "수도고 복각": "Shutoko recreation",
   "원작 재현": "Fictional-car recreation",
   "전시 전용": "Exhibition only",
+  "리메이크 이전 튜닝": "Earlier tune version",
+  "리메이크 이전 튜닝 영상": "Videos of earlier tune versions",
+  "이전 공유코드로 촬영한 영상입니다. 현재 튜닝의 성능·거동과 다를 수 있습니다.": "Recorded with an earlier share code. Performance and handling may differ from the tune currently shown.",
   "새로고침으로 재시도": "Refresh to retry"
 };
   const normalize = text => String(text).replace(/\s+/g, ' ').trim();

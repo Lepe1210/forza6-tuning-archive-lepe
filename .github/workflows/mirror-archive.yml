@@ -2,6 +2,11 @@ name: Mirror Forza Archive Data
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - scripts/mirror_archive.py
+      - scripts/share_code_history.py
+      - .github/workflows/mirror-archive.yml
 
   schedule:
     # 매시간 2, 17, 32, 47분에 실행
@@ -10,6 +15,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: mirror-archive
+  cancel-in-progress: false
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -17,14 +26,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: "3.13"
 
+      - name: Check tune history rules
+        run: python -m unittest discover -s tests -p test_share_code_history.py
+
       - name: Mirror Google Sheets archive
         run: python scripts/mirror_archive.py
+
+      - name: Refresh confirmed tune code history
+        run: python scripts/share_code_history.py
 
       - name: Check for data changes
         id: changes
@@ -44,8 +61,10 @@ jobs:
           git add data/cars.csv
           git add data/cars.json
           git add data/archive-meta.json
+          git add data/share-code-history.json
 
           git commit -m "Update mirrored archive data"
+          git pull --rebase origin main
           git push
 
       - name: No changes
