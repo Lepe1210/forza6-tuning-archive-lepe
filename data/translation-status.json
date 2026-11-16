@@ -25,9 +25,9 @@
     {
       "name": "rivals",
       "state": "checked",
-      "textFields": 27,
-      "sourceHash": "5a378ca8b797046ac75c76014c84734082679e2114cf2a6dc279f051fdefb82c",
-      "pendingCount": 0
+      "textFields": 42,
+      "sourceHash": "f771af35e0b6716e3321a1b0f8bd5f8da74249294cb7e0c6cbe218da09b66b25",
+      "pendingCount": 15
     },
     {
       "name": "atlas",
@@ -43,6 +43,96 @@
       "id": "93519-S1800",
       "field": "summary",
       "source": "911GT3 같은데 엔진이 졸라 좋은 / 안정적 버전"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s",
+      "field": "title",
+      "source": "1980년대 그룹B 시리즈"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s",
+      "field": "subtitle",
+      "source": "광기와 낭만의 시기"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s",
+      "field": "description",
+      "source": "폐지되지 않았다면 어디까지 갔을까 궁금했던 그 시대"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-001",
+      "field": "role",
+      "source": "사륜구동 시대에 맞선 마지막 후륜구동 챔피언"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-001",
+      "field": "exhibitText",
+      "source": "사륜구동 시대에 후륜구동으로 우승해버린 독종"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-002",
+      "field": "role",
+      "source": "그룹B 사륜구동 시대를 개척한 독일의 선구자"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-002",
+      "field": "exhibitText",
+      "source": "사륜구동에 터보까지 얹으면 벌어지는 일"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-003",
+      "field": "role",
+      "source": "그룹B 후반을 지배한 프랑스의 신흥 강자"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-003",
+      "field": "exhibitText",
+      "source": "갑자기 나타나 그룹B를 씹어먹은 프랑스의 괴물"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-004",
+      "field": "role",
+      "source": "아스팔트에서 진가를 발휘했던 프랑스의 후륜구동 괴물"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-004",
+      "field": "exhibitText",
+      "source": "엔진을 뒤로 보내버린 프랑스의 미친 해치백"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-005",
+      "field": "role",
+      "source": "너무 늦게 등장한 영국의 자연흡기 V6 병기"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-005",
+      "field": "exhibitText",
+      "source": "남들은 터보 쓸 때 혼자 자연흡기 V6 들고 온 영국인"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-006",
+      "field": "role",
+      "source": "터보와 슈퍼차저를 모두 동원한 란치아의 마지막 승부수"
+    },
+    {
+      "dataset": "rivals",
+      "id": "groupb-1980s-car-006",
+      "field": "exhibitText",
+      "source": "터보로도 부족해서 슈퍼차저까지 달아버린 란치아"
     }
   ]
 }
