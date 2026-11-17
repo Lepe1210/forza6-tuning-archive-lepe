@@ -146,6 +146,15 @@
       ]
     },
     {
+      "carId": "240z72-b600",
+      "manufacturer": "Datsun",
+      "carName": "240Z #5 Rallye 1972",
+      "currentCode": "130205724",
+      "codes": [
+        "130205724"
+      ]
+    },
+    {
       "carId": "242tub83-a700",
       "manufacturer": "Volvo",
       "carName": "242 Turbo Evolution 1983",

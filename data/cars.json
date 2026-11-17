@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "240z72-b600",
+    "manufacturer": "Datsun",
+    "carName": "240Z #5 Rallye 1972",
+    "className": "B 600",
+    "carType": "클래식 랠리",
+    "drive": "RWD",
+    "category": "혼합",
+    "concept": "70년대 후륜 랠리가 B클래스에서도 경쟁력이 있는지 테스트",
+    "power": "252hp",
+    "weight": "1001kg",
+    "lateralG": "1.7G",
+    "shareCode": "130205724",
+    "summary": "4륜과는 다르게 확실히 뭔가 쫀쫀한 후륜 랠리만의 질감이 좀 느껴짐 / 약간 철학이 좀 있는 듯",
+    "tuneNotes": "기본 엔진 / 오프로드 타이어 / 후륜 유지 / 에어로 / 8단 기어",
+    "updatedAt": "2026-11-17",
+    "testTrackBTime": "1:39.536",
+    "testTrackCTime": "1:00.130"
+  },
+  {
+    "eventTitle": "",
     "id": "2000gtr73-b600",
     "manufacturer": "Nissan",
     "carName": "Skyline H/T 2000GT-R 1973",
