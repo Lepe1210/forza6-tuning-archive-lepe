@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1021,
-      "sourceHash": "11d5466dd6b392c1bc2e7d38e0e407993ee91c0d0e86c7088094551637555cfa",
-      "pendingCount": 4
+      "textFields": 1024,
+      "sourceHash": "4d0283184f8acd9a686a9370aa1d4756142cce8e312f8e22e1597fd9874893b0",
+      "pendingCount": 7
     },
     {
       "name": "weekly",
@@ -38,6 +38,24 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "240z72-b600",
+      "field": "concept",
+      "source": "70년대 후륜 랠리가 B클래스에서도 경쟁력이 있는지 테스트"
+    },
+    {
+      "dataset": "cars",
+      "id": "240z72-b600",
+      "field": "summary",
+      "source": "4륜과는 다르게 확실히 뭔가 쫀쫀한 후륜 랠리만의 질감이 좀 느껴짐 / 약간 철학이 좀 있는 듯"
+    },
+    {
+      "dataset": "cars",
+      "id": "240z72-b600",
+      "field": "tuneNotes",
+      "source": "기본 엔진 / 오프로드 타이어 / 후륜 유지 / 에어로 / 8단 기어"
+    },
     {
       "dataset": "cars",
       "id": "2000gtr73-b600",
