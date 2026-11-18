@@ -5,6 +5,17 @@
   "channelTitle": "KO_TB Clan",
   "videos": [
     {
+      "id": "7RmkSNk8ObM",
+      "title": "[Forza Horizon 6] Four Rotors on a Rainy Night [EN/KO CC]",
+      "publishedAt": "2026-11-17T00:00:00Z",
+      "shareCodes": [
+        "167090413"
+      ],
+      "carLabel": "Mazda RX-8 R3 2011",
+      "classLabel": "A700",
+      "hasBilingualCC": false
+    },
+    {
       "id": "Ar9s0FFdurA",
       "title": "[Forza Horizon 6] Group B Vibes, Part 2 [EN/KO CC]",
       "publishedAt": "2026-11-16T00:00:00Z",
@@ -180,5 +191,5 @@
       "hasBilingualCC": false
     }
   ],
-  "updatedAt": "2026-11-17T04:46:46.845135Z"
+  "updatedAt": "2026-11-18T04:43:21.961093Z"
 }
