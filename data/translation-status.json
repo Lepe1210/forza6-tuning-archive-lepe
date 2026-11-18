@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1024,
-      "sourceHash": "4d0283184f8acd9a686a9370aa1d4756142cce8e312f8e22e1597fd9874893b0",
-      "pendingCount": 7
+      "textFields": 1030,
+      "sourceHash": "458fcf48b5b41f4092731a6e1d33662b2c27b0f08be204344e205da65139e12a",
+      "pendingCount": 13
     },
     {
       "name": "weekly",
@@ -38,6 +38,42 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "Limo13-s1800",
+      "field": "concept",
+      "source": "아니 리무진으로 스피드존/스피드트랩/드리프트/점프/드래그를 한번에 뛰라고요?"
+    },
+    {
+      "dataset": "cars",
+      "id": "Limo13-s1800",
+      "field": "summary",
+      "source": "스피드존 팁:첫 코너 200km/h 이하로 진입해서 천천히 가속하면 깸 / 점프대 밟을 때 313 이상 안 밟은 상태면 거리 미달남"
+    },
+    {
+      "dataset": "cars",
+      "id": "Limo13-s1800",
+      "field": "tuneNotes",
+      "source": "1750마력짜리 엔진과 에어로 없는 드리프트 타이어에 4륜구동"
+    },
+    {
+      "dataset": "cars",
+      "id": "skylingtsr87-B600",
+      "field": "concept",
+      "source": "반응성 정말 좋음"
+    },
+    {
+      "dataset": "cars",
+      "id": "skylingtsr87-B600",
+      "field": "summary",
+      "source": "하이 다운포스 셋업"
+    },
+    {
+      "dataset": "cars",
+      "id": "skylingtsr87-B600",
+      "field": "tuneNotes",
+      "source": "경량화 / 도로주행 타이어/ 와이드바디"
+    },
     {
       "dataset": "cars",
       "id": "240z72-b600",
