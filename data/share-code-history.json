@@ -2133,6 +2133,15 @@
       ]
     },
     {
+      "carId": "i2021-a700",
+      "manufacturer": "Hyundai",
+      "carName": "I20 N 2021",
+      "currentCode": "157741511",
+      "codes": [
+        "157741511"
+      ]
+    },
+    {
       "carId": "i82015-a700",
       "manufacturer": "BMW",
       "carName": "I8 2015",
