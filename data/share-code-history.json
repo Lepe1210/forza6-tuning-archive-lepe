@@ -755,6 +755,15 @@
       ]
     },
     {
+      "carId": "Limo13-s1800",
+      "manufacturer": "Cadillac",
+      "carName": "XTS Limousine 2013",
+      "currentCode": "154309469",
+      "codes": [
+        "154309469"
+      ]
+    },
+    {
       "carId": "acty94-A700",
       "manufacturer": "Honda",
       "carName": "Acty 1994",
@@ -3039,6 +3048,15 @@
       "currentCode": "146502341",
       "codes": [
         "146502341"
+      ]
+    },
+    {
+      "carId": "skylingtsr87-B600",
+      "manufacturer": "Nissan",
+      "carName": "Skyline GTS-R 1987",
+      "currentCode": "151534404",
+      "codes": [
+        "151534404"
       ]
     },
     {
