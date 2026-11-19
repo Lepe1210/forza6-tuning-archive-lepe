@@ -11,16 +11,16 @@
     {
       "name": "weekly",
       "state": "checked",
-      "textFields": 15,
-      "sourceHash": "1f1904450d7ae73971c6f11f6a880b7f2dd0dba76992dd4e23b1277e7c51ecee",
-      "pendingCount": 0
+      "textFields": 18,
+      "sourceHash": "cc071015039455fb50e521e4a8628edbac068ba8bbfd6f9959fc90508f3eb9f8",
+      "pendingCount": 14
     },
     {
       "name": "past",
       "state": "checked",
-      "textFields": 420,
-      "sourceHash": "3aa7c687f5e3a403659ea1793ee8cc0afd2301d17e68850e2f4ba68b2a0d6e78",
-      "pendingCount": 0
+      "textFields": 438,
+      "sourceHash": "ab6995e363d6ec8322f445203c5a03d0c07f29472b8a98dfce25663153dc0c2f",
+      "pendingCount": 14
     },
     {
       "name": "rivals",
@@ -133,6 +133,174 @@
       "id": "93519-S1800",
       "field": "summary",
       "source": "911GT3 같은데 엔진이 졸라 좋은 / 안정적 버전"
+    },
+    {
+      "dataset": "weekly",
+      "id": "mini65-b600",
+      "field": "summary",
+      "source": "도전 / 미니 B600 단일차종 / 대체 크컨에 미니는 뭔 생각이야"
+    },
+    {
+      "dataset": "weekly",
+      "id": "skylingtsr87-B600",
+      "field": "concept",
+      "source": "반응성 정말 좋음"
+    },
+    {
+      "dataset": "weekly",
+      "id": "skylingtsr87-B600",
+      "field": "summary",
+      "source": "시즌 페스티벌 1 / 스카이라인 B600 / 핸들링형"
+    },
+    {
+      "dataset": "weekly",
+      "id": "skylingtsr87-B600",
+      "field": "tuneNotes",
+      "source": "경량화 / 도로주행 타이어/ 와이드바디"
+    },
+    {
+      "dataset": "weekly",
+      "id": "2000gtr73-b600",
+      "field": "concept",
+      "source": "튜닝하다가 차는 쓰레기고 비는 ㅈㄴ 오고 아주 그냥 뭐 같아서 튜너가 흑화해버림"
+    },
+    {
+      "dataset": "weekly",
+      "id": "2000gtr73-b600",
+      "field": "summary",
+      "source": "시즌 페스티벌 1 / 스카이라인 B600 / 미친 파워후륜 상남자형"
+    },
+    {
+      "dataset": "weekly",
+      "id": "2000gtr73-b600",
+      "field": "tuneNotes",
+      "source": "LS엔진 / 기본 타이어 / 파워후륜"
+    },
+    {
+      "dataset": "weekly",
+      "id": "etype61-b600",
+      "field": "concept",
+      "source": "내가 이걸 아직까지 안 만졌다고?"
+    },
+    {
+      "dataset": "weekly",
+      "id": "etype61-b600",
+      "field": "summary",
+      "source": "시즌 페스티벌 2 / 희귀 클래식 B600 / 저렴이"
+    },
+    {
+      "dataset": "weekly",
+      "id": "etype61-b600",
+      "field": "tuneNotes",
+      "source": "빈티지 레이스 타이어 / 에어로 / 기본 엔진에 하이캠"
+    },
+    {
+      "dataset": "weekly",
+      "id": "250gt62-B600",
+      "field": "summary",
+      "source": "시즌 페스티벌 2 / 희귀 클래식 B600 / 비싼 거"
+    },
+    {
+      "dataset": "weekly",
+      "id": "Limo13-s1800",
+      "field": "concept",
+      "source": "아니 리무진으로 스피드존/스피드트랩/드리프트/점프/드래그를 한번에 뛰라고요?"
+    },
+    {
+      "dataset": "weekly",
+      "id": "Limo13-s1800",
+      "field": "summary",
+      "source": "PR 스턴트 5종 올인원 / 리무진 S1800 단일차종 / 스피드존은 진입만 200km/h 이하로 진입해서 엑셀 밟고 깨면 됨 / 점프는 점프대 밟았을 때 313이상 안 나오면 거리 미달"
+    },
+    {
+      "dataset": "weekly",
+      "id": "Limo13-s1800",
+      "field": "tuneNotes",
+      "source": "1750마력짜리 엔진과 에어로 없는 드리프트 타이어에 4륜구동"
+    },
+    {
+      "dataset": "past",
+      "id": "mini65-b600-season-202611w4",
+      "field": "summary",
+      "source": "도전 / 미니 B600 단일차종 / 대체 크컨에 미니는 뭔 생각이야"
+    },
+    {
+      "dataset": "past",
+      "id": "skylingtsr87-B600-season-202611w4",
+      "field": "concept",
+      "source": "반응성 정말 좋음"
+    },
+    {
+      "dataset": "past",
+      "id": "skylingtsr87-B600-season-202611w4",
+      "field": "summary",
+      "source": "시즌 페스티벌 1 / 스카이라인 B600 / 핸들링형"
+    },
+    {
+      "dataset": "past",
+      "id": "skylingtsr87-B600-season-202611w4",
+      "field": "tuneNotes",
+      "source": "경량화 / 도로주행 타이어/ 와이드바디"
+    },
+    {
+      "dataset": "past",
+      "id": "2000gtr73-b600-season-202611w4",
+      "field": "concept",
+      "source": "튜닝하다가 차는 쓰레기고 비는 ㅈㄴ 오고 아주 그냥 뭐 같아서 튜너가 흑화해버림"
+    },
+    {
+      "dataset": "past",
+      "id": "2000gtr73-b600-season-202611w4",
+      "field": "summary",
+      "source": "시즌 페스티벌 1 / 스카이라인 B600 / 미친 파워후륜 상남자형"
+    },
+    {
+      "dataset": "past",
+      "id": "2000gtr73-b600-season-202611w4",
+      "field": "tuneNotes",
+      "source": "LS엔진 / 기본 타이어 / 파워후륜"
+    },
+    {
+      "dataset": "past",
+      "id": "etype61-b600-season-202611w4",
+      "field": "concept",
+      "source": "내가 이걸 아직까지 안 만졌다고?"
+    },
+    {
+      "dataset": "past",
+      "id": "etype61-b600-season-202611w4",
+      "field": "summary",
+      "source": "시즌 페스티벌 2 / 희귀 클래식 B600 / 저렴이"
+    },
+    {
+      "dataset": "past",
+      "id": "etype61-b600-season-202611w4",
+      "field": "tuneNotes",
+      "source": "빈티지 레이스 타이어 / 에어로 / 기본 엔진에 하이캠"
+    },
+    {
+      "dataset": "past",
+      "id": "250gt62-B600-season-202611w4",
+      "field": "summary",
+      "source": "시즌 페스티벌 2 / 희귀 클래식 B600 / 비싼 거"
+    },
+    {
+      "dataset": "past",
+      "id": "Limo13-s1800-season-202611w4",
+      "field": "concept",
+      "source": "아니 리무진으로 스피드존/스피드트랩/드리프트/점프/드래그를 한번에 뛰라고요?"
+    },
+    {
+      "dataset": "past",
+      "id": "Limo13-s1800-season-202611w4",
+      "field": "summary",
+      "source": "PR 스턴트 5종 올인원 / 리무진 S1800 단일차종 / 스피드존은 진입만 200km/h 이하로 진입해서 엑셀 밟고 깨면 됨 / 점프는 점프대 밟았을 때 313이상 안 나오면 거리 미달"
+    },
+    {
+      "dataset": "past",
+      "id": "Limo13-s1800-season-202611w4",
+      "field": "tuneNotes",
+      "source": "1750마력짜리 엔진과 에어로 없는 드리프트 타이어에 4륜구동"
     },
     {
       "dataset": "rivals",
