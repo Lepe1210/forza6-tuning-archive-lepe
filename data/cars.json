@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "etype61-b600",
+    "manufacturer": "Jaguar",
+    "carName": "E-Type 1961",
+    "className": "B 600",
+    "carType": "희귀 클래식",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "내가 이걸 아직까지 안 만졌다고?",
+    "power": "427hp",
+    "weight": "1097kg",
+    "lateralG": "1.6G",
+    "shareCode": "113419518",
+    "summary": "뭔가 가속이 조금 답답한 면이 있는데 주행 질감만 따지면 매우 만족스러움",
+    "tuneNotes": "빈티지 레이스 타이어 / 에어로 / 기본 엔진에 하이캠",
+    "updatedAt": "2026-11-19",
+    "testTrackBTime": "1:37.737",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "i2021-a700",
     "manufacturer": "Hyundai",
     "carName": "I20 N 2021",

@@ -1597,6 +1597,15 @@
       ]
     },
     {
+      "carId": "etype61-b600",
+      "manufacturer": "Jaguar",
+      "carName": "E-Type 1961",
+      "currentCode": "113419518",
+      "codes": [
+        "113419518"
+      ]
+    },
+    {
       "carId": "evo601-B600",
       "manufacturer": "Mitsubishi",
       "carName": "Lancer Evolution VI GSR TM Edition 2001",
