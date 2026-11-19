@@ -5,6 +5,17 @@
   "channelTitle": "KO_TB Clan",
   "videos": [
     {
+      "id": "CmtJPXWjEr4",
+      "title": "[Forza Horizon 6] On Our Way to Fight the Covenant [KO/EN CC]",
+      "publishedAt": "2026-11-18T00:00:00Z",
+      "shareCodes": [
+        "646132577"
+      ],
+      "carLabel": "AMG Transport Dynamics M12S Warthog CST 2554",
+      "classLabel": "A700",
+      "hasBilingualCC": false
+    },
+    {
       "id": "7RmkSNk8ObM",
       "title": "[Forza Horizon 6] Four Rotors on a Rainy Night [EN/KO CC]",
       "publishedAt": "2026-11-17T00:00:00Z",
@@ -191,5 +202,5 @@
       "hasBilingualCC": false
     }
   ],
-  "updatedAt": "2026-11-18T04:43:21.961093Z"
+  "updatedAt": "2026-11-19T03:50:34.133676Z"
 }
