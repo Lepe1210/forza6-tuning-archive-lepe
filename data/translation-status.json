@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1033,
-      "sourceHash": "4a745a29e5e51546b65f66ff697de786eabb2b6e77c86322c947bc99eb461352",
-      "pendingCount": 16
+      "textFields": 1036,
+      "sourceHash": "06e8c0c5bf3f08cfaae394936e555b5a0bfdc71f673132ccc986ea00584fbf5b",
+      "pendingCount": 19
     },
     {
       "name": "weekly",
@@ -38,6 +38,24 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "etype61-b600",
+      "field": "concept",
+      "source": "내가 이걸 아직까지 안 만졌다고?"
+    },
+    {
+      "dataset": "cars",
+      "id": "etype61-b600",
+      "field": "summary",
+      "source": "뭔가 가속이 조금 답답한 면이 있는데 주행 질감만 따지면 매우 만족스러움"
+    },
+    {
+      "dataset": "cars",
+      "id": "etype61-b600",
+      "field": "tuneNotes",
+      "source": "빈티지 레이스 타이어 / 에어로 / 기본 엔진에 하이캠"
+    },
     {
       "dataset": "cars",
       "id": "i2021-a700",
