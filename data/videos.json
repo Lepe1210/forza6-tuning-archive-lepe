@@ -5,6 +5,17 @@
   "channelTitle": "KO_TB Clan",
   "videos": [
     {
+      "id": "5Bva-7FxSfg",
+      "title": "[Forza Horizon 6] Getting That WRC Feeling [KO/EN CC]",
+      "publishedAt": "2026-11-19T00:00:00Z",
+      "shareCodes": [
+        "149838177"
+      ],
+      "carLabel": "Peugeot 207 Super 2000 2007",
+      "classLabel": "A700",
+      "hasBilingualCC": false
+    },
+    {
       "id": "CmtJPXWjEr4",
       "title": "[Forza Horizon 6] On Our Way to Fight the Covenant [KO/EN CC]",
       "publishedAt": "2026-11-18T00:00:00Z",
@@ -202,5 +213,5 @@
       "hasBilingualCC": false
     }
   ],
-  "updatedAt": "2026-11-19T03:50:34.133676Z"
+  "updatedAt": "2026-11-20T03:43:27.834333Z"
 }
