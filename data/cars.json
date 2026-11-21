@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "is200-b600",
+    "manufacturer": "Toyota",
+    "carName": "Altezza RS200 Z Edition 1999",
+    "className": "B 600",
+    "carType": "레트로 슈퍼 세단",
+    "drive": "RWD",
+    "category": "온로드",
+    "concept": "모스트원티드에 나왔던 Taz 컨셉의 스트리트 레이서",
+    "power": "356hp",
+    "weight": "1123kg",
+    "lateralG": "1.6G",
+    "shareCode": "140766667",
+    "summary": "전체적으로 오버스티어 성향 약간 있는데 생각보다 밸런스는 있음",
+    "tuneNotes": "포르자 에어로 / 보어업 / 19인치 휠 / 로드 타이어",
+    "updatedAt": "2026-11-21",
+    "testTrackBTime": "1:36.938",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "etype61-b600",
     "manufacturer": "Jaguar",
     "carName": "E-Type 1961",

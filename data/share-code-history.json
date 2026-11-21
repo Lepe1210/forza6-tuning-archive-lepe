@@ -2242,6 +2242,15 @@
       ]
     },
     {
+      "carId": "is200-b600",
+      "manufacturer": "Toyota",
+      "carName": "Altezza RS200 Z Edition 1999",
+      "currentCode": "140766667",
+      "codes": [
+        "140766667"
+      ]
+    },
+    {
       "carId": "jimmy70-c500",
       "manufacturer": "GMC",
       "carName": "Jimmy 1970",
