@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1036,
-      "sourceHash": "06e8c0c5bf3f08cfaae394936e555b5a0bfdc71f673132ccc986ea00584fbf5b",
-      "pendingCount": 19
+      "textFields": 1039,
+      "sourceHash": "f5e349ef54612ca015464130e798114b68c1800d7fb45fb9291a57a137953a4c",
+      "pendingCount": 22
     },
     {
       "name": "weekly",
@@ -38,6 +38,24 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "is200-b600",
+      "field": "concept",
+      "source": "모스트원티드에 나왔던 Taz 컨셉의 스트리트 레이서"
+    },
+    {
+      "dataset": "cars",
+      "id": "is200-b600",
+      "field": "summary",
+      "source": "전체적으로 오버스티어 성향 약간 있는데 생각보다 밸런스는 있음"
+    },
+    {
+      "dataset": "cars",
+      "id": "is200-b600",
+      "field": "tuneNotes",
+      "source": "포르자 에어로 / 보어업 / 19인치 휠 / 로드 타이어"
+    },
     {
       "dataset": "cars",
       "id": "etype61-b600",
