@@ -5,6 +5,17 @@
   "channelTitle": "KO_TB Clan",
   "videos": [
     {
+      "id": "I_qwlWqmnz4",
+      "title": "[Forza Horizon 6] Le Mans Vibes by the Wind Turbines | Ford GT40 [EN/KR CC]",
+      "publishedAt": "2026-11-21T00:00:00Z",
+      "shareCodes": [
+        "177427135"
+      ],
+      "carLabel": "1966 Ford #2 GT40 Mk.II",
+      "classLabel": "A700",
+      "hasBilingualCC": false
+    },
+    {
       "id": "X7pbX5trEUA",
       "title": "[Forza Horizon 6] Taking On the Online Lobby [KO/EN CC]",
       "publishedAt": "2026-11-20T00:00:00Z",
@@ -224,5 +235,5 @@
       "hasBilingualCC": false
     }
   ],
-  "updatedAt": "2026-11-21T11:45:38.514548Z"
+  "updatedAt": "2026-11-22T07:29:44.490682Z"
 }
