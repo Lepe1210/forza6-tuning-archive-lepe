@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1039,
-      "sourceHash": "f5e349ef54612ca015464130e798114b68c1800d7fb45fb9291a57a137953a4c",
-      "pendingCount": 22
+      "textFields": 1045,
+      "sourceHash": "a5bba5132a51559986090c81f95fb8d33c5ea188b0cb5969750b6cd7399bc120",
+      "pendingCount": 37
     },
     {
       "name": "weekly",
@@ -38,6 +38,72 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "r8lms09-s1800",
+      "field": "concept",
+      "source": "쉽고 빠르게 그리고 편안하게"
+    },
+    {
+      "dataset": "cars",
+      "id": "r8lms09-s1800",
+      "field": "summary",
+      "source": "치고 나가는 것도 좋고 몰기도 쉬운데 너무 쉬웠나 싶기도 하고"
+    },
+    {
+      "dataset": "cars",
+      "id": "r8lms09-s1800",
+      "field": "tuneNotes",
+      "source": "세미슬릭 / 에어로 / S2에서 다운그레이드"
+    },
+    {
+      "dataset": "cars",
+      "id": "artura23-S1800",
+      "field": "concept",
+      "source": "마실용 슈퍼카"
+    },
+    {
+      "dataset": "cars",
+      "id": "artura23-S1800",
+      "field": "summary",
+      "source": "저배기량 트윈터보라 조용함"
+    },
+    {
+      "dataset": "cars",
+      "id": "artura23-S1800",
+      "field": "tuneNotes",
+      "source": "경량화 / 드리프트 타이어 / 에어로"
+    },
+    {
+      "dataset": "cars",
+      "id": "911GT304-A700-1",
+      "field": "concept",
+      "source": "내가 지금까지 GT3를 잘못 만들고 있던 게 아닐까?"
+    },
+    {
+      "dataset": "cars",
+      "id": "911GT304-A700-1",
+      "field": "summary",
+      "source": "2차 리모델링 / 길게 끄는 브레이킹에서 약점은 여전히 있고 구동방식 특유의 언더를 완벽히 지우지는 못했지만 Gt3라는 사실은 증명함"
+    },
+    {
+      "dataset": "cars",
+      "id": "911GT304-A700-1",
+      "field": "tuneNotes",
+      "source": "드리프트 타이어 / 프런트윙 / 리어윙 / 에어로 세팅"
+    },
+    {
+      "dataset": "cars",
+      "id": "s1389-C500-1",
+      "field": "summary",
+      "source": "진짜 오랜만에 리메이크 / 처음 주는 차량이 너무 쓰레기라 사람답게 좀 만듬 / C클 타임 기준차량"
+    },
+    {
+      "dataset": "cars",
+      "id": "s1389-C500-1",
+      "field": "tuneNotes",
+      "source": "풀경량화 / 풀 에어로 / 언더스티어 경향 느낌"
+    },
     {
       "dataset": "cars",
       "id": "is200-b600",
@@ -169,6 +235,30 @@
       "id": "93519-S1800",
       "field": "summary",
       "source": "911GT3 같은데 엔진이 졸라 좋은 / 안정적 버전"
+    },
+    {
+      "dataset": "cars",
+      "id": "911gt312-S1800",
+      "field": "summary",
+      "source": "리메이크 / 제가 튜닝한 것 중에서 자기 성격 제일 확실한 놈입니다 엄중하게 경고합니다 함부로 이 차에 발을 들이지 마시고 엑셀을 밟을 수록 안 미끄러지는 걸 이해하시는 분만 탑승해주시기 바랍니다"
+    },
+    {
+      "dataset": "cars",
+      "id": "911gt312-S1800",
+      "field": "tuneNotes",
+      "source": "슬릭타이어 / 풀 에어로 장착 / 약간 언더스티어 급 서스 세팅 / 좀 과감한 LSD 세팅"
+    },
+    {
+      "dataset": "cars",
+      "id": "celica94-C500-1",
+      "field": "summary",
+      "source": "진짜 오랜만에 리메이크2/ 처음 주는 차량이 너무 쓰레기라 사람답게 좀 만듬2"
+    },
+    {
+      "dataset": "cars",
+      "id": "celica94-C500-1",
+      "field": "tuneNotes",
+      "source": "2400cc 수평대향 4기통에 원심형 슈퍼차저 얹고 에어로로 조정한 다음에 오프로드 겸하는 LSD 세팅까지 먹임"
     },
     {
       "dataset": "weekly",
