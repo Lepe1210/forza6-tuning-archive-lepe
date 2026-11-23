@@ -477,9 +477,10 @@
       "carId": "911GT304-A700-1",
       "manufacturer": "Porsche",
       "carName": "911 GT3 2004",
-      "currentCode": "155885168",
+      "currentCode": "104707141",
       "codes": [
-        "155885168"
+        "155885168",
+        "104707141"
       ]
     },
     {
@@ -540,9 +541,10 @@
       "carId": "911gt312-S1800",
       "manufacturer": "Porsche",
       "carName": "911 GT3 RS 4.0 2012",
-      "currentCode": "140577494",
+      "currentCode": "133888486",
       "codes": [
-        "140577494"
+        "140577494",
+        "133888486"
       ]
     },
     {
@@ -807,6 +809,15 @@
       "currentCode": "716355060",
       "codes": [
         "716355060"
+      ]
+    },
+    {
+      "carId": "artura23-S1800",
+      "manufacturer": "Mclaren",
+      "carName": "Artura 2023",
+      "currentCode": "128600592",
+      "codes": [
+        "128600592"
       ]
     },
     {
@@ -1120,9 +1131,10 @@
       "carId": "celica94-C500-1",
       "manufacturer": "Toyota",
       "carName": "Celica GT-Four ST205 1994",
-      "currentCode": "153252848",
+      "currentCode": "119253743",
       "codes": [
-        "153252848"
+        "153252848",
+        "119253743"
       ]
     },
     {
@@ -2799,6 +2811,15 @@
       ]
     },
     {
+      "carId": "r8lms09-s1800",
+      "manufacturer": "Audi",
+      "carName": "R8 LMS 2009",
+      "currentCode": "182006387",
+      "codes": [
+        "182006387"
+      ]
+    },
+    {
       "carId": "racingpuma99-B600",
       "manufacturer": "Ford",
       "carName": "Racing Puma 1999",
@@ -2964,9 +2985,10 @@
       "carId": "s1389-C500-1",
       "manufacturer": "Nissan",
       "carName": "Silvia K's 1989",
-      "currentCode": "143673228",
+      "currentCode": "155102551",
       "codes": [
-        "143673228"
+        "143673228",
+        "155102551"
       ]
     },
     {
