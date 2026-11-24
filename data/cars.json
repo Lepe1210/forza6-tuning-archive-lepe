@@ -1,6 +1,26 @@
 [
   {
     "eventTitle": "",
+    "id": "r8v10fsi13-s1800",
+    "manufacturer": "Audi",
+    "carName": "R8 Coupe V10 plus 5.2 FSI quattro 2013",
+    "className": "S1 800",
+    "carType": "모던 슈퍼카",
+    "drive": "4WD",
+    "category": "온로드",
+    "concept": "원래 이 시기 즈음 R8에 약간 로망? 그런 게 있었음",
+    "power": "790hp",
+    "weight": "1347kg",
+    "lateralG": "2.2G",
+    "shareCode": "165534294",
+    "summary": "주행 특성이 상당히 독특한데 의외로 진짜 교과서처럼 몰아야 하는 요상한 물건",
+    "tuneNotes": "세미슬릭 / LMS에 들어가는 엔진 / 에어로 풀세팅 / 2ㄷ8",
+    "updatedAt": "2026--11-24",
+    "testTrackBTime": "1:18.345",
+    "testTrackCTime": ""
+  },
+  {
+    "eventTitle": "",
     "id": "718gt4rs22-S1800-4",
     "manufacturer": "Porsche",
     "carName": "718 Cayman GT4 RS 2022",

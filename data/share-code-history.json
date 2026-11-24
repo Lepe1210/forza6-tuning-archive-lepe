@@ -2829,6 +2829,15 @@
       ]
     },
     {
+      "carId": "r8v10fsi13-s1800",
+      "manufacturer": "Audi",
+      "carName": "R8 Coupe V10 plus 5.2 FSI quattro 2013",
+      "currentCode": "165534294",
+      "codes": [
+        "165534294"
+      ]
+    },
+    {
       "carId": "racingpuma99-B600",
       "manufacturer": "Ford",
       "carName": "Racing Puma 1999",
