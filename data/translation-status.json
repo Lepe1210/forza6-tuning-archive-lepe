@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1048,
-      "sourceHash": "3398c55bedd3338bae67822898da7bde59d853c329c8084a68db2d6ae8edfef4",
-      "pendingCount": 39
+      "textFields": 1051,
+      "sourceHash": "6fe408881aa06af899949f79c5b57187a12696743b2c7bf632d80630b2cbb768",
+      "pendingCount": 42
     },
     {
       "name": "weekly",
@@ -38,6 +38,24 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "r8v10fsi13-s1800",
+      "field": "concept",
+      "source": "원래 이 시기 즈음 R8에 약간 로망? 그런 게 있었음"
+    },
+    {
+      "dataset": "cars",
+      "id": "r8v10fsi13-s1800",
+      "field": "summary",
+      "source": "주행 특성이 상당히 독특한데 의외로 진짜 교과서처럼 몰아야 하는 요상한 물건"
+    },
+    {
+      "dataset": "cars",
+      "id": "r8v10fsi13-s1800",
+      "field": "tuneNotes",
+      "source": "세미슬릭 / LMS에 들어가는 엔진 / 에어로 풀세팅 / 2ㄷ8"
+    },
     {
       "dataset": "cars",
       "id": "718gt4rs22-S1800-4",
