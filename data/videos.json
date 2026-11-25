@@ -5,6 +5,17 @@
   "channelTitle": "KO_TB Clan",
   "videos": [
     {
+      "id": "O2URCLt9_ng",
+      "title": "[Forza Horizon 6] Cherry Blossoms and Rally Stages | Hyundai i20 N [KR/EN CC]",
+      "publishedAt": "2026-11-24T00:00:00Z",
+      "shareCodes": [
+        "157741511"
+      ],
+      "carLabel": "2021 Hyundai i20 N",
+      "classLabel": "A700 · AWD",
+      "hasBilingualCC": false
+    },
+    {
       "id": "I_qwlWqmnz4",
       "title": "[Forza Horizon 6] Le Mans Vibes by the Wind Turbines | Ford GT40 [EN/KR CC]",
       "publishedAt": "2026-11-21T00:00:00Z",
@@ -235,5 +246,5 @@
       "hasBilingualCC": false
     }
   ],
-  "updatedAt": "2026-11-22T07:29:44.490682Z"
+  "updatedAt": "2026-11-25T03:10:14.406871Z"
 }
