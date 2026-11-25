@@ -1556,10 +1556,11 @@
       "carId": "elise97-S1800",
       "manufacturer": "Lotus",
       "carName": "Elise GT1 1997",
-      "currentCode": "136717889",
+      "currentCode": "170937784",
       "codes": [
         "741187086",
-        "136717889"
+        "136717889",
+        "170937784"
       ]
     },
     {
@@ -3421,6 +3422,15 @@
       "currentCode": "157191052",
       "codes": [
         "157191052"
+      ]
+    },
+    {
+      "carId": "vivio94-B600",
+      "manufacturer": "Subaru",
+      "carName": "Vivio RX-R 1994",
+      "currentCode": "691506800",
+      "codes": [
+        "691506800"
       ]
     },
     {
