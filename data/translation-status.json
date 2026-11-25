@@ -4,9 +4,9 @@
     {
       "name": "cars",
       "state": "checked",
-      "textFields": 1045,
-      "sourceHash": "45e384003a0d70f96f3c7f72d981f812ef87a8b7711628f6f3961315c5fa8386",
-      "pendingCount": 44
+      "textFields": 1048,
+      "sourceHash": "34e274c8ff5c62ac21d8fcaa216d47c22531469a92bb7cb23d9e660a8b3615c7",
+      "pendingCount": 49
     },
     {
       "name": "weekly",
@@ -38,6 +38,24 @@
     }
   ],
   "pending": [
+    {
+      "dataset": "cars",
+      "id": "vivio94-B600",
+      "field": "concept",
+      "source": "페스티벌 스턴트용 튜닝"
+    },
+    {
+      "dataset": "cars",
+      "id": "vivio94-B600",
+      "field": "summary",
+      "source": "비비오 스턴트 올인원 / 시부야 교차로는 서->동으로 진행 / 바다 고속도로는 남-> 북으로 역주행"
+    },
+    {
+      "dataset": "cars",
+      "id": "vivio94-B600",
+      "field": "tuneNotes",
+      "source": "2리터 vvt /에어로"
+    },
     {
       "dataset": "cars",
       "id": "r8v10fsi13-s1800",
@@ -277,6 +295,18 @@
       "id": "gt323-s1800-3",
       "field": "summary",
       "source": "911 순한맛 튜닝 / 골리앗 25:26.913"
+    },
+    {
+      "dataset": "cars",
+      "id": "elise97-S1800",
+      "field": "summary",
+      "source": "리메이크 / 전 작에서 출력이 아쉬운 문제를 상대적으로 해결해서 더 괜찮은 차로 만들었음"
+    },
+    {
+      "dataset": "cars",
+      "id": "elise97-S1800",
+      "field": "tuneNotes",
+      "source": "도로주행용 타이어 / 좀 더 날카로운 에어로 / 가벼움 / 좋은 브레이크"
     },
     {
       "dataset": "cars",
