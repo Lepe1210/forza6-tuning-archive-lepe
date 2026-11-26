@@ -12,15 +12,15 @@
       "name": "weekly",
       "state": "checked",
       "textFields": 18,
-      "sourceHash": "cc071015039455fb50e521e4a8628edbac068ba8bbfd6f9959fc90508f3eb9f8",
-      "pendingCount": 14
+      "sourceHash": "fa33773524fb142b3c616e26d04dc3ad7b26fffb8287e3ed96d12bf3e8012bcb",
+      "pendingCount": 12
     },
     {
       "name": "past",
       "state": "checked",
-      "textFields": 438,
-      "sourceHash": "ab6995e363d6ec8322f445203c5a03d0c07f29472b8a98dfce25663153dc0c2f",
-      "pendingCount": 14
+      "textFields": 456,
+      "sourceHash": "a870371119de8cf14c3f94bee2a2f45288ba417686d966df0306dafe3b64ee9f",
+      "pendingCount": 26
     },
     {
       "name": "rivals",
@@ -334,87 +334,75 @@
     },
     {
       "dataset": "weekly",
-      "id": "mini65-b600",
+      "id": "corvette02-a700",
       "field": "summary",
-      "source": "도전 / 미니 B600 단일차종 / 대체 크컨에 미니는 뭔 생각이야"
+      "source": "도전 / 전체 머슬 A700"
     },
     {
       "dataset": "weekly",
-      "id": "skylingtsr87-B600",
+      "id": "r8v10fsi13-s1800",
       "field": "concept",
-      "source": "반응성 정말 좋음"
+      "source": "원래 이 시기 즈음 R8에 약간 로망? 그런 게 있었음"
     },
     {
       "dataset": "weekly",
-      "id": "skylingtsr87-B600",
+      "id": "r8v10fsi13-s1800",
       "field": "summary",
-      "source": "시즌 페스티벌 1 / 스카이라인 B600 / 핸들링형"
+      "source": "시즌 페스티벌 1 / 아우디 R8 S1 800 / 있으면 이쪽이 무조건 더 좋음"
     },
     {
       "dataset": "weekly",
-      "id": "skylingtsr87-B600",
+      "id": "r8v10fsi13-s1800",
       "field": "tuneNotes",
-      "source": "경량화 / 도로주행 타이어/ 와이드바디"
+      "source": "세미슬릭 / LMS에 들어가는 엔진 / 에어로 풀세팅 / 2ㄷ8"
     },
     {
       "dataset": "weekly",
-      "id": "2000gtr73-b600",
+      "id": "r8lms09-s1800",
       "field": "concept",
-      "source": "튜닝하다가 차는 쓰레기고 비는 ㅈㄴ 오고 아주 그냥 뭐 같아서 튜너가 흑화해버림"
+      "source": "쉽고 빠르게 그리고 편안하게"
     },
     {
       "dataset": "weekly",
-      "id": "2000gtr73-b600",
+      "id": "r8lms09-s1800",
       "field": "summary",
-      "source": "시즌 페스티벌 1 / 스카이라인 B600 / 미친 파워후륜 상남자형"
+      "source": "시즌 페스티벌 1 / 아우디 R8 S1 800 / 상점차용"
     },
     {
       "dataset": "weekly",
-      "id": "2000gtr73-b600",
+      "id": "r8lms09-s1800",
       "field": "tuneNotes",
-      "source": "LS엔진 / 기본 타이어 / 파워후륜"
+      "source": "세미슬릭 / 에어로 / S2에서 다운그레이드"
     },
     {
       "dataset": "weekly",
-      "id": "etype61-b600",
+      "id": "m308-a700",
+      "field": "summary",
+      "source": "시즌 페스티벌 2 / BMW A700"
+    },
+    {
+      "dataset": "weekly",
+      "id": "integra01-b600-2",
+      "field": "summary",
+      "source": "시즌 페스티벌 3 / 혼다&어큐라 B600"
+    },
+    {
+      "dataset": "weekly",
+      "id": "vivio94-B600",
       "field": "concept",
-      "source": "내가 이걸 아직까지 안 만졌다고?"
+      "source": "페스티벌 스턴트용 튜닝"
     },
     {
       "dataset": "weekly",
-      "id": "etype61-b600",
+      "id": "vivio94-B600",
       "field": "summary",
-      "source": "시즌 페스티벌 2 / 희귀 클래식 B600 / 저렴이"
+      "source": "PR 스턴트 올인원 / 비비오 B600 고정차량 / 시부야 교차로는 서->동으로 진행 / 바다 고속도로는 남-> 북으로 역주행"
     },
     {
       "dataset": "weekly",
-      "id": "etype61-b600",
+      "id": "vivio94-B600",
       "field": "tuneNotes",
-      "source": "빈티지 레이스 타이어 / 에어로 / 기본 엔진에 하이캠"
-    },
-    {
-      "dataset": "weekly",
-      "id": "250gt62-B600",
-      "field": "summary",
-      "source": "시즌 페스티벌 2 / 희귀 클래식 B600 / 비싼 거"
-    },
-    {
-      "dataset": "weekly",
-      "id": "Limo13-s1800",
-      "field": "concept",
-      "source": "아니 리무진으로 스피드존/스피드트랩/드리프트/점프/드래그를 한번에 뛰라고요?"
-    },
-    {
-      "dataset": "weekly",
-      "id": "Limo13-s1800",
-      "field": "summary",
-      "source": "PR 스턴트 5종 올인원 / 리무진 S1800 단일차종 / 스피드존은 진입만 200km/h 이하로 진입해서 엑셀 밟고 깨면 됨 / 점프는 점프대 밟았을 때 313이상 안 나오면 거리 미달"
-    },
-    {
-      "dataset": "weekly",
-      "id": "Limo13-s1800",
-      "field": "tuneNotes",
-      "source": "1750마력짜리 엔진과 에어로 없는 드리프트 타이어에 4륜구동"
+      "source": "2리터 vvt /에어로"
     },
     {
       "dataset": "past",
@@ -499,6 +487,78 @@
       "id": "Limo13-s1800-season-202611w4",
       "field": "tuneNotes",
       "source": "1750마력짜리 엔진과 에어로 없는 드리프트 타이어에 4륜구동"
+    },
+    {
+      "dataset": "past",
+      "id": "corvette02-a700-season-202612w1",
+      "field": "summary",
+      "source": "도전 / 전체 머슬 A700"
+    },
+    {
+      "dataset": "past",
+      "id": "r8v10fsi13-s1800-season-202612w1",
+      "field": "concept",
+      "source": "원래 이 시기 즈음 R8에 약간 로망? 그런 게 있었음"
+    },
+    {
+      "dataset": "past",
+      "id": "r8v10fsi13-s1800-season-202612w1",
+      "field": "summary",
+      "source": "시즌 페스티벌 1 / 아우디 R8 S1 800 / 있으면 이쪽이 무조건 더 좋음"
+    },
+    {
+      "dataset": "past",
+      "id": "r8v10fsi13-s1800-season-202612w1",
+      "field": "tuneNotes",
+      "source": "세미슬릭 / LMS에 들어가는 엔진 / 에어로 풀세팅 / 2ㄷ8"
+    },
+    {
+      "dataset": "past",
+      "id": "r8lms09-s1800-season-202612w1",
+      "field": "concept",
+      "source": "쉽고 빠르게 그리고 편안하게"
+    },
+    {
+      "dataset": "past",
+      "id": "r8lms09-s1800-season-202612w1",
+      "field": "summary",
+      "source": "시즌 페스티벌 1 / 아우디 R8 S1 800 / 상점차용"
+    },
+    {
+      "dataset": "past",
+      "id": "r8lms09-s1800-season-202612w1",
+      "field": "tuneNotes",
+      "source": "세미슬릭 / 에어로 / S2에서 다운그레이드"
+    },
+    {
+      "dataset": "past",
+      "id": "m308-a700-season-202612w1",
+      "field": "summary",
+      "source": "시즌 페스티벌 2 / BMW A700"
+    },
+    {
+      "dataset": "past",
+      "id": "integra01-b600-2-season-202612w1",
+      "field": "summary",
+      "source": "시즌 페스티벌 3 / 혼다&어큐라 B600"
+    },
+    {
+      "dataset": "past",
+      "id": "vivio94-B600-season-202612w1",
+      "field": "concept",
+      "source": "페스티벌 스턴트용 튜닝"
+    },
+    {
+      "dataset": "past",
+      "id": "vivio94-B600-season-202612w1",
+      "field": "summary",
+      "source": "PR 스턴트 올인원 / 비비오 B600 고정차량 / 시부야 교차로는 서->동으로 진행 / 바다 고속도로는 남-> 북으로 역주행"
+    },
+    {
+      "dataset": "past",
+      "id": "vivio94-B600-season-202612w1",
+      "field": "tuneNotes",
+      "source": "2리터 vvt /에어로"
     },
     {
       "dataset": "rivals",
