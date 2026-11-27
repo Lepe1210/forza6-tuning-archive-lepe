@@ -5,6 +5,17 @@
   "channelTitle": "KO_TB Clan",
   "videos": [
     {
+      "id": "hAonm_fu6Fc",
+      "title": "[Forza Horizon 6] 모스트 원티드 알테자로 언더그라운드 달리기 [한/영 CC]",
+      "publishedAt": "2026-11-26T00:00:00Z",
+      "shareCodes": [
+        "140766667"
+      ],
+      "carLabel": "1999 Toyota Altezza RS200 Z Edition",
+      "classLabel": "B600 · RWD",
+      "hasBilingualCC": true
+    },
+    {
       "id": "IjWztH3_FnE",
       "title": "[Forza Horizon 6] Night Racing on Tokyo Bay | Porsche 935 [KR/EN CC]",
       "publishedAt": "2026-11-25T00:00:00Z",
@@ -257,5 +268,5 @@
       "hasBilingualCC": false
     }
   ],
-  "updatedAt": "2026-11-26T05:27:37.683333Z"
+  "updatedAt": "2026-11-27T10:07:52.448243Z"
 }
